@@ -28,8 +28,13 @@ Objectif: architecture solide pour que chacun puissent ajouter des fonctionnalit
     Installation de __sequelize__ (ORM) pour facilité la liaison avec la bdd.
 
     Architecture du code: Un dossier App avec
+
       - un dossier models avec un model par entité & un core model pour les data répetitives (id et creation)
+  
       - un dossier middlewares avec tous nos middlewares (si besoin)
+  
       - un dossier controllers avec un controller par entité
+  
       - un fichier router avec toute nos routes
+  
       - un fichier dbConnection
