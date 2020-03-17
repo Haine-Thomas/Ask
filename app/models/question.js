@@ -2,6 +2,8 @@ const sequelize = require('sequelize');
 // On importe notre BDD grace à la connection.
 const DBConnection = require('../dbConnection');
 
+const Answer = require('./answer');
+
 // Création de la classe Question ansi que quelques setter et getter (pour tester)
 class Question extends sequelize.Model {};
 
@@ -27,5 +29,15 @@ Question.init(
         updatedAt: "updated_at"
     },
 );
+
+Question.hasMany(Answer, {
+    foreignKey: "question_id",
+    as: "answers"
+});
+
+Answer.belongsTo(Question, {
+    foreignKey: "question_id",
+    as: "questions"
+});
 
 module.exports = Question;

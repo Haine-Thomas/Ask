@@ -8,26 +8,36 @@ const Answer = require('./app/models/answer');
 
 // TEST DE LA CLASSE User
 
+/*
 User.findByPk(1).then(user => {
         console.log(user.dataValues);
 });
+*/
 
 // TEST DE LA CLASSE Tag
 
+/*
 Tag.findAll().then(instances => {
         for (let instance of instances) {
                 console.log(instance.dataValues);
         }
 });
+*/
 
-// TEST DE LA CLASSE Question
+// TEST DE LA CLASSE Question avec les réponses associées
 
-Question.findByPk(1).then(question => {
-        console.log(question.dataValues);
+/*
+Question.findByPk(1, {
+        include: ['answers']
+}).then(question => {
+        console.log(question.dataValues.answers);
 });
+*/
 
 // TEST DE LA CLASSE Answer
 
+/*
 Answer.findByPk(1).then(answer => {
         console.log(answer.dataValues);
 });
+*/
