@@ -17,7 +17,7 @@
 
 ### Création des dossier/fichier dans un dossier app
 
-- un dossier models avec un model par entité & un core model pour les data répetitives (id et creation)
+- un dossier models avec un model par entité
 - un dossier middlewares avec tous nos middlewares (si besoin)
 - un dossier controllers avec un controller par entité
 - un fichier router avec toute nos routes
