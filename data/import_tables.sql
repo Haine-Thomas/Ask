@@ -1,4 +1,4 @@
- -----------------------------------------------------
+-----------------------------------------------------
 -- Schema ASK
 -- -----------------------------------------------------
 
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS "user" (
   "name" VARCHAR(50) NOT NULL,
   "email" VARCHAR(255) NOT NULL,
   "password" VARCHAR(50) NOT NULL,
-  "admin" BOOLEAN DEFAULT 0 ,
+  "admin" BOOLEAN DEFAULT 'false',
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY ("user_id"));
 
@@ -60,7 +60,6 @@ CREATE TABLE IF NOT EXISTS "tag" (
   "name" VARCHAR(60) NOT NULL,
   "status" BOOLEAN NOT NULL,
   PRIMARY KEY ("tag_id"));
-
 
 
 -- -----------------------------------------------------
