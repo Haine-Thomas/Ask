@@ -47,7 +47,8 @@ User.init(
     {
         sequelize: DBConnection,
         tableName: "user",
-        createdAt: "created_at"
+        createdAt: "created_at",
+        updatedAt: "updated_at"
     },
 );
 
