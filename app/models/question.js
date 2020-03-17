@@ -37,7 +37,7 @@ Question.hasMany(Answer, {
 
 Answer.belongsTo(Question, {
     foreignKey: "question_id",
-    as: "questions"
+    as: "question"
 });
 
 module.exports = Question;

@@ -37,7 +37,9 @@ Question.findByPk(1, {
 // TEST DE LA CLASSE Answer
 
 /*
-Answer.findByPk(1).then(answer => {
+Answer.findByPk(1, {
+        include: ['question']
+}).then(answer => {
         console.log(answer.dataValues);
 });
 */
