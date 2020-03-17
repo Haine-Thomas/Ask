@@ -25,6 +25,13 @@
 
 ### Connection à la base de donnée
 
-- Installation du module 'sequelize'.
+- Installation du module 'sequelize' et 'pg'.
 - Création de la connection dans le fichier: app/dbConnection
-- Configuration de l'environnement de connection dans le fichier ".env" ```PG_URL=postgresql://ask@localhost/ask```
+- Configuration de l'environnement de connection dans le fichier ".env" ```PG_URL=postgresql://ask:ask@localhost/ask```
+
+### Création d'un premier model
+
+- Création du fichier (model) user.js.
+- Import de sequelize, de la dbconnection et de email-validator.
+- Création de la class User grace à sequelize et de quelques getter et setter.
+- Initialisation de ma classe avec toutes les data et export de la classe.
