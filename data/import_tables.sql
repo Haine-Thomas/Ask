@@ -1,4 +1,4 @@
-- -----------------------------------------------------
+ -----------------------------------------------------
 -- Schema ASK
 -- -----------------------------------------------------
 
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS "user" (
   "password" VARCHAR(50) NOT NULL,
   "admin" BOOLEAN DEFAULT 0 ,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY ("id"));
+  PRIMARY KEY ("user_id"));
 
 
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS "question" (
   "user_id" INT NOT NULL,
   "upvote" INT NOT NULL,
   "downvote" INT NOT NULL,
-  PRIMARY KEY ("id"));
+  PRIMARY KEY ("question_id"));
 
 
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS "answer" (
   "user_id" INT NOT NULL,
   "upvote" INT NOT NULL,
   "downvote" INT NOT NULL,
-  PRIMARY KEY ("id"));
+  PRIMARY KEY ("answer_id"));
 
 
 -- -----------------------------------------------------
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS "tag" (
   "tag_id" SERIAL NOT NULL,
   "name" VARCHAR(60) NOT NULL,
   "status" BOOLEAN NOT NULL,
-  PRIMARY KEY ("id"));
+  PRIMARY KEY ("tag_id"));
 
 
 
