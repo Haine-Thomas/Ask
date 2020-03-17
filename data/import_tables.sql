@@ -28,8 +28,7 @@ CREATE TABLE IF NOT EXISTS "question" (
   "content" VARCHAR(100) NOT NULL,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "user_id" INT NOT NULL,
-  "upvote" INT NOT NULL,
-  "downvote" INT NOT NULL,
+  "score" INT NOT NULL,
   PRIMARY KEY ("question_id"));
 
 
@@ -45,8 +44,7 @@ CREATE TABLE IF NOT EXISTS "answer" (
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "question_id" INT NOT NULL,
   "user_id" INT NOT NULL,
-  "upvote" INT NOT NULL,
-  "downvote" INT NOT NULL,
+  "score" INT NOT NULL,
   PRIMARY KEY ("answer_id"));
 
 
