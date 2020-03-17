@@ -2,7 +2,7 @@ const sequelize = require('sequelize');
 // On importe notre BDD grace à la connection.
 const DBConnection = require('../dbConnection');
 
-// Création de la classe Tag ansi que quelques setter et getter (pour tester)
+// Création de la classe Question ansi que quelques setter et getter (pour tester)
 class Question extends sequelize.Model {};
 
 // Ici un initialise notre classe avec les données de la BDD

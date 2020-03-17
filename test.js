@@ -4,6 +4,7 @@ dotenv.config();
 const User = require('./app/models/user');
 const Tag = require('./app/models/tag');
 const Question = require('./app/models/question');
+const Answer = require('./app/models/answer');
 
 // TEST DE LA CLASSE User
 
@@ -23,4 +24,10 @@ Tag.findAll().then(instances => {
 
 Question.findByPk(1).then(question => {
         console.log(question.dataValues);
+});
+
+// TEST DE LA CLASSE Answer
+
+Answer.findByPk(1).then(answer => {
+        console.log(answer.dataValues);
 });
