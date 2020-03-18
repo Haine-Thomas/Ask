@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS "question" (
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
   "user_id" INT NOT NULL,
+  "tag_id" INT NOT NULL,
   "score" INT NOT NULL,
   PRIMARY KEY ("question_id"));
 
@@ -64,14 +65,3 @@ CREATE TABLE IF NOT EXISTS "tag" (
   "updated_at" TIMESTAMP NULL,
   PRIMARY KEY ("tag_id"));
 
-
--- -----------------------------------------------------
--- Table "question_has_tag"
--- -----------------------------------------------------
-
-DROP TABLE IF EXISTS "question_has_tag" ;
-
-CREATE TABLE IF NOT EXISTS "question_has_tag" (
-  "question_id" SERIAL NOT NULL,
-  "tag_id" SERIAL NOT NULL,
-  PRIMARY KEY ("question_id", "tag_id"));

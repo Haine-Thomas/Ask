@@ -3,6 +3,8 @@ const sequelize = require('sequelize');
 const DBConnection = require('../dbConnection');
 
 const Answer = require('./answer');
+const User = require('./user');
+const Tag = require('./tag');
 
 // Création de la classe Question ansi que quelques setter et getter (pour tester)
 class Question extends sequelize.Model {};
@@ -20,6 +22,10 @@ Question.init(
             type: sequelize.INTEGER,
             primaryKey: true,
             field:"question_id",
+        },
+        tagId: {
+            type: sequelize.INTEGER,
+            field: "tag_id"
         }
     },
     {
@@ -38,6 +44,26 @@ Question.hasMany(Answer, {
 Answer.belongsTo(Question, {
     foreignKey: "question_id",
     as: "question"
+});
+
+Question.belongsTo(User, {
+    foreignKey: 'user_id',
+    as: 'author'
+});
+
+User.hasMany(Question, {
+    foreignKey: 'question_id',
+    as: "questions"
+});
+
+Question.belongsTo(Tag, {
+    foreignKey:'tag_id',
+    as:"tag"
+});
+
+Tag.hasMany(Question, {
+    foreignKey:'tag_id',
+    as:"questions"
 });
 
 module.exports = Question;
