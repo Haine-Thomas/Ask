@@ -46,3 +46,9 @@ Answer.findByPk(1, {
 });
 
 */
+
+Question.findAll().then(instances => {
+        for (let instance of instances) {
+                console.log(instance.dataValues);
+        }
+});
