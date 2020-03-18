@@ -7,7 +7,7 @@ const emailValidator = require('email-validator');
 
 // Création de la classe User ansi que quelques setter et getter (pour tester)
 class User extends sequelize.Model {
-
+//Get and Set mis en place
     getName() {
         return this.name;
     };

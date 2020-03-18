@@ -2,6 +2,7 @@ const sequelize = require('sequelize');
 // On importe notre BDD grace à la connection.
 const DBConnection = require('../dbConnection');
 
+// On importe nos fichiers pour s'en servir dans les relations
 const Answer = require('./answer');
 const User = require('./user');
 const Tag = require('./tag');
@@ -36,31 +37,39 @@ Question.init(
     },
 );
 
+// Relations
+
+// Une question a plusieurs réponses.
 Question.hasMany(Answer, {
     foreignKey: "question_id",
     as: "answers"
 });
 
+// Une réponse n'appartient qu'à une question
 Answer.belongsTo(Question, {
     foreignKey: "question_id",
     as: "question"
 });
 
+// Une question appartient à un utilisateur
 Question.belongsTo(User, {
     foreignKey: 'user_id',
     as: 'author'
 });
 
+// Un utilisateur a plusieurs questions
 User.hasMany(Question, {
     foreignKey: 'question_id',
     as: "questions"
 });
 
+// Une question n'a qu'un tag
 Question.belongsTo(Tag, {
     foreignKey:'tag_id',
     as:"tag"
 });
 
+// Un tag peut être apposé a plusieurs questions
 Tag.hasMany(Question, {
     foreignKey:'tag_id',
     as:"questions"

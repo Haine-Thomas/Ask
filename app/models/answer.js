@@ -2,6 +2,7 @@ const sequelize = require('sequelize');
 // On importe notre BDD grace à la connection.
 const DBConnection = require('../dbConnection');
 
+// On importe User pour s'en servir dans les relations
 const User = require('./user');
 
 // Création de la classe Answer ansi que quelques setter et getter (pour tester)
@@ -34,11 +35,14 @@ Answer.init(
     },
 );
 
+//Relations
+// Une réponse appartient à un utilisateur
 Answer.belongsTo(User, {
     foreignKey: 'user_id',
     as: 'author'
 });
 
+// Un utilisateur à plusieurs réponses
 User.hasMany(Answer, {
     foreignKey: 'answer_id',
     as: "answers"
