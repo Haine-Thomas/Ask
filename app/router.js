@@ -4,14 +4,15 @@ const express = require('express');
 // importer les controllers
 const questionController = require('./controllers/questionController');
 const tagController = require('./controllers/tagController');
+const userController = require('./controllers/userController');
 // importer les middlewares
 
 const router = express.Router();
 
-//Questions
+//questions route
 router.get('/', questionController.getQuestions);
 
-//Question
+//question route
 router.get('/question/:id', questionController.getQuestionById);
 router.get('/question/tag/:id', questionController.getQuestionByTag);
 
@@ -20,10 +21,11 @@ router.get('/question/tag/:id', questionController.getQuestionByTag);
 //router.get('/questions/best', questionController.getBestQuestions);
 //router.get('/questions/new', questionController.getNewQuestions);
 
-//Tags
+//Tags route
 router.get('/tags', tagController.getAllTags);
-
-
+ 
+// User route
+router.get('/user/:id', userController.getUserById);
 
 
 
