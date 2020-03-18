@@ -4,11 +4,15 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 // Importation du node module express.
 const express = require('express');
-
+const router = require('./app/router');
 const app = express();
 
+// rends disponible les données envoyées par l'utilisateur, via req.body
+app.use(express.urlencoded({
+    extended: true
+  }));
+
 // Le routage
-const router = require('./app/router');
 app.use(router);
 
 // Lancement du serveur.

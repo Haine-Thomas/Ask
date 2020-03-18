@@ -12,7 +12,9 @@ INSERT INTO "question"("question_id", "content", "created_at", "updated_at", "us
 (2, 'C''est quoi ton film et pourquoi je devrais le regarder?','2020-03-13 15:15:33', NUll, 1, 3, 0);
 
 INSERT INTO "answer"("answer_id","content", "created_at", "updated_at", "question_id","user_id", "score") VALUES
-(1, 'Pour sûr il peuvent t''arracher les yeux', '2020-03-13 15:30:00', NULL, 1, 1, 0);
+(1, 'Pour sûr il peuvent t''arracher les yeux', '2020-03-13 15:30:00', NULL, 1, 1, 0),
+(2, 'Ils sont innocents et trop mignons donc c''est non pour moi', '2020-03-13 15:30:00', NULL, 1, 1, 5),
+(3, 'Ce sont de petits diables, le mien m''a arraché l''oreille', '2020-03-13 15:30:00', NULL, 1, 1, 15);
 
 INSERT INTO "tag"("tag_id", "name", "status", "created_at", "updated_at") VALUES
 (1, 'DRÔLE', 'true','2020-03-13 15:15:33', NULL),
