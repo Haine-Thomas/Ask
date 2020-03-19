@@ -7,6 +7,15 @@ const express = require('express');
 const router = require('./app/router');
 const app = express();
 
+// Réglage et gestion des sessions
+
+const session = require('express-session');
+app.use(session({
+  saveUninitialized: true,
+  resave: true,
+  secret: "chez ask on fait des blagues pas drôles"
+}))
+
 // rends disponible les données envoyées par l'utilisateur, via req.body
 app.use(express.urlencoded({
     extended: true
