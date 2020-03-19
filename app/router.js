@@ -32,6 +32,7 @@ router.get('/tags', tagController.getAllTags);
 router.get('/user/:id', userController.getUserById);
 // route login pour les test du formulaire de connection
 router.get('/login', userController.loginPage);
+router.get('/disconnect', userController.disconnect);
 router.post('/login', userController.loginAction);
 
 

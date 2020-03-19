@@ -55,7 +55,13 @@ const userController = {
         } catch (error) {
             response.status(500).send(error);
         }
-    }
+    },
+
+    disconnect: (request, response) => {
+        delete request.session.user;
+
+        return response.redirect('/');
+    },
 }
 
 module.exports = userController;
