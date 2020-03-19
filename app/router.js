@@ -8,6 +8,10 @@ const userController = require('./controllers/userController');
 // importer les middlewares
 
 const router = express.Router();
+// rends disponible les données envoyées par l'utilisateur, via req.body
+router.use(express.urlencoded({
+    extended: true
+  }));
 
 //questions route
 router.get('/', questionController.getQuestions);
@@ -26,6 +30,9 @@ router.get('/tags', tagController.getAllTags);
  
 // User route
 router.get('/user/:id', userController.getUserById);
+// route login pour les test du formulaire de connection
+router.get('/login', userController.loginPage);
+router.post('/login', userController.loginAction);
 
 
 

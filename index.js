@@ -7,19 +7,27 @@ const express = require('express');
 const router = require('./app/router');
 const app = express();
 
-// Réglage et gestion des sessions
 
+/******** Reservé aux tests !! ********/
+
+// réglage des views
+app.set('views', 'app/views');
+app.set('view engine', 'ejs');
+
+/******** Reservé aux tests !! ********/
+
+// Réglage et gestion des sessions
 const session = require('express-session');
+// Initialisation du cookie de connection "connect.sid" dans les devTools.
 app.use(session({
   saveUninitialized: true,
-  resave: true,
+  resave: false,
   secret: "chez ask on fait des blagues pas drôles"
-}))
+}));
 
-// rends disponible les données envoyées par l'utilisateur, via req.body
-app.use(express.urlencoded({
-    extended: true
-  }));
+// Middleware pour verifier si une session utilisateur est active
+const userMiddleware = require('./app/middlewares/user');
+app.use(userMiddleware);
 
 // Le routage
 app.use(router);

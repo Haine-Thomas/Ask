@@ -30,6 +30,10 @@ class User extends sequelize.Model {
         }
         this.email = value;
     };
+
+    getPassword() {
+        return this.password;
+    };
 };
 
 // Ici un initialise notre classe avec les données de la BDD
