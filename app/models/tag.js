@@ -10,11 +10,6 @@ Tag.init(
     {
         name: sequelize.STRING,
         status: sequelize.BOOLEAN,
-        tagId: {
-            type: sequelize.INTEGER,
-            primaryKey: true,
-            field:"tag_id",
-        }
     },
     {
         sequelize: DBConnection,

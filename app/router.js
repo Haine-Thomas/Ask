@@ -35,6 +35,8 @@ router.get('/login', userController.loginPage);
 router.get('/disconnect', userController.disconnect);
 router.post('/login', userController.loginAction);
 
+//page Inscription
+router.post('/inscription', userController.signUpAction);
 
 
 module.exports = router;

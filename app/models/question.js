@@ -19,11 +19,6 @@ Question.init(
             type: sequelize.INTEGER,
             field: "user_id"
         },
-        questionId: {
-            type: sequelize.INTEGER,
-            primaryKey: true,
-            field:"question_id",
-        },
         tagId: {
             type: sequelize.INTEGER,
             field: "tag_id"
@@ -59,7 +54,7 @@ Question.belongsTo(User, {
 
 // Un utilisateur a plusieurs questions
 User.hasMany(Question, {
-    foreignKey: 'question_id',
+    foreignKey: 'user_id',
     as: "questions"
 });
 

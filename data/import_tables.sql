@@ -8,14 +8,14 @@
 DROP TABLE IF EXISTS "user" ;
 
 CREATE TABLE IF NOT EXISTS "user" (
-  "user_id" SERIAL NOT NULL,
+  "id" SERIAL NOT NULL,
   "name" VARCHAR(50) NOT NULL,
   "email" VARCHAR(255) NOT NULL,
-  "password" VARCHAR(50) NOT NULL,
+  "password" VARCHAR(60) NOT NULL,
   "admin" BOOLEAN DEFAULT 'false',
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
-  PRIMARY KEY ("user_id"));
+  PRIMARY KEY ("id"));
 
 
 

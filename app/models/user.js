@@ -34,6 +34,16 @@ class User extends sequelize.Model {
     getPassword() {
         return this.password;
     };
+
+    setPassword(value) {
+        if (typeof value !== "string") {
+          throw Error('User.password must be a string');
+        } else {
+          this.password = value;
+        }
+      };
+
+
 };
 
 // Ici un initialise notre classe avec les données de la BDD
@@ -42,11 +52,6 @@ User.init(
         name: sequelize.STRING,
         email: sequelize.STRING,
         password: sequelize.STRING,
-        userId: {
-            type: sequelize.INTEGER,
-            primaryKey: true,
-            field:"user_id",
-        }
     },
     {
         sequelize: DBConnection,

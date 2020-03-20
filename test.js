@@ -23,8 +23,8 @@ Tag.findAll().then(instances => {
                 console.log(instance.dataValues);
         }
 });
-*/
 
+*/
 // TEST DE LA CLASSE Question avec les réponses/tags/author associées
 
 // A adapter au test voulue.
@@ -44,11 +44,12 @@ Answer.findByPk(1, {
 }).then(answer => {
         console.log(answer.dataValues);
 });
-
 */
 
+/*
 Question.findAll().then(instances => {
         for (let instance of instances) {
                 console.log(instance.dataValues);
         }
 });
+*/

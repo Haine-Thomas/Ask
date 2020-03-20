@@ -21,11 +21,6 @@ Answer.init(
             type: sequelize.INTEGER,
             field:"question_id",
         },
-        answerId: {
-            type: sequelize.INTEGER,
-            primaryKey: true,
-            field:"answer_id",
-        }
     },
     {
         sequelize: DBConnection,
@@ -44,7 +39,7 @@ Answer.belongsTo(User, {
 
 // Un utilisateur à plusieurs réponses
 User.hasMany(Answer, {
-    foreignKey: 'answer_id',
+    foreignKey: 'user_id',
     as: "answers"
 });
 

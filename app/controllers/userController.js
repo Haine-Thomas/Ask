@@ -58,6 +58,56 @@ const userController = {
         delete request.session.user;
         return response.redirect('/');
     },
+
+    myProfilPage:(request, response) => {
+        if(!request.session.user) {
+            return response.redirect('/login');
+        }
+        response.json({ user: request.session.user});
+    },
+
+    signUpAction : async (request, response) => {
+        try{
+            const user =  await User.findOne({
+            where: {
+                email:request.body.email,
+            }
+        });
+
+        const username = await User.findOne({
+            where: {
+                name:request.body.name
+            }
+        });
+
+        if(user) {
+            return response.json({ error: "Cet email est déjà utilisé pas un utilisateur "});
+        }
+
+        if(username){
+            return response.json({ error: "Ce pseudo est déjà utilisé pas un utilisateur "});
+        }
+
+        if(request.body.password !== request.body.confirmPassword){
+            return response.json({ error: "La confirmation du mot de passe a échoué"});
+        }
+
+        if (!emailValidator.validate(request.body.email)) {
+            return response.json({error: "Cet email n'est pas valide."});
+          }
+              
+        let newUser = new User();
+        newUser.setEmail(request.body.email);
+        newUser.setName(request.body.name);
+        const encryptedPwd = bcrypt.hashSync(request.body.password, 10);
+        newUser.setPassword(encryptedPwd);
+        await newUser.save()
+        response.json({newUser});
+
+        } catch(error) {
+            response.status(500).send(error);
+        }
+    },
 }
 
 module.exports = userController;
