@@ -14,10 +14,13 @@ class Question extends sequelize.Model {};
 Question.init(
     {
         content: sequelize.STRING,
-        score: sequelize.INTEGER,
         userId:{
             type: sequelize.INTEGER,
             field: "user_id"
+        },
+        score:{
+           type: sequelize.INTEGER,
+           defaultValue: 0,
         },
         tagId: {
             type: sequelize.INTEGER,

@@ -5,10 +5,8 @@ const userMiddleware = (request, response, next) => {
     // Si l'utilisateur existe on le stocke dans les locals
     if(request.session.user){
         response.locals.user = request.session.user;
-        console.log('userMiddleware et session true');
     } else {
         response.locals.user = false;
-        console.log('userMiddleware et session false');
     }
 
     // Afin de redonner la main au middleware suivant on exécute la methode next

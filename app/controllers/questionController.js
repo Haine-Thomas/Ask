@@ -40,6 +40,25 @@ const questionController = {
         } 
     },
 
+    createQuestion: async (request,response) => {
+        try {
+            const content = request.body.content;
+            const tagId = request.body.tagId;
+            if(!content){
+                response.json({error: 'il manque la question!'});
+            } else {
+                const newQuestion = new Question();
+                newQuestion.content = content;
+                newQuestion.userId = request.session.user.id;
+                newQuestion.tagId = tagId;
+                await newQuestion.save();
+                response.json(newQuestion);
+            }
+        } catch(error) {
+            response.status(500).json(error);
+        }
+    }
+
     /*
     getBestQuestions: async (request, response) => {
         try {

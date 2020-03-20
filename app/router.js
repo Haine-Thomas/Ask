@@ -15,6 +15,7 @@ router.use(express.urlencoded({
 
 //questions route
 router.get('/', questionController.getQuestions);
+router.post('/question', questionController.createQuestion);
 
 //question route
 router.get('/question/:id', questionController.getQuestionById);
@@ -35,8 +36,15 @@ router.get('/login', userController.loginPage);
 router.get('/disconnect', userController.disconnect);
 router.post('/login', userController.loginAction);
 
+
 //page Inscription
 router.post('/inscription', userController.signUpAction);
 
+//Ma page Profil
+router.get('/monprofil', userController.myProfilPage);
+//Supprimer un compte
+router.delete('/user/:id', userController.deleteUser);
+// Editer son profil
+router.patch('/user/:id', userController.editUser);
 
 module.exports = router;
