@@ -5,6 +5,7 @@ const express = require('express');
 const questionController = require('./controllers/questionController');
 const tagController = require('./controllers/tagController');
 const userController = require('./controllers/userController');
+const answerController = require('./controllers/answerController');
 // importer les middlewares
 
 const router = express.Router();
@@ -25,6 +26,8 @@ router.patch('/question/:id', questionController.editQuestion);
 router.delete('/question/:id', questionController.deleteQuestion);
 router.get('/question/tag/:id', questionController.getQuestionByTag);
 
+// Answer route
+router.get('/question/:id/answers', answerController.getAnswersByQuestionId);
 
 // Trier questions frontpage
 //router.get('/questions/best', questionController.getBestQuestions);
