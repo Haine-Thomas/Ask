@@ -13,12 +13,16 @@ router.use(express.urlencoded({
     extended: true
   }));
 
-//questions route
+//Front page route
 router.get('/', questionController.getQuestions);
-router.post('/question', questionController.createQuestion);
 
 //question route
+  //création question
+router.post('/question', questionController.createQuestion);
+
 router.get('/question/:id', questionController.getQuestionById);
+router.patch('/question/:id', questionController.editQuestion);
+router.delete('/question/:id', questionController.deleteQuestion);
 router.get('/question/tag/:id', questionController.getQuestionByTag);
 
 

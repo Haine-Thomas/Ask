@@ -57,7 +57,44 @@ const questionController = {
         } catch(error) {
             response.status(500).json(error);
         }
-    }
+    },
+
+    editQuestion: async(request,response) => {
+        try {
+         const questionId = request.params.id;
+         let question = await Question.findByPk(questionId);
+         if (!question) {
+            // pas de liste pour cet id
+            response.status(404).json(`Cant find a question with this id : ${question}`);
+        } else {
+            const { content, tagId } = request.body;
+            if(content){
+                question.content = content;
+            }
+            if(tagId){
+                question.tagId = tagId
+            }
+
+            await question.save();
+            response.json(question);
+         }
+        } catch(error) {
+            response.status(500).json(error);
+        }
+    },
+
+    deleteQuestion: async (request, response)=>{
+        try {
+            const questionId = request.params.id;
+            let question = await Question.findByPk(questionId);
+                await question.destroy();
+                response.json({ message: "La question a bien été supprimée"});
+        } catch(error){
+            response.status(500).send(error);
+        }
+    },
+
+
 
     /*
     getBestQuestions: async (request, response) => {
