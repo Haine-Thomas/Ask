@@ -21,7 +21,7 @@ const session = require('express-session');
 // Initialisation du cookie de connection "connect.sid" dans les devTools.
 app.use(session({
   saveUninitialized: true,
-  resave: false,
+  resave: true,
   secret: "chez ask on fait des blagues pas drôles"
 }));
 

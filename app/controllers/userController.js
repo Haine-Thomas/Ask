@@ -16,6 +16,7 @@ const userController = {
         } 
     },
 
+    //pour tester loginAction
     loginPage: (request, response) => {
         response.render('login');
     },
@@ -43,23 +44,18 @@ const userController = {
             if (!validPassword) {
                 return response.json({ error: "Ce n'est pas le bon mot de passe" });
             }
-            console.log(user.dataValues);
-            // On modifi les valeur de la session utilisateur avec les donné de notre instance user
+            // On modifie les valeurs de la session utilisateur avec les données de notre instance user
             request.session.user = user.dataValues;
-
-            console.log(request.session.user);
-
             delete request.session.user.password;
-
             return response.redirect('/');
         } catch (error) {
             response.status(500).send(error);
         }
     },
 
+    // une méthode pour se déconnecter
     disconnect: (request, response) => {
         delete request.session.user;
-
         return response.redirect('/');
     },
 }
