@@ -23,6 +23,8 @@ router.post('/question', questionController.createQuestion);
 
 router.get('/question/:id', questionController.getQuestionById);
 router.patch('/question/:id', questionController.editQuestion);
+// ATTENTION de bien spécifier "upVote" ou "downVote" en front dans le params "score"
+router.patch('/question/:id/:score', questionController.editQuestionScore);
 router.delete('/question/:id', questionController.deleteQuestion);
 router.get('/question/tag/:id', questionController.getQuestionByTag);
 
@@ -30,6 +32,9 @@ router.get('/question/tag/:id', questionController.getQuestionByTag);
 router.get('/question/:id/answers', answerController.getAnswersByQuestionId);
 router.post('/question/:id/answer', answerController.createAnswer);
 router.patch('/answer/:id', answerController.editAnswer);
+
+// ATTENTION de bien spécifier "upVote" ou "downVote" en front dans le params "score"
+router.patch('/answer/:id/:score', answerController.editAnswerScore);
 router.delete('/answer/:id', answerController.deleteAnswer);
 
 // Trier questions frontpage

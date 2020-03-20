@@ -83,6 +83,29 @@ const questionController = {
         }
     },
 
+    editQuestionScore: async(request,response) => {
+        try {
+         const questionId = request.params.id;
+         const questionScore = request.params.score;
+         let question = await Question.findByPk(questionId);
+         if (!question) {
+            // pas de lréponse pour cet id
+            response.status(404).json(`Cant find a question with this id : ${question}`);
+        } else {
+            if(questionScore === 'upVote'){
+                question.score = question.score + 1;
+            }
+            if(questionScore === 'downVote'){
+                question.score = question.score - 1;
+            }
+            await question.save();
+            response.json(question);
+         }
+        } catch(error) {
+            response.status(500).json(error);
+        }
+    },
+
     deleteQuestion: async (request, response)=>{
         try {
             const questionId = request.params.id;
@@ -93,8 +116,6 @@ const questionController = {
             response.status(500).send(error);
         }
     },
-
-
 
     /*
     getBestQuestions: async (request, response) => {

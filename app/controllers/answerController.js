@@ -53,6 +53,29 @@ const  answerController = {
         }
     },
 
+    editAnswerScore: async(request,response) => {
+        try {
+         const answerId = request.params.id;
+         const answerScore = request.params.score;
+         let answer = await Answer.findByPk(answerId);
+         if (!answer) {
+            // pas de lréponse pour cet id
+            response.status(404).json(`Cant find a question with this id : ${answer}`);
+        } else {
+            if(answerScore === 'upVote'){
+                answer.score = answer.score + 1;
+            }
+            if(answerScore === 'downVote'){
+                answer.score = answer.score - 1;
+            }
+            await answer.save();
+            response.json(answer);
+         }
+        } catch(error) {
+            response.status(500).json(error);
+        }
+    },
+
     deleteAnswer: async (request, response)=>{
         try {
             const answerId = request.params.id;
