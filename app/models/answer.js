@@ -12,7 +12,10 @@ class Answer extends sequelize.Model {};
 Answer.init(
     {
         content: sequelize.STRING,
-        score: sequelize.INTEGER,
+        score:{
+            type: sequelize.INTEGER,
+            defaultValue: 0,
+         },
         userId:{
             type: sequelize.INTEGER,
             field: "user_id"

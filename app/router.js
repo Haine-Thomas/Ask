@@ -28,6 +28,9 @@ router.get('/question/tag/:id', questionController.getQuestionByTag);
 
 // Answer route
 router.get('/question/:id/answers', answerController.getAnswersByQuestionId);
+router.post('/question/:id/answer', answerController.createAnswer);
+router.patch('/answer/:id', answerController.editAnswer);
+router.delete('/answer/:id', answerController.deleteAnswer);
 
 // Trier questions frontpage
 //router.get('/questions/best', questionController.getBestQuestions);
