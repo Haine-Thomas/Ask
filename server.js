@@ -6,9 +6,12 @@ const PORT = process.env.PORT || 3000;
 // Importation du node module express.
 const express = require('express');
 const session = require('express-session');
+const cors = require('cors');
 const router = require('./app/router');
 
 const app = express();
+
+app.use(cors('*'));
 
 // Réglage et gestion des sessions
 // Initialisation du cookie de connection "connect.sid" dans les devTools.
