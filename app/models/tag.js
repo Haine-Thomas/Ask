@@ -3,20 +3,20 @@ const sequelize = require('sequelize');
 const DBConnection = require('../dbConnection');
 
 // Création de la classe Tag ansi que quelques setter et getter (pour tester)
-class Tag extends sequelize.Model {};
+class Tag extends sequelize.Model {}
 
 // Ici un initialise notre classe avec les données de la BDD
 Tag.init(
-    {
-        name: sequelize.STRING,
-        status: sequelize.BOOLEAN,
-    },
-    {
-        sequelize: DBConnection,
-        tableName: "tag",
-        createdAt: "created_at",
-        updatedAt: "updated_at"
-    },
+  {
+    name: sequelize.STRING,
+    status: sequelize.BOOLEAN,
+  },
+  {
+    sequelize: DBConnection,
+    tableName: 'tag',
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+  },
 );
 
 module.exports = Tag;
