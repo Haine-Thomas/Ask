@@ -11,6 +11,7 @@ const router = require('./app/router');
 
 const app = express();
 
+// Autoriser seulement le port de connexion de notre front IMPORTANT
 app.use(cors('*'));
 
 // Réglage et gestion des sessions
