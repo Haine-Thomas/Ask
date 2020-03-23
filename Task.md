@@ -7,6 +7,7 @@
 - se connecter à psql ```sudo -i -u postgres``` puis ```psql```
 - Créer l'utilisateur ```CREATE USER ask WITH LOGIN PASSWORD 'ask';```
 - Créer l'utilisateur ```CREATE DATABASE ask OWNER ask;```
+- sortir de postgresql en faisant ctrl d puis ctrl d
 - Importer les tables. Aller dans le dossier project-ask puis ```psql -U ask -f data/import_tables.sql``` puis importer les datas ```psql -U ask -f data/import_data.sql```
 
 ### Création et lancement du serveur
