@@ -6,7 +6,6 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_SIGNINUSER: {
       const state = store.getState();
-      console.log(state);
       axios.post('http://localhost:3000/inscription', {
         name: state.signIn.name,
         email: state.signIn.email,
@@ -14,7 +13,8 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
         confirmPassword: state.signIn.confirmedPassword,
       })
         .then((response) => {
-          console.log(response);
+          //revenir a la fenetre précédente
+          window.location = '/retrieve';
         })
         .catch((error) => {
           console.error(error);
