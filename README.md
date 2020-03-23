@@ -6,7 +6,7 @@
 - Lancer le server node ```yarn start-server```
 - Lancer les deux en même temps ```yarn start```
 
-## Liste des routes pour contacter le server 
+## Liste des routes pour contacter le server
 
 - adresse du server ```'http://localhost:3000'```
 
