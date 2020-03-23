@@ -18,7 +18,7 @@ import SignInStyled from './SignInStyled';
 const SignIn = ({
   signIn,
   changeValue,
-  signInUser,
+  fetchSignInUser,
   changeCheckbox,
 }) => (
   <SignInStyled>
@@ -33,7 +33,7 @@ const SignIn = ({
     <h1 className="title">INSCRIPTION</h1>
     <Form onSubmit={(event) => {
       event.preventDefault();
-      signInUser();
+      fetchSignInUser();
     }}
     >
       <Form.Field>
@@ -41,9 +41,10 @@ const SignIn = ({
           Pseudo
           <Input
             type="text"
-            name="pseudo"
+            name="name"
             placeholder="Pseudo"
-            value={signIn.pseudo}
+            required
+            value={signIn.name}
             onChange={(event) => {
               changeValue(event.target.value, event.target.name);
             }}
@@ -56,6 +57,7 @@ const SignIn = ({
           <Input
             type="date"
             placeholder="Date de naissance"
+            required
             name="birthday"
             value={signIn.birthday}
             onChange={(event) => {
@@ -72,6 +74,7 @@ const SignIn = ({
             type="text"
             name="email"
             placeholder="Email"
+            required
             value={signIn.email}
             onChange={(event) => {
               changeValue(event.target.value, event.target.name);
@@ -86,6 +89,7 @@ const SignIn = ({
             type="password"
             name="password"
             placeholder="Mot de passe"
+            required
             value={signIn.password}
             onChange={(event) => {
               changeValue(event.target.value, event.target.name);
@@ -100,6 +104,7 @@ const SignIn = ({
             type="password"
             name="confirmedPassword"
             placeholder="Confirmer votre mot de passe"
+            required
             value={signIn.confirmedPassword}
             onChange={(event) => {
               changeValue(event.target.value, event.target.name);
@@ -133,14 +138,14 @@ const SignIn = ({
 SignIn.propTypes = {
   signIn: PropTypes.shape({
     email: PropTypes.string.isRequired,
-    pseudo: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
     confirmedPassword: PropTypes.string.isRequired,
     checkbox: PropTypes.bool.isRequired,
   }).isRequired,
   changeValue: PropTypes.func.isRequired,
   changeCheckbox: PropTypes.func.isRequired,
-  signInUser: PropTypes.func.isRequired,
+  fetchSignInUser: PropTypes.func.isRequired,
 };
 
 export default SignIn;

@@ -2,7 +2,7 @@ import { CHANGE_VALUE, CHANGE_CHECKBOX } from 'src/actions/signIn';
 
 export const initialState = {
   email: '',
-  pseudo: '',
+  name: '',
   password: '',
   confirmedPassword: '',
   checkbox: false,

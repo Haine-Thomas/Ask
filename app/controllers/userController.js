@@ -66,18 +66,20 @@ const userController = {
 
   // Possibilité d'utiliser le findOrCreate de Sequelize/ a utiliser et tester sur d'autres composants
   signUpAction : async (request, response) => {
+    console.log(request.body.email);
     try{
-      const user = await User.findOne({
-        where: {
-          email: request.body.email,
-        }
-      });
-
       const username = await User.findOne({
         where: {
           name: request.body.name,
-        }
+        },
       });
+
+      const user = await User.findOne({
+        where: {
+          email: request.body.email,
+        },
+      });
+
 // On test si l'email existe déjà dans la bdd
       if (user) {
         return response.json({ error: 'Cet email est déjà utilisé pas un utilisateur '});
@@ -102,9 +104,11 @@ const userController = {
       const encryptedPwd = bcrypt.hashSync(request.body.password, 10);
       newUser.setPassword(encryptedPwd);
       // On save le nouveau user dans la bdd
-      await newUser.save()
+      await newUser.save();
       response.json({newUser});
+      response.redirect('/');
     } catch (error) {
+      console.log(error);
       response.status(500).send(error);
     }
   },

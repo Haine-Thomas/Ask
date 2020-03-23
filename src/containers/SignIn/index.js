@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import SignIn from 'src/components/SignIn';
-import { changeValue, changeCheckbox } from 'src/actions/signIn';
+import { changeValue, changeCheckbox, fetchSignInUser } from 'src/actions/signIn';
 
 const mapStateToProps = (state) => ({
   signIn: state.signIn,
@@ -13,6 +13,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeCheckbox: () => {
     dispatch(changeCheckbox());
+  },
+  fetchSignInUser: () => {
+    dispatch(fetchSignInUser());
   },
 });
 

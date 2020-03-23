@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { FETCH_QUESTIONS, saveQuestions } from 'src/actions/questions';
 
-const ajaxMiddleware = (store) => (next) => (action) => {
+const ajaxQuestionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_QUESTIONS:
       axios.get('http://localhost:3000')
@@ -19,4 +19,4 @@ const ajaxMiddleware = (store) => (next) => (action) => {
   }
 };
 
-export default ajaxMiddleware;
+export default ajaxQuestionMiddleware;

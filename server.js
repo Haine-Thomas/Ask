@@ -7,13 +7,21 @@ const PORT = process.env.PORT || 3000;
 const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const router = require('./app/router');
 
 const app = express();
 
 // Autoriser seulement le port de connexion de notre front IMPORTANT
 app.use(cors('*'));
-
+app.use(bodyParser.json());
+app.use((request, response, next) => {
+  response.header('Access-Control-Allow-Origin', '*');
+  // response.header('Access-Control-Allow-Credentials', true);
+  response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  response.header('Access-Control-Allow-Methods', 'GET, PATCH, POST, OPTIONS, PUT, DELETE');
+  next();
+});
 // Réglage et gestion des sessions
 // Initialisation du cookie de connection "connect.sid" dans les devTools.
 app.use(session({
