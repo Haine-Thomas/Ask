@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 // import du frameworks
@@ -14,7 +15,12 @@ import {
 import SignInStyled from './SignInStyled';
 
 
-const SignIn = () => (
+const SignIn = ({
+  signIn,
+  changeValue,
+  signInUser,
+  changeCheckbox,
+}) => (
   <SignInStyled>
     <NavLink
       activeClassName="selected"
@@ -25,47 +31,116 @@ const SignIn = () => (
       Retour à l'Accueil
     </NavLink>
     <h1 className="title">INSCRIPTION</h1>
-    <Form>
+    <Form onSubmit={(event) => {
+      event.preventDefault();
+      signInUser();
+    }}
+    >
       <Form.Field>
         <label>
           Pseudo
-          <Input type="text" placeholder="Pseudo" />
+          <Input
+            type="text"
+            name="pseudo"
+            placeholder="Pseudo"
+            value={signIn.pseudo}
+            onChange={(event) => {
+              changeValue(event.target.value, event.target.name);
+            }}
+          />
         </label>
       </Form.Field>
       <Form.Field>
         <label>
           Date de naissance
-          <Input type="date" placeholder="Date de naissance" />
+          <Input
+            type="date"
+            placeholder="Date de naissance"
+            name="birthday"
+            value={signIn.birthday}
+            onChange={(event) => {
+              changeValue(event.target.value, event.target.name);
+            }}
+          />
         </label>
       </Form.Field>
       <Form.Field>
         <label>
           Email
-          <Input icon="at" placeholder="Email" />
+          <Input
+            icon="at"
+            type="text"
+            name="email"
+            placeholder="Email"
+            value={signIn.email}
+            onChange={(event) => {
+              changeValue(event.target.value, event.target.name);
+            }}
+          />
         </label>
       </Form.Field>
       <Form.Field>
         <label>
           Mot de passe
-          <Input type="password" placeholder="Mot de passe" />
+          <Input
+            type="password"
+            name="password"
+            placeholder="Mot de passe"
+            value={signIn.password}
+            onChange={(event) => {
+              changeValue(event.target.value, event.target.name);
+            }}
+          />
         </label>
       </Form.Field>
       <Form.Field>
         <label>
           Confirmer votre mot de passe
-          <Input type="password" placeholder="Confirmer votre mot de passe" />
+          <Input
+            type="password"
+            name="confirmedPassword"
+            placeholder="Confirmer votre mot de passe"
+            value={signIn.confirmedPassword}
+            onChange={(event) => {
+              changeValue(event.target.value, event.target.name);
+            }}
+          />
         </label>
       </Form.Field>
       <Form.Field>
         <label>
-          <Checkbox label="J'accepte de respecter la charte du site" />
+          <Checkbox
+            label="J'accepte de respecter la charte du site"
+            required="required"
+            onChange={() => {
+              changeCheckbox();
+            }}
+          />
         </label>
       </Form.Field>
-      <Button className="btn" type="submit">Je m'inscris</Button>
+      <Button
+        disabled={!signIn.checkbox}
+        className="btn"
+        type="submit"
+      >
+        Je m'inscris
+      </Button>
     </Form>
   </SignInStyled>
 
 );
 
+SignIn.propTypes = {
+  signIn: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    pseudo: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    confirmedPassword: PropTypes.string.isRequired,
+    checkbox: PropTypes.bool.isRequired,
+  }).isRequired,
+  changeValue: PropTypes.func.isRequired,
+  changeCheckbox: PropTypes.func.isRequired,
+  signInUser: PropTypes.func.isRequired,
+};
 
 export default SignIn;

@@ -9,7 +9,7 @@ import Header from 'src/components/Header';
 import Nav from 'src/components/Nav';
 import QuestionsPage from 'src/containers/QuestionsPage';
 import Footer from 'src/components/Footer';
-import SignIn from 'src/components/SignIn';
+import SignIn from 'src/containers/SignIn';
 import AnswersPage from 'src/components/AnswersPage';
 
 import theme from 'src/assets/styles/theme';
