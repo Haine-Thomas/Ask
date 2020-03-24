@@ -54,7 +54,7 @@ const userController = {
   // une méthode pour se déconnecter
   disconnect: (request, response) => {
     delete request.session.user;
-    return response.redirect('/');
+    return response.json('Disconnected');
   },
 
   myProfilPage:(request, response) => {

@@ -6,6 +6,7 @@ import Settings from 'src/components/Nav/Settings';
 
 // Action Creators
 import { toggleOpen } from 'src/actions';
+import { disconnectAction } from 'src/actions/login';
 
 
 const mapStateToProps = (state) => ({
@@ -17,6 +18,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   toggleForm: () => {
     dispatch(toggleOpen());
+  },
+  disconnectAction: () => {
+    dispatch(disconnectAction());
   },
 });
 
