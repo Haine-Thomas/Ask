@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import swal from 'sweetalert';
 import { FETCH_QUESTIONS, saveQuestions, fetchQuestions, FETCH_POST_QUESTION } from 'src/actions/questions';
 
 const ajaxQuestionMiddleware = (store) => (next) => (action) => {
