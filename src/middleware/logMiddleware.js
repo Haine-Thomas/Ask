@@ -9,6 +9,8 @@ const logMiddleware = (store) => (next) => (action) => {
       axios.post('http://localhost:3000/login', {
         email: state.login.user.email,
         password: state.login.user.password,
+      }, {
+        withCredentials: true,
       })
         .then((response) => {
           if (response.data.error) {
@@ -24,7 +26,9 @@ const logMiddleware = (store) => (next) => (action) => {
       break;
     }
     case DISCONNECT_ACTION: {
-      axios.get('http://localhost:3000/disconnect')
+      axios.get('http://localhost:3000/disconnect', {}, {
+        withCredentials: true,
+      })
         .then((response) => {
           console.log(response.data);
         })

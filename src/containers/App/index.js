@@ -5,7 +5,8 @@ import App from 'src/components/App';
 import { fetchQuestions } from 'src/actions/questions';
 import { fetchTags } from 'src/actions/tags';
 
-const mapStateToProps = () => ({
+const mapStateToProps = (state) => ({
+  list: state.questions.list,
 });
 
 const mapDispatchToProps = (dispatch) => ({

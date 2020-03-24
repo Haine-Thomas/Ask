@@ -3,7 +3,6 @@
 const userMiddleware = (request, response, next) => {
 // Si l'utilisateur existe on le stocke dans les locals
   if (request.session.user) {
-    //response.locals.user = request.session.user;
     console.log(request.session.user);
   }
   else {

@@ -43,7 +43,8 @@ const questionController = {
     } 
   },
 
-  createQuestion: async (request,response) => { 
+  createQuestion: async (request, response) => {
+    console.log(request.session.user.id);
     try {
       const content = request.body.content;
       const tagId = request.body.tagId;
