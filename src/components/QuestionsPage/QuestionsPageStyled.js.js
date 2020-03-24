@@ -7,11 +7,8 @@ const QuestionsPageStyled = styled.main`
   width: 100vw;
   height:69%;
 
-  .addQuestion {
-    margin: 2rem;
-    width: 10rem;
+  .new_question_form {
     padding: 1rem;
-    font-size: 1rem;
   }
 
 `;

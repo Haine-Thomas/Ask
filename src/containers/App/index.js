@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import App from 'src/components/App';
 
 import { fetchQuestions } from 'src/actions/questions';
+import { fetchTags } from 'src/actions/tags';
 
 const mapStateToProps = () => ({
 });
@@ -10,6 +11,9 @@ const mapStateToProps = () => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchQuestions: () => {
     dispatch(fetchQuestions());
+  },
+  fetchTags: () => {
+    dispatch(fetchTags());
   },
 });
 
