@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import swan from 'sweetalert';
 import { LOGIN_ACTION, DISCONNECT_ACTION, changeUser } from 'src/actions/login';
 
 const logMiddleware = (store) => (next) => (action) => {
@@ -11,7 +11,11 @@ const logMiddleware = (store) => (next) => (action) => {
         password: state.login.user.password,
       })
         .then((response) => {
-          store.dispatch(changeUser(response.data));
+          if (response.data.error) {
+            swan(response.data.error, '', 'warning');
+          } else {
+            store.dispatch(changeUser(response.data));
+          }
         })
         .catch((error) => {
           console.log(error);
