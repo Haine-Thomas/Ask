@@ -4,6 +4,8 @@ import QuestionsPage from 'src/components/QuestionsPage';
 
 const mapStateToProps = (state) => ({
   questions: state.questions.list,
+  isLogged: state.login.isLogged,
+  tags: state.tags.list,
 });
 
 const mapDispatchToProps = () => ({

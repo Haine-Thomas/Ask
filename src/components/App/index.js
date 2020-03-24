@@ -17,8 +17,10 @@ import AppStyled from './AppStyled';
 
 
 // == Composant
-const App = ({ fetchQuestions }) => {
+const App = ({ fetchQuestions, fetchTags }) => {
   useEffect(fetchQuestions, []);
+  useEffect(fetchTags, []);
+
   return (
     <AppStyled theme={theme}>
       <Header />
@@ -42,6 +44,7 @@ const App = ({ fetchQuestions }) => {
 
 App.propTypes = {
   fetchQuestions: PropTypes.func.isRequired,
+  fetchTags: PropTypes.func.isRequired,
 };
 // == Export
 export default App;

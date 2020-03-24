@@ -5,7 +5,7 @@
 BEGIN;
 
 INSERT INTO "user" ("id", "name", "email", "password", "admin", "created_at", "updated_at") VALUES
-(3, 'Mushi', 'thomahaine@gmail.com', 'ojajayapasmoyenjaja', 'true', '2020-03-13 12:15:33', NULL);
+(1, 'Mushi', 'thomahaine@gmail.com', 'ojajayapasmoyenjaja', 'true', '2020-03-13 12:15:33', NULL);
 
 INSERT INTO "question"("id", "content", "created_at", "updated_at", "user_id","tag_id", "score") VALUES
 (1, 'Est-ce que les chats peuvent nous tuer?', '2020-03-13 15:15:33', NULL, 1, 1, 0),
