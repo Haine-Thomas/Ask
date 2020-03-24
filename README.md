@@ -70,3 +70,15 @@ user signIn with post request(ok), bodyParser with settings
 - création de ajaxUserMiddleware.js dans src/middleware
 - modification de SignIn.js dans src/reducers
 - modification de index.js dans src/store
+
+# 24/03/2020
+
+## ProfilPage
+
+- modification index.js dans src/components/ProfilPage
+- création de ProfilPageStyled.js dans src/components/ProfilPage
+
+## AnswerPage
+
+- modification index.js dans src/components/AnswerPage
+- création de AnswerPageStyled.js dans src/components/AnswerPage
