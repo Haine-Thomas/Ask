@@ -14,7 +14,7 @@ const Settings = ({ open, isLogged, toggleForm, disconnectAction }) => (
     <div>
       {isLogged && (
         <div>
-          <Button onClick={disconnectAction} type="button" className="btn">Déconnexion</Button>
+          <NavLink onClick={disconnectAction} to="/" type="button" className="btn">Déconnexion</NavLink>
           <NavLink
             activeClassName="btn"
             className="btn"

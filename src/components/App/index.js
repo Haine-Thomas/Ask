@@ -11,6 +11,7 @@ import QuestionsPage from 'src/containers/QuestionsPage';
 import Footer from 'src/components/Footer';
 import SignIn from 'src/containers/SignIn';
 import AnswersPage from 'src/components/AnswersPage';
+import ProfilPage from 'src/components/ProfilPage';
 
 import theme from 'src/assets/styles/theme';
 import AppStyled from './AppStyled';
@@ -25,6 +26,10 @@ const App = ({ fetchQuestions, fetchTags }) => {
     <AppStyled theme={theme}>
       <Header />
       <Switch>
+        <Route key="4" path="/Profil">
+          <Nav />
+          <ProfilPage />
+        </Route>
         <Route key="3" path="/Answer">
           <Nav />
           <AnswersPage />
