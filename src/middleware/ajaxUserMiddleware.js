@@ -16,9 +16,11 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           //revenir a la fenetre précédente
           if (response.data.error) {
-            swal(response.data.error);
+            swal(response.data.error, '', 'warning');
           } else {
-            swal('Inscription validée', '', 'success');
+            swal('Inscription validée', '', 'success', {
+              buttons: false,
+            });
             setTimeout(function(){window.location='/retrieve'}, 3000);
           }
         })
