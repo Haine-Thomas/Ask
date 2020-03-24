@@ -4,25 +4,25 @@ import { Button } from 'semantic-ui-react';
 
 import { NavLink } from 'react-router-dom';
 
-import LoginForm from 'src/components/Nav/Settings/LoginForm';
+import LoginForm from 'src/containers/Nav/Settings/LoginForm';
 
 import SettingsStyled from './SettingsStyled';
 
 
-const Settings = ({ open, isLogged, toggleForm }) => (
+const Settings = ({ open, isLogged, toggleForm, disconnectAction }) => (
   <SettingsStyled>
     <div>
       {isLogged && (
         <div>
-          <Button type="button" className="btn">Déconnexion</Button>
-          <Navlink 
+          <Button onClick={disconnectAction} type="button" className="btn">Déconnexion</Button>
+          <NavLink
             activeClassName="btn"
             className="btn"
             exact
             to="/Profil"
           >
             Profil
-          </Navlink>
+          </NavLink>
         </div>
       )}
       {!isLogged && (
@@ -34,7 +34,7 @@ const Settings = ({ open, isLogged, toggleForm }) => (
                 className="btn"
                 onClick={toggleForm}
               >
-                Connection
+                Connexion
               </Button>
               <NavLink
                 activeClassName="selected"
@@ -59,6 +59,7 @@ Settings.propTypes = {
   open: PropTypes.bool.isRequired,
   isLogged: PropTypes.bool.isRequired,
   toggleForm: PropTypes.func.isRequired,
+  disconnectAction: PropTypes.func.isRequired,
 };
 
 export default Settings;

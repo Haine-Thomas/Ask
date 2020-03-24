@@ -45,7 +45,7 @@ const userController = {
       // On modifie les valeurs de la session utilisateur avec les données de notre instance user
       request.session.user = user.dataValues;
       delete request.session.user.password;
-      return response.redirect('/');
+      return response.json(request.session.user);
     } catch (error) {
       response.status(500).send(error);
     }
@@ -54,7 +54,7 @@ const userController = {
   // une méthode pour se déconnecter
   disconnect: (request, response) => {
     delete request.session.user;
-    return response.redirect('/');
+    return response.json('Disconnected');
   },
 
   myProfilPage:(request, response) => {
