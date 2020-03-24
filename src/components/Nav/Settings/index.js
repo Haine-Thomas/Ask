@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 
 import { NavLink } from 'react-router-dom';
 
-import LoginForm from 'src/components/Nav/Settings/LoginForm';
+import LoginForm from 'src/containers/Nav/Settings/LoginForm';
 
 import SettingsStyled from './SettingsStyled';
 
@@ -15,14 +15,14 @@ const Settings = ({ open, isLogged, toggleForm }) => (
       {isLogged && (
         <div>
           <Button type="button" className="btn">Déconnexion</Button>
-          <Navlink 
+          <NavLink
             activeClassName="btn"
             className="btn"
             exact
             to="/Profil"
           >
             Profil
-          </Navlink>
+          </NavLink>
         </div>
       )}
       {!isLogged && (

@@ -13,7 +13,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
         confirmPassword: state.signIn.confirmedPassword,
       })
         .then((response) => {
-          //revenir a la fenetre précédente
+          // revenir a la fenetre précédente
           window.location = '/retrieve';
         })
         .catch((error) => {
