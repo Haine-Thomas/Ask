@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'semantic-ui-react';
+import { Button, Menu } from 'semantic-ui-react';
 
 import { NavLink } from 'react-router-dom';
 

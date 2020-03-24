@@ -1,26 +1,26 @@
 import styled from 'styled-components';
 
 const ProfilPageStyled = styled.div`
- width: 40%;
+  border: 1px solid white;
+  width: 70%;
   display: block;
+  padding: 1rem;
   margin: auto;
+  text-align: center;
 
   .title {
-    text-align: center;
-    margin: 1rem;
+    /*text-align: center;*/
+   /* margin: 1rem;*/
   }
 
   .subtitle {
-    text-align: center;
-    margin: 1rem;
-  }
-
-  .btn {
-    width:100%;
+    /*text-align: center;*/
+    /*margin: 1rem;*/
   }
 
   .btnModify {
     text-decoration: underline;
+    letter-spacing: .3rem;
   }
 
   .btnModify:hover {

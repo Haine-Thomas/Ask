@@ -1,8 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import { NavLink } from 'react-router-dom';
 import { Image } from 'semantic-ui-react';
 
-import ProfilPageStyled from './ProfilPageStyled.js';
+import ProfilPageStyled from './ProfilPageStyled';
 
 const ProfilPage = () => (
   <ProfilPageStyled>
@@ -31,7 +32,5 @@ const ProfilPage = () => (
   </ProfilPageStyled>
 );
 
-QuestionsPage.propTypes = {
-};
 
 export default ProfilPage;
