@@ -5,7 +5,7 @@ import { Input, Form, Button } from 'semantic-ui-react';
 import LoginFormStyled from './LoginFormStyled';
 
 
-const LoginForm = ({ login, loginAction, changeValue }) => (
+const LoginForm = ({ login, loginAction, changeValue, toggleForm }) => (
   <LoginFormStyled>
     <Form onSubmit={(event) => {
       event.preventDefault();
@@ -40,12 +40,10 @@ const LoginForm = ({ login, loginAction, changeValue }) => (
           />
         </label>
       </Form.Field>
-      <Button
-        className="btnconnect"
-        type="submit"
-      >
-        Ok
-      </Button>
+      <div>
+        <Button size="mini" positive className="btnconnect" type="submit">OK</Button>
+        <Button onClick={toggleForm} size="mini">Annuler</Button>
+      </div>
     </Form>
   </LoginFormStyled>
 );
@@ -59,6 +57,7 @@ LoginForm.propTypes = {
       password: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  toggleForm: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

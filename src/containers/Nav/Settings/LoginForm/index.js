@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 // composant + actions creator
 import LoginForm from 'src/components/Nav/Settings/LoginForm';
 import { loginAction, changeValueLogin } from 'src/actions/login';
+import { toggleOpen } from 'src/actions';
+
 
 // == Branchements
 // lecture
@@ -20,6 +22,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeValue: (value, name) => {
     dispatch(changeValueLogin(value, name));
+  },
+  toggleForm: () => {
+    dispatch(toggleOpen());
   },
 });
 
