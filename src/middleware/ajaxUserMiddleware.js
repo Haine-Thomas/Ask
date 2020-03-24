@@ -1,5 +1,6 @@
 import axios from 'axios';
-
+// swal permet de customiser une ptite fonction alert bien sympa
+import swal from 'sweetalert';
 import { FETCH_SIGNINUSER } from 'src/actions/signIn';
 
 const ajaxUserMiddleware = (store) => (next) => (action) => {
@@ -14,7 +15,12 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           //revenir a la fenetre précédente
-          window.location = '/retrieve';
+          if (response.data.error) {
+            swal(response.data.error);
+          } else {
+            swal('Inscription validée', '', 'success');
+            setTimeout(function(){window.location='/retrieve'}, 3000);
+          }
         })
         .catch((error) => {
           console.error(error);
