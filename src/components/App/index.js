@@ -24,6 +24,7 @@ const App = ({ fetchQuestions, fetchTags }) => {
 
   return (
     <AppStyled theme={theme}>
+
       <Header />
       <Switch>
         <Route key="4" path="/Profil">
