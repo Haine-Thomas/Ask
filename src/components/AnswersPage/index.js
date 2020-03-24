@@ -13,12 +13,12 @@ import {
 
 // == Import locaux
 // import de la feuille de style associée
-import AnswersPageStyled from './AnswersPageStyled';
+import AnswerPageStyled from './AnswerPageStyled';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de la page réponse
 const AnswersPage = () => (
-  <AnswersPageStyled>
+  <AnswerPageStyled>
     <NavLink
       activeClassName="selected"
       exact
@@ -35,7 +35,7 @@ const AnswersPage = () => (
       <Button className="btn" type="submit">Best</Button>
     </Form>
     <h1 className="title">réponse avec compteur, nom de l auteur et date du poste</h1>
-  </AnswersPageStyled>
+  </AnswerPageStyled>
 );
 
 // == Export

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // == Composant
 // ici on a la fonction qui décrit le style du composant AnswersPage
-const AnswersPageStyled = styled.div`
+const AnswerPageStyled = styled.div`
   width: 40%;
   display: block;
   margin: auto;
@@ -27,4 +27,4 @@ const AnswersPageStyled = styled.div`
 `;
 
 // == Export
-export default AnswersPageStyled;
+export default AnswerPageStyled;
