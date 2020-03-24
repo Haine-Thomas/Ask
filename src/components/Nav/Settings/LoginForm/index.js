@@ -42,7 +42,7 @@ const LoginForm = ({ login, loginAction, changeValue, toggleForm }) => (
       </Form.Field>
       <div>
         <Button size="mini" positive className="btnconnect" type="submit">OK</Button>
-        <Button onClick={toggleForm} size="mini">Annuler</Button>
+        <Button onClick={toggleForm} size="mini">X</Button>
       </div>
     </Form>
   </LoginFormStyled>
