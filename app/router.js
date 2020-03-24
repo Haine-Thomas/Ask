@@ -6,6 +6,7 @@ const questionController = require('./controllers/questionController');
 const tagController = require('./controllers/tagController');
 const userController = require('./controllers/userController');
 const answerController = require('./controllers/answerController');
+const userMiddleware = require('./middlewares/user');
 // importer les middlewares
 
 const router = express.Router();
@@ -13,6 +14,8 @@ const router = express.Router();
 router.use(express.urlencoded({
   extended: true,
 }));
+
+router.use(userMiddleware);
 
 // Front page route
 router.get('/', questionController.getQuestions);

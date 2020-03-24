@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_QUESTIONS, saveQuestions } from 'src/actions/questions';
+import { FETCH_QUESTIONS, saveQuestions, FETCH_POST_QUESTION } from 'src/actions/questions';
 
 const ajaxQuestionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -14,6 +14,27 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
         });
       next(action);
       break;
+    case FETCH_POST_QUESTION: {
+      const state = store.getState();
+      console.log(state);
+      axios.post('http://localhost:3000/question', {
+        content: state.questions.content,
+        tagId: state.questions.tagId,
+      }, { withCredentials: true })
+        .then((response) => {
+          //revenir a la fenetre précédente
+          if (response.data.error) {
+            swal(response.data.error, '', 'warning');
+          } else {
+            console.log(response.data);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      next(action);
+      break;
+    }
     default:
       next(action);
   }

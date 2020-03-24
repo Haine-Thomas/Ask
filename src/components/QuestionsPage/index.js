@@ -7,13 +7,31 @@ import { Button, Input, Select } from 'semantic-ui-react';
 import QuestionsPageStyled from './QuestionsPageStyled.js';
 import Question from './Question';
 
-const QuestionsPage = ({ questions, isLogged, tags }) => (
+const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fetchPostQuestion }) => (
     <QuestionsPageStyled>
       {isLogged && (
-        <form className="new_question_form" type="submit">
+        <form 
+          onSubmit={(event) => {
+            event.preventDefault();
+            fetchPostQuestion();
+          }}
+          className="new_question_form"
+          type="submit">
           <Input type="text" placeholder="Ajouter votre question..." action>
-            <input />
-            <select compact="true" name="tagId">
+            <input
+              name="content"
+              value={value}
+              onChange={(event) => {
+                changeInputValue(event.target.value, event.target.name);
+              }}
+            />
+            <select
+              onChange={(event) => {
+                changeInputValue(event.target.value, event.target.name);
+              }}
+              compact="true"
+              name="tagId"
+            >
               <option value="">Catégories</option>
               {tags.map((tag) => (
                 <option key={tag.id} value={tag.id}>{tag.name}</option>
@@ -33,6 +51,9 @@ QuestionsPage.propTypes = {
   questions: PropTypes.array.isRequired,
   isLogged: PropTypes.bool.isRequired,
   tags: PropTypes.array.isRequired,
+  value: PropTypes.string.isRequired,
+  changeInputValue: PropTypes.func.isRequired,
+  fetchPostQuestion: PropTypes.func.isRequired,
 };
 
 export default QuestionsPage;

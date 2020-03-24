@@ -11,14 +11,6 @@ const router = require('./app/router');
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use((request, response, next) => {
-  response.header('Access-Control-Allow-Origin', 'http://localhost:8080');
-  response.header('Access-Control-Allow-Credentials', true);
-  response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  response.header('Access-Control-Allow-Methods', 'GET, PATCH, POST, OPTIONS, PUT, DELETE');
-  next();
-});
 // Réglage et gestion des sessions
 // Initialisation du cookie de connection "connect.sid" dans les devTools.
 app.use(session({
@@ -28,10 +20,20 @@ app.use(session({
   cookie: {},
 }));
 
+app.use(bodyParser.json());
+app.use((request, response, next) => {
+  response.header('Access-Control-Allow-Origin', 'http://localhost:8080');
+  response.header('Access-Control-Allow-Credentials', true);
+  response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  response.header('Access-Control-Allow-Methods', 'GET, PATCH, POST, OPTIONS, PUT, DELETE');
+  next();
+});
+
+
 // Middleware pour verifier si une session utilisateur est active
 const userMiddleware = require('./app/middlewares/user');
 
-app.use(userMiddleware);
+//app.use(userMiddleware);
 
 // Le routage
 app.use(router);
