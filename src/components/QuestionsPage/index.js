@@ -13,7 +13,7 @@ const QuestionsPage = ({ questions, isLogged, tags }) => (
         <form className="new_question_form" type="submit">
           <Input type="text" placeholder="Ajouter votre question..." action>
             <input />
-            <select compact name="tagId">
+            <select compact="true" name="tagId">
               <option value="">Catégories</option>
               {tags.map((tag) => (
                 <option key={tag.id} value={tag.id}>{tag.name}</option>
