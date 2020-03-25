@@ -1,10 +1,16 @@
+// == Import npm
 import React from 'react';
 
+// import de la route de navigation
 import { NavLink } from 'react-router-dom';
+// import du frameworks
 import { Image } from 'semantic-ui-react';
 
+// import du composant styled du profil page
 import ProfilPageStyled from './ProfilPageStyled';
 
+// == Composant
+// ici on a la fonction qui renvoi le formulaire de structure de profilpage
 const ProfilPage = () => (
   <ProfilPageStyled>
     <h1 className="title">Profil</h1>
@@ -32,5 +38,5 @@ const ProfilPage = () => (
   </ProfilPageStyled>
 );
 
-
+// == Export
 export default ProfilPage;

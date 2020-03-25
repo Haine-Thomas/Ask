@@ -1,5 +1,8 @@
+// == Import locaux
 import styled from 'styled-components';
 
+// == Composant
+// ici on a la fonction qui décrit le style du composant ProfilPage
 const ProfilPageStyled = styled.div`
   border: 1px solid white;
   width: 70%;
@@ -28,4 +31,5 @@ const ProfilPageStyled = styled.div`
   }
 `;
 
+// == Export
 export default ProfilPageStyled;

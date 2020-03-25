@@ -14,10 +14,13 @@ import AnswersPage from 'src/components/AnswersPage';
 import ProfilPage from 'src/components/ProfilPage';
 
 import theme from 'src/assets/styles/theme';
+
+// import de la feuille de style associée
 import AppStyled from './AppStyled';
 
 
 // == Composant
+// ici on a la fonction qui renvoi le formulaire de structure de l application
 const App = ({ fetchQuestions, fetchTags }) => {
   useEffect(fetchQuestions, []);
   useEffect(fetchTags, []);
@@ -52,5 +55,6 @@ App.propTypes = {
   fetchQuestions: PropTypes.func.isRequired,
   fetchTags: PropTypes.func.isRequired,
 };
+
 // == Export
 export default App;

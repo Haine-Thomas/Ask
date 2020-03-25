@@ -1,5 +1,8 @@
+// == Import locaux
 import styled from 'styled-components';
 
+// == Composant
+// ici on a la fonction qui décrit le style du composant counter
 const Counterstyled = styled.div`
   text-align: center;
   width: auto;
@@ -8,14 +11,10 @@ const Counterstyled = styled.div`
 /*on met auto au height pour que la hauteur du bouton s'adapte à l'écran */
   .button {
     width: 100%;
-<<<<<<< HEAD
     height: 40% auto; 
-=======
-    height: auto; 
->>>>>>> 1e44556c4b380b26a80758cc1ac22855504eeb5a
   }
 
 `;
 
-
+// == Export
 export default Counterstyled;

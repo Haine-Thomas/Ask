@@ -1,8 +1,14 @@
+// == Import npm
 import React from 'react';
+
+// on import la route de navigation
 import { NavLink } from 'react-router-dom';
 
+// import du composant styled du sortbuttons
 import SortButtonsStyled from './SortButtonsStyled';
 
+// == Composant
+// ici on a la fonction qui renvoi le formulaire de structure de sortbuttons
 const SortButtons = () => (
   <SortButtonsStyled>
     <NavLink
@@ -22,4 +28,5 @@ const SortButtons = () => (
   </SortButtonsStyled>
 );
 
+// == Export
 export default SortButtons;

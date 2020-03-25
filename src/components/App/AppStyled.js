@@ -1,6 +1,8 @@
+// == Import locaux
 import styled from 'styled-components';
 
-
+// == Composant
+// ici on a la fonction qui décrit le style du composant App
 const AppStyled = styled.div`
   color: white;
   height: 100vh;
@@ -11,4 +13,5 @@ const AppStyled = styled.div`
  
 `;
 
+// == Export
 export default AppStyled;

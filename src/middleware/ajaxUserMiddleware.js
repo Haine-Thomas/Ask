@@ -6,6 +6,8 @@ import { FETCH_SIGNINUSER } from 'src/actions/signIn';
 const ajaxUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_SIGNINUSER: {
+      // + on traduit l'intention en intérrogeant notre API
+      // je vais avoir besoin de lire le state pour faire ma requete
       const state = store.getState();
       axios.post('http://localhost:3000/inscription', {
         name: state.signIn.name,
@@ -14,6 +16,8 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
         confirmPassword: state.signIn.confirmedPassword,
       })
         .then((response) => {
+          // quand on a la réponse, on veut modifier le pseudo dans l'état
+          // je vais vouloir émettre une intention pour modifier le state
           //revenir a la fenetre précédente
           if (response.data.error) {
             swal(response.data.error, '', 'warning');
@@ -27,6 +31,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           console.error(error);
         });
+        // je laisse passer tout de suite au middleware/reducer suivant
       next(action);
       break;
     }

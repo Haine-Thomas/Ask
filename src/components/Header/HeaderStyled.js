@@ -1,5 +1,8 @@
+// == Import locaux
 import styled from 'styled-components';
 
+// == Composant
+// ici on a la fonction qui décrit le style du composant HeaderPage
 const HeaderStyled = styled.header`
   text-align: center;
   left: 1rem;
@@ -25,4 +28,5 @@ const HeaderStyled = styled.header`
 
 `;
 
+// == Export
 export default HeaderStyled;

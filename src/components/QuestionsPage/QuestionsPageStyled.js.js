@@ -1,5 +1,8 @@
+// == Import locaux
 import styled from 'styled-components';
 
+// == Composant
+// ici on a la fonction qui décrit le style du composant questionspage
 const QuestionsPageStyled = styled.main`
   display: flex;
   flex-direction: column;
@@ -13,4 +16,5 @@ const QuestionsPageStyled = styled.main`
 
 `;
 
+// == Export
 export default QuestionsPageStyled;
