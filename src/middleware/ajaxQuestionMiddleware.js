@@ -8,7 +8,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
       // je vais avoir besoin de lire le state pour faire ma requete
     case FETCH_QUESTIONS: {
       const state = store.getState();
-      axios.get(`http://localhost:3000/${state.questions.sorted}`)
+      axios.get(`http://localhost:3000/question/${state.questions.sorted}`)
         .then((response) => {
           // quand on a la réponse, on veut modifier le pseudo dans l'état
           // je vais vouloir émettre une intention pour modifier le state

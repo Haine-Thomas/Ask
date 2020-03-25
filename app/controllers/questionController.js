@@ -6,8 +6,8 @@ const questionController = {
     const sorted = request.params.sorted;
     try {
       const questions = await Question.findAll({
-        include: ['author','answers','tag',],
-        order:[[`${sorted}`, 'DESC']]
+        include: ['author', 'answers', 'tag'],
+        order:[[`${sorted}`, 'DESC']],
 
       });
       response.json({ questions });
@@ -22,7 +22,7 @@ const questionController = {
     try {
       const question = await Question.findByPk(questionId, {
         include: ['tag', 'author', 'answers'],
-        order: [['answers', 'score', 'DESC']]
+        order: [['answers', 'score', 'DESC']],
       });
       response.json({ question });
     }
