@@ -61,7 +61,7 @@ const userController = {
     if (!request.session.user) {
       return response.redirect('/login');
     }
-    response.json({ user: request.session.user});
+    response.json({ user: request.session.user });
   },
 
   // Possibilité d'utiliser le findOrCreate de Sequelize/ a utiliser et tester sur d'autres composants

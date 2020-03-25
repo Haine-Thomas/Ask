@@ -1,9 +1,14 @@
+// == Import npm
 import React from 'react';
+
 // on import la route de navigation
 import { NavLink } from 'react-router-dom';
 
+// import du composant styled du header
 import HeaderStyled from './HeaderStyled';
 
+// == Composant
+// ici on a la fonction qui renvoi le formulaire de structure de header
 const Header = () => (
   <HeaderStyled>
     <NavLink
@@ -18,8 +23,5 @@ const Header = () => (
   </HeaderStyled>
 );
 
-
+// == Export
 export default Header;
-
-// ici on import navlink ainsi on va creer le lien vers pas la page d'accueil par un click direct sur le logo du titre du site
-// on entoure le titre par navlink puis on lui ajoute une classe active nommer selected qui va rediriger sur l'accueil du site de maniere exact que au momet du click

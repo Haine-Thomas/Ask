@@ -1,11 +1,14 @@
+// == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Input, Form, Button } from 'semantic-ui-react';
 
+// import du composant styled du footer
 import LoginFormStyled from './LoginFormStyled';
 
-
-const LoginForm = ({ login, loginAction, changeValue }) => (
+// == Composant
+// ici on a la fonction qui renvoi le formulaire de structure de loginform
+const LoginForm = ({ login, loginAction, changeValue, toggleForm }) => (
   <LoginFormStyled>
     <Form onSubmit={(event) => {
       event.preventDefault();
@@ -40,12 +43,10 @@ const LoginForm = ({ login, loginAction, changeValue }) => (
           />
         </label>
       </Form.Field>
-      <Button
-        className="btnconnect"
-        type="submit"
-      >
-        Ok
-      </Button>
+      <Button.Group>
+        <Button size="mini" basic color="green" className="btnconnect" type="submit">OK</Button>
+        <Button onClick={toggleForm} size="mini" basic color="blue">X</Button>
+      </Button.Group>
     </Form>
   </LoginFormStyled>
 );
@@ -59,6 +60,8 @@ LoginForm.propTypes = {
       password: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  toggleForm: PropTypes.func.isRequired,
 };
 
+// == Export
 export default LoginForm;

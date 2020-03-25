@@ -1,5 +1,8 @@
+// == Import locaux
 import styled from 'styled-components';
 
+// == Composant
+// ici on a la fonction qui décrit le style du composant question
 const QuestionStyled = styled.div`
   display: flex;
   width: 70%;
@@ -8,6 +11,7 @@ const QuestionStyled = styled.div`
   margin: 0.5rem;
   box-shadow: 10px 5px 5px black;
   border-radius: 3px;
+  background-color: #629bd9;
 
 
   .question {
@@ -59,4 +63,5 @@ const QuestionStyled = styled.div`
 
 `;
 
+// == Export
 export default QuestionStyled;

@@ -1,4 +1,5 @@
 /* eslint-disable import/no-unresolved */
+// == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
@@ -11,10 +12,12 @@ import {
   Button,
 } from 'semantic-ui-react';
 
+// == Import : npm locaux
 // import de la feuille de style associée
 import SignInStyled from './SignInStyled';
 
-
+// == Composant
+// ici on a la fonction qui renvoi le formulaire de structure de signin
 const SignIn = ({
   signIn,
   changeValue,
@@ -148,4 +151,5 @@ SignIn.propTypes = {
   fetchSignInUser: PropTypes.func.isRequired,
 };
 
+// == Export
 export default SignIn;

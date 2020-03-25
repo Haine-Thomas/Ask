@@ -9,8 +9,10 @@ import ajaxUserMiddleware from 'src/middleware/ajaxUserMiddleware';
 import ajaxMiddlewareTags from 'src/middleware/ajaxMiddlewareTags';
 
 // == Enhancers
+// on fait en sorte d'avoir accès au devtool s'il est installé
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+// fonction qui
 const enhancers = composeEnhancers(
   applyMiddleware(
     logMiddleware,

@@ -2,8 +2,8 @@
 import styled from 'styled-components';
 
 // == Composant
-// ici on a la fonction qui décrit le style du composant signin
-const SignInStyled = styled.div`
+// ici on a la fonction qui décrit le style du composant AnswersPage
+const AnswerPageStyled = styled.div`
   width: 40%;
   display: block;
   margin: auto;
@@ -20,13 +20,11 @@ const SignInStyled = styled.div`
   .btnhome {
     text-decoration: underline;
   }
+
   .btnhome:hover {
     color: darkblue;
   }
-
-  
-
 `;
 
 // == Export
-export default SignInStyled;
+export default AnswerPageStyled;

@@ -1,11 +1,15 @@
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
+// import du frameworks
 import { Button, Icon } from 'semantic-ui-react';
+
 // == Import : local
+// import du composant styled du counter
 import CounterStyled from './CounterStyled';
 
 // == Composant
+// ici on a la fonction qui renvoi le formulaire de structure de counter
 const Counter = ({ increment, decrement, score }) => (
   <CounterStyled>
     <Button animated="vertical" className="button" onClick={increment}>

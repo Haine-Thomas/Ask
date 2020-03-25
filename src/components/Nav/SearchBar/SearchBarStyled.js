@@ -1,5 +1,8 @@
+// == Import locaux
 import styled from 'styled-components';
 
+// == Composant
+// ici on a la fonction qui décrit le style du composant SearchBarPage
 const SearchBarStyled = styled.div`
   width: 40vw;
 
@@ -14,4 +17,5 @@ const SearchBarStyled = styled.div`
 
 `;
 
+// == Export
 export default SearchBarStyled;

@@ -1,12 +1,19 @@
+// == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
+// import du frameworks
 import { Button, Input, Select } from 'semantic-ui-react';
 
 // Import des datas en dur Question avec les tags et l'auteur associé
 
+// == Import : local
+// import du composant styled du questionpage
 import QuestionsPageStyled from './QuestionsPageStyled.js';
+
 import Question from './Question';
 
+// == Composant
+// ici on a la fonction qui renvoi le formulaire de structure de questionpage
 const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fetchPostQuestion }) => (
     <QuestionsPageStyled>
       {isLogged && (
@@ -57,4 +64,5 @@ QuestionsPage.propTypes = {
   fetchPostQuestion: PropTypes.func.isRequired,
 };
 
+// == Export
 export default QuestionsPage;

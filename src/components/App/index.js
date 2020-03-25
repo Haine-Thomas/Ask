@@ -11,20 +11,29 @@ import QuestionsPage from 'src/containers/QuestionsPage';
 import Footer from 'src/components/Footer';
 import SignIn from 'src/containers/SignIn';
 import AnswersPage from 'src/components/AnswersPage';
+import ProfilPage from 'src/components/ProfilPage';
 
 import theme from 'src/assets/styles/theme';
+
+// import de la feuille de style associée
 import AppStyled from './AppStyled';
 
 
 // == Composant
+// ici on a la fonction qui renvoi le formulaire de structure de l application
 const App = ({ fetchQuestions, fetchTags }) => {
   useEffect(fetchQuestions, []);
   useEffect(fetchTags, []);
 
   return (
     <AppStyled theme={theme}>
+
       <Header />
       <Switch>
+        <Route key="4" path="/Profil">
+          <Nav />
+          <ProfilPage />
+        </Route>
         <Route key="3" path="/Answer">
           <Nav />
           <AnswersPage />
@@ -46,5 +55,6 @@ App.propTypes = {
   fetchQuestions: PropTypes.func.isRequired,
   fetchTags: PropTypes.func.isRequired,
 };
+
 // == Export
 export default App;

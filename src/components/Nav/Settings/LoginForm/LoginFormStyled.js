@@ -1,5 +1,8 @@
+// == Import locaux
 import styled from 'styled-components';
 
+// == Composant
+// ici on a la fonction qui décrit le style du composant LoginFormPage
 const LoginFormStyled = styled.div`
   right: 1rem;
   padding: .5rem;
@@ -11,4 +14,5 @@ const LoginFormStyled = styled.div`
 
 `;
 
+// == Export
 export default LoginFormStyled;

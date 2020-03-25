@@ -1,21 +1,34 @@
+// == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'semantic-ui-react';
+import { Button, Menu } from 'semantic-ui-react';
 
+// on import la route de navigation
 import { NavLink } from 'react-router-dom';
 
+// == Import npm locaux
 import LoginForm from 'src/containers/Nav/Settings/LoginForm';
-
+// import du composant styled du footer
 import SettingsStyled from './SettingsStyled';
 
+<<<<<<< HEAD
 
 const Settings = ({ open, isLogged, toggleForm, disconnectAction, user}) => (
+=======
+// == Composant
+// ici on a la fonction qui renvoi le formulaire de structure de settings
+const Settings = ({ open, isLogged, toggleForm, disconnectAction }) => (
+>>>>>>> ProfilPage
   <SettingsStyled>
     <div>
       {isLogged && (
         <div>
+<<<<<<< HEAD
           <p className="loginMessage">Bienvenue {user}</p>
           <Button onClick={disconnectAction} type="button" className="btn">Déconnexion</Button>
+=======
+          <NavLink onClick={disconnectAction} to="/" type="button" className="btn">Déconnexion</NavLink>
+>>>>>>> ProfilPage
           <NavLink
             activeClassName="btn"
             className="btn"
@@ -64,4 +77,5 @@ Settings.propTypes = {
   disconnectAction: PropTypes.func.isRequired,
 };
 
+// == Export
 export default Settings;
