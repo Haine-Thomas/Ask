@@ -190,3 +190,48 @@
 - modification de index.js dans src/containers/App
 - modification de ajaxQuestionMiddleware.js dans src/middleware
 - modification de loginMiddleWare.js dans src/middleware
+
+### 25/03/2020
+
+#### reset question state after posted question
+
+- modification de index.js dans src/components/QuestionsPage
+- modification de question.js dans src/reducer
+
+#### sorted by new or best
+
+- modification de questionController.js dans src/controllers
+- modification de router.js dans app
+- modification de question.js dans src/actions
+- modification de index.js dans src/components/Nav/SortButtons
+- modification de index.js dans src/components/Nav
+- modification de index.js dans src/components/QuestionsPage
+- modification de index.js dans src/containers/Nav/SortButtons
+- modification de ajaxQuestionMiddleware.js dans src/middleware
+- modification de question.js dans src/reducers
+
+#### add welcoming message when logged and add error on tags to post quetsion
+
+- modification de answerController.js dans src/controllers
+- modification de tagController.js dans app/controllers
+- modification de questionController.js dans src/controllers
+- modification de question.js dans src/actions
+- modification de userController.js dans app/controllers
+- modification de router.js dans app
+- modification de server.js
+- modification de SettingsStyled.js dans src/components/Nav/Settings
+- modification de index.js dans src/components/Nav/Settings
+- modification de index.js dans src/containers/Nav/Settings
+- modification de ajaxQuestionMiddleware.js dans src/middleware
+- modification de logMiddleware.js dans src/middleware
+
+#### merge branch sortquestion into fullstackapp
+
+#### merge branch ProfilPage into fullstackapp
+(voir readme profilpage)
+
+#### debug frontpage sortbutton
+
+- modification de questionController.js dans app/controllers
+- modification de router.js dans app
+- modification de ajaxQuestionMiddleware.js dans src/middleware
