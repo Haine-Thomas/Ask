@@ -32,7 +32,7 @@ const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fet
               compact="true"
               name="tagId"
             >
-              <option value="">Catégories</option>
+              <option value="default">Catégories</option>
               {tags.map((tag) => (
                 <option key={tag.id} value={tag.id}>{tag.name}</option>
               ))}

@@ -1,8 +1,8 @@
-import { SAVE_QUESTIONS, CHANGE_INPUT_VALUE } from 'src/actions/questions';
+import { SAVE_QUESTIONS, CHANGE_INPUT_VALUE, FETCH_QUESTIONS } from 'src/actions/questions';
 
 export const initialState = {
   list: [],
-  tagId: '',
+  tagId: 'default',
   content: '',
 
 };
@@ -19,6 +19,12 @@ const questions = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
 
+      };
+    case FETCH_QUESTIONS:
+      return {
+        ...state,
+        tagId: 'default',
+        content: '',
       };
     default:
       return state;
