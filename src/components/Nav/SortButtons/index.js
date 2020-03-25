@@ -11,7 +11,7 @@ const SortButtons = ({ changeSorted, sorted, fetchQuestions }) => (
   <SortButtonsStyled>
     <button
       type="button"
-      className="btn"
+      className={sorted === 'created_at' ? 'active-btn' : ''}
       onClick={() => {
         changeSorted('created_at');
         fetchQuestions();
@@ -21,7 +21,7 @@ const SortButtons = ({ changeSorted, sorted, fetchQuestions }) => (
     </button>
     <button
       type="button"
-      className="btn"
+      className={sorted === 'score' ? 'active-btn' : ''}
       onClick={() => {
         changeSorted('score');
         fetchQuestions();

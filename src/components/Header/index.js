@@ -11,15 +11,14 @@ import HeaderStyled from './HeaderStyled';
 // ici on a la fonction qui renvoi le formulaire de structure de header
 const Header = () => (
   <HeaderStyled>
+    <span>Une question ? Just </span>
     <NavLink
-      activeClassName="selected"
       to="/"
       exact
       className="title"
     >
-      Ask !
+      <h1>ASK !</h1>
     </NavLink>
-    <h3 className="title2">Une question ? Just Ask !</h3>
   </HeaderStyled>
 );
 

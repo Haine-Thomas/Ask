@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 // import du frameworks
 import { Button, Input } from 'semantic-ui-react';
 
+import SortButtons from 'src/containers/Nav/SortButtons';
+
 // Import des datas en dur Question avec les tags et l'auteur associé
 
 // == Import : local
@@ -49,6 +51,7 @@ const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fet
           </Input>
         </form>
       )}
+      <SortButtons />
       {questions.map((question) => (
         <Question key={question.id} {...question} />
       ))}

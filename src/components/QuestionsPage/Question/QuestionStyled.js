@@ -5,10 +5,8 @@ import styled from 'styled-components';
 // ici on a la fonction qui décrit le style du composant question
 const QuestionStyled = styled.div`
   display: flex;
-  width: 70%;
-  height: auto;
-  border: 1px solid black;
-  margin: 0.5rem;
+  margin: .5rem 1rem;
+  width: 99%;
   box-shadow: 10px 5px 5px black;
   border-radius: 3px;
   background-color: #629bd9;

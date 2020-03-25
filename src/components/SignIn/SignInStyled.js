@@ -24,8 +24,6 @@ const SignInStyled = styled.div`
     color: darkblue;
   }
 
-  
-
 `;
 
 // == Export

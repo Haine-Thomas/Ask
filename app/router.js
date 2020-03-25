@@ -16,7 +16,7 @@ router.use(express.urlencoded({
 }));
 
 // Front page route
-router.get('/:sorted', questionController.getQuestions);
+router.get('/question/:sorted', questionController.getQuestions);
 
 // question route
 // création question

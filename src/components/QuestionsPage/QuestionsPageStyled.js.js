@@ -7,8 +7,8 @@ const QuestionsPageStyled = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height:69%;
+  width: 1080px;
+  margin: 0 auto;
 
   .new_question_form {
     padding: 1rem;

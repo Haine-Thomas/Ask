@@ -4,19 +4,29 @@ import styled from 'styled-components';
 // == Composant
 // ici on a la fonction qui décrit le style du composant ProfilPage
 const ProfilPageStyled = styled.div`
-  text-align: center;
-  margin: 5rem;
+  margin: 2rem;
   padding: 1rem;
+  height: 80%;
+  color: #1B4965;
 
-  .title_profil {
-    font-size: 2rem;
+  .profil {
+    height: 30%;
+    line-height: 2.5;
+    font-size: 1rem;
     padding: 1rem;
   }
-  .profil {
-    border: 1px solid white;
+
+  .title {
+    font-size: 2rem;
+    padding: 1rem;
+
   }
 
-  .question_block {
+  .profil_name {
+    color: black;
+  }
+
+  .profil_question_block {
     display: flex;
     width: 70%;
     height: auto;
@@ -26,54 +36,7 @@ const ProfilPageStyled = styled.div`
     border-radius: 3px;
     background-color: #629bd9;
   }
-
-  .question {
-    font-size: 1.1rem;
-    padding: 1rem 0.2rem;
-  }
-
-  .text:hover .question {
-    color: black;
-  }
-
-  .text:hover .tag {
-    color: white;
-  }
   
-
-  .btn {
-    height: 100%; 
-  }
-  /*pour que l'on voit que la question est cliquable sur toute la longueur de la céllule*/
-  .text:hover .question{
-    color: black;
-  }
-  /*pour que la question reste cliquable sur la céllule mais que seul la couleur du texte change au passage de la souris*/
-  .text:hover .tag {
-    color: white;
-  }
-
-  .text {
-    margin: 0 0 0 .7rem;
-    text-align: left;
-    width:100%;
-  }
-
-  .author {
-    color: black;
-    font-size: .8rem;
-    padding: .2rem;
-  }
-
-  .tag {
-    background-color:darkblue;
-    padding: 0.5rem;
-    border-radius: 3px;
-    display:inline-block;
-    font-size: 0.7rem;
-
-  }
-
 `;
 
 // == Export
