@@ -5,9 +5,9 @@ import styled from 'styled-components';
 // ici on a la fonction qui décrit le style du composant question
 const QuestionStyled = styled.div`
   display: flex;
-  margin: .5rem 1rem;
+  margin: .5rem 0rem;
   width: 99%;
-  box-shadow: 10px 5px 5px black;
+  box-shadow: 2px 2px 5px 0px rgba(27,73,101,1);
   border-radius: 3px;
   background-color: #629bd9;
 
@@ -15,27 +15,6 @@ const QuestionStyled = styled.div`
   .question {
     font-size: 1.1rem;
     padding: 1rem 0.2rem;
-  }
-
-  .text:hover .question {
-    color: black;
-  }
-
-  .text:hover .tag {
-    color: white;
-  }
-  
-
-  .btn {
-    height: 100%; 
-  }
-  /*pour que l'on voit que la question est cliquable sur toute la longueur de la céllule*/
-  .text:hover .question{
-    color: black;
-  }
-  /*pour que la question reste cliquable sur la céllule mais que seul la couleur du texte change au passage de la souris*/
-  .text:hover .tag {
-    color: white;
   }
 
   .text {

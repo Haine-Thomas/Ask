@@ -16,7 +16,7 @@ const SearchBarStyled = styled.div`
   }
 
   @media (max-width: 700px) {
-    width: 90%;
+    width: 100%;
     margin-bottom: 10px;
   }
 

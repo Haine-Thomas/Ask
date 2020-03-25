@@ -23,7 +23,6 @@ const Question = ({
   <QuestionStyled>
     <Counter score={score} />
     <NavLink
-      activeClassName="selected"
       exact
       to="/Answer"
       className="text"

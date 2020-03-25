@@ -6,17 +6,24 @@ import styled from 'styled-components';
 const SortButtonsStyled = styled.div`
   font-size: 1rem;
   width: 99%;
-  margin: 2rem 0 .2rem;
+  margin-top: 2rem;
 
   button {
     border: 0;
-    padding-bottom: 1rem;
+    padding: 1rem 0;
     box-sizing: border-box;
     background-color: white;
     width: 50%;
+    font-family: 'Exo', serif;
+    color: #1B4965;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-size: 1.5rem;
+    font-weight: bold;
 
     &.active-btn {
       border-bottom: 2px solid #1B4965;
+      background-color: #CAE9FF;
     }
   }
 `;

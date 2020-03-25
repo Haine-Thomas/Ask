@@ -25,6 +25,10 @@ const NavStyled = styled.div`
     border-radius: 3px;
     color: #1B4965;
 
+    &:hover {
+      border: 1px solid #1B4965;
+    }
+
     a {
       width: 100%;
       height: 100%;
@@ -35,9 +39,12 @@ const NavStyled = styled.div`
     
     .nav-container {
       flex-direction: column;
+      width: 100%;
 
       .btn-nav {
-        width: 90%;
+        width: 100%;
+        margin-top .5rem;
+
       }
     }
   }

@@ -10,6 +10,7 @@ const HeaderStyled = styled.header`
   padding: 3rem 0;
   color: #fff;
   background-color: #1B4965;
+  width: 100%;
 
   span {
     font-size: 2rem;

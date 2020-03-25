@@ -6,6 +6,12 @@ import styled from 'styled-components';
 const SettingsStyled = styled.div`
 width: 40%;
 text-align: right;
+
+@media (max-width: 700px) {
+    
+  width: 100%;
+  text-align: center;
+}
 `;
 
 // == Export
