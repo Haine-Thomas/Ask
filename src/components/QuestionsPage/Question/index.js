@@ -21,16 +21,22 @@ const Question = ({
   created_at: createdAt,
 }) => (
   <QuestionStyled>
-    <Counter score={score} />
-    <NavLink
-      exact
-      to="/Answer"
-      className="text"
-    >
-      <p className="tag">{tag.name}</p>
-      <h1 className="question">{content}</h1>
+    <div className="question-container">
+      <Counter score={score} />
+      <NavLink
+        exact
+        to="/Answer"
+        className="text"
+      >
+        <div className="tag-container">
+          <p className="tag">{tag.name}</p>
+        </div>
+        <p className="question">{content}</p>
+      </NavLink>
+    </div>
+    <div className="author-container">
       <p className="author">posté par {author.name}, le {createdAt}</p>
-    </NavLink>
+    </div>
   </QuestionStyled>
 );
 
