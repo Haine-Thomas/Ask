@@ -14,7 +14,6 @@ import ProfilPageStyled from './ProfilPageStyled';
 const ProfilPage = () => (
   <ProfilPageStyled>
     <h1 className="title">Profil</h1>
-    <Image src="'/images/wireframe/square-image.png'" circular />
     <div>
       <p classsname="subtitle">Pseudo: Damien</p>
       <p classsname="subtitle">Date de naissance:</p>

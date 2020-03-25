@@ -11,24 +11,15 @@ import LoginForm from 'src/containers/Nav/Settings/LoginForm';
 // import du composant styled du footer
 import SettingsStyled from './SettingsStyled';
 
-<<<<<<< HEAD
-
-const Settings = ({ open, isLogged, toggleForm, disconnectAction, user}) => (
-=======
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de settings
-const Settings = ({ open, isLogged, toggleForm, disconnectAction }) => (
->>>>>>> ProfilPage
+const Settings = ({ open, isLogged, toggleForm, disconnectAction, user}) => (
   <SettingsStyled>
     <div>
       {isLogged && (
         <div>
-<<<<<<< HEAD
           <p className="loginMessage">Bienvenue {user}</p>
           <Button onClick={disconnectAction} type="button" className="btn">Déconnexion</Button>
-=======
-          <NavLink onClick={disconnectAction} to="/" type="button" className="btn">Déconnexion</NavLink>
->>>>>>> ProfilPage
           <NavLink
             activeClassName="btn"
             className="btn"
