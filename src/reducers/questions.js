@@ -1,10 +1,15 @@
-import { SAVE_QUESTIONS, CHANGE_INPUT_VALUE, FETCH_QUESTIONS } from 'src/actions/questions';
+import {
+  SAVE_QUESTIONS,
+  CHANGE_INPUT_VALUE,
+  FETCH_QUESTIONS,
+  CHANGE_SORTED,
+} from 'src/actions/questions';
 
 export const initialState = {
   list: [],
   tagId: 'default',
   content: '',
-
+  sorted: 'created_at',
 };
 
 const questions = (state = initialState, action = {}) => {
@@ -25,6 +30,11 @@ const questions = (state = initialState, action = {}) => {
         ...state,
         tagId: 'default',
         content: '',
+      };
+    case CHANGE_SORTED:
+      return {
+        ...state,
+        sorted: action.sorted,
       };
     default:
       return state;

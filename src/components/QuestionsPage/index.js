@@ -10,13 +10,14 @@ import Question from './Question';
 const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fetchPostQuestion }) => (
     <QuestionsPageStyled>
       {isLogged && (
-        <form 
+        <form
           onSubmit={(event) => {
             event.preventDefault();
             fetchPostQuestion();
           }}
           className="new_question_form"
-          type="submit">
+          type="submit"
+        >
           <Input type="text" placeholder="Ajouter votre question..." action>
             <input
               name="content"

@@ -2,11 +2,12 @@
 const Question = require('../models/question');
 
 const questionController = {
-  getQuestions: async (request,response) => {
+  getQuestions: async (request, response) => {
+    const sorted = request.params.sorted;
     try {
       const questions = await Question.findAll({
-        include: ['author', 'answers', 'tag'],
-        order: [['created_at', 'DESC']],
+        include: ['author','answers','tag',],
+        order:[[`${sorted}`, 'DESC']]
 
       });
       response.json({ questions });

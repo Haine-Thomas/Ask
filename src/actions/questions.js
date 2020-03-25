@@ -2,6 +2,7 @@ export const FETCH_QUESTIONS = 'FETCH_QUESTIONS';
 export const SAVE_QUESTIONS = 'SAVE_QUESTIONS';
 export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 export const FETCH_POST_QUESTION = 'FETCH_POST_QUESTION';
+export const CHANGE_SORTED = 'CHANGE_SORTED';
 
 export const fetchQuestions = () => ({
   type: FETCH_QUESTIONS,
@@ -20,4 +21,9 @@ export const changeInputValue = (value, name) => ({
 
 export const fetchPostQuestion = () => ({
   type: FETCH_POST_QUESTION,
+});
+
+export const changeSorted = (sorted) => ({
+  type: CHANGE_SORTED,
+  sorted,
 });
