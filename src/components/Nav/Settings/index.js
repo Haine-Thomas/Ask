@@ -1,7 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Menu } from 'semantic-ui-react';
+import { Button, Menu, Icon } from 'semantic-ui-react';
 
 // on import la route de navigation
 import { NavLink } from 'react-router-dom';
@@ -25,7 +25,7 @@ const Settings = ({ open, isLogged, toggleForm, disconnectAction }) => (
             exact
             to="/Profil"
           >
-            Profil
+            <Icon name="user" />
           </NavLink>
         </div>
       )}
