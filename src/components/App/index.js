@@ -11,7 +11,7 @@ import QuestionsPage from 'src/containers/QuestionsPage';
 import Footer from 'src/components/Footer';
 import SignIn from 'src/containers/SignIn';
 import AnswersPage from 'src/components/AnswersPage';
-import ProfilPage from 'src/components/ProfilPage';
+import ProfilPage from 'src/containers/ProfilPage';
 
 import theme from 'src/assets/styles/theme';
 

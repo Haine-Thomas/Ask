@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import du frameworks
-import { Button, Input, Select } from 'semantic-ui-react';
+import { Button, Input } from 'semantic-ui-react';
 
 // Import des datas en dur Question avec les tags et l'auteur associé
 
