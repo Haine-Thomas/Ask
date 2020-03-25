@@ -4,8 +4,9 @@ import { FETCH_QUESTIONS, saveQuestions, fetchQuestions, FETCH_POST_QUESTION } f
 
 const ajaxQuestionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case FETCH_QUESTIONS:
-      axios.get('http://localhost:3000')
+    case FETCH_QUESTIONS: {
+      const state = store.getState();
+      axios.get(`http://localhost:3000/${state.questions.sorted}`)
         .then((response) => {
           store.dispatch(saveQuestions(response.data.questions));
         })
@@ -14,9 +15,9 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
         });
       next(action);
       break;
+    }
     case FETCH_POST_QUESTION: {
       const state = store.getState();
-      console.log(state);
       axios.post('http://localhost:3000/question', {
         content: state.questions.content,
         tagId: state.questions.tagId,

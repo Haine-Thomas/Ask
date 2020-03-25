@@ -1,25 +1,37 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import SortButtonsStyled from './SortButtonsStyled';
 
-const SortButtons = () => (
+const SortButtons = ({ changeSorted, sorted, fetchQuestions }) => (
   <SortButtonsStyled>
-    <NavLink
-      activeClassName="selected"
-      to=""
-      exact
+    <button
+      type="button"
+      className="btn"
+      onClick={() => {
+        changeSorted('created_at');
+        fetchQuestions();
+      }}
     >
-      <button type="button" className="btn">New</button>
-    </NavLink>
-    <NavLink
-      activeClassName="selected"
-      to=""
-      exact
+      New
+    </button>
+    <button
+      type="button"
+      className="btn"
+      onClick={() => {
+        changeSorted('score');
+        fetchQuestions();
+      }}
     >
-      <button type="button" className="btn">Best</button>
-    </NavLink>
+      Best
+    </button>
   </SortButtonsStyled>
 );
+
+SortButtons.propTypes = {
+  sorted: PropTypes.string.isRequired,
+  changeSorted: PropTypes.func.isRequired,
+  fetchQuestions: PropTypes.func.isRequired,
+};
 
 export default SortButtons;
