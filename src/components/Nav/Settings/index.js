@@ -9,11 +9,12 @@ import LoginForm from 'src/containers/Nav/Settings/LoginForm';
 import SettingsStyled from './SettingsStyled';
 
 
-const Settings = ({ open, isLogged, toggleForm, disconnectAction }) => (
+const Settings = ({ open, isLogged, toggleForm, disconnectAction, user}) => (
   <SettingsStyled>
     <div>
       {isLogged && (
         <div>
+          <p className="loginMessage">Bienvenue {user}</p>
           <Button onClick={disconnectAction} type="button" className="btn">Déconnexion</Button>
           <NavLink
             activeClassName="btn"
@@ -58,6 +59,7 @@ const Settings = ({ open, isLogged, toggleForm, disconnectAction }) => (
 Settings.propTypes = {
   open: PropTypes.bool.isRequired,
   isLogged: PropTypes.bool.isRequired,
+  user: PropTypes.string.isRequired,
   toggleForm: PropTypes.func.isRequired,
   disconnectAction: PropTypes.func.isRequired,
 };

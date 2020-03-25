@@ -54,7 +54,7 @@ const userController = {
   // une méthode pour se déconnecter
   disconnect: (request, response) => {
     delete request.session.user;
-    return response.json('Disconnected');
+    return response.json({ message: 'Déconnecté' });
   },
 
   myProfilPage:(request, response) => {
@@ -118,7 +118,7 @@ const userController = {
       const userId = request.params.id;
       let user = await User.findByPk(userId);
       await user.destroy();
-      response.json({ message: "Le compte a bien été supprimé"});
+      response.json({ message: 'Le compte a bien été supprimé'});
     } catch (error) {
       response.status(500).send(error);
     }
@@ -133,7 +133,7 @@ const userController = {
       } else {
         const { password } = request.body;
         if (password) {
-          passwordEncrypted = bcrypt.hashSync(request.body.password, 10);
+          const passwordEncrypted = bcrypt.hashSync(request.body.password, 10);
           user.password = passwordEncrypted;
         }
         await user.save();

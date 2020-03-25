@@ -5,11 +5,8 @@ const SettingsStyled = styled.div`
   color: black;
   position: relative;
 
-
   .btn {
     padding: 0 1rem;
-    
-
   }
 
   @media (max-width: 400px) {

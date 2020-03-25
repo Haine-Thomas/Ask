@@ -30,7 +30,8 @@ const logMiddleware = (store) => (next) => (action) => {
         withCredentials: true,
       })
         .then((response) => {
-          console.log(response.data);
+          swan(response.data.message, '', 'success', {
+          });
         })
         .catch((error) => {
           console.log(error);

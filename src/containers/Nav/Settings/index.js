@@ -11,6 +11,7 @@ import { disconnectAction } from 'src/actions/login';
 
 const mapStateToProps = (state) => ({
   open: state.login.open,
+  user: state.login.user.pseudo,
   isLogged: state.login.isLogged,
 });
 

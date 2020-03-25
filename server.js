@@ -29,12 +29,6 @@ app.use((request, response, next) => {
   next();
 });
 
-
-// Middleware pour verifier si une session utilisateur est active
-const userMiddleware = require('./app/middlewares/user');
-
-//app.use(userMiddleware);
-
 // Le routage
 app.use(router);
 
