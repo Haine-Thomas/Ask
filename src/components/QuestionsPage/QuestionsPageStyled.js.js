@@ -56,6 +56,10 @@ const QuestionsPageStyled = styled.main`
     }
   }
 
+  @media (min-width: 700px) and (max-width: 1080px) {
+    width: 100%;
+  }
+
   @media (max-width: 700px) {
     width: 100%;
   }

@@ -37,6 +37,8 @@ const QuestionStyled = styled.div`
     width: 100%;
     text-align: right;
     background-color: #1B4965;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
 
     .author {
       color: white;

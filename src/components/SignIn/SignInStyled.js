@@ -7,21 +7,36 @@ const SignInStyled = styled.div`
   width: 40%;
   display: block;
   margin: auto;
+  color: #1B4965;
 
-  .title {
+  h1 {
     text-align: center;
     margin: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
   }
 
-  .btn {
-    width:100%;
-  }
-
-  .btnhome {
-    text-decoration: underline;
+  .gohome {
+    margin: 4rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
   .btnhome:hover {
-    color: darkblue;
+    color: #5FA8D3;
+  }
+
+  .label {
+    margin: 1rem 0;
+  }
+
+  .input {
+    margin-top: 1rem;
+  }
+
+  .button {
+    width: 100%;
+    background-color: #1B4965; 
   }
 
 `;
