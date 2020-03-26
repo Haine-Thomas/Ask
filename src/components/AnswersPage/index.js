@@ -8,12 +8,14 @@ import { NavLink } from 'react-router-dom';
 
 // == Import locaux
 // import de la feuille de style associée
-import AnswerPageStyled from './AnswerPageStyled';
+import AnswersPageStyled from './AnswersPageStyled';
+
+import Answer from './Answer';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de la page réponse
 const AnswersPage = () => (
-  <AnswerPageStyled>
+  <AnswersPageStyled>
     <NavLink
       activeClassName="selected"
       exact
@@ -22,9 +24,9 @@ const AnswersPage = () => (
     >
       Retour à l'Accueil
     </NavLink>
-    <h1 className="title">question avec compteur, nom de l auteur, date du poste et catégorie</h1>
-    <h1 className="title">réponse avec compteur, nom de l auteur et date du poste</h1>
-  </AnswerPageStyled>
+    <h1>question</h1>
+    <Answer />
+  </AnswersPageStyled>
 );
 
 // == Export
