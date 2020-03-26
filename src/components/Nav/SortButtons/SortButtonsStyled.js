@@ -7,7 +7,7 @@ const SortButtonsStyled = styled.div`
   font-size: 1rem;
   width: 99%;
   margin-top: 2rem;
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
 
   button {
     border: 0;

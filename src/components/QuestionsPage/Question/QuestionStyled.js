@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const QuestionStyled = styled.div`
   margin: 0rem 0rem 1rem;
   width: 99%;
-  box-shadow: 2px 2px 4px 0px black;
+  box-shadow: 1px 1px 4px 0px black;
   border: 1px solid #1B4965;
   background-color: #fff;
 
