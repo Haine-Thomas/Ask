@@ -17,9 +17,9 @@ const QuestionStyled = styled.div`
 
 
   .question {
-    padding: 1.2rem 0rem .8rem;
+    padding: 0.6rem 0rem .8rem;
     color: black;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .text {

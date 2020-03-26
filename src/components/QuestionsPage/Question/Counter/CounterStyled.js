@@ -7,24 +7,23 @@ const Counterstyled = styled.div`
   text-align: center;
   color: #1B4965;
   border-right: 1px solid #1B4965;
-
+  padding-top:30px;
   .icon-top {
     &:hover {
       transform: translateY(-5px);
       color: #CAE9FF;
-      padding-top: -10px;
     }
   }
 
   .value-score {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    padding-right:3px;
   }
 
   .icon-bottom {
     &:hover {
       transform: translateY(5px);
       color: #CAE9FF;
-      padding-bottom: -10px;
     }
   }
 `;

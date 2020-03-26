@@ -13,16 +13,17 @@ const SortButtonsStyled = styled.div`
     border: 0;
     padding: 1rem 0;
     box-sizing: border-box;
-    background-color: white;
+    background-color: #D8D8D8;
+    border:1px solid #C8C8C8;
     width: 50%;
     font-family: 'Exo', serif;
     color: #1B4965;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
 
     &.active-btn {
       border-bottom: 2px solid #1B4965;
-      background-color: #E2DDD7;
+      background-color: white;
     }
   }
 `;
