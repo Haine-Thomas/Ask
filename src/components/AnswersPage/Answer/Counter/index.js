@@ -6,20 +6,20 @@ import { Button, Icon } from 'semantic-ui-react';
 
 // == Import : local
 // import du composant styled du counter
-import AnswerCounterStyled from './AnswerCounterStyled';
+import CounterStyled from './CounterStyled';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de counter
-const AnswerCounter = ({ increment, decrement, score }) => (
-  <AnswerCounterStyled>
+const Counter = ({ increment, decrement, score }) => (
+  <CounterStyled>
     <Icon className="icon-top" name="angle up" size="huge" />
     <div className="value-score">{score}</div>
     <Icon className="icon-bottom" name="angle down" size="huge" />
-  </AnswerCounterStyled>
+  </CounterStyled>
 );
 
 
-AnswerCounter.propTypes = {
+Counter.propTypes = {
   // count: PropTypes.number.isRequired,
   increment: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired,
@@ -27,4 +27,4 @@ AnswerCounter.propTypes = {
 };
 
 // == Export
-export default AnswerCounter;
+export default Counter;

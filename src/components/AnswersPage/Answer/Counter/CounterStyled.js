@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // == Composant
 // ici on a la fonction qui décrit le style du composant counter
-const AnswerCounterstyled = styled.div`
+const Counterstyled = styled.div`
   text-align: center;
   color: #1B4965;
   .icon-top {
@@ -27,4 +27,4 @@ const AnswerCounterstyled = styled.div`
 `;
 
 // == Export
-export default AnswerCounterstyled;
+export default Counterstyled;
