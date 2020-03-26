@@ -25,14 +25,15 @@ const SignIn = ({
   changeCheckbox,
 }) => (
   <SignInStyled>
-    <NavLink
-      activeClassName="selected"
-      exact
-      to="/"
-      className="btnhome"
-    >
-      Retour à l'Accueil
-    </NavLink>
+    <div className="gohome">
+      <NavLink
+        exact
+        to="/"
+        className="btnhome"
+      >
+        Retour à l'Accueil
+      </NavLink>
+    </div>
     <h1 className="title">INSCRIPTION</h1>
     <Form onSubmit={(event) => {
       event.preventDefault();

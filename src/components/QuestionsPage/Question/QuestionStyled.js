@@ -4,63 +4,72 @@ import styled from 'styled-components';
 // == Composant
 // ici on a la fonction qui décrit le style du composant question
 const QuestionStyled = styled.div`
-  display: flex;
-  width: 70%;
-  height: auto;
-  border: 1px solid black;
-  margin: 0.5rem;
-  box-shadow: 10px 5px 5px black;
+  margin: 0rem 0rem 1rem;
+  width: 99%;
+  background-color: #fff;
+  color: black;
   border-radius: 3px;
-  background-color: #629bd9;
+
+
+  .question-container {
+    display: flex;
+    padding-left: 0.5px;
+  }
 
 
   .question {
-    font-size: 1.1rem;
-    padding: 1rem 0.2rem;
-  }
-
-  .text:hover .question {
+    padding: 0.6rem 0rem .8rem;
     color: black;
-  }
-
-  .text:hover .tag {
-    color: white;
-  }
-  
-
-  .btn {
-    height: 100%; 
-  }
-  /*pour que l'on voit que la question est cliquable sur toute la longueur de la céllule*/
-  .text:hover .question{
-    color: black;
-  }
-  /*pour que la question reste cliquable sur la céllule mais que seul la couleur du texte change au passage de la souris*/
-  .text:hover .tag {
-    color: white;
+    font-size: 1.2rem;
   }
 
   .text {
     margin: 0 0 0 .7rem;
     text-align: left;
     width:100%;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  .answer-container {
+    width: 100%;
+    text-align: right;
+
+    .answer-number {
+      font-size: 0.8rem;
+      padding: .5rem;
+    }
+  }
+
+  .tag-container {
+
+    width: 100%;
+    text-align: right;
+
+    .tag {
+      background-color: #1B4965;
+      border-top-right-radius: 3px;
+      font-weight: bold;
+      padding: 0.8rem;
+      display:inline-block;
+      font-size: 1rem;
+      color: #fff;
+    }
+  }
+
+  .separator {
+    width: 150px;
+    border-top: 1px solid #5FA8D3;
+    padding: 0rem 0rem;
   }
 
   .author {
     color: black;
     font-size: .8rem;
-    padding: .2rem;
-  }
-
-  .tag {
-    background-color:darkblue;
-    padding: 0.5rem;
-    border-radius: 3px;
-    display:inline-block;
-    font-size: 0.7rem;
-
-  }
-
+    padding: .5rem 0rem;
+    }
 `;
 
 // == Export

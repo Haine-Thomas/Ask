@@ -2,7 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import du frameworks
-import { Button, Input } from 'semantic-ui-react';
+import { Button, Input, Select } from 'semantic-ui-react';
+
+import SortButtons from 'src/containers/Nav/SortButtons';
 
 // Import des datas en dur Question avec les tags et l'auteur associé
 
@@ -17,17 +19,18 @@ import Question from './Question';
 const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fetchPostQuestion }) => (
     <QuestionsPageStyled>
       {isLogged && (
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            fetchPostQuestion();
-          }}
-          className="new_question_form"
-          type="submit"
-        >
-          <Input type="text" placeholder="Ajouter votre question..." action>
+        <div className="question-form-container">
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              fetchPostQuestion();
+            }}
+            className="question-form"
+          >
             <input
               name="content"
+              type="text"
+              placeholder="Ajouter votre question..."
               value={value}
               onChange={(event) => {
                 changeInputValue(event.target.value, event.target.name);
@@ -45,10 +48,11 @@ const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fet
                 <option key={tag.id} value={tag.id}>{tag.name}</option>
               ))}
             </select>
-            <Button type="submit">Valider</Button>
-          </Input>
-        </form>
+            <button type="submit">Valider</button>
+          </form>
+        </div>
       )}
+      <SortButtons />
       {questions.map((question) => (
         <Question key={question.id} {...question} />
       ))}
