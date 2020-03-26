@@ -1,5 +1,6 @@
 // == Import : npm
 import React from 'react';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
 // on import la route de navigation
@@ -34,7 +35,7 @@ const Question = ({
         </div>
         <p className="question">{content}</p>
         <div className="separator" />
-        <p className="author">posté par {author.name}, le {createdAt}</p>
+        <p className="author">posté par {author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{createdAt}</Moment> à <Moment locale="fr" format="HH:mm">{createdAt}</Moment></p>
         <div className="answer-container">
           <p className="answer-number">{answers.length} réponses</p>
         </div>
