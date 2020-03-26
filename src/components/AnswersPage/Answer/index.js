@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // == Import : local
-import AnswerCounter from 'src/containers/AnswersPage/Answer/AnswerCounter';
+
 
 // import du composant styled du réponse
 import AnswerStyled from './AnswerStyled';
@@ -14,8 +14,8 @@ const Answer = ({
   score,
 }) => (
   <AnswerStyled>
+    <h1>counter</h1>
     <div className="answer-container">
-      <AnswerCounter />
       <div className="container">
         <p className="answer">reponse</p>
         <div className="separator" />

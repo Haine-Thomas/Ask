@@ -305,7 +305,7 @@ création branche searchbox
 
 #### AnswerPage
 
-##### structure AnswerPage with Answer
+##### structure AnswerPage in progress
 
 - création de AnswersPage dans src/components
 - création de Answer dans src/components/AnswersPage

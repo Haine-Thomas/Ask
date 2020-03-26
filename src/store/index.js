@@ -7,6 +7,7 @@ import logMiddleware from 'src/middleware/logMiddleware';
 import ajaxQuestionMiddleware from 'src/middleware/ajaxQuestionMiddleware';
 import ajaxUserMiddleware from 'src/middleware/ajaxUserMiddleware';
 import ajaxMiddlewareTags from 'src/middleware/ajaxMiddlewareTags';
+import ajaxAnswerMiddleware from 'src/middleware/ajaxAnswerMiddleware';
 
 // == Enhancers
 // on fait en sorte d'avoir accès au devtool s'il est installé
@@ -19,6 +20,7 @@ const enhancers = composeEnhancers(
     ajaxQuestionMiddleware,
     ajaxUserMiddleware,
     ajaxMiddlewareTags,
+    ajaxAnswerMiddleware,
   ),
 );
 

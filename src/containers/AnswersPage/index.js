@@ -17,7 +17,7 @@ const mapStateToProps = (state) => ({
   answers: state.answers.list,
   isLogged: state.login.isLogged,
   tags: state.tags.list,
-  value: state.questions.content,
+  value: state.answers.content,
 });
 
 const mapDispatchToProps = (dispatch) => ({
