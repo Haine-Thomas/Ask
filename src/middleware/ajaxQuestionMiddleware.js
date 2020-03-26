@@ -1,5 +1,5 @@
 import axios from 'axios';
-import swan from 'sweetalert';
+import swal from 'sweetalert';
 import { FETCH_QUESTIONS, saveQuestions, fetchQuestions, FETCH_POST_QUESTION } from 'src/actions/questions';
 
 const ajaxQuestionMiddleware = (store) => (next) => (action) => {
@@ -30,10 +30,11 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           // revenir a la fenetre précédente
           if (response.data.error) {
-            swan(response.data.error, '', 'warning');
+            swal(response.data.error, '', 'warning');
           }
           else {
             store.dispatch(fetchQuestions());
+            swal('Question postée!', '', 'success');
           }
         })
         .catch((error) => {
