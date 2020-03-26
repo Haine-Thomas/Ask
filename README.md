@@ -235,3 +235,79 @@
 - modification de questionController.js dans app/controllers
 - modification de router.js dans app
 - modification de ajaxQuestionMiddleware.js dans src/middleware
+
+### 26/03/2020
+
+création branche dateformat
+création branche AnswerPage
+création branche captchainscription
+création branche searchbox
+
+#### dateformat
+
+##### responsive design and answer number on question components
+
+- modification de LoginFormStyled.js dans src/components/Nav/Settings/LoginForm
+- modification de SortButtonsStyled.js dans src/components/Nav/SortButtons
+- modification de CounterStyled.js dans src/components/QuestionsPage/Question/Counter
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+- modification de index.js dans src/components/QuestionsPage/Question
+- modification de SignInStyled.js dans src/components/SignIn
+- modification de question.js dans src/reducers
+
+##### few css
+
+- modification de SortButtonsStyled.js dans src/components/Nav/SortButtons
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+
+##### little css
+
+- modification de SortButtonsStyled.js dans src/components/Nav/SortButtons
+
+##### css
+
+- modification de SortButtonsStyled.js dans src/components/Nav/SortButtons
+- modification de CounterStyled.js dans src/components/QuestionsPage/Question/Counter
+- modification de index.js dans src/components/QuestionsPage/Question/Counter
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+
+##### ended css from nicocss branch 
+
+- modification de AppStyled.js dans src/components/App
+- modification de SortButtonsStyled.js dans src/components/Nav/SortButtons
+- modification de CounterStyled.js dans src/components/QuestionsPage/Question/Counter
+- modification de index.js dans src/components/QuestionsPage/Question/Counter
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+- modification de index.js dans src/components/QuestionsPage/Question
+
+##### merge branch nicocss sur fullstackapp
+
+##### react-moment for dates and date formated for question composant
+
+- installation de react-moment
+- modification de index.js dans src/components/QuestionsPage/Question
+
+#### searchbox
+
+##### question created alert ok
+
+- modification de ajaxQuestionMiddleware.js dans src/middleware
+
+#### captchainscription
+
+##### captcha ok
+- installation de react-recaptcha
+- modification de SignIn.js dans src/actions
+- modification de index.html dans src/assets
+- modification de index.js dans src/components/SignIn
+- modification de index.js dans src/containers/SignIn
+- modification de SignIn.js dans src/reducers
+
+#### AnswerPage
+
+##### structure AnswerPage with Answer
+
+- création de AnswersPage dans src/components
+- création de Answer dans src/components/AnswersPage
+- création de son index.js et de son AnswerStyled.js
+- création de index.js et de AnswersPageStyled.js dans src/components/AnswersPage
