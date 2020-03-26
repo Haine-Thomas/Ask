@@ -5,16 +5,16 @@ import styled from 'styled-components';
 // ici on a la fonction qui décrit le style du composant SortButtonsPage
 const SortButtonsStyled = styled.div`
   font-size: 1rem;
-  width: 99%;
+  width: 50%;
   margin-top: 2rem;
   margin-bottom: 1rem;
+  text-align: left;
 
   button {
     border: 0;
     padding: 1rem 0;
     box-sizing: border-box;
     background-color: #D8D8D8;
-    border:1px solid #C8C8C8;
     width: 50%;
     font-family: 'Exo', serif;
     color: #1B4965;

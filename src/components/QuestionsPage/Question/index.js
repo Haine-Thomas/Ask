@@ -34,11 +34,11 @@ const Question = ({
         </div>
         <p className="question">{content}</p>
         <div className="separator" />
-        <p className="answer-number">{answers.length} réponses</p>
+        <p className="author">posté par {author.name}, le {createdAt}</p>
+        <div className="answer-container">
+          <p className="answer-number">{answers.length} réponses</p>
+        </div>
       </NavLink>
-    </div>
-    <div className="author-container">
-      <p className="author">posté par {author.name}, le {createdAt}</p>
     </div>
   </QuestionStyled>
 );

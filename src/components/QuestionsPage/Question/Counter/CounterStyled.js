@@ -6,8 +6,6 @@ import styled from 'styled-components';
 const Counterstyled = styled.div`
   text-align: center;
   color: #1B4965;
-  border-right: 1px solid #1B4965;
-  padding-top:30px;
   .icon-top {
     &:hover {
       transform: translateY(-5px);

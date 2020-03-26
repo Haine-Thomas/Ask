@@ -6,9 +6,10 @@ import styled from 'styled-components';
 const QuestionStyled = styled.div`
   margin: 0rem 0rem 1rem;
   width: 99%;
-  box-shadow: 1px 1px 4px 0px black;
-  border: 1px solid #1B4965;
   background-color: #fff;
+  color: black;
+  border-radius: 3px;
+
 
   .question-container {
     display: flex;
@@ -28,17 +29,15 @@ const QuestionStyled = styled.div`
     width:100%;
 
     &:hover {
-      color: white;
+      color: black;
     }
   }
 
-  .author-container {
+  .answer-container {
     width: 100%;
     text-align: right;
-    background-color: #1B4965;
 
-    .author {
-      color: white;
+    .answer-number {
       font-size: 0.8rem;
       padding: .5rem;
     }
@@ -50,11 +49,13 @@ const QuestionStyled = styled.div`
     text-align: right;
 
     .tag {
-      background-color: #5FA8D3;
+      background-color: #1B4965;
+      border-top-right-radius: 3px;
       font-weight: bold;
       padding: 0.8rem;
       display:inline-block;
       font-size: 1rem;
+      color: #fff;
     }
   }
 
@@ -64,7 +65,7 @@ const QuestionStyled = styled.div`
     padding: 0rem 0rem;
   }
 
-  .answer-number {
+  .author {
     color: black;
     font-size: .8rem;
     padding: .5rem 0rem;

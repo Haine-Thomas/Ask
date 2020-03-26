@@ -12,9 +12,9 @@ import CounterStyled from './CounterStyled';
 // ici on a la fonction qui renvoi le formulaire de structure de counter
 const Counter = ({ increment, decrement, score }) => (
   <CounterStyled>
-    <Icon className="icon-top" name="angle up" size="large" />
+    <Icon className="icon-top" name="angle up" size="huge" />
     <div className="value-score">{score}</div>
-    <Icon className="icon-bottom" name="angle down" size="large" />
+    <Icon className="icon-bottom" name="angle down" size="huge" />
   </CounterStyled>
 );
 

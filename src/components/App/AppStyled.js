@@ -8,7 +8,7 @@ const AppStyled = styled.div`
   display: flex;
   flex-direction: column;
   font-family: 'Exo', serif;
-  background-color: #E2DDD7;
+  background-color: #E8E8E8;
 `;
 
 // == Export
