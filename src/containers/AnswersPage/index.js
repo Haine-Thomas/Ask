@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import AnswersPage from 'src/components/AnswersPage';
-import { changeInputValue, fetchPostAnswer } from 'src/actions/answers';
+import { fetchPostAnswer } from 'src/actions/answers';
 
 
 /* === State (données) lecture===
@@ -15,15 +15,9 @@ import { changeInputValue, fetchPostAnswer } from 'src/actions/answers';
  */
 const mapStateToProps = (state) => ({
   answers: state.answers.list,
-  isLogged: state.login.isLogged,
-  tags: state.tags.list,
-  value: state.answers.content,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeInputValue: (value, name) => {
-    dispatch(changeInputValue(value, name));
-  },
   fetchPostAnswer: () => {
     dispatch(fetchPostAnswer());
   },
@@ -37,4 +31,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 // Export du retour de connect = le composant enrichi de props
-export default connect(mapStateToProps, mapDispatchToProps)(AnswersPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AnswersPage); 

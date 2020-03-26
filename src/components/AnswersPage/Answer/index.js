@@ -7,14 +7,14 @@ import PropTypes from 'prop-types';
 
 // import du composant styled du réponse
 import AnswerStyled from './AnswerStyled';
-import Counter from './CounterStyled';
+import Counter from './Counter';
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de réponse
 const Answer = ({
   score,
 }) => (
   <AnswerStyled>
-    <Counter />
+    <Counter score={score} />
     <div className="answer-container">
       <div className="container">
         <p className="answer">reponse</p>

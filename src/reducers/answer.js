@@ -1,6 +1,5 @@
 import {
   SAVE_ANSWERS,
-  CHANGE_INPUT_VALUE,
   FETCH_ANSWERS,
   CHANGE_SORTED,
 } from 'src/actions/answers';
@@ -21,12 +20,6 @@ const answers = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.answers,
-      };
-    case CHANGE_INPUT_VALUE:
-      return {
-        ...state,
-        [action.name]: action.value,
-
       };
     case FETCH_ANSWERS:
       return {

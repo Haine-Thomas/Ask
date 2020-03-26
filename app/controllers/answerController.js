@@ -12,7 +12,7 @@ const answerController = {
     } catch (error) {
       response.status(500).json(error);
     }
-  },
+  }, 
 
   createAnswer: async (request,response) => {
     try {

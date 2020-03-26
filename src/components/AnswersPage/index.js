@@ -1,6 +1,6 @@
 // == Import npm
 import React from 'react';
-
+import PropTypes from 'prop-types';
 // on import la route de navigation
 import { NavLink } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ import Answer from './Answer';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de la page réponse
-const AnswersPage = () => (
+const AnswersPage = ({ answers }) => (
   <AnswersPageStyled>
     <NavLink
       activeClassName="selected"
@@ -24,10 +24,18 @@ const AnswersPage = () => (
     >
       Retour à l'Accueil
     </NavLink>
+
     <h1>question</h1>
-    <Answer />
+
+    {answers.map((answer) => (
+        <Answer key={answer.id} {...answer} />
+    ))}
   </AnswersPageStyled>
 );
+
+AnswersPage.propTypes = {
+  answers: PropTypes.array.isRequired,
+};
 
 // == Export 
 export default AnswersPage;
