@@ -18,15 +18,17 @@ const Settings = ({ open, isLogged, toggleForm, disconnectAction, user}) => (
     <div>
       {isLogged && (
         <div>
-          <p className="loginMessage">Bienvenue {user}</p>
-          <Button onClick={disconnectAction} type="button" className="btn">Déconnexion</Button>
+          <button onClick={disconnectAction} type="button" className="btn-nav">Déconnexion</button>
           <NavLink
             activeClassName="btn"
             className="btn"
             exact
             to="/Profil"
           >
-            <Icon name="user" />
+            <button className="btn-nav" type="button">
+              <Icon name="user" />
+              <span className="loginMessage"> {user}</span>
+            </button>
           </NavLink>
         </div>
       )}
@@ -34,20 +36,20 @@ const Settings = ({ open, isLogged, toggleForm, disconnectAction, user}) => (
         <div>
           {!open && (
             <>
-              <Button
+              <button
                 type="button"
-                className="btn"
+                className="btn-nav"
                 onClick={toggleForm}
               >
                 Connexion
-              </Button>
+              </button>
               <NavLink
-                activeClassName="selected"
                 to="/signIn"
                 exact
-                className="btn"
               >
-                Inscription
+                <button className="btn-nav" type="button">
+                  Inscription
+                </button>
               </NavLink>
             </>
           )}

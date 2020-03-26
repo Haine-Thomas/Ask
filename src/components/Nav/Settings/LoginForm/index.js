@@ -44,8 +44,8 @@ const LoginForm = ({ login, loginAction, changeValue, toggleForm }) => (
         </label>
       </Form.Field>
       <Button.Group>
-        <Button size="mini" basic color="green" className="btnconnect" type="submit">OK</Button>
-        <Button onClick={toggleForm} size="mini" basic color="blue">X</Button>
+        <Button size="mini" color="teal" className="btnconnect" type="submit">OK</Button>
+        <Button onClick={toggleForm} size="mini" color="orange">X</Button>
       </Button.Group>
     </Form>
   </LoginFormStyled>

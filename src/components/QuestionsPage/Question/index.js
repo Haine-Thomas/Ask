@@ -19,19 +19,27 @@ const Question = ({
   author,
   tag,
   created_at: createdAt,
+  answers,
 }) => (
   <QuestionStyled>
-    <Counter score={score} />
-    <NavLink
-      activeClassName="selected"
-      exact
-      to="/Answer"
-      className="text"
-    >
-      <p className="tag">{tag.name}</p>
-      <h1 className="question">{content}</h1>
-      <p className="author">posté par {author.name}, le {createdAt}</p>
-    </NavLink>
+    <div className="question-container">
+      <Counter score={score} />
+      <NavLink
+        exact
+        to="/Answer"
+        className="text"
+      >
+        <div className="tag-container">
+          <p className="tag">{tag.name}</p>
+        </div>
+        <p className="question">{content}</p>
+        <div className="separator" />
+        <p className="author">posté par {author.name}, le {createdAt}</p>
+        <div className="answer-container">
+          <p className="answer-number">{answers.length} réponses</p>
+        </div>
+      </NavLink>
+    </div>
   </QuestionStyled>
 );
 
@@ -41,6 +49,7 @@ Question.propTypes = {
   author: PropTypes.object.isRequired,
   tag: PropTypes.object.isRequired,
   created_at: PropTypes.string.isRequired,
+  answers: PropTypes.array.isRequired,
 };
 
 // == Export

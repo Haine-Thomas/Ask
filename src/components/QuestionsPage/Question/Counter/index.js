@@ -12,23 +12,9 @@ import CounterStyled from './CounterStyled';
 // ici on a la fonction qui renvoi le formulaire de structure de counter
 const Counter = ({ increment, decrement, score }) => (
   <CounterStyled>
-    <Button animated="vertical" className="button" onClick={increment}>
-      <Button.Content visible type="submit">
-        <Icon name="angle up" />
-      </Button.Content>
-      <Button.Content hidden type="submit">
-        <Icon name="thumbs up outline" />
-      </Button.Content>
-    </Button>
-    <div className="value">{score}</div>
-    <Button animated="vertical" className="button" onClick={decrement}>
-      <Button.Content visible type="submit">
-        <Icon name="angle down" />
-      </Button.Content>
-      <Button.Content hidden type="submit">
-        <Icon name="thumbs down outline" />
-      </Button.Content>
-    </Button>
+    <Icon className="icon-top" name="angle up" size="huge" />
+    <div className="value-score">{score}</div>
+    <Icon className="icon-bottom" name="angle down" size="huge" />
   </CounterStyled>
 );
 
