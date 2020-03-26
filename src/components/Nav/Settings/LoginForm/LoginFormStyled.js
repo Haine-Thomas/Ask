@@ -15,6 +15,12 @@ const LoginFormStyled = styled.div`
   div.input {
     margin-top: 0.5rem;
   } 
+
+  @media (max-width: 700px) {
+    
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 // == Export

@@ -39,6 +39,12 @@ const SignInStyled = styled.div`
     background-color: #1B4965; 
   }
 
+  @media (max-width: 700px) {
+    
+    width: 95%;
+    text-align: center;
+  }
+
 `;
 
 // == Export

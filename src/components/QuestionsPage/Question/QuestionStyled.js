@@ -4,23 +4,22 @@ import styled from 'styled-components';
 // == Composant
 // ici on a la fonction qui décrit le style du composant question
 const QuestionStyled = styled.div`
-  margin: .5rem 0rem;
+  margin: 0rem 0rem 1rem;
   width: 99%;
-  box-shadow: 2px 2px 5px 0px rgba(27,73,101,1);
-  border-radius: 3px;
+  box-shadow: 2px 2px 4px 0px black;
+  border: 1px solid #1B4965;
   background-color: #fff;
 
   .question-container {
     display: flex;
-    
+    padding-left: 0.5px;
   }
 
 
   .question {
-    padding: 1.2rem 0.5rem 1.2rem;
-    color: #1B4965;
+    padding: 1.2rem 0rem .8rem;
+    color: black;
     font-size: 1.5rem;
-    font-weight: bold;
   }
 
   .text {
@@ -37,8 +36,6 @@ const QuestionStyled = styled.div`
     width: 100%;
     text-align: right;
     background-color: #1B4965;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
 
     .author {
       color: white;
@@ -56,15 +53,22 @@ const QuestionStyled = styled.div`
       background-color: #5FA8D3;
       font-weight: bold;
       padding: 0.8rem;
-      border-top-right-radius: 3px;
-      border-bottom-left-radius: 3px;
       display:inline-block;
       font-size: 1rem;
     }
-
-
   }
 
+  .separator {
+    width: 150px;
+    border-top: 1px solid #5FA8D3;
+    padding: 0rem 0rem;
+  }
+
+  .answer-number {
+    color: black;
+    font-size: .8rem;
+    padding: .5rem 0rem;
+    }
 `;
 
 // == Export

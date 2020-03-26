@@ -7,6 +7,7 @@ const SortButtonsStyled = styled.div`
   font-size: 1rem;
   width: 99%;
   margin-top: 2rem;
+  margin-bottom: .5rem;
 
   button {
     border: 0;
@@ -16,8 +17,6 @@ const SortButtonsStyled = styled.div`
     width: 50%;
     font-family: 'Exo', serif;
     color: #1B4965;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
     font-size: 1.5rem;
     font-weight: bold;
 

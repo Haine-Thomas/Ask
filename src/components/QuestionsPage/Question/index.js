@@ -19,6 +19,7 @@ const Question = ({
   author,
   tag,
   created_at: createdAt,
+  answers,
 }) => (
   <QuestionStyled>
     <div className="question-container">
@@ -32,6 +33,8 @@ const Question = ({
           <p className="tag">{tag.name}</p>
         </div>
         <p className="question">{content}</p>
+        <div className="separator" />
+        <p className="answer-number">{answers.length} réponses</p>
       </NavLink>
     </div>
     <div className="author-container">
@@ -46,6 +49,7 @@ Question.propTypes = {
   author: PropTypes.object.isRequired,
   tag: PropTypes.object.isRequired,
   created_at: PropTypes.string.isRequired,
+  answers: PropTypes.array.isRequired,
 };
 
 // == Export
