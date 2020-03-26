@@ -1,4 +1,4 @@
-import { CHANGE_VALUE, CHANGE_CHECKBOX } from 'src/actions/signIn';
+import { CHANGE_VALUE, CHANGE_CHECKBOX, VERIFY_CALLBACK } from 'src/actions/signIn';
 
 export const initialState = {
   email: '',
@@ -6,6 +6,7 @@ export const initialState = {
   password: '',
   confirmedPassword: '',
   checkbox: false,
+  isVerified: false,
 };
 
 // reducer = traducteur d'une intention/action vers une modification du state
@@ -25,6 +26,14 @@ const signIn = (state = initialState, action = {}) => {
         ...state,
         checkbox: !state.checkbox,
       };
+    }
+    case VERIFY_CALLBACK: {
+      if (action.response) {
+        return {
+          ...state,
+          isVerified: true,
+        };
+      }
     }
     default:
       return state;

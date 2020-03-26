@@ -71,6 +71,7 @@
     "react": "^16.13.0",
     "react-dom": "*",
     "react-moment": "^0.9.7",
+    "react-recaptcha": "^2.3.10",
     "react-redux": "*",
     "react-router-dom": "^5.1.2",
     "redux": "*",
