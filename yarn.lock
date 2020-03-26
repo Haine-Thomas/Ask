@@ -9195,6 +9195,11 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
+swan@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/swan/-/swan-0.0.1.tgz#11e85bfbbaa813b2ae7e262ca859c9a6bea26c56"
+  integrity sha1-Eehb+7qoE7KufiYsqFnJpr6ibFY=
+
 sweetalert@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/sweetalert/-/sweetalert-2.1.2.tgz#010baaa80d0dbdc86f96bfcaa96b490728594b79"

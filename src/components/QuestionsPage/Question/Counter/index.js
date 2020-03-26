@@ -39,5 +39,6 @@ Counter.propTypes = {
   decrement: PropTypes.func.isRequired,
   score: PropTypes.number.isRequired,
 };
+
 // == Export
 export default Counter;
