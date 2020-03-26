@@ -22,7 +22,7 @@ const SortButtonsStyled = styled.div`
 
     &.active-btn {
       border-bottom: 2px solid #1B4965;
-      background-color: #CAE9FF;
+      background-color: #E2DDD7;
     }
   }
 `;
