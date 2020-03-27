@@ -1,11 +1,6 @@
-export const FETCH_ANSWERS = 'FETCH_ANSWERS';
 export const SAVE_ANSWERS = 'SAVE_ANSWERS';
 export const FETCH_POST_ANSWER = 'FETCH_POST_ANSWER';
 export const CHANGE_SORTED = 'CHANGE_SORTED';
-
-export const fetchAnswers = () => ({
-  type: FETCH_ANSWERS,
-});
 
 export const saveAnswers = (questions) => ({
   type: SAVE_ANSWERS,

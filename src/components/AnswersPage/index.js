@@ -14,7 +14,7 @@ import Answer from './Answer';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de la page réponse
-const AnswersPage = ({ answers }) => (
+const AnswersPage = ({ questions, clickedQuestionId }) => (
   <AnswersPageStyled>
     <NavLink
       activeClassName="selected"
@@ -26,15 +26,18 @@ const AnswersPage = ({ answers }) => (
     </NavLink>
 
     <h1>question</h1>
+    {questions.map((question) => (
+      question.id === clickedQuestionId && (
+        <Answer key={question.id} {...question} />
+      )
+    ))}
 
-    {/*answers.map((answer) => (
-        <Answer key={question.answer.id} {...answer} />
-    ))*/}
   </AnswersPageStyled>
 );
 
 AnswersPage.propTypes = {
-  answers: PropTypes.array.isRequired,
+  questions: PropTypes.array.isRequired,
+  clickedQuestionId: PropTypes.number.isRequired,
 };
 
 // == Export 

@@ -1,6 +1,5 @@
 import {
   SAVE_ANSWERS,
-  FETCH_ANSWERS,
   CHANGE_SORTED,
 } from 'src/actions/answers';
 
@@ -20,12 +19,6 @@ const answers = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.answers,
-      };
-    case FETCH_ANSWERS:
-      return {
-        ...state,
-        tagId: 'default',
-        content: '',
       };
     case CHANGE_SORTED:
       return {
