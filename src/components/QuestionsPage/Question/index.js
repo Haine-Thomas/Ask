@@ -30,7 +30,9 @@ const Question = ({
         exact
         to="/Answer"
         className="text"
-        onClick={ saveQuestionId(id)}
+        onClick={() => {
+          saveQuestionId(id);
+        }}
       >
         <div className="tag-container">
           <p className="tag">{tag.name}</p>

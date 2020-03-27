@@ -27,9 +27,9 @@ const AnswersPage = ({ answers }) => (
 
     <h1>question</h1>
 
-    {answers.map((answer) => (
+    {/*answers.map((answer) => (
         <Answer key={question.answer.id} {...answer} />
-    ))}
+    ))*/}
   </AnswersPageStyled>
 );
 

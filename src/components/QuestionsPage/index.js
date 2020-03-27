@@ -5,14 +5,13 @@ import PropTypes from 'prop-types';
 import { Button, Input, Select } from 'semantic-ui-react';
 
 import SortButtons from 'src/containers/Nav/SortButtons';
+import Question from 'src/containers/QuestionsPage/Question';
 
 // Import des datas en dur Question avec les tags et l'auteur associé
 
 // == Import : local
 // import du composant styled du questionpage
 import QuestionsPageStyled from './QuestionsPageStyled.js';
-
-import Question from './Question';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de questionpage
