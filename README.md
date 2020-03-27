@@ -311,3 +311,29 @@ création branche searchbox
 - création de Answer dans src/components/AnswersPage
 - création de son index.js et de son AnswerStyled.js
 - création de index.js et de AnswersPageStyled.js dans src/components/AnswersPage
+
+##### answer state
+
+- création de AnswersPage dans src/components
+- création de Answer dans src/components/AnswersPage
+- création de son index.js et de son AnswerStyled.js
+- création de index.js et de AnswersPageStyled.js dans src/components/AnswersPage
+
+##### answer counter
+
+- création de Counter dans src/components/AnswersPage/Answer
+- création de CounterStyled dans src/components/AnswersPage/Answer
+- création de son index.js dans src/components/AnswersPage/Answer/Counter
+- modification de index.js dans src/components/AnswersPage/Answer
+- modification de index.js dans src/components/AnswersPage
+- création de Counter dans src/containers/AnswersPage/Answer
+- création de index.js dans src/containers/AnswersPage/Answer/Counter
+
+##### answer data recuperation in progress
+
+- modification de answer.js dans src/action
+- modification de index.js dans src/components/AnswersPage/Answer
+- modification de index.js dans src/components/AnswersPage
+- modification de index.js dans src/containers/AnswersPage/Answer/Counter
+- modification de index.js dans src/containers/AnswersPage
+- modification de answer.js dans src/reducers
