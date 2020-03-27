@@ -12,15 +12,15 @@ export const initialState = {
 const signIn = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_VALUE:
-       // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-       // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
+      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
+      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         [action.name]: action.value,
       };
     case CHANGE_CHECKBOX: {
-       // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-       // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
+      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
+      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         checkbox: !state.checkbox,

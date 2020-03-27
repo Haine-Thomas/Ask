@@ -32,6 +32,8 @@ const ProfilPage = ({
   iduser,
   questions,
   changeValue,
+  password,
+  signIn,
 }) => (
   <ProfilPageStyled>
     {pseudo && (
@@ -52,28 +54,7 @@ const ProfilPage = ({
             <Modal.Header>Modification</Modal.Header>
             <Modal.Content>
               <Form>
-                <Form.Field>
-                  <label>
-                    Pseudo
-                    <Input
-                      type="text"
-                      name="name"
-                      placeholder={pseudo}
-                      required
-                    />
-                  </label>
-                </Form.Field>
-                <Form.Field>
-                  <label>
-                    Date de naissance
-                    <Input
-                      type="date"
-                      placeholder="Date de naissance"
-                      required
-                      name="birthday"
-                    />
-                  </label>
-                </Form.Field>
+                <p>{pseudo}</p>
                 <Form.Field>
                   <label>
                     Email
@@ -83,6 +64,40 @@ const ProfilPage = ({
                       name="email"
                       placeholder={email}
                       required
+                      value={signIn.password}
+                      onChange={(event) => {
+                        changeValue(event.target.value, event.target.name);
+                      }}
+                    />
+                  </label>
+                </Form.Field>
+                <Form.Field>
+                  <label>
+                    Mot de passe
+                    <Input
+                      type="password"
+                      name="password"
+                      placeholder="Mot de passe"
+                      required
+                      value={signIn.password}
+                      onChange={(event) => {
+                        changeValue(event.target.value, event.target.name);
+                      }}
+                    />
+                  </label>
+                </Form.Field>
+                <Form.Field>
+                  <label>
+                    Confirmer votre mot de passe
+                    <Input
+                      type="password"
+                      name="confirmedPassword"
+                      placeholder="Confirmer votre mot de passe"
+                      required
+                      value={signIn.confirmedPassword}
+                      onChange={(event) => {
+                        changeValue(event.target.value, event.target.name);
+                      }}
                     />
                   </label>
                 </Form.Field>
@@ -100,6 +115,7 @@ const ProfilPage = ({
           <Modal
             trigger={<Button>Se désinscrire</Button>}
             size="mini"
+            closeIcon
           >
             <Modal.Header>Se désinscrire</Modal.Header>
             <Modal.Content>
@@ -138,6 +154,14 @@ ProfilPage.propTypes = {
   questions: PropTypes.array.isRequired,
   iduser: PropTypes.number,
   changeValue: PropTypes.func.isRequired,
+  password: PropTypes.string.isRequired,
+  signIn: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    confirmedPassword: PropTypes.string.isRequired,
+    checkbox: PropTypes.bool.isRequired,
+  }).isRequired,
 };
 
 ProfilPage.defaultProps = {
