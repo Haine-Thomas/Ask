@@ -328,6 +328,7 @@ création branche searchbox
 - modification de index.js dans src/components/AnswersPage
 - création de Counter dans src/containers/AnswersPage/Answer
 - création de index.js dans src/containers/AnswersPage/Answer/Counter
+- bug
 
 ##### answer data recuperation in progress
 
@@ -337,3 +338,14 @@ création branche searchbox
 - modification de index.js dans src/containers/AnswersPage/Answer/Counter
 - modification de index.js dans src/containers/AnswersPage
 - modification de answer.js dans src/reducers
+- bug
+
+### 27/03/2020
+
+#### AnswerPage
+
+##### debug answer data recuperation
+
+- modification de answer.js dans src/action
+- modification de index.js dans src/components/AnswersPage/Answer
+

@@ -20,6 +20,8 @@ const Question = ({
   tag,
   created_at: createdAt,
   answers,
+  id,
+  saveQuestionId,
 }) => (
   <QuestionStyled>
     <div className="question-container">
@@ -28,6 +30,7 @@ const Question = ({
         exact
         to="/Answer"
         className="text"
+        onClick={ saveQuestionId(id)}
       >
         <div className="tag-container">
           <p className="tag">{tag.name}</p>
@@ -50,6 +53,8 @@ Question.propTypes = {
   tag: PropTypes.object.isRequired,
   created_at: PropTypes.string.isRequired,
   answers: PropTypes.array.isRequired,
+  id: PropTypes.number.isRequired,
+  saveQuestionId: PropTypes.func.isRequired,
 };
 
 // == Export
