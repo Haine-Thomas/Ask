@@ -19,10 +19,26 @@ const Answer = ({
   id,
 }) => (
   <AnswerStyled>
-    <h1>{content}</h1>
-    {answers.map((answer) => (
-      <p key={answer.id}>{answer.content}</p>
-    ))}
+    <div className="question-container">
+      <Counter score={score} />
+      <div className="text">
+        <div className="tag-container">
+          <p className="tag">{tag.name}</p>
+        </div>
+        <p className="question">{content}</p>
+        <div className="separator" />
+        <p className="author">posté par {author.name}, le {createdAt}</p>
+        <div className="answer-container">
+          <p className="answer-number">{answers.length} réponses</p>
+        </div>
+      </div>
+    </div>
+
+    <section className="answers-container">
+      {answers.map((answer) => (
+        <p key={answer.id}>{answer.content}</p>
+      ))}
+    </section>
   </AnswerStyled>
 );
 

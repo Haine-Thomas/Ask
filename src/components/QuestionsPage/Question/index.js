@@ -28,7 +28,7 @@ const Question = ({
       <Counter score={score} />
       <NavLink
         exact
-        to="/Answer"
+        to={`/Answer/${id}`}
         className="text"
         onClick={() => {
           saveQuestionId(id);

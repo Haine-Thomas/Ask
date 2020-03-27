@@ -33,7 +33,7 @@ const App = ({ fetchQuestions, fetchTags }) => {
           <Nav />
           <ProfilPage />
         </Route>
-        <Route key="3" path="/Answer">
+        <Route key="3" path="/Answer/:id">
           <Nav />
           <AnswersPage />
         </Route>

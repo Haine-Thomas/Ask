@@ -16,16 +16,15 @@ import Answer from './Answer';
 // ici on a la fonction qui renvoi le formulaire de structure de la page réponse
 const AnswersPage = ({ questions, clickedQuestionId }) => (
   <AnswersPageStyled>
-    <NavLink
-      activeClassName="selected"
-      exact
-      to="/"
-      className="btnhome"
-    >
-      Retour à l'Accueil
-    </NavLink>
-
-    <h1>question</h1>
+    <div className="gohome">
+      <NavLink
+        exact
+        to="/"
+        className="btnhome"
+      >
+        Retour à l'Accueil
+      </NavLink>
+    </div>
     {questions.map((question) => (
       question.id === clickedQuestionId && (
         <Answer key={question.id} {...question} />
