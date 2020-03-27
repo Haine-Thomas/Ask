@@ -134,7 +134,7 @@ const ProfilPage = ({
           <h1 className="titles">Mes questions </h1>
           {questions.map((question) => (
             question.author.id === iduser && (
-              <Question key={question.id} {...question} />
+              <Question className="question" key={question.id} {...question} />
             )
           ))}
         </article>

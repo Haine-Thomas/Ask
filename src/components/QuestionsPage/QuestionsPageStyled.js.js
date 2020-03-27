@@ -11,7 +11,6 @@ const QuestionsPageStyled = styled.main`
   margin: 0 auto;
 
   .question-form-container {
-
     width: 99%;
     
     .question-form {

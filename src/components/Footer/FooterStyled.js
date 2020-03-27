@@ -8,7 +8,7 @@ const FooterStyled = styled.footer`
   justify-content: space-around;
   background-color: black;
   padding: 1rem;
-  margin-top: 1rem;
+
   
   
   a {

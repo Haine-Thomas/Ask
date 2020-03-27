@@ -38,6 +38,7 @@ const SignInStyled = styled.div`
   .button {
     width: 100%;
     background-color: #1B4965; 
+    margin-bottom: 1rem;
   }
 
   @media (max-width: 700px) {

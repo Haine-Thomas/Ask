@@ -49,7 +49,7 @@ const QuestionStyled = styled.div`
     text-align: right;
 
     .tag {
-      background-color: #1a1e28;
+      background-color: #E9C46A;
       border-top-right-radius: 3px;
       font-weight: bold;
       padding: 0.6rem;
