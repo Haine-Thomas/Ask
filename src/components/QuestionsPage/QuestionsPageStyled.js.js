@@ -16,10 +16,10 @@ const QuestionsPageStyled = styled.main`
     
     .question-form {
       width: 100%;
-      margin-top: 2rem;
-      background-color: #1B4965;
+      margin-top: 1rem;
+      background-color: #1a1e28;
       border-radius: 3px;
-      padding: 1rem;
+      padding: .4rem;
       display: flex;
 
       input {
@@ -37,8 +37,6 @@ const QuestionsPageStyled = styled.main`
 
       select {
         padding: 1rem;
-        background-color: #CAE9FF;
-        border: 1px solid #CAE9FF;
         width: 15%;
 
         &:focus {

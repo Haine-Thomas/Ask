@@ -7,9 +7,9 @@ const HeaderStyled = styled.header`
   font-family: 'Vollkorn', sans-serif;
   text-align: center;
   left: 1rem;
-  padding: 3rem 0;
+  padding: 2rem 0;
   color: #fff;
-  background-color: #1B4965;
+  background-color: #1a1e28;
   width: 100%;
 
   span {

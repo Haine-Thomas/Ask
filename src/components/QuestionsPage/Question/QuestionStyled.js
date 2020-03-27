@@ -49,12 +49,12 @@ const QuestionStyled = styled.div`
     text-align: right;
 
     .tag {
-      background-color: #1B4965;
+      background-color: #1a1e28;
       border-top-right-radius: 3px;
       font-weight: bold;
-      padding: 0.8rem;
+      padding: 0.6rem;
       display:inline-block;
-      font-size: 1rem;
+      font-size: .8rem;
       color: #fff;
     }
   }

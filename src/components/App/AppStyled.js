@@ -9,6 +9,7 @@ const AppStyled = styled.div`
   flex-direction: column;
   font-family: 'Exo', serif;
   background-color: #E8E8E8;
+  height: 100vh;
 `;
 
 // == Export

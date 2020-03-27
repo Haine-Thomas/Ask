@@ -4,39 +4,41 @@ import styled from 'styled-components';
 // == Composant
 // ici on a la fonction qui décrit le style du composant ProfilPage
 const ProfilPageStyled = styled.div`
-  margin: 2rem;
-  padding: 1rem;
-  height: 80%;
-  color: #1B4965;
+  color: black;
+  display: flex;
+  width: 100vw;
+  line-height: 3;
+  padding: 3rem;
 
-  .profil {
-    height: 30%;
-    line-height: 2.5;
-    font-size: 1rem;
-    padding: 1rem;
+
+  .titles {
+    font-size: 1.5rem;
+    text-decoration: underline grey;
+  }
+  .avatar {
+    
   }
 
-  .title {
-    font-size: 2rem;
-    padding: 1rem;
-
+  .profil {
+    width: 30%;
+    height: 100%;
+    border-right: 1px solid black;
+    padding: 0 2rem;
   }
 
   .profil_name {
-    color: black;
+    margin: 1rem;
   }
 
-  .profil_question_block {
-    display: flex;
+  .questions {
     width: 70%;
-    height: auto;
-    border: 1px solid black;
-    margin: auto;
-    box-shadow: 10px 5px 5px black;
-    border-radius: 3px;
-    background-color: #629bd9;
+    height: 100%;
+    padding: 0 2rem;
   }
-  
+
+  .unsubscribe {
+    text-decoration: underline;
+  }
 `;
 
 // == Export

@@ -21,6 +21,7 @@ const SignInStyled = styled.div`
     margin: 4rem 0;
     font-size: 1.5rem;
     font-weight: bold;
+    text-decoration: underline;
   }
   .btnhome:hover {
     color: #5FA8D3;

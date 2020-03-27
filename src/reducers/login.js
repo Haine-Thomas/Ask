@@ -9,6 +9,7 @@ const initialState = {
     email: '',
     password: '',
     pseudo: '',
+    created_at: '',
   },
 };
 
@@ -43,6 +44,7 @@ const login = (state = initialState, action = {}) => {
           email: action.user.email,
           id: action.user.id,
           password: '',
+          created_at: action.user.created_at,
         },
         open: false,
         isLogged: true,

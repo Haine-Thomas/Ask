@@ -6,6 +6,7 @@ import { Button, Menu, Icon } from 'semantic-ui-react';
 // on import la route de navigation
 import { NavLink } from 'react-router-dom';
 
+
 // == Import npm locaux
 import LoginForm from 'src/containers/Nav/Settings/LoginForm';
 // import du composant styled du footer
@@ -18,17 +19,17 @@ const Settings = ({ open, isLogged, toggleForm, disconnectAction, user}) => (
     <div>
       {isLogged && (
         <div>
-          <button onClick={disconnectAction} type="button" className="btn-nav">Déconnexion</button>
+          <Button basic color="white" onClick={disconnectAction} type="button" className="btn-nav">Déconnexion</Button>
           <NavLink
             activeClassName="btn"
             className="btn"
             exact
             to="/Profil"
           >
-            <button className="btn-nav" type="button">
+            <Button basic color="white" className="btn-nav" type="button">
               <Icon name="user" />
               <span className="loginMessage"> {user}</span>
-            </button>
+            </Button>
           </NavLink>
         </div>
       )}
@@ -36,20 +37,22 @@ const Settings = ({ open, isLogged, toggleForm, disconnectAction, user}) => (
         <div>
           {!open && (
             <>
-              <button
+              <Button
+                basic
+                color="white"
                 type="button"
                 className="btn-nav"
                 onClick={toggleForm}
               >
                 Connexion
-              </button>
+              </Button>
               <NavLink
                 to="/signIn"
                 exact
               >
-                <button className="btn-nav" type="button">
+                <Button basic color="white" className="btn-nav" type="button">
                   Inscription
-                </button>
+                </Button>
               </NavLink>
             </>
           )}

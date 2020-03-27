@@ -1,6 +1,9 @@
 // == Import : npm
 import { connect } from 'react-redux';
 
+import { changeValue } from 'src/actions/signIn';
+
+
 // == Import : local
 import ProfilPage from 'src/components/ProfilPage';
 
@@ -12,8 +15,11 @@ import ProfilPage from 'src/components/ProfilPage';
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
 const mapStateToProps = (state) => ({
+  iduser: state.login.user.id,
   pseudo: state.login.user.pseudo,
   email: state.login.user.email,
+  created_at: state.login.user.created_at,
+  questions: state.questions.list,
 });
 
 /* === Actions modification ===
@@ -23,7 +29,10 @@ const mapStateToProps = (state) => ({
  *  - ownProps : les props passées au container
  * Pas de disptach à transmettre ? const mapDispatchToProps = {};
  */
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = (dispatch) => ({
+  changeValue: (value, name) => {
+    dispatch(changeValue(value, name));
+  },
 });
 
 // Export du retour de connect = le composant enrichi de props

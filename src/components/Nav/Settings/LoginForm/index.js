@@ -1,7 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input, Form, Button } from 'semantic-ui-react';
+import { Input, Form, Button, Label } from 'semantic-ui-react';
 
 // import du composant styled du footer
 import LoginFormStyled from './LoginFormStyled';
@@ -44,8 +44,8 @@ const LoginForm = ({ login, loginAction, changeValue, toggleForm }) => (
         </label>
       </Form.Field>
       <Button.Group>
-        <Button size="mini" color="teal" className="btnconnect" type="submit">OK</Button>
-        <Button onClick={toggleForm} size="mini" color="orange">X</Button>
+        <Button size="mini" basic color="teal" className="btnconnect" type="submit">OK</Button>
+        <Button onClick={toggleForm} size="mini" basic color="blue">X</Button>
       </Button.Group>
     </Form>
   </LoginFormStyled>
