@@ -6,7 +6,7 @@ const answerController = {
     try {
       let answers = await Answer.findAll({
         where: { questionId: `${questionId}` },
-        include: ['author'],
+        include: ['author', 'question'],
       });
       response.json(answers);
     } catch (error) {

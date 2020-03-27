@@ -12,6 +12,7 @@ export const initialState = {
   content: '',
   sorted: 'created_at',
   id: [],
+  clickedQuestionId: '',
 };
 
 // reducer = traducteur d'une intention/action vers une modification du state
@@ -40,6 +41,11 @@ const questions = (state = initialState, action = {}) => {
       return {
         ...state,
         sorted: action.sorted,
+      };
+    case SAVE_QUESTION_ID:
+      return {
+        ...state,
+        clickedQuestionId: action.id,
       };
     default:
       return state;
