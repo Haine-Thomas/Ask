@@ -37,5 +37,5 @@ AnswersPage.propTypes = {
   answers: PropTypes.array.isRequired,
 };
 
-// == Export 
+// == Export
 export default AnswersPage;

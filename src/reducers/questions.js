@@ -3,6 +3,7 @@ import {
   CHANGE_INPUT_VALUE,
   FETCH_QUESTIONS,
   CHANGE_SORTED,
+  SAVE_QUESTION_ID,
 } from 'src/actions/questions';
 
 export const initialState = {
@@ -10,6 +11,7 @@ export const initialState = {
   tagId: 'default',
   content: '',
   sorted: 'created_at',
+  id: [],
 };
 
 // reducer = traducteur d'une intention/action vers une modification du state
@@ -38,6 +40,13 @@ const questions = (state = initialState, action = {}) => {
       return {
         ...state,
         sorted: action.sorted,
+      };
+    default:
+      return state;
+    case SAVE_QUESTION_ID:
+      return {
+        ...state,
+        id: action.id,
       };
     default:
       return state;

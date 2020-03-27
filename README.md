@@ -346,6 +346,23 @@ création branche searchbox
 
 ##### debug answer data recuperation
 
-- modification de answer.js dans src/action
+- modification de answer.js dans src/actions
 - modification de index.js dans src/components/AnswersPage/Answer
 
+##### debug answer data recuperation
+
+- modification de question.js dans src/action
+- modification de index.js dans src/components/AnswersPage/Answer
+- modification de index.js dans src/components/QuestionssPage/Question
+  
+##### clickedQuestionId in question state
+
+- modification de index.js dans src/components/AnswersPage
+- modification de index.js dans src/components/QuestionsPage/Question
+- modification de index.js dans src/components/QuestionsPage
+- création de index.js dans src/containers/QuestionsPage/Question
+- modification de question.js dans src/reducers
+
+##### include question to answers request
+
+- modification de answerController.js dans app/controllers
