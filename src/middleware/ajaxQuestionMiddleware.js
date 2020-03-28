@@ -57,7 +57,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
           }
           else {
             store.dispatch(fetchQuestions());
-            console.log('vote ok');
+            console.log(response.data);
           }
         })
         .catch((error) => {

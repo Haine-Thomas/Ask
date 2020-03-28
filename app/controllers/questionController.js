@@ -101,6 +101,7 @@ const questionController = {
     try {
       const questionId = request.params.id;
       const questionScore = request.params.score;
+      const userId = request.session.user.id;
       let question = await Question.findByPk(questionId);
       if (!question) {
         // pas de lréponse pour cet id
@@ -108,16 +109,25 @@ const questionController = {
       }
       else {
         if (questionScore === 'upVote') {
+          question.upvoted.push(userId);
           question.score = question.score + 1;
         }
         if (questionScore === 'downVote') {
           question.score = question.score - 1;
+          question.downvoted.push(userId);
         }
+        await question.update({
+          upvoted: question.upvoted,
+          downvoted: question.downvoted,
+        }, {
+          where: { id: questionId },
+        });
         await question.save();
         response.json(question);
       }
     }
     catch(error) {
+      console.log(error);
       response.status(500).json(error);
     }
   },
