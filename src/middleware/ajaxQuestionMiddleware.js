@@ -1,11 +1,11 @@
 import axios from 'axios';
 import swal from 'sweetalert';
-import { FETCH_QUESTIONS, saveQuestions, fetchQuestions, FETCH_POST_QUESTION } from 'src/actions/questions';
+import { FETCH_QUESTIONS, saveQuestions, fetchQuestions, FETCH_POST_QUESTION, FETCH_QUESTION_SCORE } from 'src/actions/questions';
 
 const ajaxQuestionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     // + on traduit l'intention en intérrogeant notre API
-      // je vais avoir besoin de lire le state pour faire ma requete
+    // je vais avoir besoin de lire le state pour faire ma requete
     case FETCH_QUESTIONS: {
       const state = store.getState();
       axios.get(`http://localhost:3000/question/${state.questions.sorted}`)
@@ -17,7 +17,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           console.error(error);
         });
-        // je laisse passer tout de suite au middleware/reducer suivant
+      // je laisse passer tout de suite au middleware/reducer suivant
       next(action);
       break;
     }
@@ -35,6 +35,29 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
           else {
             store.dispatch(fetchQuestions());
             swal('Question postée!', '', 'success');
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      next(action);
+      break;
+    }
+    case FETCH_QUESTION_SCORE: {
+      const state = store.getState();
+      const { vote, votedQuestionId } = state.questions;
+      axios.patch(`http://localhost:3000/question/${votedQuestionId}/${vote}`, {
+      }, {
+        withCredentials: true,
+      })
+        .then((response) => {
+          // revenir a la fenetre précédente
+          if (response.data.error) {
+            swal(response.data.error, '', 'warning');
+          }
+          else {
+            store.dispatch(fetchQuestions());
+            console.log('vote ok');
           }
         })
         .catch((error) => {

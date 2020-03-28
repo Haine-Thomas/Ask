@@ -21,10 +21,11 @@ const Question = ({
   tag,
   created_at: createdAt,
   answers,
+  id,
 }) => (
   <QuestionStyled>
     <div className="question-container">
-      <Counter score={score} />
+      <Counter score={score} questionId={id} />
       <NavLink
         exact
         to="/Answer"
@@ -51,6 +52,7 @@ Question.propTypes = {
   tag: PropTypes.object.isRequired,
   created_at: PropTypes.string.isRequired,
   answers: PropTypes.array.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 // == Export

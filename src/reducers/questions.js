@@ -3,6 +3,8 @@ import {
   CHANGE_INPUT_VALUE,
   FETCH_QUESTIONS,
   CHANGE_SORTED,
+  INCREMENT_COUNTER,
+  DECREMENT_COUNTER,
 } from 'src/actions/questions';
 
 export const initialState = {
@@ -10,6 +12,8 @@ export const initialState = {
   tagId: 'default',
   content: '',
   sorted: 'created_at',
+  votedQuestionId: 0,
+  vote: '',
 };
 
 // reducer = traducteur d'une intention/action vers une modification du state
@@ -38,6 +42,18 @@ const questions = (state = initialState, action = {}) => {
       return {
         ...state,
         sorted: action.sorted,
+      };
+    case INCREMENT_COUNTER:
+      return {
+        ...state,
+        vote: 'upVote',
+        votedQuestionId: action.questionId,
+      };
+    case DECREMENT_COUNTER:
+      return {
+        ...state,
+        vote: 'downVote',
+        votedQuestionId: action.questionId,
       };
     default:
       return state;

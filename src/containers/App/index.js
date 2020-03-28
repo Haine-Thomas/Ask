@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import App from 'src/components/App';
 
 // Action Creators
-import { fetchQuestions } from 'src/actions/questions';
+import { fetchQuestions, fetchQuestionScore } from 'src/actions/questions';
 import { fetchTags } from 'src/actions/tags';
 
 /* === State (données) lecture===
@@ -17,6 +17,8 @@ import { fetchTags } from 'src/actions/tags';
  */
 const mapStateToProps = (state) => ({
   list: state.questions.list,
+  vote: state.questions.vote,
+  votedQuestion: state.questions.votedQuestionId,
 });
 
 /* === Actions modification===

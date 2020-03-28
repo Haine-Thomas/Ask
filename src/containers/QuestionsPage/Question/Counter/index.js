@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Counter from 'src/components/QuestionsPage/Question/Counter';
 
 // Action Creators
-import { increment, decrement } from 'src/actions';
+import { increment, decrement, fetchQuestionScore } from 'src/actions/questions';
 
 /* === State (données) lecture ===
  * - mapStateToProps retroune un objet de props pour le composant de présentation
@@ -14,8 +14,7 @@ import { increment, decrement } from 'src/actions';
  *  - ownProps : les props passées au container
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
-const mapStateToProps = (state) => ({
-  count: state.counter.value,
+const mapStateToProps = () => ({
 });
 
 /* === Actions modification ===
@@ -26,11 +25,14 @@ const mapStateToProps = (state) => ({
  * Pas de disptach à transmettre ? const mapDispatchToProps = {};
  */
 const mapDispatchToProps = (dispatch) => ({
-  increment: () => {
-    dispatch(increment());
+  increment: (questionId) => {
+    dispatch(increment(questionId));
   },
-  decrement: () => {
-    dispatch(decrement());
+  decrement: (questionId) => {
+    dispatch(decrement(questionId));
+  },
+  fetchQuestionScore: () => {
+    dispatch(fetchQuestionScore());
   },
 });
 
