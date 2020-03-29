@@ -7,11 +7,12 @@ import { NavLink } from 'react-router-dom';
 // import du frameworks
 
 // == Import locaux
+import Question from 'src/components/QuestionsPage/Question';
 // import de la feuille de style associée
 import AnswersPageStyled from './AnswersPageStyled';
 
 import Answer from './Answer';
-import Question from 'src/components/QuestionsPage/Question';
+
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de la page réponse

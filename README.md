@@ -447,9 +447,9 @@ création branche searchbox
 - modification de ajaxQuestionMiddleware.js dans src/middleware
 - modification de import_tables.sql dans data
 
-### 28/03/2020
+### 29/03/2020
 
-####  branche Score
+####  branche AnswerPage
 
 ##### check is logged
 
@@ -457,3 +457,8 @@ création branche searchbox
 - modification de index.js dans src/components/App
 - modification de index.js dans src/containers/App
 - modification de LogMiddleware.js dans src/middleware
+
+##### style answer
+
+- modification de AnswerStyled.js dans src/components/AnswersPage/Answer
+- modification de index.js dans src/components/AnswersPage/Answer

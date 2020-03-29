@@ -9,6 +9,22 @@ width: 99%;
 color: black;
 border-radius: 3px;
 
+.answersQuestion-container {
+  display: flex;
+  padding-left: 0.5px;
+  background-color: #F8F8F8;
+  width: 90%;
+  text-align: left;
+  flex-direction: row;
+}
+
+.answerText {
+  margin: 0 0 0 .7rem;
+  text-align: left;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+}
 
 .question-container {
   display: flex;
