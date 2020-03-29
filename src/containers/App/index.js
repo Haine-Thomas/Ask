@@ -7,6 +7,7 @@ import App from 'src/components/App';
 // Action Creators
 import { fetchQuestions } from 'src/actions/questions';
 import { fetchTags } from 'src/actions/tags';
+import { checkIsLogged } from 'src/actions/login';
 
 /* === State (données) lecture===
  * - mapStateToProps retroune un objet de props pour le composant de présentation
@@ -32,6 +33,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchTags: () => {
     dispatch(fetchTags());
+  },
+  checkIsLogged: () => {
+    dispatch(checkIsLogged());
   },
 });
 

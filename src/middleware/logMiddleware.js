@@ -1,6 +1,6 @@
 import axios from 'axios';
 import swan from 'sweetalert';
-import { LOGIN_ACTION, DISCONNECT_ACTION, changeUser } from 'src/actions/login';
+import { LOGIN_ACTION, DISCONNECT_ACTION, changeUser, CHECK_IS_LOGGED } from 'src/actions/login';
 
 const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -27,6 +27,23 @@ const logMiddleware = (store) => (next) => (action) => {
           console.log(error);
         });
       next(action);
+      break;
+    }
+    case CHECK_IS_LOGGED: {
+      axios.post('http://localhost:3001/isLogged', {}, {
+        withCredentials: true,
+      })
+        .then((response) => {
+          console.log('succès', response.data);
+          // si l'user est connecté
+          if (response.data.logged) {
+            // alors je le mémorise
+            store.dispatch(saveUser(response.data.info.username));
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
       break;
     }
     case DISCONNECT_ACTION: {

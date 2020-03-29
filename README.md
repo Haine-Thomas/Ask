@@ -446,3 +446,14 @@ création branche searchbox
 - modification de question.js dans app/models
 - modification de ajaxQuestionMiddleware.js dans src/middleware
 - modification de import_tables.sql dans data
+
+### 28/03/2020
+
+####  branche Score
+
+##### check is logged
+
+- modification de login.js dans src/actions
+- modification de index.js dans src/components/App
+- modification de index.js dans src/containers/App
+- modification de LogMiddleware.js dans src/middleware
