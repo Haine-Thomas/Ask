@@ -11,30 +11,37 @@ import { NavLink } from 'react-router-dom';
 import AnswersPageStyled from './AnswersPageStyled';
 
 import Answer from './Answer';
+import Question from 'src/components/QuestionsPage/Question';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de la page réponse
-const AnswersPage = ({ answers }) => (
-  <AnswersPageStyled>
-    <NavLink
-      activeClassName="selected"
-      exact
-      to="/"
-      className="btnhome"
-    >
-      Retour à l'Accueil
-    </NavLink>
+const AnswersPage = ({ fetchAnswers }) => (
+  useEffect(fetchAnswers, []);
 
-    <h1>question</h1>
+  return (
+    <AnswersPageStyled>
+      <NavLink
+        activeClassName="selected"
+        exact
+        to="/"
+        className="btnhome"
+      >
+        Retour à l'Accueil
+      </NavLink>
 
-    {/*answers.map((answer) => (
+      {questions.map((question) => (
+          <Question key={question.id} {...question} />
+      ))}
+
+      {/*answers.map((answer) => (
         <Answer key={question.answer.id} {...answer} />
-    ))*/}
-  </AnswersPageStyled>
+      ))*/}
+    </AnswersPageStyled>
+  )
 );
 
 AnswersPage.propTypes = {
-  answers: PropTypes.array.isRequired,
+  fetchAnswers: PropTypes.func.isRequired,
 };
 
 // == Export

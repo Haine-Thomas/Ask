@@ -11,7 +11,6 @@ export const initialState = {
   tagId: 'default',
   content: '',
   sorted: 'created_at',
-  id: [],
   clickedQuestionId: '',
 };
 
@@ -46,13 +45,6 @@ const questions = (state = initialState, action = {}) => {
       return {
         ...state,
         clickedQuestionId: action.id,
-      };
-    default:
-      return state;
-    case SAVE_QUESTION_ID:
-      return {
-        ...state,
-        id: action.id,
       };
     default:
       return state;
