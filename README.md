@@ -342,7 +342,7 @@ création branche searchbox
 
 ### 27/03/2020
 
-#### AnswerPage
+####  branche AnswerPage
 
 ##### debug answer data recuperation
 
@@ -366,3 +366,83 @@ création branche searchbox
 ##### include question to answers request
 
 - modification de answerController.js dans app/controllers
+
+##### add a local storage and componant answer ok
+
+- installation de lodash.thottle
+- modification de answer.js dans src/actions
+- modification de index.js dans src/components/AnswersPage/Answer
+- modification de index.js dans src/components/AnswersPage
+- modification de index.js dans src/App
+- modification de index.js dans src/containers/AnswersPage
+- suppression de ajaxAnswerMiddleware.js dans src/middleware
+- modification de answer.js dans src/reducers
+- modification de index.js dans src/store
+- modification de AnswerStyled.js dans src/components/AnswersPage/Answer
+- modification de AnswersPageStyled.js dans src/components/AnswersPage
+- modification de index.js dans src/components/QuestionsPage/Question
+
+####  branche ProfilPage2vanessa
+
+##### pageprofil
+
+- installation de react-avatar
+- installation de react-moment
+- modification de AppStyled.js dans src/components/App
+- modification de FooterStyled.js dans src/components/Footer
+- modification de HeaderStyled.js dans src/components/Header
+- modification de NavStyled.js dans src/components/Nav
+- modification de LoginFormStyled.js dans src/components/Nav/Settings/LoginForm
+- modification de index.js dans src/components/Nav/Settings/LoginForm
+- modification de index.js dans src/components/Nav/Settings
+- modification de ProfilPageStyled.js dans src/components/ProfilPage
+- modification de index.js dans src/components/ProfilPage
+- modification de QuestionsPageStyled.js dans src/components/QuestionsPage
+- modification de index.js dans src/components/QuestionsPage/Question
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+- modification de SignInStyled.js dans src/components/SignIn
+- modification de login.js dans src/reducers
+
+##### profilpage next
+
+- modification de index.js dans src/components/ProfilPage
+- modification de index.js dans src/containers/ProfilPage
+- modification de SignIn.js dans src/reducers
+
+##### editUser correction on route back
+
+- modification de userController.js dans app/controllers
+
+##### style of header
+
+- modification de AppStyled.js dans src/components/App
+- modification de FooterStyled.js dans src/components/Footer
+- modification de HeaderStyled.js dans src/components/Header
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+- modification de QuestionsPageStyled.js dans src/components/QuestionsPage
+- modification de index.js dans src/components/ProfilPage
+- modification de index.js dans src/components/QuestionsPage
+- modification de SignInStyled.js dans src/components/SignIn
+- modification de SSortButtonsStyled.js dans src/components/Nav/SortButtons
+
+### 28/03/2020
+
+####  branche Score
+
+##### upvote and down vote ok with database changing
+
+- modification de index.js dans src/actions
+- modification de question.js dans src/actions
+- modification de index.js dans src/components/QuestionsPage/Question/Counter
+- modification de index.js dans src/components/QuestionsPage/Question
+- modification de index.js dans src/containers/App
+- modification de ajaxQuestionMiddleware.js dans src/middleware
+- modification de index.js dans src/reducers
+- modification de quetsion.js dans src/reducers
+
+##### userId pushed into database arrayfield that so coool
+
+- modification de questionController.js dans app/controllers
+- modification de question.js dans app/models
+- modification de ajaxQuestionMiddleware.js dans src/middleware
+- modification de import_tables.sql dans data
