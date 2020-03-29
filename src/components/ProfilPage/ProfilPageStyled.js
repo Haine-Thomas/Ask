@@ -8,7 +8,8 @@ const ProfilPageStyled = styled.div`
   display: flex;
   width: 100vw;
   line-height: 3;
-  padding: 3rem;
+  padding: 1rem;
+  
 
 
   .titles {
@@ -23,7 +24,7 @@ const ProfilPageStyled = styled.div`
     width: 30%;
     height: 100%;
     border-right: 1px solid black;
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
 
   .profil_name {
@@ -33,7 +34,7 @@ const ProfilPageStyled = styled.div`
   .questions {
     width: 70%;
     height: 100%;
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
 
   .unsubscribe {

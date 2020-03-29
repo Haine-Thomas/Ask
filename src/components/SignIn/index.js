@@ -10,6 +10,7 @@ import {
   Form,
   Checkbox,
   Button,
+  Icon,
 } from 'semantic-ui-react';
 
 // == Import : npm locaux
@@ -31,6 +32,7 @@ const SignIn = ({
         to="/"
         className="btnhome"
       >
+        <Icon name="reply" />
         Retour à l'Accueil
       </NavLink>
     </div>

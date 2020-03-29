@@ -10,7 +10,6 @@ const LoginFormStyled = styled.div`
   color: white;
   text-align: center;
   position: absolute;
-  right: 0;
   padding: 1rem;
 
   div.input {

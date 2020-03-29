@@ -8,12 +8,14 @@ const QuestionStyled = styled.div`
   width: 99%;
   background-color: #fff;
   color: black;
-  border-radius: 3px;
+  border-radius: 9px;
+  height: 20%;
 
 
   .question-container {
     display: flex;
     padding-left: 0.5px;
+    
   }
 
 

@@ -1,9 +1,28 @@
+// eslint-disable-next-line import/no-unresolved
 import axios from 'axios';
+// eslint-disable-next-line import/no-unresolved
 import swan from 'sweetalert';
-import { LOGIN_ACTION, DISCONNECT_ACTION, changeUser } from 'src/actions/login';
+import {
+  LOGIN_ACTION,
+  DISCONNECT_ACTION,
+  changeUser,
+  DELETE_USER,
+} from 'src/actions/login';
 
 const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
+    case DELETE_USER: {
+      const state = store.getState();
+      axios.delete(`http://localhost:3000/user/${state.login.user.id}`)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          HTMLFormControlsCollection.error(error);
+        });
+      next(action);
+      break;
+    }
     case LOGIN_ACTION: {
       // + on traduit l'intention en intérrogeant notre API
       // je vais avoir besoin de lire le state pour faire ma requete
@@ -19,7 +38,8 @@ const logMiddleware = (store) => (next) => (action) => {
           // je vais vouloir émettre une intention pour modifier le state
           if (response.data.error) {
             swan(response.data.error, '', 'warning');
-          } else {
+          }
+          else {
             store.dispatch(changeUser(response.data));
           }
         })
@@ -45,7 +65,7 @@ const logMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           console.log(error);
         });
-        // je laisse passer tout de suite au middleware/reducer suivant
+      // je laisse passer tout de suite au middleware/reducer suivant
       next(action);
       break;
     }

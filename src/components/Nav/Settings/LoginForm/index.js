@@ -1,14 +1,27 @@
 // == Import npm
+// eslint-disable-next-line import/no-unresolved
 import React from 'react';
+// eslint-disable-next-line import/no-unresolved
 import PropTypes from 'prop-types';
-import { Input, Form, Button, Label } from 'semantic-ui-react';
+import {
+  Input,
+  Form,
+  Button,
+// eslint-disable-next-line import/no-unresolved
+} from 'semantic-ui-react';
 
 // import du composant styled du footer
+// eslint-disable-next-line import/no-unresolved
 import LoginFormStyled from './LoginFormStyled';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de loginform
-const LoginForm = ({ login, loginAction, changeValue, toggleForm }) => (
+const LoginForm = ({
+  login,
+  loginAction,
+  changeValue,
+  toggleForm,
+}) => (
   <LoginFormStyled>
     <Form onSubmit={(event) => {
       event.preventDefault();

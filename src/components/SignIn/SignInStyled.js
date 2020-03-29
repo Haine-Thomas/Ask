@@ -11,15 +11,14 @@ const SignInStyled = styled.div`
 
   h1 {
     text-align: center;
-    margin: 1rem;
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 2rem;
   }
 
   .gohome {
-    margin: 4rem 0;
-    font-size: 1.5rem;
+    margin: 1rem 0 2rem 0;
+    font-size: 1rem;
     font-weight: bold;
     text-decoration: underline;
   }
@@ -28,7 +27,7 @@ const SignInStyled = styled.div`
   }
 
   .label {
-    margin: 1rem 0;
+    margin: 1rem 0 ;
   }
 
   .input {

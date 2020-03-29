@@ -2,6 +2,7 @@
 import { connect } from 'react-redux';
 
 import { changeValue } from 'src/actions/signIn';
+import { deleteUser } from 'src/actions/login';
 
 
 // == Import : local
@@ -31,6 +32,9 @@ const mapStateToProps = (state) => ({
  * Pas de disptach à transmettre ? const mapDispatchToProps = {};
  */
 const mapDispatchToProps = (dispatch) => ({
+  deleteUser: (id) => {
+    dispatch(deleteUser(id));
+  },
   changeValue: (value, name) => {
     dispatch(changeValue(value, name));
   },

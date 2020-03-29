@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import du frameworks
-import { Button, Input, Select } from 'semantic-ui-react';
+import { Button, Input, Icon } from 'semantic-ui-react';
 
 import SortButtons from 'src/containers/Nav/SortButtons';
 
@@ -16,7 +16,14 @@ import Question from './Question';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de questionpage
-const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fetchPostQuestion }) => (
+const QuestionsPage = ({
+  questions,
+  isLogged,
+  tags,
+  value,
+  changeInputValue,
+  fetchPostQuestion,
+}) => (
     <QuestionsPageStyled>
       {isLogged && (
         <div className="question-form-container">
@@ -28,6 +35,7 @@ const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fet
             className="question-form"
           >
             <input
+              fluide
               name="content"
               type="text"
               placeholder="Ajouter votre question..."
@@ -48,7 +56,7 @@ const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fet
                 <option key={tag.id} value={tag.id}>{tag.name}</option>
               ))}
             </select>
-            <Button compact type="submit">Valider</Button>
+            <Button type="submit"><Icon name="paper plane outline" />Publier</Button>
           </form>
         </div>
       )}

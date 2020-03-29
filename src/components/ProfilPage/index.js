@@ -27,13 +27,12 @@ import ProfilPageStyled from './ProfilPageStyled';
 const ProfilPage = ({
   pseudo,
   email,
-  // eslint-disable-next-line camelcase
   created_at,
   iduser,
   questions,
   changeValue,
-  password,
   signIn,
+  deleteUser,
 }) => (
   <ProfilPageStyled>
     {pseudo && (
@@ -44,10 +43,11 @@ const ProfilPage = ({
           <p className="profil_email"><Icon name="envelope" />{email}</p>
           <p className="bbday"><Icon name="birthday cake" />JJ/MM/AAAA</p>
           <p>
+            <Icon name="calendar check" />
             Inscrit depuis le: <Moment locale="fr" format="DD-MM-YYYY">{created_at}</Moment>
           </p>
           <Modal
-            trigger={<Button>Modifier</Button>}
+            trigger={<Button><Icon name="edit" /> Modifier</Button>}
             size="tiny"
             closeIcon
           >
@@ -104,34 +104,36 @@ const ProfilPage = ({
               </Form>
             </Modal.Content>
             <Modal.Actions>
-              <Button negative>Annuler</Button>
               <Button
                 positiveicon="checkmark"
                 content="Valider"
               />
+              <Button negative>Annuler</Button>
             </Modal.Actions>
           </Modal>
 
           <Modal
-            trigger={<Button>Se désinscrire</Button>}
+            trigger={<Button><Icon name="trash alternate outline" />Se désinscrire</Button>}
             size="mini"
             closeIcon
+            closeOn
           >
             <Modal.Header>Se désinscrire</Modal.Header>
             <Modal.Content>
               <p>Supprimer mon compte ?</p>
             </Modal.Content>
             <Modal.Actions>
-              <Button negative>Annuler</Button>
               <Button
                 positiveicon="checkmark"
                 content="Valider"
+                onClick={deleteUser}
               />
+              <Button negative>Annuler</Button>
             </Modal.Actions>
           </Modal>
         </aside>
         <article className="questions">
-          <h1 className="titles">Mes questions </h1>
+          <h1 className="titles">Mes question</h1>
           {questions.map((question) => (
             question.author.id === iduser && (
               <Question className="question" key={question.id} {...question} />
@@ -162,6 +164,7 @@ ProfilPage.propTypes = {
     confirmedPassword: PropTypes.string.isRequired,
     checkbox: PropTypes.bool.isRequired,
   }).isRequired,
+  deleteUser: PropTypes.func.isRequired,
 };
 
 ProfilPage.defaultProps = {
