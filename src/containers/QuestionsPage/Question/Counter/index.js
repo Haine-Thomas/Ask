@@ -14,7 +14,9 @@ import { increment, decrement, fetchQuestionScore } from 'src/actions/questions'
  *  - ownProps : les props passées au container
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
-const mapStateToProps = () => ({
+const mapStateToProps = (state) => ({
+  userId: state.login.user.id,
+  isLogged: state.login.isLogged,
 });
 
 /* === Actions modification ===

@@ -1,6 +1,7 @@
 // == Import : npm
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import swal from 'sweetalert';
 // import du frameworks
 import { Button, Icon } from 'semantic-ui-react';
 
@@ -10,10 +11,21 @@ import CounterStyled from './CounterStyled';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de counter
-const Counter = ({ increment, decrement, fetchQuestionScore, score, questionId }) => (
+const Counter = ({
+  increment,
+  decrement,
+  fetchQuestionScore,
+  score,
+  questionId,
+  userId,
+  isLogged,
+  upvoted,
+  downvoted,
+}) => (
   <CounterStyled>
+    {isLogged && (
     <Icon
-      className="icon-top"
+      className={upvoted.includes(userId) ? 'icon-top-voted' : 'icon-top'}
       name="angle up"
       size="huge"
       onClick={() => {
@@ -21,9 +33,21 @@ const Counter = ({ increment, decrement, fetchQuestionScore, score, questionId }
         fetchQuestionScore();
       }}
     />
-    <div className="value-score">{score}</div>
+    )}
+    {!isLogged && (
     <Icon
-      className="icon-bottom"
+      className="icon-top"
+      name="angle up"
+      size="huge"
+      onClick={() => {
+        swal('Vous devez vous connecter pour voter !', '', 'warning');
+      }}
+    />
+    )}
+    <div className="value-score">{score}</div>
+    {isLogged && (
+    <Icon
+      className={downvoted.includes(userId) ? 'icon-bottom-voted' : 'icon-bottom'}
       name="angle down"
       size="huge"
       onClick={() => {
@@ -31,6 +55,17 @@ const Counter = ({ increment, decrement, fetchQuestionScore, score, questionId }
         fetchQuestionScore();
       }}
     />
+    )}
+    {!isLogged && (
+    <Icon
+      className="icon-bottom"
+      name="angle down"
+      size="huge"
+      onClick={() => {
+        swal('Vous devez vous connecter pour voter !', '', 'warning');
+      }}
+    />
+    )}
   </CounterStyled>
 );
 
@@ -42,6 +77,10 @@ Counter.propTypes = {
   score: PropTypes.number.isRequired,
   questionId: PropTypes.number.isRequired,
   fetchQuestionScore: PropTypes.func.isRequired,
+  userId: PropTypes.number.isRequired,
+  isLogged: PropTypes.bool.isRequired,
+  upvoted: PropTypes.array.isRequired,
+  downvoted: PropTypes.array.isRequired,
 };
 // == Export
 export default Counter;

@@ -22,10 +22,12 @@ const Question = ({
   created_at: createdAt,
   answers,
   id,
+  upvoted,
+  downvoted,
 }) => (
   <QuestionStyled>
     <div className="question-container">
-      <Counter score={score} questionId={id} />
+      <Counter score={score} questionId={id} upvoted={upvoted} downvoted={downvoted} />
       <NavLink
         exact
         to="/Answer"
@@ -53,6 +55,8 @@ Question.propTypes = {
   created_at: PropTypes.string.isRequired,
   answers: PropTypes.array.isRequired,
   id: PropTypes.number.isRequired,
+  upvoted: PropTypes.array.isRequired,
+  downvoted: PropTypes.array.isRequired,
 };
 
 // == Export

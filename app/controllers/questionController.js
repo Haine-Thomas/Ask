@@ -108,13 +108,47 @@ const questionController = {
         response.status(404).json(`Cant find a question with this id : ${question}`);
       }
       else {
+        const userUpVoted = question.upvoted.includes(userId);
+        const userDownVoted = question.downvoted.includes(userId);
         if (questionScore === 'upVote') {
-          question.upvoted.push(userId);
-          question.score = question.score + 1;
+          if (userUpVoted) {
+            question.score = question.score - 1;
+            const index = question.upvoted.indexOf(userId);
+            if (index > -1) {
+              question.upvoted.splice(index, 1);
+            }
+          }
+          else if (userDownVoted) {
+            question.score = question.score + 1;
+            const index = question.downvoted.indexOf(userId);
+            if (index > -1) {
+              question.downvoted.splice(index, 1);
+            }
+          }
+          else {
+            question.upvoted.push(userId);
+            question.score = question.score + 1;
+          }
         }
         if (questionScore === 'downVote') {
-          question.score = question.score - 1;
-          question.downvoted.push(userId);
+          if (userUpVoted) {
+            question.score = question.score - 1;
+            const index = question.upvoted.indexOf(userId);
+            if (index > -1) {
+              question.upvoted.splice(index, 1);
+            }
+          }
+          else if (userDownVoted) {
+            question.score = question.score + 1;
+            const index = question.downvoted.indexOf(userId);
+            if (index > -1) {
+              question.downvoted.splice(index, 1);
+            }
+          }
+          else {
+            question.score = question.score - 1;
+            question.downvoted.push(userId);
+          }
         }
         await question.update({
           upvoted: question.upvoted,

@@ -5,7 +5,7 @@ const initialState = {
   open: false,
   isLogged: false,
   user: {
-    id: null,
+    id: 0,
     email: '',
     password: '',
     pseudo: '',
