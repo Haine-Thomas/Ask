@@ -5,7 +5,7 @@ import styled from 'styled-components';
 // ici on a la fonction qui décrit le style du composant NavPage
 const NavStyled = styled.div`
   padding: 0.5rem;
-  background-color: #CAE9FF;
+  background-color: #fff;
 
   .nav-container {
     display: flex;
@@ -21,12 +21,12 @@ const NavStyled = styled.div`
     width: 45%;
     box-sizing: border-box;
     background-color: white;
-    border: 1px solid #dfe6e9;
+    border: 1px solid #121113;
     border-radius: 3px;
-    color: #1B4965;
+    color: #121113;
 
     &:hover {
-      border: 1px solid #1B4965;
+      border: 1px solid #ED412A;
     }
 
     a {

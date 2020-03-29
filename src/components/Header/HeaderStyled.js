@@ -4,12 +4,12 @@ import styled from 'styled-components';
 // == Composant
 // ici on a la fonction qui décrit le style du composant HeaderPage
 const HeaderStyled = styled.header`
-  font-family: 'Vollkorn', sans-serif;
+  font-family: 'Yeseva One', cursive;
   text-align: center;
   left: 1rem;
   padding: 3rem 0;
   color: #fff;
-  background-color: #1B4965;
+  background-color: #121113;
   width: 100%;
 
   span {
@@ -26,12 +26,14 @@ const HeaderStyled = styled.header`
   .title {
     font-size: 4rem;
     text-shadow: 2px 2px 2px black;
-    font-weight: bold;
 
     h1 {
       display: inline-block;
+      padding-bottom: 0.3rem;
+      border-bottom: 3px solid #ED412A;
+
       &:hover {
-        color: #CAE9FF;
+        color: #ED412A;
       }
   }
 `;

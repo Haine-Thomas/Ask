@@ -7,7 +7,7 @@ const QuestionStyled = styled.div`
   margin: 0rem 0rem 1rem;
   width: 99%;
   background-color: #fff;
-  color: black;
+  color: #121113;
   border-radius: 3px;
 
 
@@ -19,7 +19,7 @@ const QuestionStyled = styled.div`
 
   .question {
     padding: 0.6rem 0rem .8rem;
-    color: black;
+    color: #121113;
     font-size: 1.2rem;
   }
 
@@ -29,7 +29,7 @@ const QuestionStyled = styled.div`
     width:100%;
 
     &:hover {
-      color: black;
+      color: #121113;
     }
   }
 
@@ -49,9 +49,9 @@ const QuestionStyled = styled.div`
     text-align: right;
 
     .tag {
-      background-color: #1B4965;
-      border-top-right-radius: 3px;
+      background-color: #F4C63A;
       font-weight: bold;
+      margin-right: 3rem;
       padding: 0.8rem;
       display:inline-block;
       font-size: 1rem;
@@ -61,12 +61,12 @@ const QuestionStyled = styled.div`
 
   .separator {
     width: 150px;
-    border-top: 1px solid #5FA8D3;
+    border-top: 1px solid #ED412A;
     padding: 0rem 0rem;
   }
 
   .author {
-    color: black;
+    color: #121113;
     font-size: .8rem;
     padding: .5rem 0rem;
     }

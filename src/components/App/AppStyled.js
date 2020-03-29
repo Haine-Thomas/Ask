@@ -8,7 +8,9 @@ const AppStyled = styled.div`
   display: flex;
   flex-direction: column;
   font-family: 'Exo', serif;
-  background-color: #E8E8E8;
+  background-color: #F0F0F0;
+  font-family: 'Merriweather Sans', sans-serif;
+
 `;
 
 // == Export

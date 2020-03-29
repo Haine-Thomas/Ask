@@ -18,44 +18,57 @@ import Question from './Question';
 // ici on a la fonction qui renvoi le formulaire de structure de questionpage
 const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fetchPostQuestion }) => (
     <QuestionsPageStyled>
-      {isLogged && (
-        <div className="question-form-container">
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              fetchPostQuestion();
+      <div className="question-form-container">
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            fetchPostQuestion();
+          }}
+          className="question-form"
+        >
+          <h3>Poster une question :</h3>
+          <input
+            name="content"
+            type="text"
+            placeholder="Ajouter votre question..."
+            value={value}
+            onChange={(event) => {
+              changeInputValue(event.target.value, event.target.name);
             }}
-            className="question-form"
+          />
+          <select
+            onChange={(event) => {
+              changeInputValue(event.target.value, event.target.name);
+            }}
+            compact="true"
+            name="tagId"
           >
-            <input
-              name="content"
-              type="text"
-              placeholder="Ajouter votre question..."
-              value={value}
-              onChange={(event) => {
-                changeInputValue(event.target.value, event.target.name);
+            <option value="default">Catégories</option>
+            {tags.map((tag) => (
+              <option key={tag.id} value={tag.id}>{tag.name}</option>
+            ))}
+          </select>
+          {isLogged && (
+            <button type="submit">Valider </button>
+          )}
+          {!isLogged && (
+            <button
+              type="button"
+              onClick={() => {
+                swal('Vous devez vous connecter pour poster des questions !', '', 'warning');
               }}
-            />
-            <select
-              onChange={(event) => {
-                changeInputValue(event.target.value, event.target.name);
-              }}
-              compact="true"
-              name="tagId"
             >
-              <option value="default">Catégories</option>
-              {tags.map((tag) => (
-                <option key={tag.id} value={tag.id}>{tag.name}</option>
-              ))}
-            </select>
-            <button type="submit">Valider</button>
-          </form>
-        </div>
-      )}
-      <SortButtons />
-      {questions.map((question) => (
-        <Question key={question.id} {...question} />
-      ))}
+              Valider
+            </button>
+          )}
+        </form>
+      </div>
+      <div className="container-list-question">
+        <SortButtons />
+        {questions.map((question) => (
+          <Question key={question.id} {...question} />
+        ))}
+      </div>
     </QuestionsPageStyled>
 );
 
