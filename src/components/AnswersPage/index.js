@@ -15,33 +15,29 @@ import Question from 'src/components/QuestionsPage/Question';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de la page réponse
-const AnswersPage = ({ fetchAnswers }) => (
-  useEffect(fetchAnswers, []);
-
-  return (
-    <AnswersPageStyled>
+const AnswersPage = ({ questions, clickedQuestionId }) => (
+  <AnswersPageStyled>
+    <div className="gohome">
       <NavLink
-        activeClassName="selected"
         exact
         to="/"
         className="btnhome"
       >
         Retour à l'Accueil
       </NavLink>
+    </div>
+    {questions.map((question) => (
+      question.id === clickedQuestionId && (
+        <Answer key={question.id} {...question} />
+      )
+    ))}
 
-      {questions.map((question) => (
-          <Question key={question.id} {...question} />
-      ))}
-
-      {/*answers.map((answer) => (
-        <Answer key={question.answer.id} {...answer} />
-      ))*/}
-    </AnswersPageStyled>
-  )
+  </AnswersPageStyled>
 );
 
 AnswersPage.propTypes = {
-  fetchAnswers: PropTypes.func.isRequired,
+  questions: PropTypes.array.isRequired,
+  clickedQuestionId: PropTypes.number.isRequired,
 };
 
 // == Export

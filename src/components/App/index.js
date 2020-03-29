@@ -10,7 +10,7 @@ import Nav from 'src/components/Nav';
 import QuestionsPage from 'src/containers/QuestionsPage';
 import Footer from 'src/components/Footer';
 import SignIn from 'src/containers/SignIn';
-import AnswersPage from 'src/components/AnswersPage';
+import AnswersPage from 'src/containers/AnswersPage';
 import ProfilPage from 'src/containers/ProfilPage';
 
 import theme from 'src/assets/styles/theme';
@@ -33,7 +33,7 @@ const App = ({ fetchQuestions, fetchTags }) => {
           <Nav />
           <ProfilPage />
         </Route>
-        <Route key="3" path="/Answer">
+        <Route key="3" path="/Answer/:id">
           <Nav />
           <AnswersPage />
         </Route>
