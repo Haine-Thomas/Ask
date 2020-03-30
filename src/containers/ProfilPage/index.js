@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 import { changeValue } from 'src/actions/signIn';
-import { deleteUser, disconnectAction } from 'src/actions/login';
+import { deleteUser, disconnectAction, modifyUser } from 'src/actions/login';
 import { fetchQuestions } from 'src/actions/questions';
 
 
@@ -46,6 +46,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   fetchQuestions: () => {
     dispatch(fetchQuestions());
+  },
+
+  modifyUser: (id) => {
+    dispatch(modifyUser(id));
   },
 
 });

@@ -13,7 +13,6 @@ import {
   Form,
   Input,
 } from 'semantic-ui-react';
-import Avatar from 'react-avatar';
 
 // import de la route de navigation
 
@@ -21,6 +20,7 @@ import Avatar from 'react-avatar';
 import Question from 'src/components/QuestionsPage/Question';
 // import du composant styled du profil page
 import ProfilPageStyled from './ProfilPageStyled';
+import login from '../../reducers/login';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de profilpage
@@ -34,110 +34,11 @@ const ProfilPage = ({
   signIn,
   deleteUser,
   disconnectAction,
- 
-
-}) =>(
+  modifyUser,
+}) => (
   <ProfilPageStyled>
     {pseudo && (
       <>
-        <aside className="profil">
-          <h1 className="titles">Mon profil</h1>
-          <p className="profil_name"><Avatar className="avatar" alt={pseudo} size="50" name={pseudo} round="50px" />{pseudo}</p>
-          <p className="profil_email"><Icon name="envelope" />{email}</p>
-          <p className="bbday"><Icon name="birthday cake" />JJ/MM/AAAA</p>
-          <p>
-            <Icon name="calendar check" />
-            Inscrit depuis le: <Moment locale="fr" format="DD-MM-YYYY">{created_at}</Moment>
-          </p>
-          <Modal
-            trigger={<Button><Icon name="edit" /> Modifier</Button>}
-            size="tiny"
-            closeIcon
-          >
-            <Modal.Header>Modification</Modal.Header>
-            <Modal.Content>
-              <Form>
-                <p>{pseudo}</p>
-                <Form.Field>
-                  <label>
-                    Email
-                    <Input
-                      icon="at"
-                      type="text"
-                      name="email"
-                      placeholder={email}
-                      required
-                      value={signIn.password}
-                      onChange={(event) => {
-                        changeValue(event.target.value, event.target.name);
-                      }}
-                    />
-                  </label>
-                </Form.Field>
-                <Form.Field>
-                  <label>
-                    Mot de passe
-                    <Input
-                      type="password"
-                      name="password"
-                      placeholder="Mot de passe"
-                      required
-                      value={signIn.password}
-                      onChange={(event) => {
-                        changeValue(event.target.value, event.target.name);
-                      }}
-                    />
-                  </label>
-                </Form.Field>
-                <Form.Field>
-                  <label>
-                    Confirmer votre mot de passe
-                    <Input
-                      type="password"
-                      name="confirmedPassword"
-                      placeholder="Confirmer votre mot de passe"
-                      required
-                      value={signIn.confirmedPassword}
-                      onChange={(event) => {
-                        changeValue(event.target.value, event.target.name);
-                      }}
-                    />
-                  </label>
-                </Form.Field>
-              </Form>
-            </Modal.Content>
-            <Modal.Actions>
-              <Button
-                positiveicon="checkmark"
-                content="Valider"
-              />
-              <Button negative>Annuler</Button>
-            </Modal.Actions>
-          </Modal>
-
-          <Modal
-            trigger={<Button><Icon name="trash alternate outline" />Se désinscrire</Button>}
-            size="mini"
-            closeIcon
-            closeOn
-          >
-            <Modal.Header>Se désinscrire</Modal.Header>
-            <Modal.Content>
-              <p>Supprimer mon compte ?</p>
-            </Modal.Content>
-            <Modal.Actions>
-              <Button
-                positiveicon="checkmark"
-                content="Valider"
-                onClick={() => {
-                  deleteUser();
-                  disconnectAction();
-                }}
-              />
-              <Button negative>Annuler</Button>
-            </Modal.Actions>
-          </Modal>
-        </aside>
         <article className="questions">
           <h1 className="titles">Mes question</h1>
           {questions.map((question) => (
@@ -146,6 +47,116 @@ const ProfilPage = ({
             )
           ))}
         </article>
+        <aside className="profil">
+          <h1 className="titles">Mon profil</h1>
+          <div className="profil_content">
+            <p>Ma fiche utilisateur:</p>
+            <p>{pseudo}</p>
+            <p className="profil_email"><Icon color="olive" name="envelope" />{email}</p>
+            <p className="bbday"><Icon color="olive" name="birthday cake" />JJ/MM/AAAA</p>
+            <p>
+              <Icon color="olive" name="calendar check" />
+              Inscrit depuis le:
+            </p>
+            <p><Moment locale="fr" format="DD-MM-YYYY">{created_at}</Moment></p>
+            <Modal
+              trigger={<Button className="btn"><Icon name="edit" /> Modifier</Button>}
+              size="tiny"
+              closeIcon
+            >
+              <Modal.Header>Modification</Modal.Header>
+              <Modal.Content>
+                <Form>
+                  <p>Pseudo:</p>
+                  <p>{pseudo}</p>
+                  <Form.Field>
+                    <label>
+                      Email
+                      <Input
+                        icon="at"
+                        type="text"
+                        name="email"
+                        placeholder={email}
+                        required
+                        value={signIn.email}
+                        onChange={(event) => {
+                          changeValue(event.target.value, event.target.name);
+                        }}
+                      />
+                    </label>
+                  </Form.Field>
+                  <Form.Field>
+                    <label>
+                      Mot de passe
+                      <Input
+                        type="password"
+                        name="password"
+                        placeholder="Mot de passe"
+                        required
+                        value={signIn.password}
+                        onChange={(event) => {
+                          changeValue(event.target.value, event.target.name);
+                        }}
+                      />
+                    </label>
+                  </Form.Field>
+                  <Form.Field>
+                    <label>
+                      Confirmer votre mot de passe
+                      <Input
+                        type="password"
+                        name="confirmedPassword"
+                        placeholder="Confirmer votre mot de passe"
+                        required
+                        value={signIn.confirmedPassword}
+                        onChange={(event) => {
+                          changeValue(event.target.value, event.target.name);
+                        }}
+                      />
+                    </label>
+                  </Form.Field>
+                </Form>
+              </Modal.Content>
+              <Modal.Actions>
+                <Button
+                  labelPosition="right"
+                  icon="checkmark"
+                  content="Valider"
+                  onClick={modifyUser}
+                />
+                <Button negative>Annuler</Button>
+              </Modal.Actions>
+            </Modal>
+
+            <Modal
+              trigger={<Button className="btn"><Icon name="trash alternate outline" />Se désinscrire</Button>}
+              size="mini"
+              closeIcon
+              closeOn
+            >
+              <Modal.Header>Se désinscrire</Modal.Header>
+              <Modal.Content>
+                <p>Supprimer mon compte ?</p>
+              </Modal.Content>
+              <Modal.Actions>
+                <Button
+                  labelPosition="right"
+                  icon="checkmark"
+                  content="Valider"
+                  onClick={() => {
+                    deleteUser();
+                    disconnectAction();
+                  }}
+                />
+                <Button
+                  negative
+                >
+                  Annuler
+                </Button>
+              </Modal.Actions>
+            </Modal>
+          </div>
+        </aside>
       </>
     )}
     {!pseudo && (
@@ -153,7 +164,6 @@ const ProfilPage = ({
     )}
   </ProfilPageStyled>
 );
-
 ProfilPage.propTypes = {
   disconnectAction: PropTypes.func.isRequired,
   pseudo: PropTypes.string,
@@ -171,6 +181,7 @@ ProfilPage.propTypes = {
     checkbox: PropTypes.bool.isRequired,
   }).isRequired,
   deleteUser: PropTypes.func.isRequired,
+  modifyUser: PropTypes.func.isRequired,
 };
 
 ProfilPage.defaultProps = {

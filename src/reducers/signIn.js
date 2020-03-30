@@ -1,4 +1,10 @@
-import { CHANGE_VALUE, CHANGE_CHECKBOX, VERIFY_CALLBACK, EXPIRED_CALLBACK, RESET_ISVERIFIED } from 'src/actions/signIn';
+import {
+  CHANGE_VALUE,
+  CHANGE_CHECKBOX,
+  VERIFY_CALLBACK,
+  EXPIRED_CALLBACK,
+  RESET_ISVERIFIED,
+} from 'src/actions/signIn';
 
 export const initialState = {
   email: '',
