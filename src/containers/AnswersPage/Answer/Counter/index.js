@@ -6,6 +6,7 @@ import Counter from 'src/components/AnswersPage/Answer/Counter';
 
 // Action Creators
 import { increment, decrement } from 'src/actions';
+import { fetchAnswerScore } from 'src/actions/answers';
 
 /* === State (données) lecture ===
  * - mapStateToProps retroune un objet de props pour le composant de présentation
@@ -15,7 +16,8 @@ import { increment, decrement } from 'src/actions';
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
 const mapStateToProps = (state) => ({
-  count: state.counter.value,
+  userId: state.login.user.id,
+  isLogged: state.login.isLogged,
 });
 
 /* === Actions modification ===
@@ -31,6 +33,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   decrement: () => {
     dispatch(decrement());
+  },
+  fetchAnswerScore: () => {
+    dispatch(fetchAnswerScore());
   },
 });
 

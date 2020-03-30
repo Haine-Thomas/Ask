@@ -20,7 +20,6 @@ const Answer = ({
   created_at: createdAt,
   answers,
   isLogged,
-  id,
 }) => (
   <AnswerStyled>
     <div className="question-container">
@@ -69,7 +68,7 @@ const Answer = ({
       </form>
     </div>
     <div className="answersQuestion-container">
-    <SortButtons />
+      <SortButtons />
       {answers.map((answer) => (
         <div className="panswer" key={answer.id}>
           <Counter score={answer.score} />
@@ -95,7 +94,6 @@ Answer.propTypes = {
   tag: PropTypes.object.isRequired,
   created_at: PropTypes.string.isRequired,
   answers: PropTypes.array.isRequired,
-  id: PropTypes.number.isRequired,
   isLogged: PropTypes.bool.isRequired,
 };
 // == Export

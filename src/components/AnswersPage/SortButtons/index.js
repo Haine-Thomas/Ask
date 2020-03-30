@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // import du composant styled du sortbuttons
 import SortButtonsStyled from './SortButtonsStyled';
 
-const SortButtons = ({ changeSorted, sorted, fetchQuestions }) => (
+const SortButtons = ({ changeSorted, sorted, fetchAnswers }) => (
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de sortbuttons
   <SortButtonsStyled>
@@ -14,7 +14,7 @@ const SortButtons = ({ changeSorted, sorted, fetchQuestions }) => (
       className={sorted === 'created_at' ? 'active-btn' : ''}
       onClick={() => {
         changeSorted('created_at');
-        fetchQuestions();
+        fetchAnswers();
       }}
     >
       New
@@ -24,7 +24,7 @@ const SortButtons = ({ changeSorted, sorted, fetchQuestions }) => (
       className={sorted === 'score' ? 'active-btn' : ''}
       onClick={() => {
         changeSorted('score');
-        fetchQuestions();
+        fetchAnswers();
       }}
     >
       Best
@@ -35,7 +35,7 @@ const SortButtons = ({ changeSorted, sorted, fetchQuestions }) => (
 SortButtons.propTypes = {
   sorted: PropTypes.string.isRequired,
   changeSorted: PropTypes.func.isRequired,
-  fetchQuestions: PropTypes.func.isRequired,
+  fetchAnswers: PropTypes.func.isRequired,
 };
 
 export default SortButtons;

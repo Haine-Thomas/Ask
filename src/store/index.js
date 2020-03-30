@@ -8,7 +8,7 @@ import logMiddleware from 'src/middleware/logMiddleware';
 import ajaxQuestionMiddleware from 'src/middleware/ajaxQuestionMiddleware';
 import ajaxUserMiddleware from 'src/middleware/ajaxUserMiddleware';
 import ajaxMiddlewareTags from 'src/middleware/ajaxMiddlewareTags';
-
+import ajaxAnswerMiddleware from 'src/middleware/ajaxAnswerMiddleware';
 // == Enhancers
 // on fait en sorte d'avoir accès au devtool s'il est installé
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -20,6 +20,7 @@ const enhancers = composeEnhancers(
     ajaxQuestionMiddleware,
     ajaxUserMiddleware,
     ajaxMiddlewareTags,
+    ajaxAnswerMiddleware,
   ),
 );
 
@@ -30,7 +31,8 @@ const loadState = () => {
       return undefined;
     }
     return JSON.parse(serializedState);
-  } catch (e) {
+  }
+  catch (e) {
     return undefined;
   }
 };
@@ -38,7 +40,8 @@ const saveState = (state) => {
   try {
     const serializedState = JSON.stringify(state);
     localStorage.setItem('state', serializedState);
-  } catch (e) {
+  }
+  catch (e) {
     // Ignore write errors;
   }
 };

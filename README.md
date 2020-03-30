@@ -567,3 +567,7 @@ création branche searchbox
 
 - modifiction de index.js dans src/components/AnswersPage/Answer
 - modifiction de AnswerStyled.js dans src/components/AnswersPage/Answer
+
+##### 
+
+- modification de index.js dans src/store

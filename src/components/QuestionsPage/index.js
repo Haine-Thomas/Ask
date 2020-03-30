@@ -15,47 +15,54 @@ import QuestionsPageStyled from './QuestionsPageStyled.js';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de questionpage
-const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fetchPostQuestion }) => (
-    <QuestionsPageStyled>
-      {isLogged && (
-        <div className="question-form-container">
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              fetchPostQuestion();
+const QuestionsPage = ({ 
+  questions,
+  isLogged,
+  tags,
+  value,
+  changeInputValue,
+  fetchPostQuestion,
+}) => (
+  <QuestionsPageStyled>
+    {isLogged && (
+      <div className="question-form-container">
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            fetchPostQuestion();
+          }}
+          className="question-form"
+        >
+          <input
+            name="content"
+            type="text"
+            placeholder="Ajouter votre question..."
+            value={value}
+            onChange={(event) => {
+              changeInputValue(event.target.value, event.target.name);
             }}
-            className="question-form"
+          />
+          <select
+            onChange={(event) => {
+              changeInputValue(event.target.value, event.target.name);
+            }}
+            compact="true"
+            name="tagId"
           >
-            <input
-              name="content"
-              type="text"
-              placeholder="Ajouter votre question..."
-              value={value}
-              onChange={(event) => {
-                changeInputValue(event.target.value, event.target.name);
-              }}
-            />
-            <select
-              onChange={(event) => {
-                changeInputValue(event.target.value, event.target.name);
-              }}
-              compact="true"
-              name="tagId"
-            >
-              <option value="default">Catégories</option>
-              {tags.map((tag) => (
-                <option key={tag.id} value={tag.id}>{tag.name}</option>
-              ))}
-            </select>
-            <button type="submit">Valider</button>
-          </form>
-        </div>
-      )}
-      <SortButtons />
-      {questions.map((question) => (
-        <Question key={question.id} {...question} />
-      ))}
-    </QuestionsPageStyled>
+            <option value="default">Catégories</option>
+            {tags.map((tag) => (
+              <option key={tag.id} value={tag.id}>{tag.name}</option>
+            ))}
+          </select>
+          <button type="submit">Valider</button>
+        </form>
+      </div>
+    )}
+    <SortButtons />
+    {questions.map((question) => (
+      <Question key={question.id} {...question} />
+    ))}
+  </QuestionsPageStyled>
 );
 
 QuestionsPage.propTypes = {
