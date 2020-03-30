@@ -2,11 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import du frameworks
-<<<<<<< HEAD
-import { Button, Input, Icon } from 'semantic-ui-react';
-=======
 import { Icon } from 'semantic-ui-react';
->>>>>>> killwindows98
 
 import SortButtons from 'src/containers/Nav/SortButtons';
 

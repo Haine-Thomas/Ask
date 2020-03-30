@@ -7,14 +7,8 @@ const QuestionStyled = styled.div`
   margin: 0rem 0rem 1rem;
   width: 99%;
   background-color: #fff;
-<<<<<<< HEAD
-  color: black;
-  border-radius: 9px;
-  height: 20%;
-=======
   color: #121113;
   border-radius: 3px;
->>>>>>> killwindows98
 
 
   .question-container {
