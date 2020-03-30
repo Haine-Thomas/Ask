@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 // pour l'action de l'inscription
 const emailValidator = require('email-validator');
 const User = require('../models/user');
+const Question = require('../models/question');
 
 const userController = {
   getUserById: async (request, response) => {
@@ -115,8 +116,19 @@ const userController = {
 
   deleteUser: async (request, response)=>{
     try {
-      const userId = request.params.id;
-      let user = await User.findByPk(userId);
+      const userid = request.params.id;
+      let user = await User.findByPk(userid);
+      let questions = await Question.findAll({
+        where: {
+          userId: userid,
+        },
+      });
+      if (questions) {
+        questions.forEach((question) => {
+          question.userId = 2000;
+          question.save();
+        });
+      }
       await user.destroy();
       response.json({ message: 'Le compte a bien été supprimé'});
     } catch (error) {
@@ -129,12 +141,18 @@ const userController = {
       const userId = request.params.id;
       const user = await User.findByPk(userId);
       if (!user) {
-        response.status(404).json(`Ne trouve pas un user avec cette id:${userId}`)
+        response.status(404).json(`Ne trouve pas un user avec cette id:${userId}`);
       } else {
-        const { password } = request.body;
+        const { password, email} = request.body;
         if (password) {
           const passwordEncrypted = bcrypt.hashSync(request.body.password, 10);
           user.password = passwordEncrypted;
+        }
+        if (request.body.password !== request.body.confirmPassword) {
+          return response.json({ error: 'La confirmation du mot de passe a échoué' });
+        }
+        if (!emailValidator.validate(request.body.email)) {
+          return response.json({error: "Cet email n'est pas valide."});
         }
         await user.save();
         response.json(user);

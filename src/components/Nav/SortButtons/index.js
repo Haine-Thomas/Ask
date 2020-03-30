@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Icon } from 'semantic-ui-react';
 
 // import du composant styled du sortbuttons
 import SortButtonsStyled from './SortButtonsStyled';
@@ -17,6 +18,7 @@ const SortButtons = ({ changeSorted, sorted, fetchQuestions }) => (
         fetchQuestions();
       }}
     >
+      <Icon name="eye" />
       New
     </button>
     <button
@@ -27,6 +29,7 @@ const SortButtons = ({ changeSorted, sorted, fetchQuestions }) => (
         fetchQuestions();
       }}
     >
+      <Icon name="bolt" />
       Best
     </button>
   </SortButtonsStyled>

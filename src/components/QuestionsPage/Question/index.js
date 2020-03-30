@@ -1,9 +1,12 @@
 // == Import : npm
 import React from 'react';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
 // on import la route de navigation
 import { NavLink } from 'react-router-dom';
+import Avatar from 'react-avatar';
+
 
 // == Import : local
 import Counter from 'src/containers/QuestionsPage/Question/Counter';
@@ -20,10 +23,13 @@ const Question = ({
   tag,
   created_at: createdAt,
   answers,
+  id,
+  upvoted,
+  downvoted,
 }) => (
   <QuestionStyled>
     <div className="question-container">
-      <Counter score={score} />
+      <Counter score={score} questionId={id} upvoted={upvoted} downvoted={downvoted} />
       <NavLink
         exact
         to="/Answer"
@@ -34,7 +40,7 @@ const Question = ({
         </div>
         <p className="question">{content}</p>
         <div className="separator" />
-        <p className="author">posté par {author.name}, le {createdAt}</p>
+        <p className="author">posté par {author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{createdAt}</Moment> à <Moment locale="fr" format="HH:mm">{createdAt}</Moment></p>
         <div className="answer-container">
           <p className="answer-number">{answers.length} réponses</p>
         </div>
@@ -50,6 +56,9 @@ Question.propTypes = {
   tag: PropTypes.object.isRequired,
   created_at: PropTypes.string.isRequired,
   answers: PropTypes.array.isRequired,
+  id: PropTypes.number.isRequired,
+  upvoted: PropTypes.array.isRequired,
+  downvoted: PropTypes.array.isRequired,
 };
 
 // == Export

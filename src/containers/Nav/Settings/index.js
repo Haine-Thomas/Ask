@@ -7,6 +7,7 @@ import Settings from 'src/components/Nav/Settings';
 // Action Creators
 import { toggleOpen } from 'src/actions';
 import { disconnectAction } from 'src/actions/login';
+import { resetIsVerified } from 'src/actions/signIn';
 
 /* === State (données) lecture===
  * - mapStateToProps retroune un objet de props pour le composant de présentation
@@ -34,6 +35,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   disconnectAction: () => {
     dispatch(disconnectAction());
+  },
+  resetIsVerified: () => {
+    dispatch(resetIsVerified());
   },
 });
 

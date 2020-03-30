@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import SignIn from 'src/components/SignIn';
 
 // Action Creators
-import { changeValue, changeCheckbox, fetchSignInUser } from 'src/actions/signIn';
+import { changeValue, changeCheckbox, fetchSignInUser, verifyCallback, expiredCallback } from 'src/actions/signIn';
 
 /* === State (données) lecture===
  * - mapStateToProps retroune un objet de props pour le composant de présentation
@@ -34,6 +34,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchSignInUser: () => {
     dispatch(fetchSignInUser());
+  },
+  verifyCallback: (response) => {
+    dispatch(verifyCallback(response));
+  },
+  expiredCallback: (response) => {
+    dispatch(expiredCallback(response));
   },
 });
 

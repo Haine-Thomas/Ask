@@ -32,6 +32,8 @@ CREATE TABLE IF NOT EXISTS "question" (
   "user_id" INT NOT NULL,
   "tag_id" INT NOT NULL,
   "score" INT NOT NULL,
+  "upvoted" INT[] DEFAULT array[]::integer[],
+  "downvoted" INT[] DEFAULT array[]::integer[], 
   PRIMARY KEY ("id"));
 
 
