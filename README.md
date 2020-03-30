@@ -462,3 +462,95 @@ création branche searchbox
 
 - modification de AnswerStyled.js dans src/components/AnswersPage/Answer
 - modification de index.js dans src/components/AnswersPage/Answer
+
+#### Branche profilepage2vanessa
+
+##### delete user
+
+- modification de login.js dans src/actions
+- modification de SignIn.js dans src/actions
+- modification de LoginFormStyled.js dans src/components/Nav/Settings/LoginForm
+- modification de index.js dans src/components/Nav/Settings/LoginForm
+- modification de index.js dans src/components/Nav/SortButtons
+- modification de ProfilPageStyled.js dans src/components/ProfilPage
+- modification de index.js dans src/components/ProfilPage
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+- modification de QuestionsPageStyled.js dans src/components/QuestionsPage
+- modification de index.js dans src/components/QuestionsPage
+- modification de SignInStyled.js dans src/components/SignIn
+- modification de index.js dans src/components/SignIn
+- modification de index.js dans src/containers/ProfilPage
+- modification de ajaxMiddleware.js dans src/middleware
+- modification de ajaxQuestionMiddleware.js dans src/middleware
+- modification de ajaxUserMiddleware.js dans src/middleware
+- modification de logMiddleware.js dans src/middleware
+- modification de counter.js dans src/reducers
+- modification de login.js dans src/reducers
+- modification de tags.js dans src/reducers
+
+#### branche deleteuser
+
+##### delete user from table user ok
+
+- installation de react-avatar
+- modification de login.js dans src/actions
+- modification de AppStyled.js dans src/components/App
+- modification de FooterStyled.js dans src/components/Footer
+- modification de HeaderStyled.js dans src/components/Header
+- modification de NavStyled.js dans src/components/Nav
+- modification de LoginFormStyled.js dans src/components/Nav/Settings/LoginForm
+- modification de index.js dans src/components/Nav/Settings/LoginForm
+- modification de SortButtonsStyled.js dans src/components/Nav/SortButtons
+- modification de index.js dans src/components/Nav/SortButtons
+- modification de ProfilPageStyled.js dans src/components/ProfilPage
+- modification de index.js dans src/components/ProfilPage
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+- modification de QuestionsPageStyled.js dans src/components/QuestionsPage
+- modification de index.js dans src/components/QuestionsPage
+- modification de index.js dans src/containers/ProfilPage
+- modification de logMiddleware.js dans src/middleware
+- modification de login.js dans src/reducers
+
+#### branche fullstackapp
+
+##### upvote and downvote system work + some front css on counters
+
+- modification de questionController.js dans app/controllers
+- modification de CounterStyled.js dans src/components/QuestionsPage/Question/Counter
+- modification de index.js dans src/components/QuestionsPage/Question/Counter
+- modification de index.js dans src/components/QuestionsPage/Question
+- modification de index.js dans src/containers/QuestionsPage/Question/Counter
+- modification de ajaxMiddleware.js dans src/middleware
+- modification de login.js dans src/reducers
+
+##### default value for array fields in database modified
+
+- modification de import_tables,sql dans data
+
+##### correction in datas, insert datas in questions upvoted, downvoted ok
+
+- modification de import_tables,sql dans data
+
+##### branche killwindows98
+
+##### some css for 2020
+
+- modification de index.html dans src/assets
+- modification de AppStyled.js dans src/components/App
+- modification de FooterStyled.js dans src/components/Footer
+- modification de HeaderStyled.js dans src/components/Header
+- modification de NavStyled.js dans src/components/Nav
+- modification de SearchBarStyled.js dans src/components/Nav/SearchBar
+- modification de index.js dans src/components/Nav/SearchBar
+- modification de LoginFormStyled.js dans src/components/Nav/Settings/LoginForm
+- modification de SortButtonsStyled.js dans src/components/Nav/SortButtons
+- modification de index.js dans src/components/Nav/SortButtons
+- modification de CounterStyled.js dans src/components/QuestionsPage/Question/Counter
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+- modification de QuestionsPageStyled.js dans src/components/QuestionsPage
+- modification de index.js dans src/components/QuestionsPage
+
+### 30/03/2020
+
+
+
