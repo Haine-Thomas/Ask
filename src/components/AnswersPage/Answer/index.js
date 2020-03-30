@@ -46,6 +46,10 @@ const Answer = ({
               <div className="separator" />
               <p className="author">posté par {author.name}, le {createdAt}</p>
             </div>
+            <div className="userButton">
+              <input type="button" value="supprimer" />
+              <input type="button" value="modifier" />
+            </div>
           </p>
         ))}
       </div>

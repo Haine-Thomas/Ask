@@ -44,6 +44,14 @@ border-radius: 3px;
   flex-direction: column;
   justify-content: space-between;
 }
+
+.userButton {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+
 /*le composant question */
 .question-container {
   display: flex;

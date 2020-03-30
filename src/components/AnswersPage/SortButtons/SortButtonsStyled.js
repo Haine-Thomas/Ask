@@ -7,8 +7,11 @@ const SortButtonsStyled = styled.div`
   font-size: 1rem;
   width: 50%;
   margin-top: 2rem;
-  margin-bottom: 1rem;
-  text-align: left;
+  margin-bottom: 2rem;
+  text-align: center;
+  display: flex;
+  
+  justify-content: space-around;
 
   button {
     border: 0;
