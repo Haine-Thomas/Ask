@@ -5,9 +5,8 @@ import styled from 'styled-components';
 // ici on a la fonction qui décrit le style du composant SortButtonsPage
 const SortButtonsStyled = styled.div`
   font-size: 1rem;
-  width: 50%;
+  width: 100%;
   margin-top: 2rem;
-  margin-bottom: 2rem;
   text-align: center;
   display: flex;
   
