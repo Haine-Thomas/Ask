@@ -49,7 +49,7 @@ const QuestionStyled = styled.div`
     text-align: right;
 
     .tag {
-      background-color: #F4C63A;
+      background-color: #E9C46A;
       font-weight: bold;
       margin-right: 3rem;
       padding: 0.8rem;
@@ -61,7 +61,7 @@ const QuestionStyled = styled.div`
 
   .separator {
     width: 150px;
-    border-top: 1px solid #ED412A;
+    border-top: 1px solid #E76F51;
     padding: 0rem 0rem;
   }
 

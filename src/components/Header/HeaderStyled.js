@@ -30,10 +30,10 @@ const HeaderStyled = styled.header`
     h1 {
       display: inline-block;
       padding-bottom: 0.3rem;
-      border-bottom: 3px solid #ED412A;
+      border-bottom: 3px solid #E9C46A;
 
       &:hover {
-        color: #ED412A;
+        color: #E9C46A;
       }
   }
 `;

@@ -43,7 +43,7 @@ const QuestionsPageStyled = styled.main`
         border-radius: 3px;
         
         &:focus {
-          border: 1px solid #ED412A;
+          border: 1px solid #E76F51;
         }
       }
 
@@ -58,23 +58,24 @@ const QuestionsPageStyled = styled.main`
         border: 1px solid #D8D8D8;
 
         &:focus {
-          border: 1px solid #ED412A;
+          border: 1px solid #E76F51;
         }
       }
 
       button {
-        padding: 1.1rem 1rem 1rem;
+        padding: 1rem 1rem 1rem;
         width: 30%;
-        background-color: #ED412A;
-        border: 1px solid #ED412A;
+        background-color: #E76F51;
+        border: 1px solid #E76F51;
         color: #fff;
         border-bottom-right-radius: 3px;
         border-top-right-radius: 3px;
         margin-top: -10px;
 
         &:hover {
-          background-color: #121113;
-          border: 1px solid #121113;
+          background-color: #fff;
+          border: 1px solid #E76F51;
+          color: #E76F51;
         }
       }
     }

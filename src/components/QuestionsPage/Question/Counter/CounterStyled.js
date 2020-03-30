@@ -11,19 +11,19 @@ const Counterstyled = styled.div`
 
     &:hover {
       transform: translateY(-5px);
-      color: #ED412A;
+      color: #E76F51;
     }
   }
 
   .icon-top-voted {
-    color: #ED412A;
+    color: #E76F51;
     transform: translateY(-5px);
   }
 
   .value-score {
     font-size: 1.2rem;
     padding-right:3px;
-    color: #ED412A;
+    color: #E76F51;
   }
 
   .icon-bottom {
@@ -31,12 +31,12 @@ const Counterstyled = styled.div`
 
     &:hover {
       transform: translateY(5px);
-      color: #ED412A;
+      color: #E76F51;
     }
   }
 
   .icon-bottom-voted {
-    color: #ED412A;
+    color: #E76F51;
     transform: translateY(5px);
   }
 `;

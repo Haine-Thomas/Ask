@@ -7,7 +7,7 @@ const SignInStyled = styled.div`
   width: 40%;
   display: block;
   margin: auto;
-  color: #1B4965;
+  color: #E76F51;
 
   h1 {
     text-align: center;
@@ -23,11 +23,11 @@ const SignInStyled = styled.div`
     font-weight: bold;
   }
   .btnhome:hover {
-    color: #5FA8D3;
+    color: #FFF;
   }
 
-  .label {
-    margin: 1rem 0;
+  label {
+    margin: 1rem 0 0;
   }
 
   .input {
@@ -36,7 +36,8 @@ const SignInStyled = styled.div`
 
   .button {
     width: 100%;
-    background-color: #1B4965; 
+    background-color: #E76F51; 
+    margin: 1rem;
   }
 
   @media (max-width: 700px) {

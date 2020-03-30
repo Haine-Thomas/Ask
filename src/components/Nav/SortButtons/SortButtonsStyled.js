@@ -20,7 +20,7 @@ const SortButtonsStyled = styled.div`
     font-family: 'Merriweather Sans', sans-serif;
 
     &.active-btn {
-      border-bottom: 2px solid #ED412A;
+      border-bottom: 2px solid #E76F51;
       background-color: white;
     }
   }

@@ -26,7 +26,7 @@ const NavStyled = styled.div`
     color: #121113;
 
     &:hover {
-      border: 1px solid #ED412A;
+      border: 1px solid #E76F51;
     }
 
     a {

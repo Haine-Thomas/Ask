@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import du frameworks
-import { Button, Input, Select } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 
 import SortButtons from 'src/containers/Nav/SortButtons';
 
@@ -49,7 +49,7 @@ const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fet
             ))}
           </select>
           {isLogged && (
-            <button type="submit">Valider </button>
+            <button type="submit"><Icon name="paper plane outline" />Publier</button>
           )}
           {!isLogged && (
             <button
@@ -58,7 +58,8 @@ const QuestionsPage = ({ questions, isLogged, tags, value, changeInputValue, fet
                 swal('Vous devez vous connecter pour poster des questions !', '', 'warning');
               }}
             >
-              Valider
+              <Icon name="paper plane outline" />
+              Publier
             </button>
           )}
         </form>
