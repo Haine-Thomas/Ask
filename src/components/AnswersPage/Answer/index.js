@@ -35,6 +35,28 @@ const Answer = ({
         </div>
       </div>
     </div>
+    {isLogged && (
+        <div className="question-form-container">
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              fetchPostAnswer();
+            }}
+            className="question-form"
+          >
+            <input
+              name="content"
+              type="text"
+              placeholder="Ajouter votre réponse..."
+              value={value}
+              onChange={(event) => {
+                changeInputValue(event.target.value, event.target.name);
+              }}
+            />
+            <button type="submit">Valider</button>
+          </form>
+        </div>
+      )}
     <SortButtons />
     <section className="answers-container">
       <div className="answersQuestion-container">

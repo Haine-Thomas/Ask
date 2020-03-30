@@ -1,6 +1,7 @@
 import {
   SAVE_ANSWERS,
   CHANGE_SORTED,
+  FETCH_POST_ANSWER,
 } from 'src/actions/answers';
 
 export const initialState = {
@@ -21,6 +22,11 @@ const answers = (state = initialState, action = {}) => {
         list: action.answers,
       };
     case CHANGE_SORTED:
+      return {
+        ...state,
+        sorted: action.sorted,
+      };
+    case FETCH_POST_ANSWER:
       return {
         ...state,
         sorted: action.sorted,
