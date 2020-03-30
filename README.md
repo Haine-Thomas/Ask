@@ -562,3 +562,8 @@ création branche searchbox
 - création de SortButtons dans src/components/AnswersPage
 - création de index.js dans src/components/AnswersPage/SortButtons
 - création de SortButtonsStyled.js dans src/components/AnswersPage/SortButtons
+
+##### button delete and modify
+
+- modifiction de index.js dans src/components/AnswersPage/Answer
+- modifiction de AnswerStyled.js dans src/components/AnswersPage/Answer
