@@ -2,7 +2,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable import/no-unresolved */
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
@@ -33,7 +33,10 @@ const ProfilPage = ({
   changeValue,
   signIn,
   deleteUser,
-}) => (
+  disconnectAction,
+ 
+
+}) =>(
   <ProfilPageStyled>
     {pseudo && (
       <>
@@ -126,7 +129,10 @@ const ProfilPage = ({
               <Button
                 positiveicon="checkmark"
                 content="Valider"
-                onClick={deleteUser}
+                onClick={() => {
+                  deleteUser();
+                  disconnectAction();
+                }}
               />
               <Button negative>Annuler</Button>
             </Modal.Actions>
@@ -148,8 +154,8 @@ const ProfilPage = ({
   </ProfilPageStyled>
 );
 
-
 ProfilPage.propTypes = {
+  disconnectAction: PropTypes.func.isRequired,
   pseudo: PropTypes.string,
   email: PropTypes.string,
   created_at: PropTypes.string,

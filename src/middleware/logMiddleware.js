@@ -7,7 +7,10 @@ import {
   DISCONNECT_ACTION,
   changeUser,
   DELETE_USER,
+
 } from 'src/actions/login';
+
+import { fetchQuestions } from 'src/actions/questions';
 
 const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -18,7 +21,7 @@ const logMiddleware = (store) => (next) => (action) => {
           console.log(response);
         })
         .catch((error) => {
-          HTMLFormControlsCollection.error(error);
+          console.log(error);
         });
       next(action);
       break;
@@ -60,7 +63,6 @@ const logMiddleware = (store) => (next) => (action) => {
           });
           // quand on a la réponse, on veut modifier le pseudo dans l'état
           // je vais vouloir émettre une intention pour modifier le state
-          console.log(response.data);
         })
         .catch((error) => {
           console.log(error);

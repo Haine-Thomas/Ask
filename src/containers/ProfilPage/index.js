@@ -2,7 +2,8 @@
 import { connect } from 'react-redux';
 
 import { changeValue } from 'src/actions/signIn';
-import { deleteUser } from 'src/actions/login';
+import { deleteUser, disconnectAction } from 'src/actions/login';
+import { fetchQuestions } from 'src/actions/questions';
 
 
 // == Import : local
@@ -38,6 +39,15 @@ const mapDispatchToProps = (dispatch) => ({
   changeValue: (value, name) => {
     dispatch(changeValue(value, name));
   },
+
+  disconnectAction: () => {
+    dispatch(disconnectAction());
+  },
+
+  fetchQuestions: () => {
+    dispatch(fetchQuestions());
+  },
+
 });
 
 // Export du retour de connect = le composant enrichi de props
