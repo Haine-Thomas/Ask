@@ -552,5 +552,6 @@ création branche searchbox
 
 ### 30/03/2020
 
+##### some css for answer page
 
-
+- modifiction de answerStyled.js dans src/components/AnswersPage/Answer

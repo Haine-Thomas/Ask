@@ -37,7 +37,7 @@ const Answer = ({
     <section className="answers-container">
       <div className="answersQuestion-container">
         {answers.map((answer) => (
-          <p key={answer.id}>
+          <p className="panswer" key={answer.id}>
             <Counter score={score} />
             <div className="answerText">
               {answer.content}
