@@ -7,12 +7,12 @@ const SearchBarStyled = styled.div`
   width: 60%;
   margin: 0 .3rem;
 
-  .searchbar {
+  .input {
     width: 100%;
-  }
 
-  .searchbar:focus {
-    border-color: #1B4965;
+    i {
+      color: #ED412A;
+    }
   }
 
   @media (max-width: 700px) {

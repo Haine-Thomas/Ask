@@ -13,7 +13,7 @@ const SearchBar = () => (
       <Input
         icon="search"
         type="text"
-        fluid
+        focus={false}
         placeholder="Recherche..."
         className="searchbar"
       />

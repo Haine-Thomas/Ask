@@ -7,9 +7,8 @@ const QuestionStyled = styled.div`
   margin: 0rem 0rem 1rem;
   width: 99%;
   background-color: #fff;
-  color: black;
-  border-radius: 9px;
-  height: 20%;
+  color: #121113;
+  border-radius: 3px;
 
 
   .question-container {
@@ -21,7 +20,7 @@ const QuestionStyled = styled.div`
 
   .question {
     padding: 0.6rem 0rem .8rem;
-    color: black;
+    color: #121113;
     font-size: 1.2rem;
   }
 
@@ -31,7 +30,7 @@ const QuestionStyled = styled.div`
     width:100%;
 
     &:hover {
-      color: black;
+      color: #121113;
     }
   }
 
@@ -52,9 +51,9 @@ const QuestionStyled = styled.div`
 
     .tag {
       background-color: #E9C46A;
-      border-top-right-radius: 3px;
       font-weight: bold;
-      padding: 0.6rem;
+      margin-right: 3rem;
+      padding: 0.8rem;
       display:inline-block;
       font-size: .8rem;
       color: #fff;
@@ -63,12 +62,12 @@ const QuestionStyled = styled.div`
 
   .separator {
     width: 150px;
-    border-top: 1px solid #5FA8D3;
+    border-top: 1px solid #E76F51;
     padding: 0rem 0rem;
   }
 
   .author {
-    color: black;
+    color: #121113;
     font-size: .8rem;
     padding: .5rem 0rem;
     }

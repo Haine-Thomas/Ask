@@ -18,7 +18,7 @@ const SortButtons = ({ changeSorted, sorted, fetchQuestions }) => (
         fetchQuestions();
       }}
     >
-      <Icon name="eye" />
+      <Icon size="small" name="clock outline" />
       New
     </button>
     <button
@@ -29,7 +29,7 @@ const SortButtons = ({ changeSorted, sorted, fetchQuestions }) => (
         fetchQuestions();
       }}
     >
-      <Icon name="bolt" />
+      <Icon size="small" name="bolt" />
       Best
     </button>
   </SortButtonsStyled>
