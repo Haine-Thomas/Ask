@@ -10,7 +10,7 @@ import SortButtons from 'src/containers/Nav/SortButtons';
 
 // == Import : local
 // import du composant styled du questionpage
-import QuestionsPageStyled from './QuestionsPageStyled.js';
+import QuestionsPageStyled from './QuestionsPageStyled';
 
 import Question from './Question';
 
