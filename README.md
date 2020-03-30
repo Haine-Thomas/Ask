@@ -552,6 +552,8 @@ création branche searchbox
 
 ### 30/03/2020
 
+#### branche answerpage
+
 ##### some css for answer page
 
 - modifiction de answerStyled.js dans src/components/AnswersPage/Answer
@@ -568,6 +570,104 @@ création branche searchbox
 - modifiction de index.js dans src/components/AnswersPage/Answer
 - modifiction de AnswerStyled.js dans src/components/AnswersPage/Answer
 
-##### 
+##### work on answerpage
 
 - modification de index.js dans src/store
+- modification de answer.js dans src/actions
+- modification de index.js dans src/components/AnswersPage/Answer/Counter
+- modification de index.js dans src/components/AnswersPage/Answer
+- modification de index.js dans src/components/AnswersPage/SortButtons
+- modification de index.js dans src/containers/QuestionsPage
+- modification de index.js dans src/containers/AnswersPage/Answer/Counter
+- modification de index.js dans src/containers/AnswersPage/Answer
+- modification de ajaxAnswerMiddleware.js dans src/middleware
+- modification de index.js dans src/store
+
+#### branche fullstackapp
+
+##### bug fixed on deleteUser route
+
+- modification de userController.js dans app/controllers
+
+##### delete user_account ok
+
+- modification de index.js dans src/components/ProfilPage
+- modification de index.js dans src/containers/ProfilPage
+- modification de logMiddleware.js dans src/middleware
+
+##### merge branch profilpage2vanessa into fullsatckapp
+
+- modification de userController.js dans app/controllers
+- installation de react-avatar
+- modification de login.js dans src/actions
+- modification de AppStyled.js dans src/components/App
+- modification de FooterStyled.js dans src/components/Footer
+- modification de HeaderStyled.js dans src/components/Header
+- modification de NavStyled.js dans src/components/Nav
+- modification de LoginFormStyled.js dans src/components/Nav/Settings/LoginForm
+- modification de index.js dans src/components/Nav/Settings/LoginForm
+- modification de LoginFormStyled.js dans src/components/Nav/Settings
+- modification de SortButtonsStyled.js dans src/components/Nav/SortButtons
+- modification de index.js dans src/components/Nav/SortButtons
+- modification de ProfilPageStyled.js dans src/components/ProfilPage
+- modification de index.js dans src/components/ProfilPage
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+- modification de index.js dans src/components/QuestionsPage/Question
+- modification de QuestionPageStyled.js dans src/components/QuestionsPage
+- modification de index.js dans src/components/QuestionsPage
+- modification de SignInStyled.js dans src/components/SignIn
+- modification de index.js dans src/containers/ProfilPage
+- modification de ajaxMiddlewareTags.js dans src/middleware
+- modification de ajaxQuestionMiddleware.js dans src/middleware
+- modification de ajaxUserMiddleware.js dans src/middleware
+- modification de logMiddleware.js dans src/middleware
+- modification de login.js dans src/reducers
+- modification de signIn.js dans src/reducers
+- modification de tags.js dans src/reducers
+
+##### debug captcha, score
+
+- modification de questionController.js dans app/controllers
+- modification de signIn.js dans src/actions
+- modification de index.js dans src/components/Nav/Settings
+- modification de index.js dans src/components/SignIn
+- modification de index.js dans src/containers/Nav/Settings
+- modification de index.js dans src/containers/SignIn
+- modification de signIn.js dans src/reducers
+
+##### commit before merge
+
+- modification de HeaderStyled.js dans src/components/Header
+- modification de NavStyled.js dans src/components/Nav
+- modification de SortButtonsStyled.js dans src/components/Nav/SortButtons
+- modification de CounterStyled.js dans src/components/QuestionsPage/Question/Counter
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+- modification de QuestionsPageStyled.js dans src/components/QuestionsPage
+- modification de index.js dans src/components/QuestionsPage
+- modification de SignInStyled.js dans src/components/SignIn
+
+##### merge rbanch killwindows98 into fullstackapp
+
+- modification de index.html dans src/assets
+- modification de AppStyled.js dans src/components/App
+- modification de FooterStyled.js dans src/components/Footer
+- modification de HeaderStyled.js dans src/components/Header
+- modification de NavStyled.js dans src/components/Nav
+- modification de SearchBarStyled.js dans src/components/Nav/SearchBar
+- modification de index.js dans src/components/Nav/SearchBar
+- modification de LoginFormStyled.js dans src/components/Nav/Settings/LoginForm
+- modification de SortButtonsStyled.js dans src/components/Nav/SortButtons
+- modification de index.js dans src/components/Nav/SortButtons
+- modification de CounterStyled.js dans src/components/QuestionsPage/Question/Counter
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+- modification de QuestionsPageStyled.js dans src/components/QuestionsPage
+- modification de index.js dans src/components/QuestionsPage
+- modification de SignInStyled.js dans src/components/SignIn
+
+##### merge modification
+
+##### loginformstyled updated
+
+- modification de LoginFormStyled.js dans src/components/Nav/Settings/LoginForm
+- modification de index.js dans src/components/QuestionsPage
+
