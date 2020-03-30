@@ -6,11 +6,9 @@ import styled from 'styled-components';
 const FooterStyled = styled.footer`
   display: flex;
   justify-content: space-around;
-  background-color: black;
+  background-color: #121113;
   padding: 1rem;
 
-  
-  
   a {
     margin: auto;
   }

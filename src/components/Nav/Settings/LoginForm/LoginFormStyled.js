@@ -6,8 +6,7 @@ import styled from 'styled-components';
 const LoginFormStyled = styled.div`
   width: 20%;
   height: auto;
-  background-color: white;
-  color: white;
+  background-color: #fff;
   text-align: center;
   position: absolute;
   padding: 1rem;
