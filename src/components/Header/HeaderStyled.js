@@ -1,5 +1,6 @@
 // == Import locaux
 import styled from 'styled-components';
+import Background from '../../assets/img/tanner-larson-5NUWU1qL5yo-unsplash.jpg';
 
 // == Composant
 // ici on a la fonction qui décrit le style du composant HeaderPage
@@ -9,8 +10,9 @@ const HeaderStyled = styled.header`
   left: 1rem;
   padding: 3rem 0;
   color: #fff;
-  background-color: #1B4965;
   width: 100%;
+  background: url(${Background});
+  background-size: cover;
 
   span {
     font-size: 2rem;

@@ -17,7 +17,7 @@ const SortButtonsStyled = styled.div`
     background-color: #D8D8D8;
     width: 50%;
     font-family: 'Exo', serif;
-    color: #1B4965;
+    color: #E76F51 ;
     font-size: 1.2rem;
     font-weight: bold;
 

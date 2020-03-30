@@ -11,6 +11,7 @@ import {
   Form,
   Checkbox,
   Button,
+  Icon,
 } from 'semantic-ui-react';
 
 // == Import : npm locaux

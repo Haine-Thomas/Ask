@@ -3,6 +3,7 @@ export const CHANGE_CHECKBOX = 'CHANGE_CHECKBOX';
 export const FETCH_SIGNINUSER = 'FETCH_SIGNINUSER';
 export const VERIFY_CALLBACK = 'VERIFY_CALLBACK';
 
+
 export const changeValue = (value, name) => ({
   type: CHANGE_VALUE,
   value,

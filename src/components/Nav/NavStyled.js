@@ -5,7 +5,7 @@ import styled from 'styled-components';
 // ici on a la fonction qui décrit le style du composant NavPage
 const NavStyled = styled.div`
   padding: 0.5rem;
-  background-color: #CAE9FF;
+  background-color: white;
 
   .nav-container {
     display: flex;

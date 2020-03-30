@@ -11,24 +11,21 @@ const QuestionsPageStyled = styled.main`
   margin: 0 auto;
 
   .question-form-container {
-
-    width: 99%;
+    width: 100%;
+    
     
     .question-form {
+      background-color: #E9C46A;
       width: 100%;
-      margin-top: 2rem;
-      background-color: #1B4965;
+      margin-top: 1rem;
       border-radius: 3px;
-      padding: 1rem;
+      padding: .1rem;
       display: flex;
+      border: hidden;
 
       input {
-        padding: 1rem;
-        border: 1px solid #CAE9FF;
+        border: hidden;
         width: 70%;
-        backgroud-color: #fff;
-        border-bottom-left-radius: 3px;
-        border-top-left-radius: 3px;
         
         &:focus {
           border: 1px solid #1B4965;
@@ -36,22 +33,20 @@ const QuestionsPageStyled = styled.main`
       }
 
       select {
-        padding: 1rem;
-        background-color: #CAE9FF;
-        border: 1px solid #CAE9FF;
         width: 15%;
+        border: hidden;
+        border-radius: O;
 
         &:focus {
-          border: 1px solid #1B4965;
+          border: 1px solid black;
         }
       }
 
       button {
         width: 15%;
-        border: 1px solid #CAE9FF;
-        border-bottom-right-radius: 3px;
-        border-top-right-radius: 3px;
-        background-color: #fff;
+        border: hidden;
+        background-color: white;
+
       }
     }
   }

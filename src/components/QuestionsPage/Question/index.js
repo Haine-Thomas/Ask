@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 // on import la route de navigation
 import { NavLink } from 'react-router-dom';
+import Avatar from 'react-avatar';
+
 
 // == Import : local
 import Counter from 'src/containers/QuestionsPage/Question/Counter';

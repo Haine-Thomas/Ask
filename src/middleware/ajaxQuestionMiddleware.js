@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import axios from 'axios';
 import swal from 'sweetalert';
 import { FETCH_QUESTIONS, saveQuestions, fetchQuestions, FETCH_POST_QUESTION, FETCH_QUESTION_SCORE } from 'src/actions/questions';

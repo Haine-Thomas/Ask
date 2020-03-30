@@ -8,12 +8,14 @@ const QuestionStyled = styled.div`
   width: 99%;
   background-color: #fff;
   color: black;
-  border-radius: 3px;
+  border-radius: 9px;
+  height: 20%;
 
 
   .question-container {
     display: flex;
     padding-left: 0.5px;
+    
   }
 
 
@@ -49,12 +51,12 @@ const QuestionStyled = styled.div`
     text-align: right;
 
     .tag {
-      background-color: #1B4965;
+      background-color: #E9C46A;
       border-top-right-radius: 3px;
       font-weight: bold;
-      padding: 0.8rem;
+      padding: 0.6rem;
       display:inline-block;
-      font-size: 1rem;
+      font-size: .8rem;
       color: #fff;
     }
   }
