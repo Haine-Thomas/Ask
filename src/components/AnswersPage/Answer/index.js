@@ -1,6 +1,7 @@
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Icon } from 'semantic-ui-react';
 
 // == Import : local
 // import du composant styled du réponse
@@ -18,6 +19,7 @@ const Answer = ({
   tag,
   created_at: createdAt,
   answers,
+  isLogged,
   id,
 }) => (
   <AnswerStyled>
@@ -35,47 +37,54 @@ const Answer = ({
         </div>
       </div>
     </div>
-    {isLogged && (
-        <div className="question-form-container">
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              fetchPostAnswer();
+    <div className="reponse-form-container">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}
+        className="answer-form"
+      >
+        <h3>Poster une réponse :</h3>
+        <input
+          name="content"
+          type="text"
+          placeholder="Ajouter votre réponse..."
+          onChange={(event) => {
+          }}
+        />
+        {isLogged && (
+          <button type="submit"><Icon name="paper plane outline" />Publier</button>
+        )}
+        {!isLogged && (
+          <button
+            type="button"
+            onClick={() => {
+              swal('Vous devez vous connecter pour poster des réponse !', '', 'warning');
             }}
-            className="question-form"
           >
-            <input
-              name="content"
-              type="text"
-              placeholder="Ajouter votre réponse..."
-              value={value}
-              onChange={(event) => {
-                changeInputValue(event.target.value, event.target.name);
-              }}
-            />
-            <button type="submit">Valider</button>
-          </form>
-        </div>
-      )}
+            <Icon name="paper plane outline" />
+            Publier
+          </button>
+        )}
+      </form>
+    </div>
+    <div className="answersQuestion-container">
     <SortButtons />
-    <section className="answers-container">
-      <div className="answersQuestion-container">
-        {answers.map((answer) => (
-          <p className="panswer" key={answer.id}>
-            <Counter score={score} />
-            <div className="answerText">
-              {answer.content}
-              <div className="separator" />
-              <p className="author">posté par {author.name}, le {createdAt}</p>
-            </div>
-            <div className="userButton">
-              <input type="button" value="supprimer" />
-              <input type="button" value="modifier" />
-            </div>
-          </p>
-        ))}
-      </div>
-    </section>
+      {answers.map((answer) => (
+        <div className="panswer" key={answer.id}>
+          <Counter score={answer.score} />
+          <div className="answerText">
+            <p className="content-text">{answer.content}</p>
+            <div className="separator" />
+            <p className="author">posté par {author.name}, le {answer.created_at}</p>
+          </div>
+          <div className="userButton">
+            <Icon name="delete" size="large" />
+            <Icon name="edit" size="large" />
+          </div>
+        </div>
+      ))}
+    </div>
   </AnswerStyled>
 );
 
@@ -87,6 +96,7 @@ Answer.propTypes = {
   created_at: PropTypes.string.isRequired,
   answers: PropTypes.array.isRequired,
   id: PropTypes.number.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };
 // == Export
 export default Answer;

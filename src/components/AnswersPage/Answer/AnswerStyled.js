@@ -13,8 +13,7 @@ border-radius: 3px;
 .answersQuestion-container {
   display: flex;
   padding-left: 0.5px;
-  background-color: #F8F8F8;
-  width: 100%;
+  width: 60%;
   text-align: left;
   flex-direction: column;
 }
@@ -23,32 +22,33 @@ border-radius: 3px;
   width: 100%;
   text-align: right;
   display: flex;
-  flex-direction: row;
 
   .answer-number {
     font-size: 0.8rem;
     padding: .5rem;
   }
+  
 }
 
 .panswer {
   display: flex;
-  flex-direction: row;
+  margin-top: 1rem;
+  background-color: #fff;
 }
 
 .answerText {
-  margin: 0 0 0 .7rem;
   text-align: left;
-  width:100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
+
+  .content-text {
+    margin: 3.5rem 0 0.8rem 0;
+  }
 }
 
 .userButton {
-  width: 10%;
   display: flex;
   flex-direction: column;
+  text-align: right;
 }
 
 

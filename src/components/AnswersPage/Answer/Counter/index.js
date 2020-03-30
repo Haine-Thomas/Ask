@@ -20,9 +20,6 @@ const Counter = ({ increment, decrement, score }) => (
 
 
 Counter.propTypes = {
-  // count: PropTypes.number.isRequired,
-  increment: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
   score: PropTypes.number.isRequired,
 };
 
