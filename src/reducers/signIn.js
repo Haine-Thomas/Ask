@@ -1,4 +1,4 @@
-import { CHANGE_VALUE, CHANGE_CHECKBOX, VERIFY_CALLBACK } from 'src/actions/signIn';
+import { CHANGE_VALUE, CHANGE_CHECKBOX, VERIFY_CALLBACK, EXPIRED_CALLBACK, RESET_ISVERIFIED } from 'src/actions/signIn';
 
 export const initialState = {
   email: '',
@@ -35,6 +35,16 @@ const signIn = (state = initialState, action = {}) => {
         };
       }
     }
+    case EXPIRED_CALLBACK:
+      return {
+        ...state,
+        isVerified: false,
+      };
+    case RESET_ISVERIFIED:
+      return {
+        ...state,
+        isVerified: false,
+      };
     default:
       return state;
   }

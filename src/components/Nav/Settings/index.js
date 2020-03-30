@@ -14,19 +14,19 @@ import SettingsStyled from './SettingsStyled';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de settings
-const Settings = ({ open, isLogged, toggleForm, disconnectAction, user}) => (
+const Settings = ({ open, isLogged, toggleForm, disconnectAction, user, resetIsVerified }) => (
   <SettingsStyled>
     <div>
       {isLogged && (
         <div>
-          <Button basic color="white" onClick={disconnectAction} type="button" className="btn-nav">Déconnexion</Button>
+          <Button basic onClick={disconnectAction} type="button" className="btn-nav">Déconnexion</Button>
           <NavLink
             activeClassName="btn"
             className="btn"
             exact
             to="/Profil"
           >
-            <Button basic color="white" className="btn-nav" type="button">
+            <Button basic className="btn-nav" type="button">
               <Icon name="user" />
               <span className="loginMessage"> {user}</span>
             </Button>
@@ -39,7 +39,6 @@ const Settings = ({ open, isLogged, toggleForm, disconnectAction, user}) => (
             <>
               <Button
                 basic
-                color="white"
                 type="button"
                 className="btn-nav"
                 onClick={toggleForm}
@@ -50,7 +49,7 @@ const Settings = ({ open, isLogged, toggleForm, disconnectAction, user}) => (
                 to="/signIn"
                 exact
               >
-                <Button basic color="white" className="btn-nav" type="button">
+                <Button basic className="btn-nav" type="button" onClick={resetIsVerified}>
                   Inscription
                 </Button>
               </NavLink>
@@ -71,6 +70,7 @@ Settings.propTypes = {
   user: PropTypes.string.isRequired,
   toggleForm: PropTypes.func.isRequired,
   disconnectAction: PropTypes.func.isRequired,
+  resetIsVerified: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -2,7 +2,8 @@ export const CHANGE_VALUE = 'CHANGE_VALUE';
 export const CHANGE_CHECKBOX = 'CHANGE_CHECKBOX';
 export const FETCH_SIGNINUSER = 'FETCH_SIGNINUSER';
 export const VERIFY_CALLBACK = 'VERIFY_CALLBACK';
-
+export const EXPIRED_CALLBACK = 'EXPIRED_CALLBACK';
+export const RESET_ISVERIFIED = 'RESET_ISVERIFIED';
 
 export const changeValue = (value, name) => ({
   type: CHANGE_VALUE,
@@ -21,4 +22,13 @@ export const fetchSignInUser = () => ({
 export const verifyCallback = (response) => ({
   type: VERIFY_CALLBACK,
   response,
+});
+
+export const expiredCallback = (response) => ({
+  type: EXPIRED_CALLBACK,
+  response,
+});
+
+export const resetIsVerified = () => ({
+  type: RESET_ISVERIFIED,
 });

@@ -26,6 +26,7 @@ const SignIn = ({
   fetchSignInUser,
   changeCheckbox,
   verifyCallback,
+  expiredCallback,
 }) => (
     <SignInStyled>
       <div className="gohome">
@@ -123,6 +124,7 @@ const SignIn = ({
           sitekey="6LccPeQUAAAAAKHq9MPvIR7qo3SVjfEfifN6OKPI"
           render="explicit"
           verifyCallback={verifyCallback}
+          expiredCallback={expiredCallback}
         />
         <Form.Field>
           <label>
@@ -159,6 +161,7 @@ SignIn.propTypes = {
   changeCheckbox: PropTypes.func.isRequired,
   fetchSignInUser: PropTypes.func.isRequired,
   verifyCallback: PropTypes.func.isRequired,
+  expiredCallback: PropTypes.func.isRequired,
 };
 
 // == Export

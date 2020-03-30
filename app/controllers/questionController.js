@@ -119,7 +119,8 @@ const questionController = {
             }
           }
           else if (userDownVoted) {
-            question.score = question.score + 1;
+            question.score = question.score + 2;
+            question.upvoted.push(userId);
             const index = question.downvoted.indexOf(userId);
             if (index > -1) {
               question.downvoted.splice(index, 1);
@@ -132,7 +133,8 @@ const questionController = {
         }
         if (questionScore === 'downVote') {
           if (userUpVoted) {
-            question.score = question.score - 1;
+            question.score = question.score - 2;
+            question.downvoted.push(userId);
             const index = question.upvoted.indexOf(userId);
             if (index > -1) {
               question.upvoted.splice(index, 1);
