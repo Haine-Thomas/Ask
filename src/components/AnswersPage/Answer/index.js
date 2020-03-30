@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 
 // == Import : local
 // import du composant styled du réponse
+import SortButtons from 'src/components/AnswersPage/SortButtons';
 import AnswerStyled from './AnswerStyled';
 import Counter from './Counter';
+
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de réponse
@@ -33,7 +35,7 @@ const Answer = ({
         </div>
       </div>
     </div>
-
+    <SortButtons />
     <section className="answers-container">
       <div className="answersQuestion-container">
         {answers.map((answer) => (

@@ -555,3 +555,10 @@ création branche searchbox
 ##### some css for answer page
 
 - modifiction de answerStyled.js dans src/components/AnswersPage/Answer
+
+##### SortButtons on answerpage
+
+- modifiction de index.js dans src/components/AnswersPage/Answer
+- création de SortButtons dans src/components/AnswersPage
+- création de index.js dans src/components/AnswersPage/SortButtons
+- création de SortButtonsStyled.js dans src/components/AnswersPage/SortButtons
