@@ -9,6 +9,10 @@ const SignInStyled = styled.div`
   margin: auto;
   color: #E76F51;
 
+.field {
+  display: flex
+}
+
   h1 {
     text-align: center;
     font-size: 1.5rem;

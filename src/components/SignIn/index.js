@@ -17,6 +17,7 @@ import {
 // == Import : npm locaux
 // import de la feuille de style associée
 import SignInStyled from './SignInStyled';
+import Charter from './Charter';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de signin
@@ -129,13 +130,14 @@ const SignIn = ({
         <Form.Field>
           <label>
             <Checkbox
-              label="J'accepte de respecter la charte du site"
+              label="J'accepte de respecter "
               required="required"
               onChange={() => {
                 changeCheckbox();
               }}
             />
           </label>
+          <Charter />
         </Form.Field>
         <Button
           disabled={(!signIn.checkbox || !signIn.isVerified)}
