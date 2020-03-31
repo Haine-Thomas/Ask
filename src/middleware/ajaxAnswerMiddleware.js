@@ -2,7 +2,6 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import {
   FETCH_ANSWERS,
-  fetchAnswers,
   saveAnswers,
   FETCH_POST_ANSWER,
   FETCH_ANSWER_SCORE,
@@ -42,6 +41,7 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
           }
           else {
             swal('Réponse postée!', '', 'success');
+            store.dispatch(saveAnswers());
             store.dispatch(fetchQuestions());
           }
         })
@@ -53,8 +53,8 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
     }
     case FETCH_ANSWER_SCORE: {
       const state = store.getState();
-      const { vote, voteAnswer } = state.answers;
-      axios.patch('http://localhost:3000/answer/:id/${votedAnswer}/${vote}', {
+      const { vote, votedAnswer } = state.answer;
+      axios.patch(`http://localhost:3000/answer/${votedAnswer}/${vote}`, {
       }, { withCredentials: true })
         .then((response) => {
           // revenir a la fenetre précédente
@@ -62,7 +62,7 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
             swal(response.data.error, '', 'warning');
           }
           else {
-            store.dispatch(fetchAnswers());
+            store.dispatch(fetchQuestions());
           }
         })
         .catch((error) => {

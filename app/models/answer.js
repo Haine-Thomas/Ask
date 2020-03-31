@@ -24,6 +24,12 @@ Answer.init(
       type: sequelize.INTEGER,
       field: 'question_id',
     },
+    upvoted: {
+      type: sequelize.ARRAY(sequelize.INTEGER),
+    },
+    downvoted: {
+      type: sequelize.ARRAY(sequelize.INTEGER),
+    },
   },
   {
     sequelize: DBConnection,

@@ -34,12 +34,12 @@ export const changeAnswerValue = (value) => ({
   value,
 });
 
-export const increment = (answer) => ({
+export const increment = (answerId) => ({
   type: INCREMENT_COUNTER,
-  answer,
+  answerId,
 });
 
-export const decrement = (answer) => ({
+export const decrement = (answerId) => ({
   type: DECREMENT_COUNTER,
-  answer,
+  answerId,
 });

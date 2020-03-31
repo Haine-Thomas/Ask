@@ -150,6 +150,23 @@ border-radius: 3px;
   padding: .5rem 0rem;
   }
 
+@media (max-width: 1080px) {
+
+  .container-reponse {
+    width: 96%;
+    margin: 0 auto;
+    flex-direction: column;
+
+    .reponse-form-container {
+      width: 100%;
+    }
+
+    .answersQuestion-container {
+      width: 100%;
+    }
+  }
+}
+
 `;
 
 // == Export

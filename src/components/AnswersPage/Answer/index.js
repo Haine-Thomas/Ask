@@ -5,10 +5,10 @@ import { Icon } from 'semantic-ui-react';
 
 // == Import : local
 // import du composant styled du réponse
+import Counter from 'src/containers/QuestionsPage/Question/Counter';
+import AnswerCounter from 'src/containers/AnswersPage/Answer/Counter';
 import SortButtons from 'src/components/AnswersPage/SortButtons';
 import AnswerStyled from './AnswerStyled';
-import Counter from './Counter';
-
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de réponse
@@ -78,7 +78,7 @@ const Answer = ({
         <SortButtons />
         {answers.map((answer) => (
           <div className="panswer" key={answer.id}>
-            <Counter score={answer.score} />
+            <AnswerCounter {...answer} />
             <div className="answerText">
               <p className="content-text">{answer.content}</p>
               <div className="separator" />

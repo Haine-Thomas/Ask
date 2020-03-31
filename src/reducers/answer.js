@@ -3,21 +3,24 @@ import {
   CHANGE_SORTED,
   FETCH_POST_ANSWER,
   CHANGE_ANSWER_VALUE,
+  INCREMENT_COUNTER,
+  DECREMENT_COUNTER,
 } from 'src/actions/answers';
 
 export const initialState = {
   value: '',
+  votedAnswer: 0,
+  vote: '',
 };
 
 // reducer = traducteur d'une intention/action vers une modification du state
 const answers = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_ANSWERS:
-      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         list: action.answers,
+        value: '',
       };
     case CHANGE_SORTED:
       return {
@@ -32,6 +35,18 @@ const answers = (state = initialState, action = {}) => {
       return {
         ...state,
         value: action.value,
+      };
+    case INCREMENT_COUNTER:
+      return {
+        ...state,
+        vote: 'upVote',
+        votedAnswer: action.answerId,
+      };
+    case DECREMENT_COUNTER:
+      return {
+        ...state,
+        vote: 'downVote',
+        votedAnswer: action.answerId,
       };
     default:
       return state;

@@ -2,26 +2,23 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
-// import du frameworks
 import { Icon } from 'semantic-ui-react';
 
-// == Import : local
-// import du composant styled du counter
 import CounterStyled from './CounterStyled';
 
-// == Composant
-// ici on a la fonction qui renvoi le formulaire de structure de counter
 const Counter = ({
   increment,
   decrement,
   fetchAnswerScore,
   score,
-  answer,
+  id,
   userId,
   isLogged,
   upvoted,
   downvoted,
-}) => (
+}) => {
+  console.log(userId);
+return(
   <CounterStyled>
     {isLogged && (
     <Icon
@@ -29,7 +26,7 @@ const Counter = ({
       name="angle up"
       size="huge"
       onClick={() => {
-        increment(answer);
+        increment(id);
         fetchAnswerScore();
       }}
     />
@@ -51,7 +48,7 @@ const Counter = ({
       name="angle down"
       size="huge"
       onClick={() => {
-        decrement(answer);
+        decrement(id);
         fetchAnswerScore();
       }}
     />
@@ -68,13 +65,13 @@ const Counter = ({
     )}
   </CounterStyled>
 );
+};
 
 Counter.propTypes = {
-  // count: PropTypes.number.isRequired,
   increment: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired,
   score: PropTypes.number.isRequired,
-  answer: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
   fetchAnswerScore: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
   isLogged: PropTypes.bool.isRequired,
