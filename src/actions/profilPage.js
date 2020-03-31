@@ -1,5 +1,5 @@
-export const TOGGLE_OPEN_MODALE = 'TOGGLE_OPEN_MODALE';
+export const TOGGLE_OPEN_MODAL = 'TOGGLE_OPEN_MODAL';
 
-export const toggleOpenModale = () => ({
-  type: TOGGLE_OPEN_MODALE,
+export const toggleOpenModal = () => ({
+  type: TOGGLE_OPEN_MODAL,
 });

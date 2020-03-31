@@ -35,7 +35,11 @@ const ProfilPage = ({
   disconnectAction,
   modifyUser,
   open,
+<<<<<<< HEAD
   toggleOpenModale,
+=======
+  toggleOpenModal,
+>>>>>>> ef5d41867a172e584d8863a57f307bead326817a
 }) => (
   <ProfilPageStyled>
     {pseudo && (
@@ -61,10 +65,20 @@ const ProfilPage = ({
             </p>
             <p><Moment locale="fr" format="DD-MM-YYYY">{created_at}</Moment></p>
             <Modal
-              open={open}
-              trigger={<Button className="btn"><Icon name="edit" /> Modifier</Button>}
+              trigger={(
+                <Button
+                  open={open}
+                  onClick={() => {
+                    toggleOpenModal();
+                  }}
+                  className="btn"
+                ><Icon name="edit" /> Modifier
+                </Button>
+            )}
               size="tiny"
               closeIcon
+              open={open}
+              onClose={toggleOpenModal}
             >
               <Modal.Header>Modification</Modal.Header>
               <Modal.Content>
@@ -128,7 +142,7 @@ const ProfilPage = ({
                   }}
                 />
                 <Button
-                  onClick={toggleOpenModale}
+                  onClick={toggleOpenModal}
                   negative
                 >
                   Annuler
@@ -137,11 +151,21 @@ const ProfilPage = ({
             </Modal>
 
             <Modal
-              open={open}
-              trigger={<Button className="btn"><Icon name="trash alternate outline" />Se désinscrire</Button>}
+              trigger={(
+                <Button
+                  open={open}
+                  onClick={() => {
+                    toggleOpenModal();
+                  }}
+                  className="btn"
+                >
+                  <Icon name="trash alternate outline" />Se désinscrire
+                </Button>
+              )}
               size="mini"
               closeIcon
-              closeOn
+              open={open}
+              onClose={toggleOpenModal}
             >
               <Modal.Header>Se désinscrire</Modal.Header>
               <Modal.Content>
@@ -158,8 +182,8 @@ const ProfilPage = ({
                   }}
                 />
                 <Button
+                  onClick={toggleOpenModal}
                   negative
-                  onClick={toggleOpenModale}
                 >
                   Annuler
                 </Button>
@@ -176,7 +200,7 @@ const ProfilPage = ({
 );
 ProfilPage.propTypes = {
   open: PropTypes.bool.isRequired,
-  toggleOpenModale: PropTypes.func.isRequired,
+  toggleOpenModal: PropTypes.func.isRequired,
   disconnectAction: PropTypes.func.isRequired,
   pseudo: PropTypes.string,
   email: PropTypes.string,
@@ -184,7 +208,6 @@ ProfilPage.propTypes = {
   questions: PropTypes.array.isRequired,
   userId: PropTypes.number,
   changeValue: PropTypes.func.isRequired,
-  password: PropTypes.string,
   signIn: PropTypes.shape({
     email: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

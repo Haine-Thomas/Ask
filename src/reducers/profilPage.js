@@ -1,4 +1,4 @@
-import { TOGGLE_OPEN } from 'src/actions/profilPage';
+import { TOGGLE_OPEN_MODAL } from 'src/actions/profilPage';
 
 export const initialState = {
   open: false,
@@ -6,7 +6,7 @@ export const initialState = {
 
 const profilPage = (state = initialState, action = {}) => {
   switch (action.type) {
-    case TOGGLE_OPEN:
+    case TOGGLE_OPEN_MODAL:
       return {
         ...state,
         open: !state.open,
