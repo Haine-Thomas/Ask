@@ -2,13 +2,11 @@ import {
   SAVE_ANSWERS,
   CHANGE_SORTED,
   FETCH_POST_ANSWER,
+  CHANGE_ANSWER_VALUE,
 } from 'src/actions/answers';
 
 export const initialState = {
-  list: [],
-  tagId: 'default',
-  content: '',
-  sorted: 'created_at',
+  value: '',
 };
 
 // reducer = traducteur d'une intention/action vers une modification du state
@@ -29,7 +27,11 @@ const answers = (state = initialState, action = {}) => {
     case FETCH_POST_ANSWER:
       return {
         ...state,
-        sorted: action.sorted,
+      };
+    case CHANGE_ANSWER_VALUE:
+      return {
+        ...state,
+        value: action.value,
       };
     default:
       return state;

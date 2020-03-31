@@ -1,12 +1,14 @@
 import axios from 'axios';
 import swal from 'sweetalert';
-import { 
+import {
   FETCH_ANSWERS,
   fetchAnswers,
   saveAnswers,
   FETCH_POST_ANSWER,
   FETCH_ANSWER_SCORE,
 } from 'src/actions/answers';
+
+import { fetchQuestions } from 'src/actions/questions';
 
 const ajaxAnswerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -29,9 +31,9 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
     }
     case FETCH_POST_ANSWER: {
       const state = store.getState();
-      axios.post('http://localhost:3000/question/:id/answer', {
-        content: state.answers.content,
-        tagId: state.answers.tagId,
+      const questionId = state.questions.clickedQuestionId;
+      axios.post(`http://localhost:3000/question/${questionId}/answer`, {
+        content: state.answer.value,
       }, { withCredentials: true })
         .then((response) => {
           // revenir a la fenetre précédente
@@ -39,8 +41,8 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
             swal(response.data.error, '', 'warning');
           }
           else {
-            store.dispatch(fetchAnswers());
             swal('Réponse postée!', '', 'success');
+            store.dispatch(fetchQuestions());
           }
         })
         .catch((error) => {

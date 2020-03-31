@@ -20,6 +20,9 @@ const Answer = ({
   created_at: createdAt,
   answers,
   isLogged,
+  fetchPostAnswer,
+  changeAnswerValue,
+  value,
 }) => (
   <AnswerStyled>
     <div className="question-container">
@@ -36,53 +39,58 @@ const Answer = ({
         </div>
       </div>
     </div>
-    <div className="reponse-form-container">
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-        }}
-        className="answer-form"
-      >
-        <h3>Poster une réponse :</h3>
-        <input
-          name="content"
-          type="text"
-          placeholder="Ajouter votre réponse..."
-          onChange={(event) => {
+    <div className="container-reponse">
+      <div className="reponse-form-container">
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            fetchPostAnswer();
           }}
-        />
-        {isLogged && (
-          <button type="submit"><Icon name="paper plane outline" />Publier</button>
-        )}
-        {!isLogged && (
-          <button
-            type="button"
-            onClick={() => {
-              swal('Vous devez vous connecter pour poster des réponse !', '', 'warning');
+          className="answer-form"
+        >
+          <h3>Poster une réponse :</h3>
+          <input
+            name="content"
+            type="text"
+            value={value}
+            placeholder="Ajouter votre réponse..."
+            onChange={(event) => {
+              changeAnswerValue(event.target.value);
             }}
-          >
-            <Icon name="paper plane outline" />
-            Publier
-          </button>
-        )}
-      </form>
-    </div>
-    <div className="answersQuestion-container">
-      <SortButtons />
-      {answers.map((answer) => (
-        <div className="panswer" key={answer.id}>
-          <Counter score={answer.score} />
-          <div className="answerText">
-            <p className="content-text">{answer.content}</p>
-            <div className="separator" />
-            <p className="author">posté par {author.name}, le {answer.created_at}</p>
+          />
+          {isLogged && (
+            <button type="submit"><Icon name="paper plane outline" />Publier</button>
+          )}
+          {!isLogged && (
+            <button
+              type="button"
+              onClick={() => {
+                swal('Vous devez vous connecter pour poster des réponse !', '', 'warning');
+              }}
+            >
+              <Icon name="paper plane outline" />
+              Publier
+            </button>
+          )}
+        </form>
+      </div>
+      <div className="answersQuestion-container">
+        <SortButtons />
+        {answers.map((answer) => (
+          <div className="panswer" key={answer.id}>
+            <Counter score={answer.score} />
+            <div className="answerText">
+              <p className="content-text">{answer.content}</p>
+              <div className="separator" />
+              <p className="author">posté par {answer.author.name}, le {answer.created_at}</p>
+            </div>
+            <div className="userButton">
+              <Icon name="delete" size="large" />
+              <Icon name="edit" size="large" />
+            </div>
           </div>
-          <div className="userButton">
-            <Icon name="delete" size="large" />
-            <Icon name="edit" size="large" />
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </AnswerStyled>
 );
@@ -95,6 +103,9 @@ Answer.propTypes = {
   created_at: PropTypes.string.isRequired,
   answers: PropTypes.array.isRequired,
   isLogged: PropTypes.bool.isRequired,
+  fetchPostAnswer: PropTypes.func.isRequired,
+  changeAnswerValue: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };
 // == Export
 export default Answer;

@@ -29,23 +29,6 @@ const logMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-    case CHECK_IS_LOGGED: {
-      axios.post('http://localhost:3001/isLogged', {}, {
-        withCredentials: true,
-      })
-        .then((response) => {
-          console.log('succès', response.data);
-          // si l'user est connecté
-          if (response.data.logged) {
-            // alors je le mémorise
-            store.dispatch(saveUser(response.data.info.username));
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      break;
-    }
     case DISCONNECT_ACTION: {
       // + on traduit l'intention en intérrogeant notre API
       // je vais avoir besoin de lire le state pour faire ma requete

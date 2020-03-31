@@ -4,6 +4,7 @@ import login from './login';
 import questions from './questions';
 import signIn from './signIn';
 import tags from './tags';
+import answer from './answer';
 
 export default combineReducers({
   counter,
@@ -11,4 +12,5 @@ export default combineReducers({
   questions,
   signIn,
   tags,
+  answer,
 });

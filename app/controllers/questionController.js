@@ -6,7 +6,12 @@ const questionController = {
     const sorted = request.params.sorted;
     try {
       const questions = await Question.findAll({
-        include: ['author', 'answers', 'tag'],
+        // include: ['author', 'tag', 'answers'],
+        include: [
+          { association: "author" },
+          { association: "answers", include: ["author"] },
+          { association: "tag" },
+        ],
         order:[[`${sorted}`, 'DESC']],
 
       });

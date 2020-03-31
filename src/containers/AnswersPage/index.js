@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import AnswersPage from 'src/components/AnswersPage';
-import { fetchPostAnswer, changeInputValue } from 'src/actions/answers';
+import { fetchPostAnswer } from 'src/actions/answers';
 
 const mapStateToProps = (state) => ({
   questions: state.questions.list,
@@ -12,9 +12,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeInputValue: (value, name) => {
-    dispatch(changeInputValue(value, name));
-  },
   fetchPostAnswer: () => {
     dispatch(fetchPostAnswer());
   },

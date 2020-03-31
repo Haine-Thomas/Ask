@@ -7,7 +7,6 @@ import { NavLink } from 'react-router-dom';
 // import du frameworks
 
 // == Import locaux
-import Question from 'src/components/QuestionsPage/Question';
 import Answer from 'src/containers/AnswersPage/Answer';
 // import de la feuille de style associée
 import AnswersPageStyled from './AnswersPageStyled';

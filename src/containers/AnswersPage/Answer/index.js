@@ -3,15 +3,22 @@ import { connect } from 'react-redux';
 // == Import : local
 import Answer from 'src/components/AnswersPage/Answer';
 
-import { saveAnswers } from 'src/actions/answers';
+import { saveAnswers, fetchPostAnswer, changeAnswerValue } from 'src/actions/answers';
 
 const mapStateToProps = (state) => ({
   isLogged: state.login.isLogged,
+  value: state.answer.value,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   saveAnswers: (QuestionId) => {
     dispatch(saveAnswers(QuestionId));
+  },
+  fetchPostAnswer: () => {
+    dispatch(fetchPostAnswer());
+  },
+  changeAnswerValue: (value) => {
+    dispatch(changeAnswerValue(value));
   },
 });
 

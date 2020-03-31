@@ -9,6 +9,54 @@ width: 99%;
 color: black;
 border-radius: 3px;
 
+.container-reponse {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.reponse-form-container {
+  width: 39%;
+  margin-top: 2rem;
+
+  h3 {
+    color: #121113;
+    width: 100%;
+    background-color: #D8D8D8;
+    padding: 1rem;
+    text-align: left;
+  }
+
+  input {
+    padding: 1.035rem;
+    margin: 1rem 0;
+    border: 1px solid #D8D8D8;
+    width: 70%;
+    backgroud-color: #fff;
+    border-radius: 3px 0px 0px 3px;
+    
+    &:focus {
+      border: 1px solid #E76F51;
+    }
+  }
+
+  button {
+    padding: 1rem 1rem 1rem;
+    width: 30%;
+    background-color: #E76F51;
+    border: 1px solid #E76F51;
+    color: #fff;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    margin-top: -10px;
+    &:hover {
+      background-color: #fff;
+      border: 1px solid #E76F51;
+      color: #E76F51;
+    }
+  }
+}
+
 /*le composant réponses */
 .answersQuestion-container {
   display: flex;
