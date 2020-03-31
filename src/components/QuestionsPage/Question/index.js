@@ -3,6 +3,8 @@ import React from 'react';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
+import { Icon } from 'semantic-ui-react';
+
 // on import la route de navigation
 import { NavLink } from 'react-router-dom';
 import Avatar from 'react-avatar';
@@ -42,7 +44,7 @@ const Question = ({
         <div className="separator" />
         <p className="author">posté par {author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{createdAt}</Moment> à <Moment locale="fr" format="HH:mm">{createdAt}</Moment></p>
         <div className="answer-container">
-          <p className="answer-number">{answers.length} réponses</p>
+          <p className="answer-number"><Icon name="comments outline" />{answers.length} réponses</p>
         </div>
       </NavLink>
     </div>

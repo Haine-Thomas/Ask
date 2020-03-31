@@ -35,11 +35,7 @@ const ProfilPage = ({
   disconnectAction,
   modifyUser,
   open,
-<<<<<<< HEAD
-  toggleOpenModale,
-=======
   toggleOpenModal,
->>>>>>> ef5d41867a172e584d8863a57f307bead326817a
 }) => (
   <ProfilPageStyled>
     {pseudo && (
