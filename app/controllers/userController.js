@@ -151,11 +151,12 @@ const userController = {
         if (request.body.password !== request.body.confirmPassword) {
           return response.json({ error: 'La confirmation du mot de passe a échoué' });
         }
-        if (!emailValidator.validate(request.body.email)) {
-          return response.json({ error: "Cet email n'est pas valide." });
-        }
         if (email) {
-          user.email = request.body.email;
+          if (!emailValidator.validate(request.body.email)) {
+            return response.json({ error: "Cet email n'est pas valide." });
+          } else {
+            user.email = request.body.email;
+          }
         }
         await user.save();
         response.json(user);
