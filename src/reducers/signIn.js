@@ -1,4 +1,7 @@
-import { CHANGE_VALUE, CHANGE_CHECKBOX, VERIFY_CALLBACK, EXPIRED_CALLBACK, RESET_ISVERIFIED } from 'src/actions/signIn';
+import {
+ CHANGE_VALUE, CHANGE_CHECKBOX, VERIFY_CALLBACK, EXPIRED_CALLBACK, RESET_ISVERIFIED, TOGGLE_OPEN_MODAL,
+} from 'src/actions/signIn';
+
 
 export const initialState = {
   email: '',
@@ -12,6 +15,11 @@ export const initialState = {
 // reducer = traducteur d'une intention/action vers une modification du state
 const signIn = (state = initialState, action = {}) => {
   switch (action.type) {
+    case TOGGLE_OPEN_MODAL:
+      return {
+        ...state,
+        open: !state.open,
+      };
     case CHANGE_VALUE:
       // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
       // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
