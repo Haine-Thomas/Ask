@@ -29,6 +29,7 @@ const logMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
     case DISCONNECT_ACTION: {
       // + on traduit l'intention en intérrogeant notre API
       // je vais avoir besoin de lire le state pour faire ma requete

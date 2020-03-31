@@ -9,17 +9,21 @@ import QuestionStyled from '../../QuestionsPage/Question/QuestionStyled';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de searchbar
-const SearchBar = ({ questions }) => (
+const SearchBar = ({ questions, value, changeSearchValue }) => (
   <SearchBarStyled>
-    <Form>
+    <Form
+      onSubmit={(event, value) => {
+        event.preventDefault();
+        //méthode go page
+        console.log(value);
+      }}>
       <Autocomplete
         className="searchbar"
         icon="search"
         type="text"
         options={questions}
         getOptionLabel={(option) => option.content}
-        onChange={(event, value) => console.log(value)}
-        //onSubmit=route question pour affiche rles answers avec value.id
+        onChange={(event, newValue) => changeSearchValue(newValue)}
         renderInput={(params) => <TextField {...params} label="Recherchez votre question" variant="outlined" />}
       />
     </Form>
