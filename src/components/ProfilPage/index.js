@@ -173,7 +173,7 @@ ProfilPage.propTypes = {
   questions: PropTypes.array.isRequired,
   userId: PropTypes.number,
   changeValue: PropTypes.func.isRequired,
-  password: PropTypes.string.isRequired,
+  password: PropTypes.string,
   signIn: PropTypes.shape({
     email: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
