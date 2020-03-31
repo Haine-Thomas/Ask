@@ -5,6 +5,7 @@ import {
   CHANGE_SORTED,
   INCREMENT_COUNTER,
   DECREMENT_COUNTER,
+  DELETE_QUESTION,
 } from 'src/actions/questions';
 
 export const initialState = {
@@ -19,6 +20,10 @@ export const initialState = {
 // reducer = traducteur d'une intention/action vers une modification du state
 const questions = (state = initialState, action = {}) => {
   switch (action.type) {
+    case DELETE_QUESTION:
+      return {
+        ...state,
+      };
     case SAVE_QUESTIONS:
       // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
       // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message

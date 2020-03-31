@@ -1,10 +1,31 @@
 // eslint-disable-next-line import/no-unresolved
 import axios from 'axios';
 import swal from 'sweetalert';
-import { FETCH_QUESTIONS, saveQuestions, fetchQuestions, FETCH_POST_QUESTION, FETCH_QUESTION_SCORE } from 'src/actions/questions';
+import {
+  FETCH_QUESTIONS,
+  saveQuestions,
+  fetchQuestions,
+  FETCH_POST_QUESTION,
+  FETCH_QUESTION_SCORE,
+  DELETE_QUESTION,
+} from 'src/actions/questions';
+
 
 const ajaxQuestionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
+    case DELETE_QUESTION: {
+      const state = store.getState();
+      const questionId = state.questions.list.id;
+      axios.delete(`http://localhost:3000/question/${questionId}`)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
     // + on traduit l'intention en intérrogeant notre API
     // je vais avoir besoin de lire le state pour faire ma requete
     case FETCH_QUESTIONS: {

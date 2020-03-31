@@ -6,6 +6,12 @@ export const CHANGE_SORTED = 'CHANGE_SORTED';
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 export const FETCH_QUESTION_SCORE = 'FETCH_QUESTION_SCORE';
+export const DELETE_QUESTION = 'DELETE_QUESTION';
+
+export const deleteQuestion = (id) => ({
+  type: DELETE_QUESTION,
+  id,
+});
 
 export const fetchQuestions = () => ({
   type: FETCH_QUESTIONS,

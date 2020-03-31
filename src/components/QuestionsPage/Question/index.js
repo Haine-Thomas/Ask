@@ -3,11 +3,10 @@ import React from 'react';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
-import { Icon } from 'semantic-ui-react';
+import { Icon, Button } from 'semantic-ui-react';
 
 // on import la route de navigation
 import { NavLink } from 'react-router-dom';
-import Avatar from 'react-avatar';
 
 
 // == Import : local
@@ -28,6 +27,7 @@ const Question = ({
   id,
   upvoted,
   downvoted,
+  deleteQuestion,
 }) => (
   <QuestionStyled>
     <div className="question-container">
@@ -43,6 +43,8 @@ const Question = ({
         <p className="question">{content}</p>
         <div className="separator" />
         <p className="author">posté par {author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{createdAt}</Moment> à <Moment locale="fr" format="HH:mm">{createdAt}</Moment></p>
+        <Button compact size="mini" circular type="button"><Icon name="edit" /></Button>
+        <Button onClick={deleteQuestion} compact size="mini" circular><Icon name="trash alternate outline" /></Button>
         <div className="answer-container">
           <p className="answer-number"><Icon name="comments outline" />{answers.length} réponses</p>
         </div>
@@ -52,6 +54,7 @@ const Question = ({
 );
 
 Question.propTypes = {
+  deleteQuestion: PropTypes.func.isRequired,
   score: PropTypes.number.isRequired,
   content: PropTypes.string.isRequired,
   author: PropTypes.object.isRequired,
