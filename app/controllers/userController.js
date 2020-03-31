@@ -145,18 +145,17 @@ const userController = {
       } else {
         const { password, email } = request.body;
         if (password) {
+          if (request.body.password !== request.body.confirmPassword) {
+            return response.json({ error: 'La confirmation du mot de passe a échoué' });
+          }
           const passwordEncrypted = bcrypt.hashSync(request.body.password, 10);
           user.password = passwordEncrypted;
-        }
-        if (request.body.password !== request.body.confirmPassword) {
-          return response.json({ error: 'La confirmation du mot de passe a échoué' });
         }
         if (email) {
           if (!emailValidator.validate(request.body.email)) {
             return response.json({error: "Cet email n'est pas valide."});
-          } else {
-            user.email = request.body.email;
           }
+          user.email = request.body.email;
         }
         await user.save();
         response.json(user);
