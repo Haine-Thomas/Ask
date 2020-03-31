@@ -15,23 +15,6 @@ import { fetchQuestions } from 'src/actions/questions';
 
 const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case MODIFY_USER: {
-      const state = store.getState();
-      axios.patch(`http:/localhost:3000/user/${state.login.user.id}`)
-        .then((response) => {
-          if (response.data.error) {
-            swan(response.data.error, '', 'warning');
-          }
-          else {
-            store.dispatch(changeValue(response.data));
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      next(action);
-      break;
-    }
     case DELETE_USER: {
       const state = store.getState();
       axios.delete(`http://localhost:3000/user/${state.login.user.id}`)
@@ -86,6 +69,27 @@ const logMiddleware = (store) => (next) => (action) => {
           console.log(error);
         });
       // je laisse passer tout de suite au middleware/reducer suivant
+      next(action);
+      break;
+    }
+    case MODIFY_USER: {
+      const state = store.getState();
+      const userid = state.login.user.id;
+      axios.patch(`http://localhost:3000/user/${userid}`, {
+        email: state.signIn.email,
+        password: state.signIn.password,
+        confirmPassword: state.signIn.confirmedPassword,
+      }, { withCredentials: true })
+        .then((response) => {
+          if (response.data.error) {
+            swan(response.data.error, '', 'warning');
+          }
+          else {
+            store.dispatch(changeValue(response.data));
+          }
+        })
+        .catch((error) => {
+        });
       next(action);
       break;
     }
