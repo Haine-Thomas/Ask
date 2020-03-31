@@ -35,7 +35,7 @@ const ProfilPage = ({
   disconnectAction,
   modifyUser,
   open,
-  toggleOpen,
+  toggleOpenModale,
 }) => (
   <ProfilPageStyled>
     {pseudo && (
@@ -128,7 +128,7 @@ const ProfilPage = ({
                   }}
                 />
                 <Button
-                  onClick={!open}
+                  onClick={toggleOpenModale}
                   negative
                 >
                   Annuler
@@ -159,7 +159,7 @@ const ProfilPage = ({
                 />
                 <Button
                   negative
-                  onClick={!open}
+                  onClick={toggleOpenModale}
                 >
                   Annuler
                 </Button>
@@ -176,7 +176,7 @@ const ProfilPage = ({
 );
 ProfilPage.propTypes = {
   open: PropTypes.bool.isRequired,
-  toggleOpen: PropTypes.func.isRequired,
+  toggleOpenModale: PropTypes.func.isRequired,
   disconnectAction: PropTypes.func.isRequired,
   pseudo: PropTypes.string,
   email: PropTypes.string,
