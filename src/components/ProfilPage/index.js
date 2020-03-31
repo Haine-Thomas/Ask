@@ -149,10 +149,6 @@ const ProfilPage = ({
             <Modal
               trigger={(
                 <Button
-                  open={open}
-                  onClick={() => {
-                    toggleOpenModal();
-                  }}
                   className="btn"
                 >
                   <Icon name="trash alternate outline" />Se désinscrire
@@ -160,8 +156,6 @@ const ProfilPage = ({
               )}
               size="mini"
               closeIcon
-              open={open}
-              onClose={toggleOpenModal}
             >
               <Modal.Header>Se désinscrire</Modal.Header>
               <Modal.Content>
@@ -177,12 +171,6 @@ const ProfilPage = ({
                     disconnectAction();
                   }}
                 />
-                <Button
-                  onClick={toggleOpenModal}
-                  negative
-                >
-                  Annuler
-                </Button>
               </Modal.Actions>
             </Modal>
           </div>
