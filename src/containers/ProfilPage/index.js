@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { changeValue } from 'src/actions/signIn';
 import { deleteUser, disconnectAction, modifyUser } from 'src/actions/login';
 import { fetchQuestions } from 'src/actions/questions';
+import { toggleOpen } from 'src/actions/profilPage';
 
 
 // == Import : local
@@ -23,6 +24,8 @@ const mapStateToProps = (state) => ({
   created_at: state.login.user.created_at,
   questions: state.questions.list,
   signIn: state.signIn,
+  open: state.profilPage.open,
+
 });
 
 /* === Actions modification ===
@@ -50,6 +53,9 @@ const mapDispatchToProps = (dispatch) => ({
 
   modifyUser: (id) => {
     dispatch(modifyUser(id));
+  },
+  toggleOpen: () => {
+    dispatch(toggleOpen());
   },
 
 });

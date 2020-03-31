@@ -34,6 +34,8 @@ const ProfilPage = ({
   deleteUser,
   disconnectAction,
   modifyUser,
+  open,
+  toggleOpen,
 }) => (
   <ProfilPageStyled>
     {pseudo && (
@@ -59,6 +61,7 @@ const ProfilPage = ({
             </p>
             <p><Moment locale="fr" format="DD-MM-YYYY">{created_at}</Moment></p>
             <Modal
+              open={open}
               trigger={<Button className="btn"><Icon name="edit" /> Modifier</Button>}
               size="tiny"
               closeIcon
@@ -66,11 +69,10 @@ const ProfilPage = ({
               <Modal.Header>Modification</Modal.Header>
               <Modal.Content>
                 <Form>
-                  <p>Pseudo:</p>
-                  <p>{pseudo}</p>
+                  <p className="title_modale_modify">{pseudo}</p>
                   <Form.Field>
                     <label>
-                      Email
+                      Modifier votre email
                       <Input
                         icon="at"
                         type="text"
@@ -86,7 +88,7 @@ const ProfilPage = ({
                   </Form.Field>
                   <Form.Field>
                     <label>
-                      Mot de passe
+                      Modifier votre mot de passe
                       <Input
                         type="password"
                         name="password"
@@ -125,11 +127,17 @@ const ProfilPage = ({
                     modifyUser();
                   }}
                 />
-                <Button negative>Annuler</Button>
+                <Button
+                  onClick={!open}
+                  negative
+                >
+                  Annuler
+                </Button>
               </Modal.Actions>
             </Modal>
 
             <Modal
+              open={open}
               trigger={<Button className="btn"><Icon name="trash alternate outline" />Se désinscrire</Button>}
               size="mini"
               closeIcon
@@ -151,6 +159,7 @@ const ProfilPage = ({
                 />
                 <Button
                   negative
+                  onClick={!open}
                 >
                   Annuler
                 </Button>
@@ -166,6 +175,8 @@ const ProfilPage = ({
   </ProfilPageStyled>
 );
 ProfilPage.propTypes = {
+  open: PropTypes.bool.isRequired,
+  toggleOpen: PropTypes.func.isRequired,
   disconnectAction: PropTypes.func.isRequired,
   pseudo: PropTypes.string,
   email: PropTypes.string,
