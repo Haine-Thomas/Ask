@@ -13,7 +13,11 @@ const ProfilPageStyled = styled.div`
   margin: 0 auto;
 
 
-
+  .return {
+    font-size: .8rem;
+    text-decoration: underline;
+    color: #E76F51;
+  }
   .profil {
     width: 30%;
     height: 100%;

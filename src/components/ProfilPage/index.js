@@ -3,7 +3,7 @@
 /* eslint-disable import/no-unresolved */
 // == Import npm
 import React, { useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import {
@@ -51,6 +51,13 @@ const ProfilPage = ({
         <aside className="profil">
           <h1 className="titles">Mon profil</h1>
           <div className="profil_content">
+            <NavLink
+              className="return"
+              exact
+              to="/"
+            >
+              <Icon name="reply" />Retour à l'Accueil
+            </NavLink>
             <p>Ma fiche utilisateur:</p>
             <p>{pseudo}</p>
             <p className="profil_email"><Icon color="olive" name="envelope" />{email}</p>

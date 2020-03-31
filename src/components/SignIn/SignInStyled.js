@@ -22,10 +22,7 @@ const SignInStyled = styled.div`
     font-weight: bold;
     text-decoration: underline;
   }
-  .btnhome:hover {
-    color: #FFF;
-  }
-
+  
   label {
     margin: 1rem 0 0;
   }

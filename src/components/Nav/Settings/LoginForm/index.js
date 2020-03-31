@@ -1,6 +1,7 @@
 // == Import npm
 // eslint-disable-next-line import/no-unresolved
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 // eslint-disable-next-line import/no-unresolved
 import PropTypes from 'prop-types';
 import {
@@ -56,9 +57,16 @@ const LoginForm = ({
           />
         </label>
       </Form.Field>
+      <NavLink
+        className="signin_btn"
+        exact
+        to="/signIn"
+      >
+        Pas encore inscrit ? S'inscrire
+      </NavLink>
       <Button.Group>
-        <Button size="mini" basic color="teal" className="btnconnect" type="submit">OK</Button>
-        <Button onClick={toggleForm} size="mini" basic color="blue">X</Button>
+        <Button size="mini" basic color="yellow" className="btnconnect" type="submit">OK</Button>
+        <Button onClick={toggleForm} size="mini" basic color="orange">X</Button>
       </Button.Group>
     </Form>
   </LoginFormStyled>
