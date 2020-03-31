@@ -34,9 +34,7 @@ const ProfilPage = ({
   signIn,
   deleteUser,
   disconnectAction,
- 
-
-}) =>(
+}) => (
   <ProfilPageStyled>
     {pseudo && (
       <>

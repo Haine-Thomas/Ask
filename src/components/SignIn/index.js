@@ -148,7 +148,7 @@ const SignIn = ({
         </Button>
       </Form>
     </SignInStyled>
-  );
+);
 
 SignIn.propTypes = {
   signIn: PropTypes.shape({
