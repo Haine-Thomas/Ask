@@ -141,7 +141,7 @@ const userController = {
       const userId = request.params.id;
       const user = await User.findByPk(userId);
       if (!user) {
-        response.status(404).json(`Ne trouve pas un user avec cette id:${userId}`);
+        response.status(404).json({ message: `Ne trouve pas un user avec cette id:${userId}` });
       } else {
         const { password, email } = request.body;
         if (password) {
@@ -153,6 +153,9 @@ const userController = {
         }
         if (!emailValidator.validate(request.body.email)) {
           return response.json({ error: "Cet email n'est pas valide." });
+        }
+        if (email) {
+          user.email = request.body.email;
         }
         await user.save();
         response.json(user);

@@ -74,17 +74,21 @@ const logMiddleware = (store) => (next) => (action) => {
     }
     case MODIFY_USER: {
       const state = store.getState();
-      axios.patch(`http://localhost:3000/user/${state.login.user.id}`)
+      const userid = state.login.user.id;
+      axios.patch(`http://localhost:3000/user/${userid}`, {
+        email: state.signIn.email,
+        password: state.signIn.password,
+        confirmPassword: state.signIn.confirmedPassword,
+      }, { withCredentials: true })
         .then((response) => {
           if (response.data.error) {
             swan(response.data.error, '', 'warning');
           }
           else {
-            store.dispatch(changeUser(response.data));
+            store.dispatch(changeValue(response.data));
           }
         })
         .catch((error) => {
-          console.log(error);
         });
       next(action);
       break;

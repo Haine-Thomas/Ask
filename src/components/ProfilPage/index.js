@@ -27,7 +27,7 @@ const ProfilPage = ({
   pseudo,
   email,
   created_at,
-  id,
+  userId,
   questions,
   changeValue,
   signIn,
@@ -41,7 +41,7 @@ const ProfilPage = ({
         <article className="questions">
           <h1 className="titles">Mes question</h1>
           {questions.map((question) => (
-            question.author.id === id && (
+            question.author.id === userId && (
               <Question className="question" key={question.id} {...question} />
             )
           ))}
@@ -121,7 +121,9 @@ const ProfilPage = ({
                   labelPosition="right"
                   icon="checkmark"
                   content="Valider"
-                  onClick={modifyUser}
+                  onClick={() => {
+                    modifyUser();
+                  }}
                 />
                 <Button negative>Annuler</Button>
               </Modal.Actions>
@@ -169,9 +171,9 @@ ProfilPage.propTypes = {
   email: PropTypes.string,
   created_at: PropTypes.string,
   questions: PropTypes.array.isRequired,
-  id: PropTypes.number,
+  userId: PropTypes.number,
   changeValue: PropTypes.func.isRequired,
-  password: PropTypes.string,
+  password: PropTypes.string.isRequired,
   signIn: PropTypes.shape({
     email: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -187,8 +189,7 @@ ProfilPage.defaultProps = {
   pseudo: '',
   email: '',
   created_at: '',
-  id: '',
-  password: '',
+  userId: '',
 
 };
 
