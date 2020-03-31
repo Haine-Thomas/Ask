@@ -1,6 +1,6 @@
 import {
   SAVE_ANSWERS,
-  CHANGE_SORTED,
+  CHANGE_SORT,
   FETCH_POST_ANSWER,
   CHANGE_ANSWER_VALUE,
   INCREMENT_COUNTER,
@@ -11,6 +11,7 @@ export const initialState = {
   value: '',
   votedAnswer: 0,
   vote: '',
+  sorted: 'best',
 };
 
 // reducer = traducteur d'une intention/action vers une modification du state
@@ -22,10 +23,10 @@ const answers = (state = initialState, action = {}) => {
         list: action.answers,
         value: '',
       };
-    case CHANGE_SORTED:
+    case CHANGE_SORT:
       return {
         ...state,
-        sorted: action.sorted,
+        sorted: action.sort,
       };
     case FETCH_POST_ANSWER:
       return {

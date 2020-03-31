@@ -2,12 +2,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from 'semantic-ui-react';
+import Moment from 'react-moment';
 
 // == Import : local
 // import du composant styled du réponse
 import Counter from 'src/containers/QuestionsPage/Question/Counter';
 import AnswerCounter from 'src/containers/AnswersPage/Answer/Counter';
-import SortButtons from 'src/components/AnswersPage/SortButtons';
+import SortButtons from 'src/containers/AnswersPage/SortButtons';
 import AnswerStyled from './AnswerStyled';
 
 // == Composant
@@ -23,6 +24,7 @@ const Answer = ({
   fetchPostAnswer,
   changeAnswerValue,
   value,
+  sorted,
 }) => (
   <AnswerStyled>
     <div className="question-container">
@@ -76,20 +78,38 @@ const Answer = ({
       </div>
       <div className="answersQuestion-container">
         <SortButtons />
-        {answers.map((answer) => (
-          <div className="panswer" key={answer.id}>
-            <AnswerCounter {...answer} />
-            <div className="answerText">
-              <p className="content-text">{answer.content}</p>
-              <div className="separator" />
-              <p className="author">posté par {answer.author.name}, le {answer.created_at}</p>
+        { sorted === 'new' && (
+          answers.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at)).map((answer) => (
+            <div className="panswer" key={answer.id}>
+              <AnswerCounter {...answer} />
+              <div className="answerText">
+                <p className="content-text">{answer.content}</p>
+                <div className="separator" />
+                <p className="author">posté par {answer.author.name}, le {answer.created_at}</p>
+              </div>
+              <div className="userButton">
+                <Icon name="delete" size="large" />
+                <Icon name="edit" size="large" />
+              </div>
             </div>
-            <div className="userButton">
-              <Icon name="delete" size="large" />
-              <Icon name="edit" size="large" />
+          ))
+        )}
+        { sorted === 'best' && (
+          answers.sort((a, b) => b.score - a.score).map((answer) => (
+            <div className="panswer" key={answer.id}>
+              <AnswerCounter {...answer} />
+              <div className="answerText">
+                <p className="content-text">{answer.content}</p>
+                <div className="separator" />
+                <p className="author">posté par {answer.author.name}, le {answer.created_at}</p>
+              </div>
+              <div className="userButton">
+                <Icon name="delete" size="large" />
+                <Icon name="edit" size="large" />
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   </AnswerStyled>
@@ -106,6 +126,7 @@ Answer.propTypes = {
   fetchPostAnswer: PropTypes.func.isRequired,
   changeAnswerValue: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
+  sorted: PropTypes.string.isRequired,
 };
 // == Export
 export default Answer;

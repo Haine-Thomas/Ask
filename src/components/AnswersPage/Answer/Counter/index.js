@@ -16,9 +16,7 @@ const Counter = ({
   isLogged,
   upvoted,
   downvoted,
-}) => {
-  console.log(userId);
-return(
+}) => (
   <CounterStyled>
     {isLogged && (
     <Icon
@@ -65,7 +63,6 @@ return(
     )}
   </CounterStyled>
 );
-};
 
 Counter.propTypes = {
   increment: PropTypes.func.isRequired,

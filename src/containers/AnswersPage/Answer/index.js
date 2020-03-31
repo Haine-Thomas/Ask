@@ -8,6 +8,7 @@ import { saveAnswers, fetchPostAnswer, changeAnswerValue } from 'src/actions/ans
 const mapStateToProps = (state) => ({
   isLogged: state.login.isLogged,
   value: state.answer.value,
+  sorted: state.answer.sorted,
 });
 
 const mapDispatchToProps = (dispatch) => ({

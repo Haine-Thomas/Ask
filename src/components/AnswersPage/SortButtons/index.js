@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 // import du composant styled du sortbuttons
 import SortButtonsStyled from './SortButtonsStyled';
 
-const SortButtons = ({}) => (
+const SortButtons = ({ changeSort }) => (
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de sortbuttons
   <SortButtonsStyled>
     <button
       type="button"
       onClick={() => {
-
+        changeSort('new');
       }}
     >
       New
@@ -20,6 +20,7 @@ const SortButtons = ({}) => (
     <button
       type="button"
       onClick={() => {
+        changeSort('best');
       }}
     >
       Best
@@ -28,6 +29,7 @@ const SortButtons = ({}) => (
 );
 
 SortButtons.propTypes = {
+  changeSort: PropTypes.func.isRequired,
 };
 
 export default SortButtons;

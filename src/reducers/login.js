@@ -5,7 +5,7 @@ const initialState = {
   open: false,
   isLogged: false,
   user: {
-    id: null,
+    id: 0,
     email: '',
     password: '',
     pseudo: '',
@@ -56,7 +56,7 @@ const login = (state = initialState, action = {}) => {
           ...state.user,
           pseudo: '',
           email: '',
-          id: null,
+          id: 0,
           password: '',
         },
         isLogged: false,
