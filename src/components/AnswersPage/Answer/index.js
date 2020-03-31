@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from 'semantic-ui-react';
-import Moment from 'react-moment';
 
 // == Import : local
 // import du composant styled du réponse
@@ -25,10 +24,14 @@ const Answer = ({
   changeAnswerValue,
   value,
   sorted,
-}) => (
+  id,
+  upvoted,
+  downvoted,
+}) => {
+return (
   <AnswerStyled>
     <div className="question-container">
-      <Counter score={score} />
+      <Counter score={score} questionId={id} upvoted={upvoted} downvoted={downvoted} />
       <div className="text">
         <div className="tag-container">
           <p className="tag">{tag.name}</p>
@@ -114,6 +117,7 @@ const Answer = ({
     </div>
   </AnswerStyled>
 );
+};
 
 Answer.propTypes = {
   score: PropTypes.number.isRequired,
@@ -127,6 +131,9 @@ Answer.propTypes = {
   changeAnswerValue: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   sorted: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  upvoted: PropTypes.array.isRequired,
+  downvoted: PropTypes.array.isRequired,
 };
 // == Export
 export default Answer;

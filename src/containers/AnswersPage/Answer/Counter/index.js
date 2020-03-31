@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Counter from 'src/components/AnswersPage/Answer/Counter';
 
 // Action Creators
-import { fetchAnswerScore, increment, decrement } from 'src/actions/answers';
+import { fetchAnswerScore, incrementAnswer, decrementAnswer } from 'src/actions/answers';
 
 const mapStateToProps = (state) => ({
   userId: state.login.user.id,
@@ -13,11 +13,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  increment: (answerId) => {
-    dispatch(increment(answerId));
+  incrementAnswer: (answerId) => {
+    dispatch(incrementAnswer(answerId));
   },
-  decrement: (answerId) => {
-    dispatch(decrement(answerId));
+  decrementAnswer: (answerId) => {
+    dispatch(decrementAnswer(answerId));
   },
   fetchAnswerScore: () => {
     dispatch(fetchAnswerScore());
@@ -26,4 +26,5 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 // Export du retour de connect = le composant enrichi de props
-export default connect(mapStateToProps, mapDispatchToProps)(Counter); 
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+ 

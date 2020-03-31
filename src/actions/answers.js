@@ -4,8 +4,8 @@ export const CHANGE_SORT = 'CHANGE_SORT';
 export const FETCH_ANSWERS = 'FETCH_ANSWERS';
 export const FETCH_ANSWER_SCORE = 'FETCH_ANSWER_SCORE';
 export const CHANGE_ANSWER_VALUE = 'CHANGE_ANSWER_VALUE';
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+export const INCREMENT_COUNTER_ANSWER = 'INCREMENT_COUNTER_ANSWER';
+export const DECREMENT_COUNTER_ANSWER = 'DECREMENT_COUNTER_ANSWER';
 
 export const saveAnswers = (questions) => ({
   type: SAVE_ANSWERS,
@@ -34,12 +34,12 @@ export const changeAnswerValue = (value) => ({
   value,
 });
 
-export const increment = (answerId) => ({
-  type: INCREMENT_COUNTER,
+export const incrementAnswer = (answerId) => ({
+  type: INCREMENT_COUNTER_ANSWER,
   answerId,
 });
 
-export const decrement = (answerId) => ({
-  type: DECREMENT_COUNTER,
+export const decrementAnswer = (answerId) => ({
+  type: DECREMENT_COUNTER_ANSWER,
   answerId,
 });

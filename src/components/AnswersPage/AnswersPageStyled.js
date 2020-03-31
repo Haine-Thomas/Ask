@@ -8,6 +8,7 @@ const AnswersPageStyled = styled.main`
   flex-direction: column;
   align-items: center;
   width: 1080px;
+  min-height: 80vh;
   margin: 0 auto;
   text-align: left;
 
@@ -18,8 +19,12 @@ const AnswersPageStyled = styled.main`
     font-weight: bold;
     color: #1B4965;
   }
-  .btnhome:hover {
-    color: #5FA8D3;
+  .btnhome {
+    color: #E76F51;
+
+    &:hover {
+      color: #D8D8D8;
+    }
   }
 
 

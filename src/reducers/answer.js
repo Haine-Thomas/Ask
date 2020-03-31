@@ -3,8 +3,8 @@ import {
   CHANGE_SORT,
   FETCH_POST_ANSWER,
   CHANGE_ANSWER_VALUE,
-  INCREMENT_COUNTER,
-  DECREMENT_COUNTER,
+  INCREMENT_COUNTER_ANSWER,
+  DECREMENT_COUNTER_ANSWER,
 } from 'src/actions/answers';
 
 export const initialState = {
@@ -37,13 +37,13 @@ const answers = (state = initialState, action = {}) => {
         ...state,
         value: action.value,
       };
-    case INCREMENT_COUNTER:
+    case INCREMENT_COUNTER_ANSWER:
       return {
         ...state,
         vote: 'upVote',
         votedAnswer: action.answerId,
       };
-    case DECREMENT_COUNTER:
+    case DECREMENT_COUNTER_ANSWER:
       return {
         ...state,
         vote: 'downVote',

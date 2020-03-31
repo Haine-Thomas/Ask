@@ -23,7 +23,7 @@ border-radius: 3px;
     color: #121113;
     width: 100%;
     background-color: #D8D8D8;
-    padding: 1rem;
+    padding: 1.06rem;
     text-align: left;
   }
 
@@ -74,6 +74,7 @@ border-radius: 3px;
   .answer-number {
     font-size: 0.8rem;
     padding: .5rem;
+    width: 100%;
   }
   
 }
@@ -122,12 +123,12 @@ border-radius: 3px;
   text-align: right;
 
   .tag {
-    background-color: #1B4965;
-    border-top-right-radius: 3px;
+    background-color: #E9C46A;
     font-weight: bold;
+    margin-right: 3rem;
     padding: 0.8rem;
     display:inline-block;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #fff;
   }
 }
@@ -140,7 +141,7 @@ border-radius: 3px;
 
 .separator {
   width: 150px;
-  border-top: 1px solid #5FA8D3;
+  border-top: 1px solid #E76F51;
   padding: 0rem 0rem;
 }
 

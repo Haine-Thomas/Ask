@@ -21,11 +21,10 @@ import AppStyled from './AppStyled';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de l application
-const App = ({ fetchQuestions, fetchTags, checkIsLogged }) => {
+const App = ({ fetchQuestions, fetchTags }) => {
   useEffect(fetchQuestions, []);
   useEffect(fetchTags, []);
-  useEffect(checkIsLogged, []);
-  
+
   return (
     <AppStyled theme={theme}>
       <Header />

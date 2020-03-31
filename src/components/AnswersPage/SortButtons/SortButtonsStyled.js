@@ -9,22 +9,18 @@ const SortButtonsStyled = styled.div`
   margin-top: 2rem;
   text-align: center;
   display: flex;
-  
-  justify-content: space-around;
 
   button {
     border: 0;
-    padding: 1rem 0;
-    box-sizing: border-box;
+    padding: .93rem 0;
     background-color: #D8D8D8;
     width: 50%;
-    font-family: 'Exo', serif;
-    color: #1B4965;
-    font-size: 1.2rem;
-    font-weight: bold;
+    color: #121113;
+    font-size: 1rem;
+    font-family: 'Merriweather Sans', sans-serif;
 
     &.active-btn {
-      border-bottom: 2px solid #1B4965;
+      border-bottom: 2px solid #E76F51;
       background-color: white;
     }
   }

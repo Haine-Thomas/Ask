@@ -1,9 +1,9 @@
 // == Import : npm
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
 // import du frameworks
-import { Button, Icon } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 
 // == Import : local
 // import du composant styled du counter

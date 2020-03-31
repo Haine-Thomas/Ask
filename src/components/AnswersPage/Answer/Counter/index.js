@@ -1,5 +1,5 @@
 // == Import : npm
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
 import { Icon } from 'semantic-ui-react';
@@ -7,8 +7,8 @@ import { Icon } from 'semantic-ui-react';
 import CounterStyled from './CounterStyled';
 
 const Counter = ({
-  increment,
-  decrement,
+  incrementAnswer,
+  decrementAnswer,
   fetchAnswerScore,
   score,
   id,
@@ -24,7 +24,7 @@ const Counter = ({
       name="angle up"
       size="huge"
       onClick={() => {
-        increment(id);
+        incrementAnswer(id);
         fetchAnswerScore();
       }}
     />
@@ -46,7 +46,7 @@ const Counter = ({
       name="angle down"
       size="huge"
       onClick={() => {
-        decrement(id);
+        decrementAnswer(id);
         fetchAnswerScore();
       }}
     />
@@ -65,8 +65,8 @@ const Counter = ({
 );
 
 Counter.propTypes = {
-  increment: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
+  incrementAnswer: PropTypes.func.isRequired,
+  decrementAnswer: PropTypes.func.isRequired,
   score: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
   fetchAnswerScore: PropTypes.func.isRequired,
