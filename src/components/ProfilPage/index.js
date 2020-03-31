@@ -20,7 +20,6 @@ import {
 import Question from 'src/components/QuestionsPage/Question';
 // import du composant styled du profil page
 import ProfilPageStyled from './ProfilPageStyled';
-import login from '../../reducers/login';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de profilpage
@@ -28,7 +27,7 @@ const ProfilPage = ({
   pseudo,
   email,
   created_at,
-  iduser,
+  id,
   questions,
   changeValue,
   signIn,
@@ -42,7 +41,7 @@ const ProfilPage = ({
         <article className="questions">
           <h1 className="titles">Mes question</h1>
           {questions.map((question) => (
-            question.author.id === iduser && (
+            question.author.id === id && (
               <Question className="question" key={question.id} {...question} />
             )
           ))}
@@ -170,9 +169,9 @@ ProfilPage.propTypes = {
   email: PropTypes.string,
   created_at: PropTypes.string,
   questions: PropTypes.array.isRequired,
-  iduser: PropTypes.number,
+  id: PropTypes.number,
   changeValue: PropTypes.func.isRequired,
-  password: PropTypes.string.isRequired,
+  password: PropTypes.string,
   signIn: PropTypes.shape({
     email: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -188,7 +187,8 @@ ProfilPage.defaultProps = {
   pseudo: '',
   email: '',
   created_at: '',
-  iduser: '',
+  id: '',
+  password: '',
 
 };
 

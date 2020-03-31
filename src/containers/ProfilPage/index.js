@@ -17,7 +17,7 @@ import ProfilPage from 'src/components/ProfilPage';
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
 const mapStateToProps = (state) => ({
-  iduser: state.login.user.id,
+  id: state.login.user.id,
   pseudo: state.login.user.pseudo,
   email: state.login.user.email,
   created_at: state.login.user.created_at,
