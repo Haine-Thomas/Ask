@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const CharterStyled = styled.nav`
+  background-color: #fff;
+  margin: 1rem 0 0;
   a {
    width: 100%;
    height: 100%;
