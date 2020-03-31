@@ -6,13 +6,13 @@ const answerController = {
     try {
       let answers = await Answer.findAll({
         where: { questionId: `${questionId}` },
-        include: ['author'],
+        include: ['author', 'question'],
       });
       response.json(answers);
     } catch (error) {
       response.status(500).json(error);
     }
-  },
+  }, 
 
   createAnswer: async (request,response) => {
     try {
@@ -57,21 +57,68 @@ const answerController = {
     try {
       const answerId = request.params.id;
       const answerScore = request.params.score;
+      const userId = request.session.user.id;
       let answer = await Answer.findByPk(answerId);
       if (!answer) {
         // pas de lréponse pour cet id
-        response.status(404).json(`Cant find a question with this id : ${answer}`);
+        response.status(404).json(`Cant find an answer with this id : ${answer}`);
       } else {
+        const userUpVoted = answer.upvoted.includes(userId);
+        const userDownVoted = answer.downvoted.includes(userId);
         if (answerScore === 'upVote') {
-          answer.score = answer.score + 1;
+          if (userUpVoted) {
+            answer.score = answer.score - 1;
+            const index = answer.upvoted.indexOf(userId);
+            if (index > -1) {
+              answer.upvoted.splice(index, 1);
+            }
+          }
+          else if (userDownVoted) {
+            answer.score = answer.score + 2;
+            answer.upvoted.push(userId);
+            const index = answer.downvoted.indexOf(userId);
+            if (index > -1) {
+              answer.downvoted.splice(index, 1);
+            }
+          }
+          else {
+            answer.upvoted.push(userId);
+            answer.score = answer.score + 1;
+          }
         }
         if (answerScore === 'downVote') {
-          answer.score = answer.score - 1;
+          if (userUpVoted) {
+            answer.score = answer.score - 2;
+            answer.downvoted.push(userId);
+            const index = answer.upvoted.indexOf(userId);
+            if (index > -1) {
+              answer.upvoted.splice(index, 1);
+            }
+          }
+          else if (userDownVoted) {
+            answer.score = answer.score + 1;
+            const index = answer.downvoted.indexOf(userId);
+            if (index > -1) {
+              answer.downvoted.splice(index, 1);
+            }
+          }
+          else {
+            answer.score = answer.score - 1;
+            answer.downvoted.push(userId);
+          }
         }
+        await answer.update({
+          upvoted: answer.upvoted,
+          downvoted: answer.downvoted,
+        }, {
+          where: { id: answerId },
+        });
         await answer.save();
         response.json(answer);
       }
-    } catch (error) {
+    }
+    catch(error) {
+      console.log(error);
       response.status(500).json(error);
     }
   },

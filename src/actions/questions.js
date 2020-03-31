@@ -6,6 +6,7 @@ export const CHANGE_SORTED = 'CHANGE_SORTED';
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 export const FETCH_QUESTION_SCORE = 'FETCH_QUESTION_SCORE';
+export const SAVE_QUESTION_ID = 'SAVE_QUESTION_ID';
 
 export const fetchQuestions = () => ({
   type: FETCH_QUESTIONS,
@@ -43,4 +44,9 @@ export const decrement = (questionId) => ({
 
 export const fetchQuestionScore = () => ({
   type: FETCH_QUESTION_SCORE,
+});
+
+export const saveQuestionId = (id) => ({
+  type: SAVE_QUESTION_ID,
+  id,
 });

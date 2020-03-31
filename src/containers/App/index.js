@@ -34,6 +34,9 @@ const mapDispatchToProps = (dispatch) => ({
   fetchTags: () => {
     dispatch(fetchTags());
   },
+  checkIsLogged: () => {
+    dispatch(checkIsLogged());
+  },
 });
 
 // Export du retour de connect = le composant enrichi de props
