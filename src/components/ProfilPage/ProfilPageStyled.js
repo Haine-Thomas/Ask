@@ -10,7 +10,7 @@ const ProfilPageStyled = styled.div`
   flex-direction: row-reverse;
   justify-content: space-around;
   width: 1080px;
-  margin: 0 auto;
+  margin: auto;
 
 
   .return {

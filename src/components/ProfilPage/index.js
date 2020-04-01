@@ -17,7 +17,7 @@ import {
 // import de la route de navigation
 
 // import du frameworks
-import Question from 'src/components/QuestionsPage/Question';
+import Question from 'src/containers/QuestionsPage/Question';
 // import du composant styled du profil page
 import ProfilPageStyled from './ProfilPageStyled';
 

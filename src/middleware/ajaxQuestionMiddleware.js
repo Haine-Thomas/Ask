@@ -15,7 +15,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case DELETE_QUESTION: {
       const state = store.getState();
-      const questionId = state.questions.list.id;
+      const questionId = state.questions.id;
       axios.delete(`http://localhost:3000/question/${questionId}`)
         .then((response) => {
           console.log(response);
