@@ -70,7 +70,9 @@ const QuestionStyled = styled.div`
     color: #121113;
     font-size: .8rem;
     padding: .5rem 0rem;
-    }
+  }
+
+
 `;
 
 // == Export

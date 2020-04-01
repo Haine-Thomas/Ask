@@ -34,8 +34,11 @@ const ProfilPageStyled = styled.div`
     background-color: #D8D8D8;
     text-align: left;
     margin: 2rem 0;
+    padding: .2rem;
   }
-
+  .question {
+    height: 200xp;
+  }
   .questions {
     width: 100%;
     height: 100%;
@@ -71,7 +74,7 @@ const ProfilPageStyled = styled.div`
     .profil {
       width: 100%;
     }
-    .question {
+    .questions {
       width: 100%;
     }
     .profil_content {

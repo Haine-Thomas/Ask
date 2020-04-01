@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { Icon } from 'semantic-ui-react';
 
 import SortButtons from 'src/containers/Nav/SortButtons';
+import Question from 'src/containers/QuestionsPage/Question';
 
 // Import des datas en dur Question avec les tags et l'auteur associé
 
@@ -12,7 +13,6 @@ import SortButtons from 'src/containers/Nav/SortButtons';
 // import du composant styled du questionpage
 import QuestionsPageStyled from './QuestionsPageStyled';
 
-import Question from './Question';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de questionpage
@@ -24,60 +24,60 @@ const QuestionsPage = ({
   changeInputValue,
   fetchPostQuestion,
 }) => (
-    <QuestionsPageStyled>
-      <div className="question-form-container">
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            fetchPostQuestion();
+  <QuestionsPageStyled>
+    <div className="question-form-container">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          fetchPostQuestion();
+        }}
+        className="question-form"
+      >
+        <h3>Poster une question :</h3>
+        <input
+          name="content"
+          type="text"
+          placeholder="Ajouter votre question..."
+          value={value}
+          onChange={(event) => {
+            changeInputValue(event.target.value, event.target.name);
           }}
-          className="question-form"
+        />
+        <select
+          onChange={(event) => {
+            changeInputValue(event.target.value, event.target.name);
+          }}
+          compact="true"
+          name="tagId"
         >
-          <h3>Poster une question :</h3>
-          <input
-            name="content"
-            type="text"
-            placeholder="Ajouter votre question..."
-            value={value}
-            onChange={(event) => {
-              changeInputValue(event.target.value, event.target.name);
+          <option value="default">Catégories</option>
+          {tags.map((tag) => (
+            <option key={tag.id} value={tag.id}>{tag.name}</option>
+          ))}
+        </select>
+        {isLogged && (
+          <button type="submit"><Icon name="paper plane outline" />Publier</button>
+        )}
+        {!isLogged && (
+          <button
+            type="button"
+            onClick={() => {
+              swal('Vous devez vous connecter pour poster des questions !', '', 'warning');
             }}
-          />
-          <select
-            onChange={(event) => {
-              changeInputValue(event.target.value, event.target.name);
-            }}
-            compact="true"
-            name="tagId"
           >
-            <option value="default">Catégories</option>
-            {tags.map((tag) => (
-              <option key={tag.id} value={tag.id}>{tag.name}</option>
-            ))}
-          </select>
-          {isLogged && (
-            <button type="submit"><Icon name="paper plane outline" />Publier</button>
-          )}
-          {!isLogged && (
-            <button
-              type="button"
-              onClick={() => {
-                swal('Vous devez vous connecter pour poster des questions !', '', 'warning');
-              }}
-            >
-              <Icon name="paper plane outline" />
-              Publier
-            </button>
-          )}
-        </form>
-      </div>
-      <div className="container-list-question">
-        <SortButtons />
-        {questions.map((question) => (
-          <Question key={question.id} {...question} />
-        ))}
-      </div>
-    </QuestionsPageStyled>
+            <Icon name="paper plane outline" />
+            Publier
+          </button>
+        )}
+      </form>
+    </div>
+    <div className="container-list-question">
+      <SortButtons />
+      {questions.map((question) => (
+        <Question key={question.id} {...question} />
+      ))}
+    </div>
+  </QuestionsPageStyled>
 );
 
 QuestionsPage.propTypes = {

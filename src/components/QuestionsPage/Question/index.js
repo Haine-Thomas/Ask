@@ -12,6 +12,7 @@ import { NavLink } from 'react-router-dom';
 // == Import : local
 import Counter from 'src/containers/QuestionsPage/Question/Counter';
 
+
 // import du composant styled du question
 import QuestionStyled from './QuestionStyled';
 
@@ -28,6 +29,8 @@ const Question = ({
   upvoted,
   downvoted,
   deleteQuestion,
+  questions,
+  userId,
 }) => (
   <QuestionStyled>
     <div className="question-container">
@@ -43,10 +46,16 @@ const Question = ({
         <p className="question">{content}</p>
         <div className="separator" />
         <p className="author">posté par {author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{createdAt}</Moment> à <Moment locale="fr" format="HH:mm">{createdAt}</Moment></p>
-        <Button compact size="mini" circular type="button"><Icon name="edit" /></Button>
-        <Button onClick={deleteQuestion} compact size="mini" circular><Icon name="trash alternate outline" /></Button>
+        {questions.map((question) => (
+          question.author.id === userId && (
+            <>
+              <Button compact size="mini" circular><Icon name="edit" /></Button>
+              <Button onClick={deleteQuestion} compact size="mini" circular><Icon name="trash alternate outline" /></Button>
+            </>
+          )
+        ))}
         <div className="answer-container">
-          <p className="answer-number"><Icon name="comments outline" />{answers.length} réponses</p>
+          <p className="answer-number">{answers.length === 0 ? <p><Icon name="comments outline" />{answers.length} réponse</p> : <p><Icon name="comments" />{answers.length} réponses</p> }</p>
         </div>
       </NavLink>
     </div>
@@ -54,6 +63,8 @@ const Question = ({
 );
 
 Question.propTypes = {
+  userId: PropTypes.number,
+  questions: PropTypes.array.isRequired,
   deleteQuestion: PropTypes.func.isRequired,
   score: PropTypes.number.isRequired,
   content: PropTypes.string.isRequired,
@@ -64,6 +75,10 @@ Question.propTypes = {
   id: PropTypes.number.isRequired,
   upvoted: PropTypes.array.isRequired,
   downvoted: PropTypes.array.isRequired,
+};
+
+Question.defaultProps = {
+  userId: '',
 };
 
 // == Export

@@ -13,7 +13,8 @@ import { deleteQuestion } from 'src/actions/questions';
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
 const mapStateToProps = (state) => ({
-  questionId: state.questions.list.id,
+  questions: state.questions.list,
+  userId: state.login.user.id,
 });
 
 const mapDispatchToProps = (dispatch) => ({

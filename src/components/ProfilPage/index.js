@@ -2,7 +2,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable import/no-unresolved */
 // == Import npm
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Redirect, NavLink } from 'react-router-dom';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
@@ -44,7 +44,9 @@ const ProfilPage = ({
           <h1 className="titles">Mes question</h1>
           {questions.map((question) => (
             question.author.id === userId && (
-              <Question className="question" key={question.id} {...question} />
+              <div className="question">
+                <Question key={question.id} {...question} />
+              </div>
             )
           ))}
         </article>
@@ -137,6 +139,8 @@ const ProfilPage = ({
               </Modal.Content>
               <Modal.Actions>
                 <Button
+                  basic
+                  color="green"
                   labelPosition="right"
                   icon="checkmark"
                   content="Valider"
@@ -145,8 +149,9 @@ const ProfilPage = ({
                   }}
                 />
                 <Button
+                  basic
+                  color="red"
                   onClick={toggleOpenModal}
-                  negative
                 >
                   Annuler
                 </Button>
@@ -170,6 +175,8 @@ const ProfilPage = ({
               </Modal.Content>
               <Modal.Actions>
                 <Button
+                  basic
+                  color="green"
                   labelPosition="right"
                   icon="checkmark"
                   content="Valider"
