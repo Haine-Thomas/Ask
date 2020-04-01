@@ -5,8 +5,8 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import locaux
-import Header from 'src/components/Header';
-import Nav from 'src/components/Nav';
+import Header from 'src/containers/Header';
+import Nav from 'src/containers/Nav';
 import QuestionsPage from 'src/containers/QuestionsPage';
 import Footer from 'src/components/Footer';
 import SignIn from 'src/containers/SignIn';

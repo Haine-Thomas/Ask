@@ -24,13 +24,13 @@ const userController = {
 
   loginAction: async (request, response) => {
     try {
-      // On cherche l'utilisateur correspondant à l'email rentré dans l'input du formulaire de login.
+    // On cherche l'utilisateur correspondant à l'email rentré dans l'input du formulaire de login.
       const user = await User.findOne({
         where: {
           email: request.body.email,
         }
       });
-// Si l'email ne correspond à aucun utilisateur on renvoit un json "error" avec l'erreur expliquée.
+        // Si l'email ne correspond à aucun utilisateur on renvoit un json "error" avec l'erreur expliquée.
       if (!user) {
         return response.json({ error: "Cet email n'existe pas" });
       }
@@ -114,7 +114,7 @@ const userController = {
     }
   },
 
-  deleteUser: async (request, response)=>{
+  deleteUser: async (request, response) => {
     try {
       const userid = request.params.id;
       let user = await User.findByPk(userid);
@@ -141,18 +141,21 @@ const userController = {
       const userId = request.params.id;
       const user = await User.findByPk(userId);
       if (!user) {
-        response.status(404).json(`Ne trouve pas un user avec cette id:${userId}`);
+        response.status(404).json({ message: `Ne trouve pas un user avec cette id:${userId}` });
       } else {
-        const { password, email} = request.body;
+        const { password, email } = request.body;
         if (password) {
+          if (request.body.password !== request.body.confirmPassword) {
+            return response.json({ error: 'La confirmation du mot de passe a échoué' });
+          }
           const passwordEncrypted = bcrypt.hashSync(request.body.password, 10);
           user.password = passwordEncrypted;
         }
-        if (request.body.password !== request.body.confirmPassword) {
-          return response.json({ error: 'La confirmation du mot de passe a échoué' });
-        }
-        if (!emailValidator.validate(request.body.email)) {
-          return response.json({error: "Cet email n'est pas valide."});
+        if (email) {
+          if (!emailValidator.validate(request.body.email)) {
+            return response.json({error: "Cet email n'est pas valide."});
+          }
+          user.email = request.body.email;
         }
         await user.save();
         response.json(user);

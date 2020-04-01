@@ -18,6 +18,8 @@ const mapStateToProps = (state) => ({
   isLogged: state.login.isLogged,
   tags: state.tags.list,
   value: state.questions.content,
+  searchedQuestion: state.searchBar.searchedQuestion,
+  liveSearch: state.searchBar.searchValue.value,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -27,6 +29,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPostQuestion: () => {
     dispatch(fetchPostQuestion());
   },
+
 /* === Actions modification ===
  * - mapDispatchToProps retroune un objet de props pour le composant de présentation
  * - mapDispatchToProps met à dispo 2 params

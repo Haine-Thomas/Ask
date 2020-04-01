@@ -7,6 +7,17 @@ export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 export const FETCH_QUESTION_SCORE = 'FETCH_QUESTION_SCORE';
 export const SAVE_QUESTION_ID = 'SAVE_QUESTION_ID';
+export const DELETE_QUESTION = 'DELETE_QUESTION';
+export const FETCH_DELETE_QUESTION = 'FETCH_DELETE_QUESTION';
+
+export const deleteQuestion = (id) => ({
+  type: DELETE_QUESTION,
+  id,
+});
+
+export const fetchDeleteQuestion = () => ({
+  type: FETCH_DELETE_QUESTION,
+});
 
 export const fetchQuestions = () => ({
   type: FETCH_QUESTIONS,

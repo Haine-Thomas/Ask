@@ -1,9 +1,13 @@
 import {
   CHANGE_SEARCH_VALUE,
+  SEARCH_QUESTION,
 } from 'src/actions/searchBar';
 
 export const initialState = {
-  searchValue: '',
+  searchValue: {
+    value: '',
+  },
+  searchedQuestion: '',
 };
 
 // reducer = traducteur d'une intention/action vers une modification du state
@@ -14,7 +18,11 @@ const searchBar = (state = initialState, action = {}) => {
         ...state,
         searchValue: action.searchValue,
       };
-
+    case SEARCH_QUESTION:
+      return {
+        ...state,
+        searchedQuestion: action.value,
+      };
     default:
       return state;
   }

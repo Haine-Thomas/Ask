@@ -10,6 +10,7 @@ const AppStyled = styled.div`
   flex-direction: column;
   background-color: #F0F0F0;
   font-family: 'Merriweather Sans', sans-serif;
+  min-height: 100vh;
 
 `;
 

@@ -9,7 +9,8 @@ import HeaderStyled from './HeaderStyled';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de header
-const Header = () => (
+const Header = () => {
+  return(
   <HeaderStyled>
     <span>Une question ? Just </span>
     <NavLink
@@ -21,6 +22,7 @@ const Header = () => (
     </NavLink>
   </HeaderStyled>
 );
+};
 
 // == Export
 export default Header;
