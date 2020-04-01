@@ -5,7 +5,9 @@ import Question from 'src/components/QuestionsPage/Question';
 
 import { saveQuestionId } from 'src/actions/questions';
 
-const mapStateToProps = () => ({
+const mapStateToProps = (state) => ({
+  isLogged: state.login.isLogged,
+  userName: state.login.user.pseudo,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -14,6 +16,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-
-// Export du retour de connect = le composant enrichi de props
 export default connect(mapStateToProps, mapDispatchToProps)(Question);
