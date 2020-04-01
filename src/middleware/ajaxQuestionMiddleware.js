@@ -7,18 +7,19 @@ import {
   fetchQuestions,
   FETCH_POST_QUESTION,
   FETCH_QUESTION_SCORE,
-  DELETE_QUESTION,
+  FETCH_DELETE_QUESTION,
 } from 'src/actions/questions';
 
 
 const ajaxQuestionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case DELETE_QUESTION: {
+    case FETCH_DELETE_QUESTION: {
       const state = store.getState();
-      const questionId = state.questions.id;
-      axios.delete(`http://localhost:3000/question/${questionId}`)
-        .then((response) => {
-          console.log(response);
+      const questionId = state.questions.questionToDelete;
+      axios.delete(`http://localhost:3000/question/${questionId}`, {
+      }, { withCredentials: true })
+        .then(() => {
+          store.dispatch(fetchQuestions());
         })
         .catch((error) => {
           console.log(error);

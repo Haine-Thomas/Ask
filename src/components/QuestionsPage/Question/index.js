@@ -27,38 +27,46 @@ const Question = ({
   downvoted,
   saveQuestionId,
   deleteQuestion,
-  questions,
+  fetchDeleteQuestion,
   userId,
 }) => (
   <QuestionStyled>
     <div className="question-container">
       <Counter score={score} questionId={id} upvoted={upvoted} downvoted={downvoted} />
-      <NavLink
-        exact
-        to={`/Answer/${id}`}
-        className="text"
-        onClick={() => {
-          saveQuestionId(id);
-        }}
-      >
+      <div className="text">
         <div className="tag-container">
           <p className="tag">{tag.name}</p>
         </div>
-        <p className="question">{content}</p>
+        <NavLink
+          exact
+          to={`/Answer/${id}`}
+          onClick={() => {
+            saveQuestionId(id);
+          }}
+        >
+          <p className="question">{content}</p>
+        </NavLink>
         <div className="separator" />
-        <p className="author">posté par {author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{createdAt}</Moment> à <Moment locale="fr" format="HH:mm">{createdAt}</Moment></p>
-        {questions.map((question) => (
-          question.author.id === userId && (
-            <div key={question.author.id}>
-              <Button size="mini" circular><Icon name="edit" /></Button>
-              <Button onClick={deleteQuestion} size="mini" circular><Icon name="trash alternate outline" /></Button>
-            </div>
-          )
-        ))}
+        <p className="author">posté par {author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{createdAt}</Moment> à <Moment locale="fr" format="HH:mm">{createdAt}</Moment>
+        </p>
+        {author.id === userId && (
+          <div className="modify-icons" key={author.id}>
+            <Button
+              onClick={() => {
+                deleteQuestion(id);
+                fetchDeleteQuestion();
+              }}
+              size="mini"
+              circular
+            >
+              <Icon name="trash alternate outline" />
+            </Button>
+          </div>
+        )}
         <div className="answer-container">
-          <p className="answer-number">{answers.length === 0 ? <p><Icon name="comments outline" />{answers.length} réponse</p> : <p><Icon name="comments" />{answers.length} réponses</p> }</p>
+          <div className="answer-number">{answers.length === 0 ? <p><Icon name="comments outline" />{answers.length} réponse</p> : <p><Icon name="comments" />{answers.length} réponses</p> }</div>
         </div>
-      </NavLink>
+      </div>
     </div>
   </QuestionStyled>
 );

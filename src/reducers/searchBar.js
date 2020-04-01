@@ -4,7 +4,9 @@ import {
 } from 'src/actions/searchBar';
 
 export const initialState = {
-  searchValue: '',
+  searchValue: {
+    value: '',
+  },
   searchedQuestion: '',
 };
 

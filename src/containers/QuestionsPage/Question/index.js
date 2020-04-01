@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Question from 'src/components/QuestionsPage/Question';
 
-import { saveQuestionId, deleteQuestion } from 'src/actions/questions';
+import { saveQuestionId, deleteQuestion, fetchDeleteQuestion } from 'src/actions/questions';
 
 const mapStateToProps = (state) => ({
   isLogged: state.login.isLogged,
@@ -18,6 +18,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteQuestion: (id) => {
     dispatch(deleteQuestion(id));
+  },
+  fetchDeleteQuestion: (id) => {
+    dispatch(fetchDeleteQuestion(id));
   },
 });
 

@@ -35,8 +35,8 @@ const QuestionStyled = styled.div`
   }
 
   .answer-container {
-    width: 100%;
     text-align: right;
+    width: 100%;
 
     .answer-number {
       font-size: 0.8rem;

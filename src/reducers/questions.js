@@ -17,6 +17,7 @@ export const initialState = {
   votedQuestionId: 0,
   vote: '',
   clickedQuestionId: '',
+  questionToDelete: 0,
 };
 
 // reducer = traducteur d'une intention/action vers une modification du state
@@ -25,6 +26,7 @@ const questions = (state = initialState, action = {}) => {
     case DELETE_QUESTION:
       return {
         ...state,
+        questionToDelete: action.id,
       };
     case SAVE_QUESTIONS:
       // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
