@@ -315,7 +315,22 @@ installation react-moment
 
 ### 01/04/2020
 
+branche siteCharter
+
 #### css ok
 
 - modification de index.js dans src/components/SIgnIn
 - modification de SignInStyled.js dans src/components/SignIn
+
+
+#### footer modal ok
+
+branche footer
+
+- modification de index.js dans src/components/Footer
+- modification de FooterStyled.js dans src/components/Footer
+- création de footer.js dans src/reducers
+- création du dossier Footer dans src/containers
+- création de son index.js
+- création de footer.js dans src/actions
+- modification de index.js dans src/App

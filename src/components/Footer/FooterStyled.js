@@ -4,17 +4,22 @@ import styled from 'styled-components';
 // == Composant
 // ici on a la fonction qui décrit le style du composant FooterPage
 const FooterStyled = styled.footer`
-  display: flex;
-  justify-content: space-around;
   background-color: #121113;
   padding: 1rem;
 
-  a {
-    margin: auto;
+  .ui.form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 
-
-
+  .ui.button {
+    &:hover {
+        background-color: #fff;
+        border: 1px solid #E76F51;
+        color: #E76F51;
+      }
+  }
 `;
 
 // == Export
