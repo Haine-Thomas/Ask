@@ -36,9 +36,6 @@ const ProfilPageStyled = styled.div`
     margin: 2rem 0;
     padding: .2rem;
   }
-  .question {
-    height: 200xp;
-  }
   .questions {
     width: 100%;
     height: 100%;

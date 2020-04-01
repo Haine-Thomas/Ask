@@ -48,9 +48,9 @@ const Question = ({
         <p className="author">posté par {author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{createdAt}</Moment> à <Moment locale="fr" format="HH:mm">{createdAt}</Moment></p>
         {questions.map((question) => (
           question.author.id === userId && (
-            <div key={question.id}>
-              <Button compact size="mini" circular><Icon name="edit" /></Button>
-              <Button onClick={deleteQuestion} compact size="mini" circular><Icon name="trash alternate outline" /></Button>
+            <div key={question.author.id}>
+              <Button size="mini" circular><Icon name="edit" /></Button>
+              <Button onClick={deleteQuestion} size="mini" circular><Icon name="trash alternate outline" /></Button>
             </div>
           )
         ))}

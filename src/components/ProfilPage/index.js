@@ -61,7 +61,7 @@ const ProfilPage = ({
               <Icon name="reply" />Retour à l'Accueil
             </NavLink>
             <p>Ma fiche utilisateur:</p>
-            <p>{pseudo}</p>
+            <p><Icon name="user circle" color="olive" />{pseudo}</p>
             <p className="profil_email"><Icon color="olive" name="envelope" />{email}</p>
             <p className="bbday"><Icon color="olive" name="birthday cake" />JJ/MM/AAAA</p>
             <p>
@@ -88,7 +88,7 @@ const ProfilPage = ({
               <Modal.Header>Modification</Modal.Header>
               <Modal.Content>
                 <Form>
-                  <p className="title_modale_modify">{pseudo}</p>
+                  <p className="title_modale_modify"><Icon name="user circle" />{pseudo}</p>
                   <Form.Field>
                     <label>
                       Modifier votre email
