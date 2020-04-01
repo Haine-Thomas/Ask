@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // == Import : local
 import QuestionsPage from 'src/components/QuestionsPage';
 import { changeInputValue, fetchPostQuestion } from 'src/actions/questions';
+import { resetQuestion } from 'src/actions/searchBar';
 
 
 /* === State (données) lecture===
@@ -18,6 +19,8 @@ const mapStateToProps = (state) => ({
   isLogged: state.login.isLogged,
   tags: state.tags.list,
   value: state.questions.content,
+  searchedQuestion: state.searchBar.searchedQuestion,
+  liveSearch: state.searchBar.searchValue.value,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -26,6 +29,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchPostQuestion: () => {
     dispatch(fetchPostQuestion());
+  },
+
+  resetQuestion: () => {
+    dispatch(resetQuestion());
   },
 /* === Actions modification ===
  * - mapDispatchToProps retroune un objet de props pour le composant de présentation

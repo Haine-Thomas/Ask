@@ -22,7 +22,11 @@ const QuestionsPage = ({
   value,
   changeInputValue,
   fetchPostQuestion,
-}) => (
+  liveSearch
+}) => {
+
+  let filteredQuestions = questions.filter(question => question.content.toLowerCase().includes(liveSearch.toLowerCase()));
+  return (
     <QuestionsPageStyled>
       <div className="question-form-container">
         <form
@@ -72,12 +76,14 @@ const QuestionsPage = ({
       </div>
       <div className="container-list-question">
         <SortButtons />
-        {questions.map((question) => (
+        {liveSearch === '' && questions.map((question) => (
           <Question key={question.id} {...question} />
         ))}
+        {liveSearch !== '' && filteredQuestions.map((question) => (<Question key={question.id} {...question} />))}
       </div>
     </QuestionsPageStyled>
-);
+  );
+};
 
 QuestionsPage.propTypes = {
   questions: PropTypes.array.isRequired,

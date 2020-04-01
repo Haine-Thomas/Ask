@@ -10,14 +10,9 @@ import SearchBarStyled from './SearchBarStyled';
 import QuestionStyled from '../../QuestionsPage/Question/QuestionStyled';
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de searchbar
-const SearchBar = ({ value, changeSearchValue }) => (
+const SearchBar = ({ value, changeSearchValue, searchQuestion }) => (
   <SearchBarStyled>
-    <Form
-      onSubmit={(event) => {
-        event.preventDefault();
-        console.log(value);
-      }}
-    >
+    <Form>
       <Input
         className="searchbar"
         icon="search"
