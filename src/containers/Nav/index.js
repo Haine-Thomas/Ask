@@ -1,7 +1,5 @@
 // == Imports NPM
 import { connect } from 'react-redux';
-import { resetQuestion } from 'src/actions/searchBar';
-
 // == Imports locaux
 // composant + actions creator
 import Nav from 'src/components/Nav';
@@ -11,9 +9,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  resetQuestion: () => {
-    dispatch(resetQuestion());
-  },
 
 });
 

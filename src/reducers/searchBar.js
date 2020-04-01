@@ -1,7 +1,6 @@
 import {
   CHANGE_SEARCH_VALUE,
   SEARCH_QUESTION,
-  RESET_QUESTION,
 } from 'src/actions/searchBar';
 
 export const initialState = {
@@ -21,11 +20,6 @@ const searchBar = (state = initialState, action = {}) => {
       return {
         ...state,
         searchedQuestion: action.value,
-      };
-    case RESET_QUESTION:
-      return {
-        ...state,
-        searchedQuestion: '',
       };
     default:
       return state;

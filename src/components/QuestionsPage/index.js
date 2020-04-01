@@ -25,7 +25,7 @@ const QuestionsPage = ({
   liveSearch
 }) => {
 
-  let filteredQuestions = questions.filter(question => question.content.toLowerCase().includes(liveSearch.toLowerCase()));
+  const filteredQuestions = questions.filter(question => question.content.toLowerCase().includes(liveSearch.toLowerCase()));
   return (
     <QuestionsPageStyled>
       <div className="question-form-container">
@@ -92,6 +92,7 @@ QuestionsPage.propTypes = {
   value: PropTypes.string.isRequired,
   changeInputValue: PropTypes.func.isRequired,
   fetchPostQuestion: PropTypes.func.isRequired,
+  liveSearch: PropTypes.string.isRequired,
 };
 
 // == Export

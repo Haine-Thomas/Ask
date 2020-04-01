@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 // == Import : local
 import QuestionsPage from 'src/components/QuestionsPage';
 import { changeInputValue, fetchPostQuestion } from 'src/actions/questions';
-import { resetQuestion } from 'src/actions/searchBar';
 
 
 /* === State (données) lecture===
@@ -31,9 +30,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchPostQuestion());
   },
 
-  resetQuestion: () => {
-    dispatch(resetQuestion());
-  },
 /* === Actions modification ===
  * - mapDispatchToProps retroune un objet de props pour le composant de présentation
  * - mapDispatchToProps met à dispo 2 params
