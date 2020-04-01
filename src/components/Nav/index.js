@@ -3,7 +3,7 @@ import React from 'react';
 
 // == Import npm locaux
 import Settings from 'src/containers/Nav/Settings';
-import SearchBar from './SearchBar';
+import SearchBar from 'src/containers/Nav/SearchBar';
 
 // import du composant styled de nav
 import NavStyled from './NavStyled';

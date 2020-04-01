@@ -1,31 +1,43 @@
 // == Import npm
 import React from 'react';
-
+import PropTypes from 'prop-types';
 // on import la route de navigation
 import { NavLink } from 'react-router-dom';
 
 // import du frameworks
 
 // == Import locaux
+import Answer from 'src/containers/AnswersPage/Answer';
 // import de la feuille de style associée
-import AnswerPageStyled from './AnswerPageStyled';
+import AnswersPageStyled from './AnswersPageStyled';
+
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de la page réponse
-const AnswersPage = () => (
-  <AnswerPageStyled>
-    <NavLink
-      activeClassName="selected"
-      exact
-      to="/"
-      className="btnhome"
-    >
-      Retour à l'Accueil
-    </NavLink>
-    <h1 className="title">question avec compteur, nom de l auteur, date du poste et catégorie</h1>
-    <h1 className="title">réponse avec compteur, nom de l auteur et date du poste</h1>
-  </AnswerPageStyled>
+const AnswersPage = ({ questions, clickedQuestionId }) => (
+  <AnswersPageStyled>
+    <div className="gohome">
+      <NavLink
+        exact
+        to="/"
+        className="btnhome"
+      >
+        Retour à l'Accueil
+      </NavLink>
+    </div>
+    {questions.map((question) => (
+      question.id === clickedQuestionId && (
+        <Answer key={question.id} {...question} />
+      )
+    ))}
+
+  </AnswersPageStyled>
 );
+
+AnswersPage.propTypes = {
+  questions: PropTypes.array.isRequired,
+  clickedQuestionId: PropTypes.number.isRequired,
+};
 
 // == Export
 export default AnswersPage;

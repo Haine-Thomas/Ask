@@ -2,21 +2,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
-// import du frameworks
 import { Icon } from 'semantic-ui-react';
 
-// == Import : local
-// import du composant styled du counter
 import CounterStyled from './CounterStyled';
 
-// == Composant
-// ici on a la fonction qui renvoi le formulaire de structure de counter
 const Counter = ({
-  increment,
-  decrement,
-  fetchQuestionScore,
+  incrementAnswer,
+  decrementAnswer,
+  fetchAnswerScore,
   score,
-  questionId,
+  id,
   userId,
   isLogged,
   upvoted,
@@ -29,8 +24,8 @@ const Counter = ({
       name="angle up"
       size="huge"
       onClick={() => {
-        increment(questionId);
-        fetchQuestionScore();
+        incrementAnswer(id);
+        fetchAnswerScore();
       }}
     />
     )}
@@ -51,32 +46,30 @@ const Counter = ({
       name="angle down"
       size="huge"
       onClick={() => {
-        decrement(questionId);
-        fetchQuestionScore();
+        decrementAnswer(id);
+        fetchAnswerScore();
       }}
     />
     )}
     {!isLogged && (
-    <Icon
-      className="icon-bottom"
-      name="angle down"
-      size="huge"
-      onClick={() => {
-        swal('Vous devez vous connecter pour voter !', '', 'warning');
-      }}
-    />
+      <Icon
+        className="icon-bottom"
+        name="angle down"
+        size="huge"
+        onClick={() => {
+          swal('Vous devez vous connecter pour voter !', '', 'warning');
+        }}
+      />
     )}
   </CounterStyled>
 );
 
-
 Counter.propTypes = {
-  // count: PropTypes.number.isRequired,
-  increment: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
+  incrementAnswer: PropTypes.func.isRequired,
+  decrementAnswer: PropTypes.func.isRequired,
   score: PropTypes.number.isRequired,
-  questionId: PropTypes.number.isRequired,
-  fetchQuestionScore: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  fetchAnswerScore: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
   isLogged: PropTypes.bool.isRequired,
   upvoted: PropTypes.array.isRequired,

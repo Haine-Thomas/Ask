@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 
 // on import la route de navigation
 import { NavLink } from 'react-router-dom';
-import Avatar from 'react-avatar';
-
 
 // == Import : local
 import Counter from 'src/containers/QuestionsPage/Question/Counter';
@@ -26,14 +24,18 @@ const Question = ({
   id,
   upvoted,
   downvoted,
+  saveQuestionId,
 }) => (
   <QuestionStyled>
     <div className="question-container">
       <Counter score={score} questionId={id} upvoted={upvoted} downvoted={downvoted} />
       <NavLink
         exact
-        to="/Answer"
+        to={`/Answer/${id}`}
         className="text"
+        onClick={() => {
+          saveQuestionId(id);
+        }}
       >
         <div className="tag-container">
           <p className="tag">{tag.name}</p>
@@ -59,6 +61,7 @@ Question.propTypes = {
   id: PropTypes.number.isRequired,
   upvoted: PropTypes.array.isRequired,
   downvoted: PropTypes.array.isRequired,
+  saveQuestionId: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -5,6 +5,7 @@ import {
   CHANGE_SORTED,
   INCREMENT_COUNTER,
   DECREMENT_COUNTER,
+  SAVE_QUESTION_ID,
 } from 'src/actions/questions';
 
 export const initialState = {
@@ -14,6 +15,7 @@ export const initialState = {
   sorted: 'created_at',
   votedQuestionId: 0,
   vote: '',
+  clickedQuestionId: '',
 };
 
 // reducer = traducteur d'une intention/action vers une modification du state
@@ -54,6 +56,11 @@ const questions = (state = initialState, action = {}) => {
         ...state,
         vote: 'downVote',
         votedQuestionId: action.questionId,
+      };
+    case SAVE_QUESTION_ID:
+      return {
+        ...state,
+        clickedQuestionId: action.id,
       };
     default:
       return state;

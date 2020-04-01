@@ -1,7 +1,7 @@
 // == Import npm
 import React, { useEffect } from 'react';
 // import de router-dom afin d'entourer les composants
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import locaux
@@ -10,7 +10,7 @@ import Nav from 'src/components/Nav';
 import QuestionsPage from 'src/containers/QuestionsPage';
 import Footer from 'src/components/Footer';
 import SignIn from 'src/containers/SignIn';
-import AnswersPage from 'src/components/AnswersPage';
+import AnswersPage from 'src/containers/AnswersPage';
 import ProfilPage from 'src/containers/ProfilPage';
 
 import theme from 'src/assets/styles/theme';
@@ -24,7 +24,6 @@ import AppStyled from './AppStyled';
 const App = ({ fetchQuestions, fetchTags }) => {
   useEffect(fetchQuestions, []);
   useEffect(fetchTags, []);
-
   return (
     <AppStyled theme={theme}>
       <Header />
@@ -33,7 +32,7 @@ const App = ({ fetchQuestions, fetchTags }) => {
           <Nav />
           <ProfilPage />
         </Route>
-        <Route key="3" path="/Answer">
+        <Route key="3" path="/Answer/:id">
           <Nav />
           <AnswersPage />
         </Route>

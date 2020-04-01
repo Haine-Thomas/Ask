@@ -67,7 +67,7 @@ const login = (state = initialState, action = {}) => {
           ...state.user,
           pseudo: '',
           email: '',
-          id: null,
+          id: 0,
           password: '',
         },
         isLogged: false,
