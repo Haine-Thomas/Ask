@@ -15,6 +15,7 @@ export const initialState = {
   confirmedPassword: '',
   checkbox: false,
   isVerified: false,
+  open: false,
 };
 
 // reducer = traducteur d'une intention/action vers une modification du state

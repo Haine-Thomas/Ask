@@ -131,16 +131,15 @@ const SignIn = ({
         expiredCallback={expiredCallback}
       />
       <Form.Field>
-        <label>
+        <label className="label-charte">
           <Checkbox
-            label="J'accepte de respecter la charte du site"
+            label="J'accepte de respecter la   "
             required="required"
             onChange={() => {
               changeCheckbox();
             }}
           />
-        </label>
-        <Modal
+          <Modal
           trigger={(
             <Button
               open={open}
@@ -149,11 +148,10 @@ const SignIn = ({
                 toggleOpenModal();
               }}
             >
-              charte
+              charte du site
             </Button>
               )}
-          size="medium"
-          centered={true}
+          size="large"
           closeIcon
           open={open}
           onClose={toggleOpenModal}
@@ -202,6 +200,8 @@ const SignIn = ({
             />
           </Modal.Actions>
         </Modal>
+        </label>
+        
 
       </Form.Field>
       <Button

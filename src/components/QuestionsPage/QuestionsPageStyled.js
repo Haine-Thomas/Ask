@@ -8,6 +8,7 @@ const QuestionsPageStyled = styled.main`
   flex-direction: row-reverse;
   justify-content: space-around;
   width: 1080px;
+  min-height: 70vh;
   margin: 0 auto;
 
   .container-list-question {
