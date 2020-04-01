@@ -4,6 +4,7 @@ import questions from './questions';
 import signIn from './signIn';
 import tags from './tags';
 import answer from './answer';
+import searchBar from './searchBar';
 
 export default combineReducers({
   login,
@@ -11,4 +12,5 @@ export default combineReducers({
   signIn,
   tags,
   answer,
+  searchBar,
 });

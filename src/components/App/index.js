@@ -1,7 +1,7 @@
 // == Import npm
 import React, { useEffect } from 'react';
 // import de router-dom afin d'entourer les composants
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import locaux
@@ -24,7 +24,6 @@ import AppStyled from './AppStyled';
 const App = ({ fetchQuestions, fetchTags }) => {
   useEffect(fetchQuestions, []);
   useEffect(fetchTags, []);
-
   return (
     <AppStyled theme={theme}>
       <Header />

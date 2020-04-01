@@ -68,6 +68,7 @@
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "history": "^4.10.1",
     "lodash.throttle": "^4.1.1",
     "pg": "^7.18.2",
     "prop-types": "^15.7.2",
