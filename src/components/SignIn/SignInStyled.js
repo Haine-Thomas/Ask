@@ -13,18 +13,6 @@ const SignInStyled = styled.div`
   display: flex
 }
 
-.subtitle {
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  padding: 20px;
-}
-
-.p {
-
-}
-
   h1 {
     text-align: center;
     font-size: 1.5rem;

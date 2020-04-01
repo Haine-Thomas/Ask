@@ -150,7 +150,8 @@ const SignIn = ({
               charte
             </Button>
               )}
-          size="mini"
+          size="medium"
+          centered={true}
           closeIcon
           open={open}
           onClose={toggleOpenModal}
@@ -194,8 +195,7 @@ const SignIn = ({
           <Modal.Actions>
             <Button
               labelPosition="right"
-              icon="checkmark"
-              content="Valider"
+              content="fermer"
               onClick={toggleOpenModal}
             />
           </Modal.Actions>
