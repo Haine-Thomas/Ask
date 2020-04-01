@@ -12,7 +12,8 @@ import { deleteQuestion } from 'src/actions/questions';
  *  - ownProps : les props passées au container
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
-const mapStateToProps = () => ({
+const mapStateToProps = (state) => ({
+  questionId: state.questions.list.id,
 });
 
 const mapDispatchToProps = (dispatch) => ({

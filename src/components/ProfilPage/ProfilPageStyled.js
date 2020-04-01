@@ -62,5 +62,21 @@ const ProfilPageStyled = styled.div`
         color: #E76F51;
       }
   }
+  @media (max-width: 700px) {
+    
+    flex-direction: column-reverse;
+    margin: .1rem;
+    width: 100vw;
+
+    .profil {
+      width: 100%;
+    }
+    .question {
+      width: 100%;
+    }
+    .profil_content {
+      margin: .1rem;
+    }
+  }
 `;
 export default ProfilPageStyled;

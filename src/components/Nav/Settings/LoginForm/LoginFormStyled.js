@@ -21,6 +21,7 @@ const LoginFormStyled = styled.div`
     text-decoration: underline;
     margin-right: .7rem;
     font-size: .7rem;
+    padding-top: .5rem;
   }
   div.input {
     margin-top: 0.5rem;
