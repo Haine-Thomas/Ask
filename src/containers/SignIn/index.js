@@ -5,13 +5,8 @@ import { connect } from 'react-redux';
 import SignIn from 'src/components/SignIn';
 
 // Action Creators
-import {
-  changeValue,
-  changeCheckbox,
-  fetchSignInUser,
-  verifyCallback,
-  expiredCallback,
-} from 'src/actions/signIn';
+import { changeValue, changeCheckbox, fetchSignInUser, verifyCallback, expiredCallback, toggleOpenModal } from 'src/actions/signIn';
+
 
 /* === State (données) lecture===
  * - mapStateToProps retroune un objet de props pour le composant de présentation
@@ -22,6 +17,7 @@ import {
  */
 const mapStateToProps = (state) => ({
   signIn: state.signIn,
+  open: state.signIn.open,
 });
 
 /* === Actions modification ===
@@ -46,6 +42,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   expiredCallback: (response) => {
     dispatch(expiredCallback(response));
+  },
+
+  toggleOpenModal: () => {
+    dispatch(toggleOpenModal());
   },
 });
 

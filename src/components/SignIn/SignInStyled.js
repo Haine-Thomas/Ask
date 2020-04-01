@@ -9,6 +9,10 @@ const SignInStyled = styled.div`
   margin: auto;
   color: #E76F51;
 
+.field {
+  display: flex
+}
+
   h1 {
     text-align: center;
     font-size: 1.5rem;
@@ -30,11 +34,18 @@ const SignInStyled = styled.div`
   .input {
     margin-top: 1rem;
   }
+  
+  .Modal {
+    width: 100%;
+  }
 
   .button {
-    width: 100%;
     background-color: #E76F51; 
     margin: 1rem;
+
+    .btn-charte{
+      font-size: 1rem;
+    }
   }
 
   @media (max-width: 700px) {

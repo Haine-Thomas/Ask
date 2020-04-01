@@ -671,3 +671,86 @@ création branche searchbox
 - modification de LoginFormStyled.js dans src/components/Nav/Settings/LoginForm
 - modification de index.js dans src/components/QuestionsPage
 
+### 31/03/2020
+
+branche AnswerPage
+
+#### post answer with author ok
+
+- modification de questionController.js dans app/controllers
+- modification de answer.js dans src/actions
+- modification de AnswerStyled.js dans src/components/AnswersPage/Answer
+- modification de index.js dans src/components/AnswersPage/Answer
+- modification de index.js dans src/components/AnswersPage
+- modification de index.js dans src/containers/AnswersPage/Answer
+- modification de index.js dans src/containers/AnswersPage
+- modification de ajaxQuestionMiddleware.js dans src/middleware
+- modification de logMiddleware.js dans src/middleware
+- modification de answer.js dans src/reducers
+- modification de index.js dans src/reducers
+
+#### counter on answers ok
+
+- modification de answerController.js dans app/controllers
+- modification de answer.js dans src/models
+- modification de import_tables.sql dans data
+- modification de answer.js dans src/actions
+- modification de index.js dans src/components/AnswersPage/Answer/Counter
+- modification de index.js dans src/components/AnswersPage/Answer
+- modification de index.js dans src/components/AnswersPage/SortButtons
+- modification de index.js dans src/containers/AnswersPage/Answer/Counter
+- modification de ajaxAnswerMiddleware.js dans src/middleware
+- modification de answer.js dans src/reducers
+
+#### sort by new or best for answers
+
+installation react-moment
+- modification de answer.js dans src/actions
+- modification de index.js dans src/components/AnswersPage/Answer/Counter
+- modification de index.js dans src/components/AnswersPage/Answer
+- modification de index.js dans src/components/AnswersPage/SortButtons
+- modification de index.js dans src/containers/AnswersPage/Answer/SortButtons
+- modification de answer.js dans src/reducers
+- modification de login.js dans src/reducers
+
+branche siteCharter
+
+#### Charter composant ok, navlink ok
+
+installation react-moment
+- modification de CharterStyled.js dans src/components/SignIn/Charter
+- modification de index.js dans src/components/SignIn/Charter
+- modification de SignInStyled.js dans src/components/SignIn
+- modification de index.js dans src/components/SignIn
+
+#### siteCharter in progress
+
+- modification de CharterStyled.js dans src/components/SignIn/Charter
+- modification de SiteCharterStyled.js dans src/components/SignIn/Charter/SiteCharter
+- modification de index.js dans src/components/SignIn/Charter/SiteCharter
+- modification de index.js dans src/components/SignIn/Charter
+
+#### in progress
+
+- modification de index.js dans src/components/SignIn
+- modification de index.js dans src/components/SignIn/Charter/SiteCharter
+- modification de index.js dans src/components/SignIn/Charter
+
+#### modal charte
+
+- modification de SignIn.js dans src/actions
+- modification de index.js dans src/components/SignIn
+- modification de index.js dans src/containers/SignIn
+- modification de SIgnIn.js dans src/reducers
+
+#### a few css
+
+- modification de SignInStyled.js dans src/components/SignIn
+- modification de index.js dans src/components/SignIn
+
+### 01/04/2020
+
+#### css ok
+
+- modification de index.js dans src/components/SIgnIn
+- modification de SignInStyled.js dans src/components/SignIn
