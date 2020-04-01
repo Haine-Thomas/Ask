@@ -2,8 +2,9 @@
 import { connect } from 'react-redux';
 
 import { changeValue } from 'src/actions/signIn';
-import { deleteUser, disconnectAction } from 'src/actions/login';
+import { deleteUser, disconnectAction, modifyUser } from 'src/actions/login';
 import { fetchQuestions } from 'src/actions/questions';
+import { toggleOpenModal } from 'src/actions/profilPage';
 
 
 // == Import : local
@@ -17,12 +18,14 @@ import ProfilPage from 'src/components/ProfilPage';
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
 const mapStateToProps = (state) => ({
-  iduser: state.login.user.id,
+  userId: state.login.user.id,
   pseudo: state.login.user.pseudo,
   email: state.login.user.email,
   created_at: state.login.user.created_at,
   questions: state.questions.list,
   signIn: state.signIn,
+  open: state.profilPage.open,
+
 });
 
 /* === Actions modification ===
@@ -46,6 +49,13 @@ const mapDispatchToProps = (dispatch) => ({
 
   fetchQuestions: () => {
     dispatch(fetchQuestions());
+  },
+
+  modifyUser: (id) => {
+    dispatch(modifyUser(id));
+  },
+  toggleOpenModal: () => {
+    dispatch(toggleOpenModal());
   },
 
 });

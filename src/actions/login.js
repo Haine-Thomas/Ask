@@ -3,6 +3,7 @@ export const DISCONNECT_ACTION = 'DISCONNECT_ACTION';
 export const CHANGE_USER = 'CHANGE_USER';
 export const CHANGE_VALUE_LOGIN = 'CHANGE_VALUE_LOGIN';
 export const DELETE_USER = 'DELETE_USER';
+export const MODIFY_USER = 'MODIFY_USER';
 
 export const loginAction = () => ({
   type: LOGIN_ACTION,
@@ -25,5 +26,10 @@ export const changeValueLogin = (value, name) => ({
 
 export const deleteUser = (id) => ({
   type: DELETE_USER,
+  id,
+});
+
+export const modifyUser = (id) => ({
+  type: MODIFY_USER,
   id,
 });

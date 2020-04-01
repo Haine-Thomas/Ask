@@ -4,6 +4,7 @@ import {
   CHANGE_VALUE_LOGIN,
   DISCONNECT_ACTION,
   DELETE_USER,
+  MODIFY_USER,
 } from 'src/actions/login';
 
 const initialState = {
@@ -21,6 +22,10 @@ const initialState = {
 // reducer = traducteur d'une intention/action vers une modification du state
 const login = (state = initialState, action = {}) => {
   switch (action.type) {
+    case MODIFY_USER:
+      return {
+        ...state,
+      };
     case DELETE_USER:
       return {
         ...state,

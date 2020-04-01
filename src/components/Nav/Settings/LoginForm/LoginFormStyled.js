@@ -9,9 +9,20 @@ const LoginFormStyled = styled.div`
   background-color: #fff;
   text-align: center;
   position: absolute;
-  padding: 1rem;
+  padding: .5rem;
   border: 1px solid #F0F0F0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 auto;
 
+  .signin_btn {
+    color:#E76F51;
+    text-decoration: underline;
+    margin-right: .7rem;
+    font-size: .7rem;
+    padding-top: .5rem;
+  }
   div.input {
     margin-top: 0.5rem;
   } 

@@ -52,7 +52,8 @@ const QuestionsPageStyled = styled.main`
         padding: 1rem;
         background-color: #fff;
         border: 1px solid #ED412A;
-        width: 60%;
+        width: 60%;n
+        
         margin-bottom: 1rem;
         border-bottom-left-radius: 3px;
         border-top-left-radius: 3px;

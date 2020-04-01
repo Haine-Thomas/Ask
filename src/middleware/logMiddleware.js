@@ -7,8 +7,9 @@ import {
   DISCONNECT_ACTION,
   changeUser,
   DELETE_USER,
-
+  MODIFY_USER,
 } from 'src/actions/login';
+import { changeValue } from 'src/actions/signIn';
 
 import { fetchQuestions } from 'src/actions/questions';
 
@@ -69,6 +70,27 @@ const logMiddleware = (store) => (next) => (action) => {
           console.log(error);
         });
       // je laisse passer tout de suite au middleware/reducer suivant
+      next(action);
+      break;
+    }
+    case MODIFY_USER: {
+      const state = store.getState();
+      const userid = state.login.user.id;
+      axios.patch(`http://localhost:3000/user/${userid}`, {
+        email: state.signIn.email,
+        password: state.signIn.password,
+        confirmPassword: state.signIn.confirmedPassword,
+      }, { withCredentials: true })
+        .then((response) => {
+          if (response.data.error) {
+            swan(response.data.error, '', 'warning');
+          }
+          else {
+            store.dispatch(changeValue(response.data));
+          }
+        })
+        .catch((error) => {
+        });
       next(action);
       break;
     }

@@ -12,6 +12,7 @@ import {
   Checkbox,
   Button,
   Icon,
+  Label,
 } from 'semantic-ui-react';
 
 // == Import : npm locaux
@@ -35,14 +36,15 @@ const SignIn = ({
           to="/"
           className="btnhome"
         >
-          Retour à l'Accueil
+          <Icon name="reply" />Retour à l'Accueil
         </NavLink>
       </div>
       <h1 className="title">INSCRIPTION</h1>
-      <Form onSubmit={(event) => {
-        event.preventDefault();
-        fetchSignInUser();
-      }}
+      <Form
+        onSubmit={(event) => {
+          event.preventDefault();
+          fetchSignInUser();
+        }}
       >
         <Form.Field>
           <label>
@@ -146,7 +148,7 @@ const SignIn = ({
         </Button>
       </Form>
     </SignInStyled>
-  );
+);
 
 SignIn.propTypes = {
   signIn: PropTypes.shape({
