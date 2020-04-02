@@ -20,6 +20,8 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
       }, { withCredentials: true })
         .then(() => {
           store.dispatch(fetchQuestions());
+          swal('Question supprimée!', '', 'success');
+
         })
         .catch((error) => {
           console.log(error);
