@@ -64,7 +64,15 @@ const Question = ({
           </div>
         )}
         <div className="answer-container">
-          <div className="answer-number">{answers.length === 0 ? <p><Icon name="comments outline" />{answers.length} réponse</p> : <p><Icon name="comments" />{answers.length} réponses</p> }</div>
+        <NavLink
+          exact
+          to={`/Answer/${id}`}
+          onClick={() => {
+            saveQuestionId(id);
+          }}
+        >
+          <div className="answer-number">{answers.length < 2 ? <p><Icon name="comments outline" />{answers.length} réponse</p> : <p><Icon name="comments" />{answers.length} réponses</p> }</div>
+        </NavLink>
         </div>
       </div>
     </div>
