@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import Header from 'src/components/Header';
 import Nav from 'src/components/Nav';
 import QuestionsPage from 'src/containers/QuestionsPage';
-import Footer from 'src/containers/Footer';
+import Footer from 'src/components/Footer';
 import SignIn from 'src/containers/SignIn';
 import AnswersPage from 'src/components/AnswersPage';
 import ProfilPage from 'src/containers/ProfilPage';

@@ -1,10 +1,8 @@
 // == Import npm
 import React from 'react';
-import PropTypes from 'prop-types';
 
 // import du frameworks
 import {
-  Form,
   Button,
   Modal,
 } from 'semantic-ui-react';
@@ -13,26 +11,27 @@ import {
 import FooterStyled from './FooterStyled';
 
 // == Composant
-// ici on a la fonction qui renvoi le formulaire de structure de footer
-const Footer = ({ open, toggleOpenModal }) => (
+// ici on a la fonction qui renvoi la structure de footer
+const Footer = () => (
   <FooterStyled>
     <div className="contact">
 
       <div className="title">
         <h1>Nous contacter</h1>
-        <div className="separator"></div>
+        <div className="separator" />
       </div>
-      <p>Une question?</p>
-      <p> n'hésitez pas à nous contacter pour toute demande d'information</p>
-
+      <div className="text">
+        <p>Une question?</p>
+        <p> n'hésitez pas à nous contacter pour toute demande d'information</p>
+      </div>
       <div className="adress">
-      <p>225 rue de bourgpalette 87160 Arnac-La-Poste</p>
-      <a href="mailto:adresse@serveur.com">ASK@gmail.com</a>
+        <p>225 rue de bourg-palette 87160 Arnac-La-Poste</p>
+        <a href="mailto:adresse@serveur.com">ASK@gmail.com</a>
       </div>
 
       <div className="social">
-      <a href="https://www.facebook.com/ASK" class="fa fa-facebook">Facebook</a>
-      <a href="https://www.twitter.com/ASK" class="fa fa-twitter">Twitter</a>
+        <a href="https://www.facebook.com/ASK" className="fa fa-facebook">Facebook</a>
+        <a href="https://www.twitter.com/ASK" className="fa fa-twitter">Twitter</a>
       </div>
 
     </div>
@@ -40,7 +39,7 @@ const Footer = ({ open, toggleOpenModal }) => (
     <div className="Links">
       <div className="title">
         <h1>Liens Utiles</h1>
-        <div className="separator"></div>
+        <div className="separator" />
       </div>
 
       <Modal
@@ -107,11 +106,6 @@ const Footer = ({ open, toggleOpenModal }) => (
     </div>
   </FooterStyled>
 );
-
-Footer.propTypes = {
-  open: PropTypes.bool.isRequired,
-  toggleOpenModal: PropTypes.func.isRequired,
-};
 
 // == Export
 export default Footer;
