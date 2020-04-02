@@ -71,7 +71,7 @@ const Question = ({
             saveQuestionId(id);
           }}
         >
-          <div className="answer-number">{answers.length === 0 ? <p><Icon name="comments outline" />{answers.length} réponse</p> : <p><Icon name="comments" />{answers.length} réponses</p> }</div>
+          <div className="answer-number">{answers.length < 2 ? <p><Icon name="comments outline" />{answers.length} réponse</p> : <p><Icon name="comments" />{answers.length} réponses</p> }</div>
         </NavLink>
         </div>
       </div>
