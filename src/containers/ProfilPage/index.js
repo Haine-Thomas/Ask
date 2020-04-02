@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 import { changeValue } from 'src/actions/signIn';
-import { deleteUser, disconnectAction, modifyUser, changeUser } from 'src/actions/login';
+import { deleteUser, disconnectAction, modifyUser } from 'src/actions/login';
 import { fetchQuestions } from 'src/actions/questions';
 import { toggleOpenModal } from 'src/actions/profilPage';
 
@@ -56,9 +56,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   toggleOpenModal: () => {
     dispatch(toggleOpenModal());
-  },
-  changeUser: () => {
-    dispatch(changeUser());
   },
 
 });
