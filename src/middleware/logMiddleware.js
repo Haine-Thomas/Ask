@@ -87,6 +87,9 @@ const logMiddleware = (store) => (next) => (action) => {
           }
           else {
             store.dispatch(changeValue(response.data));
+            if (response.data) {
+              swan('Vos modifications ont bien été pris en compte', 'N"oubliez pas de vous reconnecter pour voir les changements', 'success');
+            }
           }
         })
         .catch((error) => {
