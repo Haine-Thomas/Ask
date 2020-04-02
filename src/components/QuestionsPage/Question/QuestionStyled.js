@@ -22,7 +22,13 @@ const QuestionStyled = styled.div`
     padding: 0.6rem 0rem .8rem;
     color: #121113;
     font-size: 1.2rem;
+
+    &:hover {
+      color: #E76F51;
+    }
   }
+
+  
 
   .text {
     margin: 0 0 0 .7rem;
@@ -41,6 +47,10 @@ const QuestionStyled = styled.div`
     .answer-number {
       font-size: 0.8rem;
       padding: .5rem;
+
+      &:hover {
+        color: #E76F51;
+      }
     }
   }
 

@@ -27,6 +27,7 @@ const QuestionsPageStyled = styled.main`
       margin-top: 2rem;
       background-color: #fff;
       border-radius: 3px;
+      padding-bottom: 1rem;
 
       h3 {
         color: #121113;
