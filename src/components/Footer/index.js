@@ -16,48 +16,36 @@ import FooterStyled from './FooterStyled';
 // ici on a la fonction qui renvoi le formulaire de structure de footer
 const Footer = ({ open, toggleOpenModal }) => (
   <FooterStyled>
-    <Form className="form">
+    <div className="contact">
+
+      <div className="title">
+        <h1>Nous contacter</h1>
+        <div className="separator"></div>
+      </div>
+      <p>Une question?</p>
+      <p> n'hésitez pas à nous contacter pour toute demande d'information</p>
+
+      <div className="adress">
+      <p>225 rue de bourgpalette 87160 Arnac-La-Poste</p>
+      <a href="mailto:adresse@serveur.com">ASK@gmail.com</a>
+      </div>
+
+      <div className="social">
+      <a href="https://www.facebook.com/ASK" class="fa fa-facebook">Facebook</a>
+      <a href="https://www.twitter.com/ASK" class="fa fa-twitter">Twitter</a>
+      </div>
+
+    </div>
+
+    <div className="Links">
+      <div className="title">
+        <h1>Liens Utiles</h1>
+        <div className="separator"></div>
+      </div>
+
       <Modal
         trigger={(
-          <Button
-            open={open}
-            className="btn-contact"
-            onClick={() => {
-              toggleOpenModal();
-            }}
-          >
-            Contact
-          </Button>
-                )}
-        size="medium"
-        centered
-        closeIcon
-        open={open}
-        onClose={toggleOpenModal}
-      >
-        <Modal.Header>Contactez-nous</Modal.Header>
-        <Modal.Content>
-          <h1>Email</h1>
-          <p>askTeam@gmail.com</p>
-          <p>-----------------------------</p>
-          <h1>Lien facebook</h1>
-          <p>https://www.facebook.com/ASK</p>
-          <p>-----------------------------</p>
-          <h1>Lien tweeter</h1>
-          <p>https://twitter.com/ASK</p>
-          <p>-----------------------------</p>
-          <h1>Adresse du siège social</h1>
-          <p>sarl ask</p>
-          <p>235 avenue de bourgpalette</p>
-          <p>87160</p>
-          <p>Arnac-la-poste</p>
-        </Modal.Content>
-      </Modal>
-      <Modal
-        trigger={(
-          <Button
-            className="btn-mentions-légales"
-          >
+          <Button className="btn-mentions-légales">
             Mentions Légales
           </Button>
                 )}
@@ -116,24 +104,7 @@ const Footer = ({ open, toggleOpenModal }) => (
           <p>Pour plus d’informations, se reporter aux CGU du site ask.com accessible à la rubrique« CGU » </p>
         </Modal.Content>
       </Modal>
-      <Modal
-        trigger={(
-          <Button
-            className="btn-copyright"
-          >
-            Copyright
-          </Button>
-                )}
-        size="mini"
-        centered
-        closeIcon
-      >
-        <Modal.Header>Copyright</Modal.Header>
-        <Modal.Content>
-          <h1>Ask! est une marque déposé donc attention les loulous</h1>
-        </Modal.Content>
-      </Modal>
-    </Form>
+    </div>
   </FooterStyled>
 );
 
