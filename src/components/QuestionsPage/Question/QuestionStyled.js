@@ -14,6 +14,7 @@ const QuestionStyled = styled.div`
   .question-container {
     display: flex;
     padding-left: 0.5px;
+    width:100%
 
   }
 
@@ -36,7 +37,7 @@ const QuestionStyled = styled.div`
   .text {
     margin: 0 0 0 .7rem;
     text-align: left;
-    width:100%;
+    width:80%;
 
     &:hover {
       color: #121113;
