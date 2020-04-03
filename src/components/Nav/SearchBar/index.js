@@ -16,7 +16,7 @@ const SearchBar = ({ changeSearchValue, resetValue }) => {
           className="searchbar"
           icon="search"
           type="text"
-          placeholder="Recherche..."
+          placeholder="Recherchez par mot clé ou par catégorie"
           onChange={(event, newValue) => changeSearchValue(newValue)}
         />
       </Form>

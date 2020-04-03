@@ -24,7 +24,7 @@ const QuestionsPage = ({
   fetchPostQuestion,
   liveSearch,
 }) => {
-  const filteredQuestions = questions.filter((question) => question.content.toLowerCase().includes(liveSearch.toLowerCase()));
+  const filteredQuestions = questions.filter((question) => question.tag.name.toLowerCase().includes(liveSearch.toLowerCase()) || question.content.toLowerCase().includes(liveSearch.toLowerCase()));
   return (
     <QuestionsPageStyled>
       <div className="question-form-container">
