@@ -9,7 +9,7 @@ import Counter from 'src/containers/QuestionsPage/Question/Counter';
 import AnswerCounter from 'src/containers/AnswersPage/Answer/Counter';
 import SortButtons from 'src/containers/AnswersPage/SortButtons';
 import AnswerStyled from './AnswerStyled';
-
+import Moment from 'react-moment'
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de réponse
 const Answer = ({
@@ -41,7 +41,7 @@ return (
         </div>
         <p className="question">{content}</p>
         <div className="separator" />
-        <p className="author">posté par {author.name}, le {createdAt}</p>
+        <p className="author">posté par {author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{createdAt}</Moment> à <Moment locale="fr" format="HH:mm">{createdAt}</Moment></p>
         <div className="answer-container">
           <p className="answer-number">{answers.length} réponses</p>
         </div>
@@ -91,7 +91,7 @@ return (
               <div className="answerText">
                 <p className="content-text">{answer.content}</p>
                 <div className="separator" />
-                <p className="author">posté par {answer.author.name}, le {answer.created_at}</p>
+                <p className="author">posté par {answer.author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{answer.created_at}</Moment> à <Moment locale="fr" format="HH:mm">{answer.created_at}</Moment></p>
               </div>
               <div className="userButton">
                 <Icon name="delete" size="large" />
@@ -107,7 +107,7 @@ return (
               <div className="answerText">
                 <p className="content-text">{answer.content}</p>
                 <div className="separator" />
-                <p className="author">posté par {answer.author.name}, le {answer.created_at}</p>
+                <p className="author">posté par {answer.author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{answer.created_at}</Moment> à <Moment locale="fr" format="HH:mm">{answer.created_at}</Moment></p>
               </div>
               {author.id === userId && (
                 <div className="modify-icons" key={author.id}>

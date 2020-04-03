@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // on import la route de navigation
 import { NavLink } from 'react-router-dom';
+import { Icon } from 'semantic-ui-react';
 
 // import du frameworks
 
@@ -22,6 +23,7 @@ const AnswersPage = ({ questions, clickedQuestionId }) => (
         to="/"
         className="btnhome"
       >
+        <Icon name="reply" />
         Retour à l'Accueil
       </NavLink>
     </div>
