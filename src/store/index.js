@@ -24,7 +24,7 @@ const enhancers = composeEnhancers(
   ),
 );
 
-/*
+
 const loadState = () => {
   try {
     const serializedState = localStorage.getItem('state');
@@ -47,19 +47,19 @@ const saveState = (state) => {
   }
 };
 const persistedState = loadState();
-*/
+
 // == Store
 const store = createStore(
   rootReducer,
   // preloadedState,
-  // persistedState,
+  persistedState,
   enhancers,
 );
 
-/*
+
 store.subscribe(throttle(() => {
   saveState(store.getState());
 }, 1000));
-*/
+
 // == Export
 export default store;

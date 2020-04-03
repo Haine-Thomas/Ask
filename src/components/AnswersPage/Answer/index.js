@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Button } from 'semantic-ui-react';
+import Moment from 'react-moment';
 
 // == Import : local
 // import du composant styled du réponse
@@ -9,7 +10,7 @@ import Counter from 'src/containers/QuestionsPage/Question/Counter';
 import AnswerCounter from 'src/containers/AnswersPage/Answer/Counter';
 import SortButtons from 'src/containers/AnswersPage/SortButtons';
 import AnswerStyled from './AnswerStyled';
-import Moment from 'react-moment'
+
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de réponse
 const Answer = ({
@@ -92,24 +93,7 @@ return (
                 <p className="content-text">{answer.content}</p>
                 <div className="separator" />
                 <p className="author">posté par {answer.author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{answer.created_at}</Moment> à <Moment locale="fr" format="HH:mm">{answer.created_at}</Moment></p>
-              </div>
-              <div className="userButton">
-                <Icon name="delete" size="large" />
-                <Icon name="edit" size="large" />
-              </div>
-            </div>
-          ))
-        )}
-        { sorted === 'best' && (
-          answers.sort((a, b) => b.score - a.score).map((answer) => (
-            <div className="panswer" key={answer.id}>
-              <AnswerCounter {...answer} />
-              <div className="answerText">
-                <p className="content-text">{answer.content}</p>
-                <div className="separator" />
-                <p className="author">posté par {answer.author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{answer.created_at}</Moment> à <Moment locale="fr" format="HH:mm">{answer.created_at}</Moment></p>
-              </div>
-              {author.id === userId && (
+                {answer.author.id === userId && (
                 <div className="modify-icons" key={author.id}>
                   <Button
                     onClick={() => {
@@ -122,7 +106,34 @@ return (
                     <Icon name="trash alternate outline" />
                   </Button>
                 </div>
-              )}
+                )}
+              </div>
+            </div>
+          ))
+        )}
+        { sorted === 'best' && (
+          answers.sort((a, b) => b.score - a.score).map((answer) => (
+            <div className="panswer" key={answer.id}>
+              <AnswerCounter {...answer} />
+              <div className="answerText">
+                <p className="content-text">{answer.content}</p>
+                <div className="separator" />
+                <p className="author">posté par {answer.author.name}, le <Moment locale="fr" format="DD-MM-YYYY">{answer.created_at}</Moment> à <Moment locale="fr" format="HH:mm">{answer.created_at}</Moment></p>
+                {answer.author.id === userId && (
+                <div className="modify-icons" key={author.id}>
+                  <Button
+                    onClick={() => {
+                      deleteAnswer(answer.id);
+                      fetchDeleteAnswer();
+                    }}
+                    size="mini"
+                    circular
+                  >
+                    <Icon name="trash alternate outline" />
+                  </Button>
+                </div>
+                )}
+              </div>
             </div>
           ))
         )}

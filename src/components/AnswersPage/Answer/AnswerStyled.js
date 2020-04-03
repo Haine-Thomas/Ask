@@ -156,6 +156,10 @@ p.content-text{
   padding: .5rem 0rem;
   }
 
+.modify-icons {
+  margin-bottom: .5rem;
+}
+
 @media (max-width: 1080px) {
 
   .container-reponse {
