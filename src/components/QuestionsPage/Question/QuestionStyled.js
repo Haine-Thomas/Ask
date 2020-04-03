@@ -14,7 +14,7 @@ const QuestionStyled = styled.div`
   .question-container {
     display: flex;
     padding-left: 0.5px;
-    
+
   }
 
 
@@ -29,7 +29,7 @@ const QuestionStyled = styled.div`
   }
 
   p.question{
-    width:500px;
+    width: 100%;
     word-wrap: break-word;
   }
 

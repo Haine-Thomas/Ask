@@ -16,7 +16,7 @@ border-radius: 3px;
 }
 
 p.content-text{
-  width:500px;
+  width: 100%;
   word-wrap:break-word;
 }
 
