@@ -750,7 +750,79 @@ installation react-moment
 
 ### 01/04/2020
 
+branche siteCharter
+
 #### css ok
 
 - modification de index.js dans src/components/SIgnIn
 - modification de SignInStyled.js dans src/components/SignIn
+
+
+#### footer modal ok
+
+branche footer
+
+- modification de index.js dans src/components/Footer
+- modification de FooterStyled.js dans src/components/Footer
+- création de footer.js dans src/reducers
+- création du dossier Footer dans src/containers
+- création de son index.js
+- création de footer.js dans src/actions
+- modification de index.js dans src/App
+
+### 02/04/2020
+
+branche fullstackapp
+
+#### css
+
+- modification de LoginFormStyled.js dans src/components/Nav/Settings/LoginForm
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+- modification de index.js dans src/components/QuestionsPage/Question
+- modification de QuestionsPageStyled.js dans src/components/QuestionsPage
+
+#### ternary for answer
+
+- modification de index.js dans src/components/QuestionsPage/Question
+
+#### addmsg to modal modifyProfil when successfull 
+
+- modification de index.js dans src/components/ProfilPage
+- modification de index.js dans src/containers/ProfilPage
+- modification de logMiddleware.js dans src/middleware
+- modification de login.js dans src/reducers
+
+#### clean last push
+
+- modification de index.js dans src/containers/ProfilPage
+
+#### message when questions is deleted ok
+
+- modification de ajaxQuestionMiddleware.js dans src/middleware
+
+#### css to breakword on question and answer to contain them when too long
+
+- modification de AnswerStyled.js dans src/components/AnswersPage/Answer
+- modification de QuestionStyled.js dans src/components/QuestionsPage/Question
+
+#### reset searchValue with a useEffect in the component searchBar ok and... 
+
+- modification de SearchBar.js dans src/reducers
+- modification de index.js dans src/containers/Nav/SearchBar
+- modification de index.js dans src/components/Nav/SearchBar
+- modification de SearchBar.js dans src/actions
+
+branche footer
+
+#### rebuild
+
+- modification de index.js dans src/components/Footer
+- modification de FooterStyled.js dans src/components/Footer
+
+#### footer ok but css in progress
+
+- modification de index.js dans src/components/App
+- modification de FooterStyled.js dans src/components/Footer
+- modification de index.js dans src/components/Footer
+- suppression de index.js dans src/containers/Footer
+- suppression de footer.js dans src/reducers
