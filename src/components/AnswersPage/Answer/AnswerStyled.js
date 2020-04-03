@@ -15,6 +15,11 @@ border-radius: 3px;
   justify-content: space-between;
 }
 
+p.content-text{
+  width:500px;
+  word-wrap:break-word;
+}
+
 .reponse-form-container {
   width: 39%;
   margin-top: 2rem;

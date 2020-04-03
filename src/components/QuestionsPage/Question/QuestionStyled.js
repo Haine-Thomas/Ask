@@ -28,7 +28,10 @@ const QuestionStyled = styled.div`
     }
   }
 
-  
+  p.question{
+    width:500px;
+    word-wrap: break-word;
+  }
 
   .text {
     margin: 0 0 0 .7rem;

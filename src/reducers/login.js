@@ -31,15 +31,11 @@ const login = (state = initialState, action = {}) => {
         ...state,
       };
     case TOGGLE_OPEN:
-      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         open: !state.open,
       };
     case CHANGE_VALUE_LOGIN:
-      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         user: {
@@ -48,8 +44,6 @@ const login = (state = initialState, action = {}) => {
         },
       };
     case CHANGE_USER:
-      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         user: {
@@ -64,8 +58,6 @@ const login = (state = initialState, action = {}) => {
         isLogged: true,
       };
     case DISCONNECT_ACTION:
-      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         user: {

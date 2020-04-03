@@ -1,6 +1,6 @@
 // == Imports NPM
 import { connect } from 'react-redux';
-import { changeSearchValue, searchQuestion } from 'src/actions/searchBar';
+import { changeSearchValue, searchQuestion, resetValue } from 'src/actions/searchBar';
 
 // == Imports locaux
 // composant + actions creator
@@ -18,6 +18,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   searchQuestion: (value) => {
     dispatch(searchQuestion(value));
+  },
+
+  resetValue: () => {
+    dispatch(resetValue());
   },
 
 });
