@@ -5,12 +5,29 @@ import {
   saveAnswers,
   FETCH_POST_ANSWER,
   FETCH_ANSWER_SCORE,
+  FETCH_DELETE_ANSWER,
 } from 'src/actions/answers';
 
 import { fetchQuestions } from 'src/actions/questions';
 
 const ajaxAnswerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
+    case FETCH_DELETE_ANSWER: {
+      const state = store.getState();
+      const questionId = state.answer.answerToDelete;
+      axios.delete(`http://localhost:3000/answer/${questionId}`, {
+      }, { withCredentials: true })
+        .then(() => {
+          store.dispatch(fetchQuestions());
+          swal('Réponse supprimée!', '', 'success');
+
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
     // + on traduit l'intention en intérrogeant notre API
     // je vais avoir besoin de lire le state pour faire ma requete
     case FETCH_ANSWERS: {

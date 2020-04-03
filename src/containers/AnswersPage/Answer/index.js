@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 // == Import : local
 import Answer from 'src/components/AnswersPage/Answer';
 
-import { saveAnswers, fetchPostAnswer, changeAnswerValue } from 'src/actions/answers';
+import { saveAnswers, fetchPostAnswer, changeAnswerValue, deleteAnswer, fetchDeleteAnswer } from 'src/actions/answers';
 
 const mapStateToProps = (state) => ({
   isLogged: state.login.isLogged,
   value: state.answer.value,
   sorted: state.answer.sorted,
+  userId: state.login.user.id,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -20,6 +21,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeAnswerValue: (value) => {
     dispatch(changeAnswerValue(value));
+  },
+  deleteAnswer: (id) => {
+    dispatch(deleteAnswer(id));
+  },
+  fetchDeleteAnswer: () => {
+    dispatch(fetchDeleteAnswer());
   },
 });
 

@@ -5,6 +5,7 @@ import {
   CHANGE_ANSWER_VALUE,
   INCREMENT_COUNTER_ANSWER,
   DECREMENT_COUNTER_ANSWER,
+  DELETE_ANSWER,
 } from 'src/actions/answers';
 
 export const initialState = {
@@ -12,11 +13,17 @@ export const initialState = {
   votedAnswer: 0,
   vote: '',
   sorted: 'best',
+  answerToDelete: 0,
 };
 
 // reducer = traducteur d'une intention/action vers une modification du state
 const answers = (state = initialState, action = {}) => {
   switch (action.type) {
+    case DELETE_ANSWER:
+      return {
+        ...state,
+        answerToDelete: action.id,
+      };
     case SAVE_ANSWERS:
       return {
         ...state,

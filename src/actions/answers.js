@@ -6,6 +6,8 @@ export const FETCH_ANSWER_SCORE = 'FETCH_ANSWER_SCORE';
 export const CHANGE_ANSWER_VALUE = 'CHANGE_ANSWER_VALUE';
 export const INCREMENT_COUNTER_ANSWER = 'INCREMENT_COUNTER_ANSWER';
 export const DECREMENT_COUNTER_ANSWER = 'DECREMENT_COUNTER_ANSWER';
+export const DELETE_ANSWER = 'DELETE_ANSWER';
+export const FETCH_DELETE_ANSWER = 'FETCH_DELETE_ANSWER';
 
 export const saveAnswers = (questions) => ({
   type: SAVE_ANSWERS,
@@ -42,4 +44,13 @@ export const incrementAnswer = (answerId) => ({
 export const decrementAnswer = (answerId) => ({
   type: DECREMENT_COUNTER_ANSWER,
   answerId,
+});
+
+export const deleteAnswer = (id) => ({
+  type: DELETE_ANSWER,
+  id,
+});
+
+export const fetchDeleteAnswer = () => ({
+  type: FETCH_DELETE_ANSWER,
 });

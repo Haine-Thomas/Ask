@@ -1,7 +1,7 @@
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Button } from 'semantic-ui-react';
 
 // == Import : local
 // import du composant styled du réponse
@@ -27,6 +27,9 @@ const Answer = ({
   id,
   upvoted,
   downvoted,
+  userId,
+  deleteAnswer,
+  fetchDeleteAnswer,
 }) => {
 return (
   <AnswerStyled>
@@ -106,10 +109,20 @@ return (
                 <div className="separator" />
                 <p className="author">posté par {answer.author.name}, le {answer.created_at}</p>
               </div>
-              <div className="userButton">
-                <Icon name="delete" size="large" />
-                <Icon name="edit" size="large" />
-              </div>
+              {author.id === userId && (
+                <div className="modify-icons" key={author.id}>
+                  <Button
+                    onClick={() => {
+                      deleteAnswer(answer.id);
+                      fetchDeleteAnswer();
+                    }}
+                    size="mini"
+                    circular
+                  >
+                    <Icon name="trash alternate outline" />
+                  </Button>
+                </div>
+              )}
             </div>
           ))
         )}
@@ -134,6 +147,9 @@ Answer.propTypes = {
   id: PropTypes.number.isRequired,
   upvoted: PropTypes.array.isRequired,
   downvoted: PropTypes.array.isRequired,
+  userId: PropTypes.number.isRequired,
+  deleteAnswer: PropTypes.func.isRequired,
+  fetchDeleteAnswer: PropTypes.func.isRequired,
 };
 // == Export
 export default Answer;
