@@ -1,5 +1,5 @@
 // == Import : npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import du frameworks
 import { Icon } from 'semantic-ui-react';
@@ -24,6 +24,9 @@ const QuestionsPage = ({
   fetchPostQuestion,
   liveSearch,
 }) => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   const filteredQuestions = questions.filter((question) => question.tag.name.toLowerCase().includes(liveSearch.toLowerCase()) || question.content.toLowerCase().includes(liveSearch.toLowerCase()));
   return (
     <QuestionsPageStyled>

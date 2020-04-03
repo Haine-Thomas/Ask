@@ -1,5 +1,5 @@
 // == Import : npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Button } from 'semantic-ui-react';
 import Moment from 'react-moment';
@@ -32,6 +32,9 @@ const Answer = ({
   deleteAnswer,
   fetchDeleteAnswer,
 }) => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 return (
   <AnswerStyled>
     <div className="question-container">
