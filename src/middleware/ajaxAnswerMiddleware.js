@@ -1,4 +1,5 @@
 import axios from 'axios';
+// swal permet de customiser une ptite fonction alert bien sympa
 import swal from 'sweetalert';
 import {
   FETCH_ANSWERS,

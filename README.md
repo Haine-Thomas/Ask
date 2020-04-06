@@ -826,3 +826,7 @@ branche footer
 - modification de index.js dans src/components/Footer
 - suppression de index.js dans src/containers/Footer
 - suppression de footer.js dans src/reducers
+
+### 06/04/2020
+
+#### add comments on our code

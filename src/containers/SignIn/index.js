@@ -5,7 +5,14 @@ import { connect } from 'react-redux';
 import SignIn from 'src/components/SignIn';
 
 // Action Creators
-import { changeValue, changeCheckbox, fetchSignInUser, verifyCallback, expiredCallback, toggleOpenModal } from 'src/actions/signIn';
+import {
+  changeValue,
+  changeCheckbox,
+  fetchSignInUser,
+  verifyCallback,
+  expiredCallback,
+  toggleOpenModal,
+} from 'src/actions/signIn';
 
 
 /* === State (données) lecture===

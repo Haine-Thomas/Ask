@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // == Composant
-// ici on a la fonction qui décrit le style du composant FooterPage
+// ici on a la fonction qui décrit le style du composant Footer
 const FooterStyled = styled.footer`
   left: 1rem;
   padding: 3rem 0;

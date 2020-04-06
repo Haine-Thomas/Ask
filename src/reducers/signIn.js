@@ -22,6 +22,8 @@ export const initialState = {
 const signIn = (state = initialState, action = {}) => {
   switch (action.type) {
     case TOGGLE_OPEN_MODAL:
+      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
+      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         open: !state.open,
@@ -42,6 +44,8 @@ const signIn = (state = initialState, action = {}) => {
       };
     }
     case VERIFY_CALLBACK: {
+      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
+      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       if (action.response) {
         return {
           ...state,
@@ -50,11 +54,15 @@ const signIn = (state = initialState, action = {}) => {
       }
     }
     case EXPIRED_CALLBACK:
+      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
+      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         isVerified: false,
       };
     case RESET_ISVERIFIED:
+      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
+      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         isVerified: false,
