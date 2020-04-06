@@ -21,7 +21,7 @@
     "@babel/register": "*",
     "babel-eslint": "*",
     "babel-loader": "*",
-    "bundle-stats": "*",
+    "bundle-stats": "1.15.8",
     "chai": "*",
     "clean-webpack-plugin": "*",
     "copy-webpack-plugin": "*",
