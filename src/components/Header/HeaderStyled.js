@@ -1,11 +1,9 @@
 // == Import locaux
 import styled from 'styled-components';
-import Background from '../../assets/img/tanner-larson-5NUWU1qL5yo-unsplash.jpg';
 
 // == Composant
 // ici on a la fonction qui décrit le style du composant Header
 const HeaderStyled = styled.header`
-  font-family: 'Yeseva One', cursive;
   text-align: center;
   left: 1rem;
   padding: 3rem 0;

@@ -13,11 +13,12 @@ const SortButtonsStyled = styled.div`
   button {
     border: 0;
     padding: .93rem 0;
-    background-color: #D8D8D8;
+    background-color: #D0D6DE;
     width: 50%;
     color: #121113;
     font-size: 1rem;
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+
 
     &.active-btn {
       border-bottom: 2px solid #E76F51;

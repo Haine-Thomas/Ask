@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const NavStyled = styled.div`
   padding: 1rem;
   background-color: #fff;
+  font-weight: 500; 
 
   .nav-container {
     display: flex;
