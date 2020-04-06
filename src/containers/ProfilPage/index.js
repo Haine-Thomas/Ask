@@ -1,6 +1,7 @@
 // == Import : npm
 import { connect } from 'react-redux';
 
+// Action Creators
 import { changeValue } from 'src/actions/signIn';
 import { deleteUser, disconnectAction, modifyUser } from 'src/actions/login';
 import { fetchQuestions } from 'src/actions/questions';

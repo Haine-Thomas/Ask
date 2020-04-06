@@ -22,7 +22,7 @@ import Question from 'src/containers/QuestionsPage/Question';
 import ProfilPageStyled from './ProfilPageStyled';
 
 // == Composant
-// ici on a la fonction qui renvoi le formulaire de structure de profilpage
+// ici on a la fonction qui renvoi le formulaire de structure de profilPage
 const ProfilPage = ({
   pseudo,
   email,

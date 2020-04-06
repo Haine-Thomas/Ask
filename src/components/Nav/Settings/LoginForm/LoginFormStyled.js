@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // == Composant
-// ici on a la fonction qui décrit le style du composant LoginFormPage
+// ici on a la fonction qui décrit le style du composant LoginForm
 const LoginFormStyled = styled.div`
   width: 39%;
   height: auto;

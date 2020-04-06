@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // == Composant
-// ici on a la fonction qui décrit le style du composant SearchBarPage
+// ici on a la fonction qui décrit le style du composant SearchBar
 const SearchBarStyled = styled.div`
   width: 60%;
   margin: 0 .3rem;

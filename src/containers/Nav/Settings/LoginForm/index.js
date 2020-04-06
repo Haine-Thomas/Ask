@@ -3,8 +3,9 @@
 import { connect } from 'react-redux';
 
 // == Imports locaux
-// composant + actions creator
 import LoginForm from 'src/components/Nav/Settings/LoginForm';
+
+// Action Creators
 import { loginAction, changeValueLogin } from 'src/actions/login';
 import { toggleOpen } from 'src/actions';
 

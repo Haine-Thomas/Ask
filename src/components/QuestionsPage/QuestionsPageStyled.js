@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // == Composant
-// ici on a la fonction qui décrit le style du composant questionspage
+// ici on a la fonction qui décrit le style du composant questionsPage
 const QuestionsPageStyled = styled.main`
   display: flex;
   flex-direction: row-reverse;

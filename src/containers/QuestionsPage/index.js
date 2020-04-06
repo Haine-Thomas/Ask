@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import QuestionsPage from 'src/components/QuestionsPage';
+
+// Action Creators
 import { changeInputValue, fetchPostQuestion } from 'src/actions/questions';
 
 
@@ -22,14 +24,6 @@ const mapStateToProps = (state) => ({
   liveSearch: state.searchBar.searchValue.value,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  changeInputValue: (value, name) => {
-    dispatch(changeInputValue(value, name));
-  },
-  fetchPostQuestion: () => {
-    dispatch(fetchPostQuestion());
-  },
-
 /* === Actions modification ===
  * - mapDispatchToProps retroune un objet de props pour le composant de présentation
  * - mapDispatchToProps met à dispo 2 params
@@ -37,6 +31,13 @@ const mapDispatchToProps = (dispatch) => ({
  *  - ownProps : les props passées au container
  * Pas de disptach à transmettre ? const mapDispatchToProps = {};
  */
+const mapDispatchToProps = (dispatch) => ({
+  changeInputValue: (value, name) => {
+    dispatch(changeInputValue(value, name));
+  },
+  fetchPostQuestion: () => {
+    dispatch(fetchPostQuestion());
+  },
 });
 
 // Export du retour de connect = le composant enrichi de props
