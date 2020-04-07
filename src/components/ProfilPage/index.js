@@ -37,12 +37,22 @@ const ProfilPage = ({
   open,
   toggleOpenModal,
 }) => {
+  let myQuestions = [];
+  myQuestions = questions.filter((question) => (
+    question.author.id === userId && (
+      myQuestions.push(question)
+    )
+  ));
   return (
     <ProfilPageStyled>
       {pseudo && (
         <>
           <article className="questions">
-            <h1 className="titles">Mes question</h1>
+            <h1 className="titles">
+              {myQuestions.length === 0 && (" Vous n'avez pas posté de questions")}
+              {myQuestions.length === 1 && (" Vous avez posté 1 question")}
+              {myQuestions.length > 1 && (` Vous avez posté ${myQuestions.length} questions`)}
+            </h1>
             {questions.map((question) => (
               question.author.id === userId && (
                 <div className="question">

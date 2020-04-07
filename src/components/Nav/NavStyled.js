@@ -39,7 +39,7 @@ const NavStyled = styled.div`
   @media (max-width: 700px) {
     
     .nav-container {
-      flex-direction: column;
+      flex-direction: column-reverse;
       width: 100%;
 
       .btn-nav {
