@@ -17,7 +17,7 @@ const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case DELETE_USER: {
       const state = store.getState();
-      axios.delete(`http://localhost:3000/user/${state.login.user.id}`)
+      axios.delete(`http//54.162.97.41/user/${state.login.user.id}`)
         .then((response) => {
           console.log(response);
         })
@@ -31,7 +31,7 @@ const logMiddleware = (store) => (next) => (action) => {
       // + on traduit l'intention en intérrogeant notre API
       // je vais avoir besoin de lire le state pour faire ma requete
       const state = store.getState();
-      axios.post('http://localhost:3000/login', {
+      axios.post(`http//54.162.97.41/login`, {
         email: state.login.user.email,
         password: state.login.user.password,
       }, {
@@ -57,7 +57,7 @@ const logMiddleware = (store) => (next) => (action) => {
     case DISCONNECT_ACTION: {
       // + on traduit l'intention en intérrogeant notre API
       // je vais avoir besoin de lire le state pour faire ma requete
-      axios.get('http://localhost:3000/disconnect', {}, {
+      axios.get(`http//54.162.97.41/disconnect`, {}, {
         withCredentials: true,
       })
         .then((response) => {
@@ -76,7 +76,7 @@ const logMiddleware = (store) => (next) => (action) => {
     case MODIFY_USER: {
       const state = store.getState();
       const userid = state.login.user.id;
-      axios.patch(`http://localhost:3000/user/${userid}`, {
+      axios.patch(`http//54.162.97.41/user/${userid}`, {
         email: state.signIn.email,
         password: state.signIn.password,
         confirmPassword: state.signIn.confirmedPassword,
