@@ -11,7 +11,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
       // + on traduit l'intention en intérrogeant notre API
       // je vais avoir besoin de lire le state pour faire ma requete
       const state = store.getState();
-      axios.post(`http//54.162.97.41/inscription`, {
+      axios.post(`http://54.162.97.41/inscription`, {
         name: state.signIn.name,
         email: state.signIn.email,
         password: state.signIn.password,

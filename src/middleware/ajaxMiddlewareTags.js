@@ -8,7 +8,7 @@ const ajaxMiddlewareTags = (store) => (next) => (action) => {
     case FETCH_TAGS:
       // + on traduit l'intention en intérrogeant notre API
       // je vais avoir besoin de lire le state pour faire ma requete
-      axios.get(`http//54.162.97.41/tags`)
+      axios.get(`http://54.162.97.41/tags`)
         .then((response) => {
           // quand on a la réponse, on veut modifier le pseudo dans l'état
           // je vais vouloir émettre une intention pour modifier le state
