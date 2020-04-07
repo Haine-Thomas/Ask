@@ -12,7 +12,12 @@ const HeaderStyled = styled.header`
   padding: 3rem 0;
   vertical-align: middle;
 
-  
+  img.ui.image {
+    display: block;
+    top: 15px;
+    left: -10px;
+}
+
   span {
     font-size: 2rem;
     padding-right: 10px;
@@ -31,12 +36,10 @@ const HeaderStyled = styled.header`
     width:130px;
     display: inline-block;
     padding-bottom: 0.3rem;
-
-    &:hover {
-      border-bottom: 1px solid #E9C46A;
-    }
   }
+  
 `;
+
 
 // == Export
 export default HeaderStyled;
