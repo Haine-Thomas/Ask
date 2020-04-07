@@ -5,6 +5,7 @@ import React from 'react';
 import {
   Button,
   Modal,
+  Icon,
 } from 'semantic-ui-react';
 
 // import du composant styled du footer
@@ -24,8 +25,8 @@ const Footer = () => (
           <p> N'hésitez pas à nous contacter pour toute demande d'information</p>
         </div>
         <div className="adress">
-          <p>225 rue de bourg-palette 87160 Arnac-La-Poste</p>
-          <a href="mailto:adresse@serveur.com">ASK@gmail.com</a>
+          <p><Icon name="home" />225 rue de bourg-palette 87160 Arnac-La-Poste</p>
+          <a href="mailto:ask@gmail.com"><Icon name="envelope outline" />ask@gmail.com</a>
         </div>
       </div>
 

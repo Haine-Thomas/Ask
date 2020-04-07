@@ -32,7 +32,7 @@ const QuestionsPageStyled = styled.main`
       h3 {
         color: #121113;
         width: 100%;
-        background-color: #D8D8D8;
+        background-color: #D0D6DE;
         padding: 1rem;
         text-align: left;
       }
@@ -40,11 +40,10 @@ const QuestionsPageStyled = styled.main`
       input {
         padding: 1rem;
         margin: 1rem 0;
-        border: 1px solid #D8D8D8;
+        border: 1px solid #D0D6DE;
         width: 90%;
         backgroud-color: #fff;
         border-radius: 3px;
-        
         &:focus {
           border: 1px solid #E76F51;
         }
@@ -53,13 +52,11 @@ const QuestionsPageStyled = styled.main`
       select {
         padding: 1rem;
         background-color: #fff;
-        border: 1px solid #ED412A;
+        border: 1px solid #D0D6DE;
         width: 60%;n
-        
         margin-bottom: 1rem;
         border-bottom-left-radius: 3px;
         border-top-left-radius: 3px;
-        border: 1px solid #D8D8D8;
 
         &:focus {
           border: 1px solid #E76F51;
