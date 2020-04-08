@@ -16,7 +16,7 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
     case FETCH_DELETE_ANSWER: {
       const state = store.getState();
       const questionId = state.answer.answerToDelete;
-      axios.delete(`http://54.162.97.41/answer/${questionId}`, {
+      axios.delete(`http://54.162.97.41:3000/answer/${questionId}`, {
       }, { withCredentials: true })
         .then(() => {
           store.dispatch(fetchQuestions());
@@ -33,7 +33,7 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
     // je vais avoir besoin de lire le state pour faire ma requete
     case FETCH_ANSWERS: {
       const state = store.getState();
-      axios.get(`http://54.162.97.41/question/:id/answers${state.answers.sorted}`)
+      axios.get(`http://54.162.97.41:3000/question/:id/answers${state.answers.sorted}`)
         .then((response) => {
           // quand on a la réponse, on veut modifier la réponse dans l'état
           // je vais vouloir émettre une intention pour modifier le state
@@ -49,7 +49,7 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
     case FETCH_POST_ANSWER: {
       const state = store.getState();
       const questionId = state.questions.clickedQuestionId;
-      axios.post(`http://54.162.97.41/question/${questionId}/answer`, {
+      axios.post(`http://54.162.97.41:3000/question/${questionId}/answer`, {
         content: state.answer.value,
       }, { withCredentials: true })
         .then((response) => {
@@ -72,7 +72,7 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
     case FETCH_ANSWER_SCORE: {
       const state = store.getState();
       const { vote, votedAnswer } = state.answer;
-      axios.patch(`http://54.162.97.41/answer/${votedAnswer}/${vote}`, {
+      axios.patch(`http://54.162.97.41:3000/answer/${votedAnswer}/${vote}`, {
       }, { withCredentials: true })
         .then((response) => {
           // revenir a la fenetre précédente
