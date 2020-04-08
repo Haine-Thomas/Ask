@@ -28,7 +28,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
             swal('Inscription validée', '', 'success', {
               buttons: false,
             });
-            setTimeout(function(){window.location ='/retrieve'}, 3000);
+            setTimeout(function(){window.location ='/'}, 3000);
           }
         })
         .catch((error) => {
