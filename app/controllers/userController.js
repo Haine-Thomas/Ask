@@ -107,7 +107,6 @@ const userController = {
       // On save le nouveau user dans la bdd
       await newUser.save();
       response.json({newUser});
-      response.redirect('/');
     } catch (error) {
       console.log(error);
       response.status(500).send(error);
