@@ -16,6 +16,8 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
         email: state.signIn.email,
         password: state.signIn.password,
         confirmPassword: state.signIn.confirmedPassword,
+      }, {
+        withCredentials: true,
       })
         .then((response) => {
           // quand on a la réponse, on veut modifier le pseudo dans l'état
@@ -28,7 +30,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
             swal('Inscription validée', '', 'success', {
               buttons: false,
             });
-            setTimeout(function(){window.location ='/retrieve'}, 3000);
+            setTimeout(function(){window.location ='/'}, 3000);
           }
         })
         .catch((error) => {

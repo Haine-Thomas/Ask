@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS "user" (
   "name" VARCHAR(50) NOT NULL,
   "email" VARCHAR(255) NOT NULL,
   "password" VARCHAR(60) NOT NULL,
-  "admin" BOOLEAN DEFAULT 'false',
+  "status" BOOLEAN DEFAULT 'false',
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
   PRIMARY KEY ("id"));
@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS "question" ;
 
 CREATE TABLE IF NOT EXISTS "question" (
   "id" SERIAL NOT NULL,
-  "content" VARCHAR(100) NOT NULL,
+  "content" VARCHAR(1000) NOT NULL,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
   "user_id" INT NOT NULL,
