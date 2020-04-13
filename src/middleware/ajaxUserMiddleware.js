@@ -16,6 +16,8 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
         email: state.signIn.email,
         password: state.signIn.password,
         confirmPassword: state.signIn.confirmedPassword,
+      }, {
+        withCredentials: true,
       })
         .then((response) => {
           // quand on a la réponse, on veut modifier le pseudo dans l'état

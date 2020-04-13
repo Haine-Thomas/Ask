@@ -17,7 +17,9 @@ const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case DELETE_USER: {
       const state = store.getState();
-      axios.delete(`http://54.162.97.41:3000/user/${state.login.user.id}`)
+      axios.delete(`http://54.162.97.41:3000/user/${state.login.user.id}`, {
+        withCredentials: true,
+      })
         .then((response) => {
           console.log(response);
         })
@@ -57,7 +59,7 @@ const logMiddleware = (store) => (next) => (action) => {
     case DISCONNECT_ACTION: {
       // + on traduit l'intention en intérrogeant notre API
       // je vais avoir besoin de lire le state pour faire ma requete
-      axios.get(`http://54.162.97.41:3000/disconnect`, {}, {
+      axios.get(`http://54.162.97.41:3000/disconnect`, {
         withCredentials: true,
       })
         .then((response) => {

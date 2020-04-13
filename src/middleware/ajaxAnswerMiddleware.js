@@ -16,8 +16,7 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
     case FETCH_DELETE_ANSWER: {
       const state = store.getState();
       const questionId = state.answer.answerToDelete;
-      axios.delete(`http://54.162.97.41:3000/answer/${questionId}`, {
-      }, { withCredentials: true })
+      axios.delete(`http://54.162.97.41:3000/answer/${questionId}`, { withCredentials: true })
         .then(() => {
           store.dispatch(fetchQuestions());
           swal('Réponse supprimée!', '', 'success');
@@ -72,8 +71,7 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
     case FETCH_ANSWER_SCORE: {
       const state = store.getState();
       const { vote, votedAnswer } = state.answer;
-      axios.patch(`http://54.162.97.41:3000/answer/${votedAnswer}/${vote}`, {
-      }, { withCredentials: true })
+      axios.patch(`http://54.162.97.41:3000/answer/${votedAnswer}/${vote}`, { withCredentials: true })
         .then((response) => {
           // revenir a la fenetre précédente
           if (response.data.error) {

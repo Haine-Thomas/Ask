@@ -128,8 +128,12 @@ const userController = {
           question.save();
         });
       }
-      await user.destroy();
-      response.json({ message: 'Le compte a bien été supprimé'});
+      if (user.id === request.session.user.id) {
+        await user.destroy();
+        response.json({ message: 'Le compte a bien été supprimé'});
+      } else {
+        response.status(500);
+      }
     } catch (error) {
       response.status(500).send(error);
     }
@@ -141,7 +145,8 @@ const userController = {
       const user = await User.findByPk(userId);
       if (!user) {
         response.status(404).json({ message: `Ne trouve pas un user avec cette id:${userId}` });
-      } else {
+      }
+      if (user.id === request.session.user.id) {
         const { password, email } = request.body;
         if (password) {
           if (request.body.password !== request.body.confirmPassword) {
@@ -158,6 +163,8 @@ const userController = {
         }
         await user.save();
         response.json(user);
+      } else {
+        response.status(500);
       }
     } catch (error) {
       console.error(error);
