@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const emailValidator = require('email-validator');
 const User = require('../models/user');
 const Question = require('../models/question');
+const Answer = require('../models/answer');
 
 const userController = {
   getUserById: async (request, response) => {
@@ -67,8 +68,7 @@ const userController = {
 
   // Possibilité d'utiliser le findOrCreate de Sequelize/ a utiliser et tester sur d'autres composants
   signUpAction : async (request, response) => {
-    console.log(request.body.email);
-    try{
+    try {
       const username = await User.findOne({
         where: {
           name: request.body.name,
@@ -113,12 +113,16 @@ const userController = {
       response.status(500).send(error);
     }
   },
-
   deleteUser: async (request, response) => {
     try {
       const userid = request.params.id;
-      let user = await User.findByPk(userid);
-      let questions = await Question.findAll({
+      const user = await User.findByPk(userid);
+      const questions = await Question.findAll({
+        where: {
+          userId: userid,
+        },
+      });
+      const answers = await Answer.findAll({
         where: {
           userId: userid,
         },
@@ -127,6 +131,12 @@ const userController = {
         questions.forEach((question) => {
           question.userId = 2000;
           question.save();
+        });
+      }
+      if (answers) {
+        answers.forEach((answer) => {
+          answer.userId = 2000;
+          answer.save();
         });
       }
       if (user.id === request.session.user.id) {
