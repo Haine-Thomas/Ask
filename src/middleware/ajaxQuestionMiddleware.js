@@ -71,9 +71,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
     case FETCH_QUESTION_SCORE: {
       const state = store.getState();
       const { vote, votedQuestionId } = state.questions;
-      axios.patch(`http://localhost:3000/question/${votedQuestionId}/${vote}`, {
-        withCredentials: true,
-      })
+      axios.patch(`http://localhost:3000/question/${votedQuestionId}/${vote}`, {}, { withCredentials: true })
         .then((response) => {
           // revenir a la fenetre précédente
           if (response.data.error) {
