@@ -18,15 +18,18 @@ const answerController = {
     try {
       const content = request.body.content;
       const questionId = request.params.id;
+      const user = request.session.user.id;
       if (!content) {
         response.json({error: 'il manque la réponse!'});
-      } else {
+      } if (user) {
         const newAnswer = new Answer();
         newAnswer.content = content;
         newAnswer.userId = request.session.user.id;
         newAnswer.questionId = questionId;
         await newAnswer.save();
         response.json(newAnswer);
+      } else {
+        response.status(500);
       }
     } catch (error) {
       response.status(500).json(error);
@@ -36,17 +39,20 @@ const answerController = {
   editAnswer: async (request, response) => {
     try {
       const answerId = request.params.id;
-      let answer = await Answer.findByPk(answerId);
+      const answer = await Answer.findByPk(answerId);
+      const user = request.session.user.id;
       if (!answer) {
         // pas de lréponse pour cet id
         response.status(404).json(`Cant find a question with this id : ${answer}`);
-      } else {
+      } if (user === answer.userId) {
         const { content } = request.body;
         if (content) {
           answer.content = content;
         }
         await answer.save();
         response.json(answer);
+      } else {
+        response.status(500);
       }
     } catch (error) {
       response.status(500).json(error);
@@ -127,8 +133,14 @@ const answerController = {
     try {
       const answerId = request.params.id;
       let answer = await Answer.findByPk(answerId);
-      await answer.destroy();
-      response.json({ message: "La réponse a bien été supprimée"});
+      const user = request.session.user.id;
+      if (user === answer.userId) {
+        await answer.destroy();
+        response.json({ message: 'La réponse a bien été supprimée'});
+      } else {
+        response.status(500);
+        console.log('patate de forain');
+      }
     } catch (error) {
       response.status(500).send(error);
     }

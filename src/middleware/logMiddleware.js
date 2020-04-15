@@ -17,7 +17,9 @@ const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case DELETE_USER: {
       const state = store.getState();
-      axios.delete(`http://localhost:3000/user/${state.login.user.id}`)
+      axios.delete(`http://localhost:3000/user/${state.login.user.id}`, {
+        withCredentials: true,
+      })
         .then((response) => {
           console.log(response);
         })
