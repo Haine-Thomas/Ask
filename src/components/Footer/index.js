@@ -25,8 +25,7 @@ const Footer = () => (
           <p> N'hésitez pas à nous contacter pour toute demande d'information</p>
         </div>
         <div className="adress">
-          <p><Icon name="home" />225 rue de bourg-palette 87160 Arnac-La-Poste</p>
-          <a href="mailto:ask@gmail.com"><Icon name="envelope outline" />ask@gmail.com</a>
+          <a href="mailto:askteamsup@gmail.com"><Icon name="envelope outline" />askteamsup@gmail.com</a>
         </div>
       </div>
 
