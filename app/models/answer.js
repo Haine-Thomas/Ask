@@ -8,7 +8,7 @@ const User = require('./user');
 // Création de la classe Answer ansi que quelques setter et getter (pour tester)
 class Answer extends sequelize.Model {}
 
-// Ici un initialise notre classe avec les données de la BDD
+// Ici on initialise notre classe avec les données de la BDD
 Answer.init(
   {
     content: sequelize.STRING,

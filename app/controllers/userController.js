@@ -8,6 +8,8 @@ const Question = require('../models/question');
 const Answer = require('../models/answer');
 
 const userController = {
+
+  /* récupérer un utilisateur par son id */
   getUserById: async (request, response) => {
     const userId = parseInt(request.params.id);
     try {
@@ -18,7 +20,7 @@ const userController = {
     }
   },
 
-  //pour tester loginAction
+  // pour tester loginAction
   loginPage: (request, response) => {
     response.render('login');
   },
@@ -59,15 +61,15 @@ const userController = {
     return response.json({ message: 'Déconnecté' });
   },
 
-  myProfilPage:(request, response) => {
+  myProfilPage: (request, response) => {
     if (!request.session.user) {
       return response.redirect('/login');
     }
     response.json({ user: request.session.user });
   },
 
-  // Possibilité d'utiliser le findOrCreate de Sequelize/ a utiliser et tester sur d'autres composants
-  signUpAction : async (request, response) => {
+  // Possibilité d'utiliser le findOrCreate de Sequelize a utiliser et tester sur d'autres composants
+  signUpAction: async (request, response) => {
     try {
       const username = await User.findOne({
         where: {
@@ -81,7 +83,7 @@ const userController = {
         },
       });
 
-// On test si l'email existe déjà dans la bdd
+      // On test si l'email existe déjà dans la bdd
       if (user) {
         return response.json({ error: 'Cet email est déjà utilisé pas un utilisateur '});
       }
@@ -97,7 +99,8 @@ const userController = {
       if (!emailValidator.validate(request.body.email)) {
         return response.json({error: "Cet email n'est pas valide."});
       }
-// Création d'un nouveau user
+
+      // Création d'un nouveau user
       let newUser = new User();
       newUser.setEmail(request.body.email);
       newUser.setName(request.body.name);
@@ -113,6 +116,8 @@ const userController = {
       response.status(500).send(error);
     }
   },
+
+  /* supprimer un utilisateur */
   deleteUser: async (request, response) => {
     try {
       const userid = request.params.id;
@@ -150,6 +155,7 @@ const userController = {
     }
   },
 
+  /* éditer un utilisateur */
   editUser: async (request, response) => {
     try {
       const userId = request.params.id;

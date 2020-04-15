@@ -51,8 +51,8 @@
     "style-loader": "*",
     "terser-webpack-plugin": "*",
     "webpack": "*",
-    "webpack-cli": "*",
-    "webpack-dev-server": "*",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
     "webpack-merge": "*"
   },
   "dependencies": {
