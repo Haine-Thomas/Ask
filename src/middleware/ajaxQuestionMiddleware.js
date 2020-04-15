@@ -17,8 +17,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
     case FETCH_DELETE_QUESTION: {
       const state = store.getState();
       const questionId = state.questions.questionToDelete;
-      axios.delete(`http://localhost:3000/question/${questionId}`, {
-      }, { withCredentials: true })
+      axios.delete(`http://54.162.97.41:3000/question/${questionId}`, { withCredentials: true })
         .then(() => {
           store.dispatch(fetchQuestions());
           swal('Question supprimée!', '', 'success');
@@ -34,7 +33,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
     // je vais avoir besoin de lire le state pour faire ma requete
     case FETCH_QUESTIONS: {
       const state = store.getState();
-      axios.get(`http://localhost:3000/question/${state.questions.sorted}`)
+      axios.get(`http://54.162.97.41:3000/question/${state.questions.sorted}`,{ withCredentials: true })
         .then((response) => {
           // quand on a la réponse, on veut modifier le pseudo dans l'état
           // je vais vouloir émettre une intention pour modifier le state
@@ -49,7 +48,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
     }
     case FETCH_POST_QUESTION: {
       const state = store.getState();
-      axios.post('http://localhost:3000/question', {
+      axios.post(`http://54.162.97.41:3000/question`, {
         content: state.questions.content,
         tagId: state.questions.tagId,
       }, { withCredentials: true })
@@ -72,8 +71,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
     case FETCH_QUESTION_SCORE: {
       const state = store.getState();
       const { vote, votedQuestionId } = state.questions;
-      axios.patch(`http://localhost:3000/question/${votedQuestionId}/${vote}`, {
-      }, {
+      axios.patch(`http://54.162.97.41:3000/question/${votedQuestionId}/${vote}`, {}, {
         withCredentials: true,
       })
         .then((response) => {

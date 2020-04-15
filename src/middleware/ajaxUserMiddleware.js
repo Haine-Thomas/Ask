@@ -11,11 +11,13 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
       // + on traduit l'intention en intérrogeant notre API
       // je vais avoir besoin de lire le state pour faire ma requete
       const state = store.getState();
-      axios.post('http://localhost:3000/inscription', {
+      axios.post(`http://54.162.97.41:3000/inscription`, {
         name: state.signIn.name,
         email: state.signIn.email,
         password: state.signIn.password,
         confirmPassword: state.signIn.confirmedPassword,
+      }, {
+        withCredentials: true,
       })
         .then((response) => {
           // quand on a la réponse, on veut modifier le pseudo dans l'état
@@ -28,7 +30,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
             swal('Inscription validée', '', 'success', {
               buttons: false,
             });
-            setTimeout(function(){window.location ='/retrieve'}, 3000);
+            setTimeout(function(){window.location ='/'}, 3000);
           }
         })
         .catch((error) => {

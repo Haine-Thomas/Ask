@@ -52,26 +52,28 @@ const questionController = {
   },
 
   createQuestion: async (request, response) => {
-    console.log(request.session.user.id);
     try {
       const content = request.body.content;
       const tagId = request.body.tagId;
+      const user = request.session.user.id;
       if (!content) {
         response.json({ error: 'il manque la question!' });
       }
       if (tagId === 'default') {
         response.json({ error: 'Choisissez un tag' });
       }
-      else {
+      if (user) {
         const newQuestion = new Question();
         newQuestion.content = content;
         newQuestion.userId = request.session.user.id;
         newQuestion.tagId = tagId;
         await newQuestion.save();
         response.json(newQuestion);
+      } else {
+        response.status(500);
       }
     }
-    catch(error) {
+    catch (error) {
       response.status(500).json(error);
     }
   },
@@ -84,7 +86,7 @@ const questionController = {
         // pas de liste pour cet id
         response.status(404).json(`Cant find a question with this id : ${question}`);
       }
-      else {
+      if (question.author === request.session.user.id) {
         const { content, tagId } = request.body;
         if (content) {
           question.content = content;
@@ -95,6 +97,8 @@ const questionController = {
 
         await question.save();
         response.json(question);
+      } else {
+        response.status(500);
       }
     }
     catch (error) {
@@ -176,9 +180,16 @@ const questionController = {
   deleteQuestion: async (request, response)=>{
     try {
       const questionId = request.params.id;
-      let question = await Question.findByPk(questionId);
-      await question.destroy();
-      response.json({ message: 'La question a bien été supprimée' });
+      const question = await Question.findByPk(questionId);
+      const user = request.session.user.id;
+      if (question.userId === user) {
+        await question.destroy();
+        response.json({ message: 'La question a bien été supprimée' });
+      } else {
+        response.status(500);
+        console.log('patate_dans_la_bouche');
+      }
+
     }
     catch (error) {
       response.status(500).send(error);
