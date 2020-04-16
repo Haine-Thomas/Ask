@@ -12,6 +12,7 @@ import {
   verifyCallback,
   expiredCallback,
   toggleOpenModal,
+  resetIsVerified,
 } from 'src/actions/signIn';
 
 
@@ -49,6 +50,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   expiredCallback: (response) => {
     dispatch(expiredCallback(response));
+  },
+
+  resetIsVerified: () => {
+    dispatch(resetIsVerified());
   },
 
   toggleOpenModal: () => {
