@@ -63,4 +63,6 @@ router.delete('/user/:id', userController.deleteUser);
 // Editer son profil
 router.patch('/user/:id', userController.editUser);
 
+
+router.post('/user/verify', userController.activateUser);
 module.exports = router;

@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS "user" (
   "name" VARCHAR(50) NOT NULL,
   "email" VARCHAR(255) NOT NULL,
   "password" VARCHAR(60) NOT NULL,
-  "status" BOOLEAN DEFAULT 'false',
+  "isConfirmed" BOOLEAN DEFAULT 'false',
+  "secretToken" VARCHAR(255) NOT NULL,
   "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" TIMESTAMP NULL,
   PRIMARY KEY ("id"));

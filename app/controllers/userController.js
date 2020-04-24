@@ -2,7 +2,10 @@
 const bcrypt = require('bcrypt');
 
 // pour l'action de l'inscription
+let randomstring = require('randomstring');
 const emailValidator = require('email-validator');
+const mailer = require('../misc/mailer');
+
 const User = require('../models/user');
 const Question = require('../models/question');
 const Answer = require('../models/answer');
@@ -23,6 +26,20 @@ const userController = {
   // pour tester loginAction
   loginPage: (request, response) => {
     response.render('login');
+  },
+  activateUser: async (request, response) => {
+    const userId = parseInt(request.params.id);
+    try {
+      const user = await User.findByPk(userId);
+      console.log(user);
+      if (user.id === request.params.id && user.secretToken === request.params.secretToken) {
+        user.isConfirmed = true;
+        user.secretToken = "";
+        response.json({ message:"Votre compte est activé!"})
+      }
+    } catch (error) {
+      response.status(500).send(error);
+    }
   },
 
   loginAction: async (request, response) => {
@@ -102,6 +119,8 @@ const userController = {
 
       // Création d'un nouveau user
       let newUser = new User();
+      const secretToken = randomstring.generate();
+      newUser.setSecretToken(secretToken);
       newUser.setEmail(request.body.email);
       newUser.setName(request.body.name);
       // On utilise Bcrypt pour sécuriser son mdp dans la bdd
@@ -109,7 +128,13 @@ const userController = {
       newUser.setPassword(encryptedPwd);
       // On save le nouveau user dans la bdd
       await newUser.save();
-      response.json({newUser});
+      console.log(newUser.email);
+      // Création du contenu du mail à envoyer
+      const html = `Bonjour et merci de vous êtes enregistré! Cliquez sur le lien et copiez et collez votre token -->${newUser.secretToken} pour verifier votre compte, <a href="http://localhost:8080/user/verify">http://localhost:8080/user/verify</a>`;
+
+      //Envoyer le mail
+      await mailer.sendEmail('askteamsup@gmail.com', newUser.email, 'Merci de verifier votre email!', html);
+
       response.redirect('/');
     } catch (error) {
       console.log(error);
