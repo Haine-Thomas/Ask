@@ -31,11 +31,13 @@ const userController = {
     const userId = parseInt(request.params.id);
     try {
       const user = await User.findByPk(userId);
-      console.log(user);
-      if (user.id === request.params.id && user.secretToken === request.params.secretToken) {
+      let formToken = request.body.secretToken;
+      if (formToken === user.secretToken) {
         user.isConfirmed = true;
-        user.secretToken = "";
-        response.json({ message:"Votre compte est activé!"})
+        user.secretToken = '';
+        response.json({ message: 'Votre compte est activé!'});
+      } else {
+        response.json({ message: 'Token incorrect'});
       }
     } catch (error) {
       response.status(500).send(error);
