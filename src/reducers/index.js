@@ -6,6 +6,7 @@ import tags from './tags';
 import answer from './answer';
 import searchBar from './searchBar';
 import profilPage from './profilPage';
+import verifyPage from './verifyPage';
 
 export default combineReducers({
   login,
@@ -15,4 +16,5 @@ export default combineReducers({
   answer,
   searchBar,
   profilPage,
+  verifyPage,
 });
