@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 import {
   Form,
   Input,
+  Button,
 } from 'semantic-ui-react';
 
-const VerifyPage = ({ value, changeTokenValue }) => (
+const VerifyPage = ({ value, changeTokenValue, activateUser }) => (
   <div className="formToken">
-    <Form>
+    <Form onSubmit={(event) => {
+      event.preventDefault();
+      activateUser();
+    }}
+    >
       <Form.Field>
         <label>
           Copiez et collez votre token reçu par mail et validez pour confirmer votre compte!
@@ -21,6 +26,7 @@ const VerifyPage = ({ value, changeTokenValue }) => (
             }}
           />
         </label>
+        <Button>Valider</Button>
       </Form.Field>
     </Form>
   </div>
@@ -29,6 +35,7 @@ const VerifyPage = ({ value, changeTokenValue }) => (
 VerifyPage.propTypes = {
   value: PropTypes.string.isRequired,
   changeTokenValue: PropTypes.func.isRequired,
+  activateUser: PropTypes.func.isRequired,
 };
 
 

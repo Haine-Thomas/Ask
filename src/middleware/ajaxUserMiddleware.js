@@ -3,7 +3,9 @@ import axios from 'axios';
 // swal permet de customiser une ptite fonction alert bien sympa
 // eslint-disable-next-line import/no-unresolved
 import swal from 'sweetalert';
-import { FETCH_SIGNINUSER } from 'src/actions/signIn';
+import { FETCH_SIGNINUSER} from 'src/actions/signIn';
+import { ACTIVATE_USER } from 'src/actions/verifyPage';
+import { request } from 'https';
 
 const ajaxUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -37,6 +39,29 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
           console.error(error);
         });
       // je laisse passer tout de suite au middleware/reducer suivant
+      next(action);
+      break;
+    }
+    case ACTIVATE_USER: {
+      const state = store.getState();
+      axios.post('http://localhost:3000/user/verify', {
+        formToken: state.verifyPage.value,
+      }, {
+        withCredentials: true,
+      })
+        .then((response) => {
+          if (response.data.error) {
+            swal(response.data.error, '', 'warning');
+          }
+          else {
+            swal(response.data.message, 'Vous pouvez fermer cette page', '', {
+              buttons: false,
+            });
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
       next(action);
       break;
     }

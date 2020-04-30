@@ -27,14 +27,24 @@ const userController = {
   loginPage: (request, response) => {
     response.render('login');
   },
+
   activateUser: async (request, response) => {
-    const userId = parseInt(request.params.id);
+    // eslint-disable-next-line radix
     try {
-      const user = await User.findByPk(userId);
-      let formToken = request.body.secretToken;
-      if (formToken === user.secretToken) {
+      // On trouve le user avec le formToken entré dans l'input du form
+      const user = await User.findOne({
+        where: {
+          secretToken: request.body.formToken,
+        },
+      });
+      if (!user) {
+        response.json({ message: `Aucun compte n'existe avec ce token`});
+      }
+      if (user) {
+        //Si on trouve le user, on passe son statut a true et on reset son token à une string vide, on n'oublie aps le save!
         user.isConfirmed = true;
         user.secretToken = '';
+        user.save();
         response.json({ message: 'Votre compte est activé!'});
       } else {
         response.json({ message: 'Token incorrect'});

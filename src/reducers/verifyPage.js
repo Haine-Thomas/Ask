@@ -3,7 +3,7 @@ import {
 } from 'src/actions/verifyPage';
 
 export const initialState = {
-  value: 'poulet',
+  value: '',
 };
 
 const verifyPage = (state = initialState, action = {}) => {
