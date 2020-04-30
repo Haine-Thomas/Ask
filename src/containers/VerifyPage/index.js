@@ -7,6 +7,7 @@ import VerifyPage from 'src/components/VerifyPage';
 // Action Creators
 import {
   changeTokenValue,
+  resetTokenValue,
   activateUser,
 } from 'src/actions/verifyPage';
 
@@ -19,9 +20,12 @@ const mapDispatchToProps = (dispatch) => ({
   changeTokenValue: (value) => {
     dispatch(changeTokenValue(value));
   },
-  
   activateUser: () => {
     dispatch(activateUser());
+  },
+
+  resetTokenValue: () => {
+    dispatch(resetTokenValue());
   },
 });
 
