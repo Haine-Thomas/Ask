@@ -75,6 +75,9 @@ const userController = {
       if (!validPassword) {
         return response.json({ error: "Ce n'est pas le bon mot de passe" });
       }
+      if (user.isConfirmed === false) {
+        return response.json({ error: "Votre compte n'est pas activé, veuillez vérifier votre adresse email pour confirmer votre compte et pouvoir vous connecter"})
+      }
       // On modifie les valeurs de la session utilisateur avec les données de notre instance user
       request.session.user = user.dataValues;
       delete request.session.user.password;
@@ -140,7 +143,6 @@ const userController = {
       newUser.setPassword(encryptedPwd);
       // On save le nouveau user dans la bdd
       await newUser.save();
-      console.log(newUser.email);
       // Création du contenu du mail à envoyer
       const html = `Bonjour et merci de vous êtes enregistré! Cliquez sur le lien et copiez et collez votre token -->${newUser.secretToken} pour verifier votre compte, <a href="http://localhost:8080/user/verify">http://localhost:8080/user/verify</a>`;
 
