@@ -13,6 +13,8 @@ import SignIn from 'src/containers/SignIn';
 import AnswersPage from 'src/containers/AnswersPage';
 import ProfilPage from 'src/containers/ProfilPage';
 import VerifyPage from 'src/containers/VerifyPage';
+import PasswordRecover from 'src/components/PasswordRecover';
+
 import theme from 'src/assets/styles/theme';
 
 // import de la feuille de style associée
@@ -28,6 +30,9 @@ const App = ({ fetchQuestions, fetchTags }) => {
     <AppStyled theme={theme}>
       <Header />
       <Switch>
+        <Route key="6" path="/user/recoverPassword">
+          <PasswordRecover />
+        </Route>
         <Route key="5" path="/user/verify">
           <VerifyPage />
         </Route>
