@@ -7,6 +7,7 @@ import PasswordRecover from 'src/components/PasswordRecover';
 // Action Creators
 import {
   changeValue,
+  sendRecoverEmail,
 } from 'src/actions/passwordRecover';
 
 
@@ -17,6 +18,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   changeValue: (value) => {
     dispatch(changeValue(value));
+  },
+  sendRecoverEmail: () => {
+    dispatch(sendRecoverEmail());
   },
 });
 

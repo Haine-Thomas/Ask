@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 import { FETCH_SIGNINUSER} from 'src/actions/signIn';
 import { ACTIVATE_USER } from 'src/actions/verifyPage';
 import { request } from 'https';
+import { SEND_RECOVER_EMAIL } from 'src/actions/passwordRecover';
 
 const ajaxUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -57,6 +58,30 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
             swal(response.data.message, 'Vous pouvez fermer cette page', '', {
               buttons: false,
             });
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      next(action);
+      break;
+    }
+    case SEND_RECOVER_EMAIL: {
+      const state = store.getState();
+      axios.post('http://localhost:3000/user/sendRecoverEmail', {
+        email: state.passwordRecover.value,
+      }, {
+        withCredentials: true,
+      })
+        .then((response) => {
+          if (response.data.error) {
+            swal(response.data.error, '', 'warning');
+          }
+          else {
+            swal(response.data.message, 'Vous pouvez fermer cette page', 'success', {
+              buttons: false,
+            });
+            setTimeout(function(){window.location ='/'}, 3000);
           }
         })
         .catch((error) => {
