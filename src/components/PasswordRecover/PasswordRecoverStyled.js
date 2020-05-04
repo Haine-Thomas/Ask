@@ -21,8 +21,6 @@ p{
 
 }
 
-
-
 .ui {
   width:400px;
   margin:5px auto;

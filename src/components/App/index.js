@@ -13,7 +13,7 @@ import SignIn from 'src/containers/SignIn';
 import AnswersPage from 'src/containers/AnswersPage';
 import ProfilPage from 'src/containers/ProfilPage';
 import VerifyPage from 'src/containers/VerifyPage';
-import PasswordRecover from 'src/components/PasswordRecover';
+import PasswordRecover from 'src/containers/PasswordRecover';
 
 import theme from 'src/assets/styles/theme';
 

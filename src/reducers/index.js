@@ -7,6 +7,7 @@ import answer from './answer';
 import searchBar from './searchBar';
 import profilPage from './profilPage';
 import verifyPage from './verifyPage';
+import passwordRecover from './passwordRecover';
 
 export default combineReducers({
   login,
@@ -17,4 +18,5 @@ export default combineReducers({
   searchBar,
   profilPage,
   verifyPage,
+  passwordRecover,
 });
