@@ -166,9 +166,18 @@ const userController = {
       if (!user) {
         response.json({ message: 'Cet email ne correspond à aucun compte'});
       } if (user) {
-        const html = 'Bonjour! Cliquez sur le lien pour pouvoir mettre un nouveau mot de passe!</a>';
-        await mailer.sendEmail('askteamsup@gmail.com', user.email, 'Nouveau mot de passe ASK', html);
-        response.json({ message: 'email pour reset votre mot de passe envoyé' });
+        if (user.secretToken !== '') {
+          const html = `Bonjour! Cliquez sur le lien pour pouvoir mettre un nouveau mot de passe! http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword</a>`;
+          await mailer.sendEmail('askteamsup@gmail.com', user.email, 'Nouveau mot de passe ASK', html);
+          response.json({ message: 'email pour reset votre mot de passe envoyé' });
+        } if (user.secretToken === '') {
+          const secretToken = randomstring.generate();
+          user.setSecretToken(secretToken);
+          user.save();
+          const html = `Bonjour! Cliquez sur le lien pour pouvoir mettre un nouveau mot de passe! http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword</a>`;
+          await mailer.sendEmail('askteamsup@gmail.com', user.email, 'Nouveau mot de passe ASK', html);
+          response.json({ message: 'email pour reset votre mot de passe envoyé' });
+        }
       }
 
     } catch (error) {

@@ -65,5 +65,6 @@ router.patch('/user/:id', userController.editUser);
 
 router.post('/user/sendRecoverEmail', userController.sendRecoverPassword);
 
+
 router.post('/user/verify', userController.activateUser);
 module.exports = router;

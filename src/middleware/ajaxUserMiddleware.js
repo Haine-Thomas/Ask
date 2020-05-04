@@ -78,7 +78,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
             swal(response.data.error, '', 'warning');
           }
           else {
-            swal(response.data.message, 'Vous pouvez fermer cette page', 'success', {
+            swal(response.data.message, '', 'success', {
               buttons: false,
             });
             setTimeout(function(){window.location ='/'}, 3000);

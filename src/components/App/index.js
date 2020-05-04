@@ -14,6 +14,7 @@ import AnswersPage from 'src/containers/AnswersPage';
 import ProfilPage from 'src/containers/ProfilPage';
 import VerifyPage from 'src/containers/VerifyPage';
 import PasswordRecover from 'src/containers/PasswordRecover';
+import RebootPassword from 'src/components/RebootPassword';
 
 import theme from 'src/assets/styles/theme';
 
@@ -30,6 +31,9 @@ const App = ({ fetchQuestions, fetchTags }) => {
     <AppStyled theme={theme}>
       <Header />
       <Switch>
+        <Route key="7" path="/user/:id/:secretToken/rebootPassword">
+          <RebootPassword />
+        </Route>
         <Route key="6" path="/user/recoverPassword">
           <PasswordRecover />
         </Route>
