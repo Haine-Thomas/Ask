@@ -21,10 +21,10 @@ const RebootPassword = ({ value, changeValue }) => {
               <Input
                 name="password"
                 placeholder="Nouveau mot de passe"
-                required  
+                required
                 value={value}
                 onChange={(event) => {
-                  changeValue(event.target.value);
+                  changeValue(event.target.value, event.target.name);
                 }}
               />
               <Input
@@ -33,7 +33,7 @@ const RebootPassword = ({ value, changeValue }) => {
                 required
                 value={value}
                 onChange={(event) => {
-                  changeValue(event.target.value);
+                  changeValue(event.target.value, event.target.name);
                 }}
               />
             </label>
