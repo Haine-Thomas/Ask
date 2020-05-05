@@ -1,8 +1,8 @@
-export const CHANGE_VALUE = 'CHANGE_VALUE';
+export const CHANGE_EMAIL_VALUE = 'CHANGE_VALUE';
 export const SEND_RECOVER_EMAIL = 'SEND_RECOVER_EMAIL';
 
-export const changeValue = (value) => ({
-  type: CHANGE_VALUE,
+export const changeEmailValue = (value) => ({
+  type: CHANGE_EMAIL_VALUE,
   value,
 });
 

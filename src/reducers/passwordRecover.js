@@ -1,5 +1,5 @@
 import {
-  CHANGE_VALUE,
+  CHANGE_EMAIL_VALUE,
 } from 'src/actions/passwordRecover';
 
 export const initialState = {
@@ -8,7 +8,7 @@ export const initialState = {
 
 const passwordRecover = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_VALUE:
+    case CHANGE_EMAIL_VALUE:
       return {
         ...state,
         value: action.value,

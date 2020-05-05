@@ -7,7 +7,7 @@ import {
 } from 'semantic-ui-react';
 import RebootPasswordStyled from './RebootPasswordStyled';
 
-const RebootPassword = ({ value, changeValue }) => {
+const RebootPassword = ({ passwordValue, confirmPasswordvalue, changeValue }) => {
   return (
     <RebootPasswordStyled>
       <div className="formNewPassword">
@@ -22,7 +22,8 @@ const RebootPassword = ({ value, changeValue }) => {
                 name="password"
                 placeholder="Nouveau mot de passe"
                 required
-                value={value}
+                type="password"
+                value={passwordValue}
                 onChange={(event) => {
                   changeValue(event.target.value, event.target.name);
                 }}
@@ -31,7 +32,8 @@ const RebootPassword = ({ value, changeValue }) => {
                 name="confirmPassword"
                 placeholder="Confirmez votre nouveau mot de passe"
                 required
-                value={value}
+                type="password"
+                value={confirmPasswordvalue}
                 onChange={(event) => {
                   changeValue(event.target.value, event.target.name);
                 }}
@@ -46,7 +48,8 @@ const RebootPassword = ({ value, changeValue }) => {
 };
 
 RebootPassword.propTypes = {
-  value: PropTypes.string.isRequired,
+  passwordValue: PropTypes.string.isRequired,
+  confirmPasswordvalue: PropTypes.string.isRequired,
   changeValue: PropTypes.func.isRequired,
 };
 

@@ -7,7 +7,7 @@ import {
 } from 'semantic-ui-react';
 import PasswordRecoverStyled from './PasswordRecoverStyled';
 
-const PasswordRecover = ({ value, changeValue, sendRecoverEmail }) => {
+const PasswordRecover = ({ value, changeEmailValue, sendRecoverEmail }) => {
   return (
     <PasswordRecoverStyled>
       <div className="recoverPassword">
@@ -27,7 +27,7 @@ const PasswordRecover = ({ value, changeValue, sendRecoverEmail }) => {
                 required
                 value={value}
                 onChange={(event) => {
-                  changeValue(event.target.value);
+                  changeEmailValue(event.target.value);
                 }}
               />
             </label>
@@ -41,7 +41,7 @@ const PasswordRecover = ({ value, changeValue, sendRecoverEmail }) => {
 
 PasswordRecover.propTypes = {
   value: PropTypes.string.isRequired,
-  changeValue: PropTypes.func.isRequired,
+  changeEmailValue: PropTypes.func.isRequired,
   sendRecoverEmail: PropTypes.func.isRequired,
 };
 

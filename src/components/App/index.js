@@ -14,7 +14,7 @@ import AnswersPage from 'src/containers/AnswersPage';
 import ProfilPage from 'src/containers/ProfilPage';
 import VerifyPage from 'src/containers/VerifyPage';
 import PasswordRecover from 'src/containers/PasswordRecover';
-import RebootPassword from 'src/components/RebootPassword';
+import RebootPassword from 'src/containers/RebootPassword';
 
 import theme from 'src/assets/styles/theme';
 

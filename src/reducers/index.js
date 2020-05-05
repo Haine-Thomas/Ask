@@ -8,6 +8,7 @@ import searchBar from './searchBar';
 import profilPage from './profilPage';
 import verifyPage from './verifyPage';
 import passwordRecover from './passwordRecover';
+import rebootPassword from './rebootPassword';
 
 export default combineReducers({
   login,
@@ -19,4 +20,5 @@ export default combineReducers({
   profilPage,
   verifyPage,
   passwordRecover,
+  rebootPassword,
 });
