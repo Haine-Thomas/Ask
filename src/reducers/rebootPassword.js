@@ -1,5 +1,6 @@
 import {
   CHANGE_VALUE,
+  RESET_PASSWORD_REBOOT_VALUE,
 } from 'src/actions/rebootPassword';
 
 export const initialState = {
@@ -10,11 +11,15 @@ export const initialState = {
 const rebootPassword = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_VALUE:
-      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         [action.passwordName]: action.passwordValue,
+      };
+    case RESET_PASSWORD_REBOOT_VALUE:
+      return {
+        ...state,
+        password: '',
+        confirmPassword: '',
       };
     default:
       return state;

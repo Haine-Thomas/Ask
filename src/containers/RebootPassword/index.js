@@ -7,6 +7,7 @@ import RebootPassword from 'src/components/RebootPassword';
 // Action Creators
 import {
   changeValue,
+  resetPasswordRebootValue,
 } from 'src/actions/rebootPassword';
 
 
@@ -18,6 +19,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   changeValue: (passwordValue, passwordName) => {
     dispatch(changeValue(passwordValue, passwordName));
+  },
+
+  resetPasswordRebootValue:() => {
+    dispatch(resetPasswordRebootValue());
   },
  
 });
