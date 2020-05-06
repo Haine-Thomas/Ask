@@ -77,7 +77,10 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
           if (response.data.error) {
             swal(response.data.error, '', 'warning');
           }
-          else {
+          else if (response.data.message === 'Cet email ne correspond à aucun compte') {
+            swal(response.data.message, '', 'warning', {
+            });
+          } else {
             swal(response.data.message, '', 'success', {
               buttons: false,
             });

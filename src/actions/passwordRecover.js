@@ -1,5 +1,10 @@
 export const CHANGE_EMAIL_VALUE = 'CHANGE_VALUE';
 export const SEND_RECOVER_EMAIL = 'SEND_RECOVER_EMAIL';
+export const RESET_PASSWORD_RECOVER_VALUE = 'RESET_PASSWORD_RECOVER_VALUE';
+
+export const resetPasswordRecoverValue = () => ({
+  type: RESET_PASSWORD_RECOVER_VALUE,
+});
 
 export const changeEmailValue = (value) => ({
   type: CHANGE_EMAIL_VALUE,

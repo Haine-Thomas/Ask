@@ -8,6 +8,7 @@ import PasswordRecover from 'src/components/PasswordRecover';
 import {
   changeEmailValue,
   sendRecoverEmail,
+  resetPasswordRecoverValue,
 } from 'src/actions/passwordRecover';
 
 
@@ -21,6 +22,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   sendRecoverEmail: () => {
     dispatch(sendRecoverEmail());
+  },
+  resetPasswordRecoverValue: () => {
+    dispatch(resetPasswordRecoverValue());
   },
 });
 
