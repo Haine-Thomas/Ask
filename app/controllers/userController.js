@@ -156,35 +156,6 @@ const userController = {
     }
   },
 
-  sendRecoverPassword: async (request, response) => {
-    try {
-      const user = await User.findOne({
-        where: {
-          email: request.body.email,
-        },
-      });
-      if (!user) {
-        response.json({ message: 'Cet email ne correspond à aucun compte'});
-      } if (user) {
-        if (user.secretToken !== '') {
-          const html = `Bonjour! Cliquez sur le lien pour pouvoir mettre un nouveau mot de passe! http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword</a>`;
-          await mailer.sendEmail('askteamsup@gmail.com', user.email, 'Nouveau mot de passe ASK', html);
-          response.json({ message: 'email pour reset votre mot de passe envoyé' });
-        } if (user.secretToken === '') {
-          const secretToken = randomstring.generate();
-          user.setSecretToken(secretToken);
-          user.save();
-          const html = `Bonjour! Cliquez sur le lien pour pouvoir mettre un nouveau mot de passe! http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword</a>`;
-          await mailer.sendEmail('askteamsup@gmail.com', user.email, 'Nouveau mot de passe ASK', html);
-          response.json({ message: 'email pour reset votre mot de passe envoyé' });
-        }
-      }
-
-    } catch (error) {
-      response.status(500).send(error);
-    }
-  },
-
   /* supprimer un utilisateur */
   deleteUser: async (request, response) => {
     try {
@@ -248,6 +219,69 @@ const userController = {
         }
         await user.save();
         response.json(user);
+      } else {
+        response.status(500);
+      }
+    } catch (error) {
+      console.error(error);
+      response.status(500).json(error);
+    }
+  },
+  // Méthode d'envoie de mail pour reset son mdp
+  sendRecoverPassword: async (request, response) => {
+    try {
+      const user = await User.findOne({
+        where: {
+          email: request.body.email,
+        },
+      });
+      if (!user) {
+        response.json({ message: 'Cet email ne correspond à aucun compte'});
+      } if (user) {
+        // On met en place ce système de secretToken pour sécuriser l'url du reset du password un minimum
+        if (user.secretToken !== '') {
+          const html = `Bonjour! Cliquez sur le lien pour pouvoir mettre un nouveau mot de passe! http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword</a>`;
+          await mailer.sendEmail('askteamsup@gmail.com', user.email, 'Nouveau mot de passe ASK', html);
+          response.json({ message: 'email pour reset votre mot de passe envoyé', user: user.email });
+        } if (user.secretToken === '') {
+          const secretToken = randomstring.generate();
+          user.setSecretToken(secretToken);
+          user.save();
+          // on update le user pour maj la db et on envoie le mail
+          const html = `Bonjour! Cliquez sur le lien pour pouvoir mettre un nouveau mot de passe! http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword</a>`;
+          await mailer.sendEmail('askteamsup@gmail.com', user.email, 'Nouveau mot de passe ASK', html);
+          response.json({ message: 'email pour reset votre mot de passe envoyé', user: user.email });
+        }
+      }
+
+    } catch (error) {
+      response.status(500).send(error);
+    }
+  },
+
+// Récupère le user et compare les deux champs du formulaire pour refaire son mdp, si good on update et on envoie le message approprié.
+  rebootPassword: async (request, response) => {
+    try {
+      const user = await User.findOne({
+        where: {
+          email: request.params.email,
+        },
+      });
+      const password = request.body.password;
+      const confirmPassword = request.body.confirmPassword;
+      if (!user) {
+        response.status(404).json({ message: 'Ne trouve pas ce user' });
+      }
+      if (user) {
+        if (password !== confirmPassword) {
+          response.json({ message: 'Les deux champs de mot de passe ne correspondent pas' });
+        }
+        else if (password === confirmPassword) {
+          const passwordEncrypted = bcrypt.hashSync(password, 10);
+          user.password = passwordEncrypted;
+          await user.save();
+          response.json({ message: 'Votre mot de passe a bien été modifié' });
+        }
       } else {
         response.status(500);
       }

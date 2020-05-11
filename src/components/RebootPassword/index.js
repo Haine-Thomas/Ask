@@ -7,13 +7,14 @@ import {
 } from 'semantic-ui-react';
 import RebootPasswordStyled from './RebootPasswordStyled';
 
-const RebootPassword = ({ passwordValue, confirmPasswordvalue, changeValue, resetPasswordRebootValue }) => {
+const RebootPassword = ({ passwordValue, confirmPasswordvalue, changeValue, resetPasswordRebootValue, rebootPassword }) => {
   useEffect(resetPasswordRebootValue, []);
   return (
     <RebootPasswordStyled>
       <div className="formNewPassword">
         <Form onSubmit={(event) => {
           event.preventDefault();
+          rebootPassword();
         }}
         >
           <Form.Field>
@@ -53,6 +54,7 @@ RebootPassword.propTypes = {
   confirmPasswordvalue: PropTypes.string.isRequired,
   changeValue: PropTypes.func.isRequired,
   resetPasswordRebootValue: PropTypes.func.isRequired,
+  rebootPassword: PropTypes.func.isRequired,
 };
 
 

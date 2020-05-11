@@ -8,6 +8,7 @@ import RebootPassword from 'src/components/RebootPassword';
 import {
   changeValue,
   resetPasswordRebootValue,
+  rebootPassword,
 } from 'src/actions/rebootPassword';
 
 
@@ -21,8 +22,12 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(changeValue(passwordValue, passwordName));
   },
 
-  resetPasswordRebootValue:() => {
+  resetPasswordRebootValue: () => {
     dispatch(resetPasswordRebootValue());
+  },
+
+  rebootPassword: () => {
+    dispatch(rebootPassword());
   },
  
 });
