@@ -24,9 +24,10 @@ import AppStyled from './AppStyled';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de l application
-const App = ({ fetchQuestions, fetchTags }) => {
+const App = ({ fetchQuestions, fetchTags, resetPasswordRebootValue }) => {
   useEffect(fetchQuestions, []);
   useEffect(fetchTags, []);
+  useEffect(resetPasswordRebootValue, []);
   return (
     <AppStyled theme={theme}>
       <Header />
@@ -64,6 +65,7 @@ const App = ({ fetchQuestions, fetchTags }) => {
 App.propTypes = {
   fetchQuestions: PropTypes.func.isRequired,
   fetchTags: PropTypes.func.isRequired,
+  resetPasswordRebootValue: PropTypes.func.isRequired,
 };
 
 // == Export
