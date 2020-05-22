@@ -23,9 +23,12 @@ const QuestionsPage = ({
   changeInputValue,
   fetchPostQuestion,
   liveSearch,
+  currentPage,
+  setCurrentPage,
+  postsPerPage,
 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
+  //const [currentPage, setCurrentPage] = useState(1);
+  //const [postsPerPage] = useState(5);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -89,9 +92,9 @@ const QuestionsPage = ({
         {liveSearch === '' && currentPosts.map((question) => (
           <Question key={question.id} {...question} />
         ))}
-        {liveSearch === '' && <Pagination postsPerPage={postsPerPage} totalPosts={questions.length} paginate={paginate} />}
+        {liveSearch === '' && <Pagination postsPerPage={postsPerPage} totalPosts={questions.length} paginate={paginate} currentPage={currentPage} />}
         {liveSearch !== '' && filteredQuestions.map((question) => (<Question key={question.id} {...question} />))}
-        {liveSearch !== '' && <Pagination postsPerPage={postsPerPage} totalPosts={filteredQuestions.length} paginate={paginate} />}
+        {liveSearch !== '' && <Pagination postsPerPage={postsPerPage} totalPosts={filteredQuestions.length} paginate={paginate} currentPage={currentPage} />}
       </div>
     </QuestionsPageStyled>
   );
@@ -105,6 +108,10 @@ QuestionsPage.propTypes = {
   changeInputValue: PropTypes.func.isRequired,
   fetchPostQuestion: PropTypes.func.isRequired,
   liveSearch: PropTypes.string.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
+  postsPerPage: PropTypes.number.isRequired,
+
 };
 
 // == Export

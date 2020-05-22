@@ -6,30 +6,36 @@ import styled from 'styled-components';
 const PaginationStyled = styled.div`
 display:flex;
 
-  .page-item {
+  li {
   display: inline-block;
   background-color:white;
   border: 1px solid lightgrey;
   border-radius: 5px;
+  color:black;
+  &.active {
+    background-color: #e79f51;
+    color: white;
+    border-radius: 5px; 
+  }
+  a:hover{
+    color:white;
+    font-size: 1.5em;
+  }
 }
 
-.page-item a {
-  color: black;
+li a {
   float: left;
   padding: 8px 16px;
   text-decoration: none;
 }
 
-.page-item a:active {
+li:hover:not(.active) {
   background-color: #e79f51;
   color: white;
   border-radius: 5px;
-}
-
-.page-item a:hover:not(.active) {
-  background-color: #e79f51;
-  color: white;
-  border-radius: 5px;
+  a{
+    color: white;
+  }
 }
 
 `;

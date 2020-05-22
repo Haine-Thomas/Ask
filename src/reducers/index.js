@@ -9,6 +9,7 @@ import profilPage from './profilPage';
 import verifyPage from './verifyPage';
 import passwordRecover from './passwordRecover';
 import rebootPassword from './rebootPassword';
+import pagination from './pagination';
 
 export default combineReducers({
   login,
@@ -21,4 +22,5 @@ export default combineReducers({
   verifyPage,
   passwordRecover,
   rebootPassword,
+  pagination,
 });
