@@ -18,9 +18,11 @@ ou "C'est quoi le site le plus cool que vous ayez visité mais que personne ne c
 quelles sont les pires désastres de la St-Valentin que vous ayez vus?"
 
 Les questions peuvent être assez bêtes comme assez profondes. Les gens partageraient leurs histoires ou anecdotes en réponse à ces questions.
-Le système de notation permets aux meilleurs questions/histoires de ressortir sur le site.
+Le système de notation permets aux meilleurs questions/réponses de ressortir sur le site.
 Le user doit pouvoir avoir un profil avec ses questions et ses posts.
 
+<a href="https://zupimages.net/viewer.php?id=20/41/97pv.jpg"><img src="https://zupimages.net/up/20/41/97pv.jpg" alt="" /></a>
+<a href="https://zupimages.net/viewer.php?id=20/41/6m8b.jpg"><img src="https://zupimages.net/up/20/41/6m8b.jpg" alt="" /></a>
 
 MVP
 
