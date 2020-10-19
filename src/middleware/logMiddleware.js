@@ -13,11 +13,13 @@ import { changeValue } from 'src/actions/signIn';
 
 import { fetchQuestions } from 'src/actions/questions';
 
+const url = 'http://localhost';
+
 const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case DELETE_USER: {
       const state = store.getState();
-      axios.delete(`http://54.162.97.41:3000/user/${state.login.user.id}`, {
+      axios.delete(`${url}:3000/user/${state.login.user.id}`, {
         withCredentials: true,
       })
         .then((response) => {
@@ -33,7 +35,7 @@ const logMiddleware = (store) => (next) => (action) => {
       // + on traduit l'intention en intérrogeant notre API
       // je vais avoir besoin de lire le state pour faire ma requete
       const state = store.getState();
-      axios.post(`http://54.162.97.41:3000/login`, {
+      axios.post(`${url}:3000/login`, {
         email: state.login.user.email,
         password: state.login.user.password,
       }, {
@@ -59,7 +61,7 @@ const logMiddleware = (store) => (next) => (action) => {
     case DISCONNECT_ACTION: {
       // + on traduit l'intention en intérrogeant notre API
       // je vais avoir besoin de lire le state pour faire ma requete
-      axios.get(`http://54.162.97.41:3000/disconnect`, {
+      axios.get(`${url}:3000/disconnect`, {
         withCredentials: true,
       })
         .then((response) => {
@@ -78,7 +80,7 @@ const logMiddleware = (store) => (next) => (action) => {
     case MODIFY_USER: {
       const state = store.getState();
       const userid = state.login.user.id;
-      axios.patch(`http://54.162.97.41:3000/user/${userid}`, {
+      axios.patch(`${url}:3000/user/${userid}`, {
         email: state.signIn.email,
         password: state.signIn.password,
         confirmPassword: state.signIn.confirmedPassword,

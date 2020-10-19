@@ -6,10 +6,10 @@ import styled from 'styled-components';
 const HeaderStyled = styled.header`
   text-align: center;
   left: 1rem;
-  color:  #D0D6DE;
-  background-color: black;
+  color:  #fff;
+  background-color: #33658A;
   width: 100%;
-  padding: 3rem 0;
+  padding: 2rem 0;
   vertical-align: middle;
 
   img.ui.image {

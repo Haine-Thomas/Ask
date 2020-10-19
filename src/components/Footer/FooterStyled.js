@@ -5,9 +5,10 @@ import styled from 'styled-components';
 // ici on a la fonction qui décrit le style du composant Footer
 const FooterStyled = styled.footer`
   left: 1rem;
-  padding: 3rem 0;
-  background-color: #121113;
-  margin: 0;
+  padding: 1.5rem 0;
+  background-color: #33658A;
+  color:#fff;
+  margin-top: 40px;
 
   .footer-container {
     display: flex;
