@@ -36,14 +36,11 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
       axios.get(`${url}:3000/question/${state.questions.sorted}`,{ withCredentials: true })
         .then((response) => {
-          // quand on a la réponse, on veut modifier le pseudo dans l'état
-          // je vais vouloir émettre une intention pour modifier le state
           store.dispatch(saveQuestions(response.data.questions));
         })
         .catch((error) => {
           console.error(error);
         });
-      // je laisse passer tout de suite au middleware/reducer suivant
       next(action);
       break;
     }
@@ -72,7 +69,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
     case FETCH_QUESTION_SCORE: {
       const state = store.getState();
       const { vote, votedQuestionId } = state.questions;
-      axios.patch(`http://54.162.97.41:3000/question/${votedQuestionId}/${vote}`, {}, {
+      axios.patch(`${url}:3000/question/${votedQuestionId}/${vote}`, {}, {
         withCredentials: true,
       })
         .then((response) => {
