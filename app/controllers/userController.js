@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 // pour l'action de l'inscription
 let randomstring = require('randomstring');
 const emailValidator = require('email-validator');
+const nodemailer = require('nodemailer');
 const mailer = require('../misc/mailer');
-
 const User = require('../models/user');
 const Question = require('../models/question');
 const Answer = require('../models/answer');
@@ -102,6 +102,19 @@ const userController = {
 
   // Possibilité d'utiliser le findOrCreate de Sequelize a utiliser et tester sur d'autres composants
   signUpAction: async (request, response) => {
+    const smtpTransport = nodemailer.createTransport({
+      service: 'Gmail',
+      secure: false,
+      authentication: 'plain',
+      auth: {
+        user: 'askteamsup@gmail.com',
+        pass: process.env.GMAILPW,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+      enable_starttls_auto: true,
+    });
     try {
       const username = await User.findOne({
         where: {
@@ -129,11 +142,11 @@ const userController = {
       }
       // On vérifie si le format de l'email est valide
       if (!emailValidator.validate(request.body.email)) {
-        return response.json({error: "Cet email n'est pas valide."});
+        return response.json({ error: "Cet email n'est pas valide." });
       }
 
       // Création d'un nouveau user
-      let newUser = new User();
+      const newUser = new User();
       const secretToken = randomstring.generate();
       newUser.setSecretToken(secretToken);
       newUser.setEmail(request.body.email);
@@ -144,12 +157,17 @@ const userController = {
       // On save le nouveau user dans la bdd
       await newUser.save();
       // Création du contenu du mail à envoyer
-      const html = `Bonjour et merci de vous êtes enregistré! Cliquez sur le lien et copiez et collez votre token -->${newUser.secretToken} pour verifier votre compte, <a href="http://localhost:8080/user/verify">http://localhost:8080/user/verify</a>`;
-
-      //Envoyer le mail
-      await mailer.sendEmail('askteamsup@gmail.com', newUser.email, 'Merci de verifier votre email!', html);
-
-      response.redirect('/');
+      const mailOptions = {
+        to: newUser.email,
+        from: 'askteamsup@gmail.com',
+        subject: 'ASK: confirmez votre adresse email',
+        text: `Bonjour et merci de vous êtes enregistré! Cliquez sur le lien et copiez et collez votre token -->${newUser.secretToken} pour verifier votre compte, http://localhost:8080/user/verify`,
+      };
+      smtpTransport.sendMail(mailOptions, function(err) {
+        console.log('mail sent');
+        response.json({ message: 'Un email a été envoyé pour confirmer votre adresse email'});
+        console.log(err);
+      });
     } catch (error) {
       console.log(error);
       response.status(500).send(error);
@@ -229,6 +247,19 @@ const userController = {
   },
   // Méthode d'envoie de mail pour reset son mdp
   sendRecoverPassword: async (request, response) => {
+    const smtpTransport = nodemailer.createTransport({
+      service: 'Gmail',
+      secure: false,
+      authentication: 'plain',
+      auth: {
+        user: 'askteamsup@gmail.com',
+        pass: 'CerfJeanfof4',
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+      enable_starttls_auto: true,
+    });
     try {
       const user = await User.findOne({
         where: {
@@ -238,23 +269,43 @@ const userController = {
       if (!user) {
         response.json({ message: 'Cet email ne correspond à aucun compte'});
       } if (user) {
-        // On met en place ce système de secretToken pour sécuriser l'url du reset du password un minimum
+      // On met en place ce système de secretToken pour sécuriser l'url du reset du password un minimum
         if (user.secretToken !== '') {
-          const html = `Bonjour! Cliquez sur le lien pour pouvoir mettre un nouveau mot de passe! http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword</a>`;
-          await mailer.sendEmail('askteamsup@gmail.com', user.email, 'Nouveau mot de passe ASK', html);
-          response.json({ message: 'email pour reset votre mot de passe envoyé', user: user.email });
+          const mailOptions = {
+            to: user.email,
+            from: 'askteamsup@gmail.com',
+            subject: 'Node.js Password Reset',
+            text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n'
+              + 'Please click on the following link, or paste this into your browser to complete the process:\n\n'
+              + `http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword\n\n`
+              + 'If you did not request this, please ignore this email and your password will remain unchanged.\n',
+          };
+          smtpTransport.sendMail(mailOptions, function(err) {
+            console.log('mail sent');
+            response.json({ message: 'email pour reset votre mot de passe envoyé', user: user.email });
+            console.log(err);
+          });
         } if (user.secretToken === '') {
           const secretToken = randomstring.generate();
           user.setSecretToken(secretToken);
           user.save();
-          // on update le user pour maj la db et on envoie le mail
-          const html = `Bonjour! Cliquez sur le lien pour pouvoir mettre un nouveau mot de passe! http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword</a>`;
-          await mailer.sendEmail('askteamsup@gmail.com', user.email, 'Nouveau mot de passe ASK', html);
-          response.json({ message: 'email pour reset votre mot de passe envoyé', user: user.email });
+          const mailOptions = {
+            to: user.email,
+            from: 'askteamsup@gmail.com',
+            subject: 'Node.js Password Reset',
+            text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n'
+              + 'Please click on the following link, or paste this into your browser to complete the process:\n\n'
+              + `http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword\n\n`
+              + 'If you did not request this, please ignore this email and your password will remain unchanged.\n',
+          };
+          smtpTransport.sendMail(mailOptions, function(err) {
+            console.log('mail sent');
+            response.json({ message: 'email pour reset votre mot de passe envoyé', user: user.email });
+          });
         }
       }
-
-    } catch (error) {
+    }
+    catch (error) {
       response.status(500).send(error);
     }
   },

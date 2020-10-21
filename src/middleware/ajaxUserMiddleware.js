@@ -5,9 +5,9 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { FETCH_SIGNINUSER} from 'src/actions/signIn';
 import { ACTIVATE_USER } from 'src/actions/verifyPage';
-import { request } from 'https';
 import { SEND_RECOVER_EMAIL, storeUserEmail } from 'src/actions/passwordRecover';
 import { REBOOT_PASSWORD } from 'src/actions/rebootPassword';
+
 const ajaxUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_SIGNINUSER: {
@@ -27,7 +27,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
             swal(response.data.error, '', 'warning');
           }
           else {
-            swal('Inscription validée', '', 'success', {
+            swal(response.data.message, '', 'success', {
               buttons: false,
             });
             setTimeout(function(){window.location ='/'}, 3000);
@@ -39,7 +39,6 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-    
     case ACTIVATE_USER: {
       const state = store.getState();
       axios.post('http://localhost:3000/user/verify', {

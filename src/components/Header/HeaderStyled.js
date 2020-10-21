@@ -7,17 +7,14 @@ const HeaderStyled = styled.header`
   text-align: center;
   left: 1rem;
   color:  #D0D6DE;
-  background-color: black;
+  background-color: #202020;
   width: 100%;
-  padding: 3rem 0;
+  padding: 1.4rem 0;
   vertical-align: middle;
 
-  img.ui.image {
-    display: block;
-    top: 15px;
-    left: -10px;
+.slogan:hover{
+  color:#e9c46a
 }
-
   span {
     font-size: 2rem;
     padding-right: 10px;
@@ -32,11 +29,6 @@ const HeaderStyled = styled.header`
     }  
   }
 
-  .logo {  
-    width:130px;
-    display: inline-block;
-    padding-bottom: 0.3rem;
-  }
   
 `;
 
