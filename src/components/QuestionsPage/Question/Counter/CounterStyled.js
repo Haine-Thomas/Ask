@@ -11,12 +11,12 @@ const Counterstyled = styled.div`
 
     &:hover {
       transform: translateY(-5px);
-      color: #E76F51;
+      color: green;
     }
   }
 
   .icon-top-voted {
-    color: #E76F51;
+    color: green;
     transform: translateY(-5px);
   }
 
@@ -31,12 +31,12 @@ const Counterstyled = styled.div`
 
     &:hover {
       transform: translateY(5px);
-      color: #E76F51;
+      color: red;
     }
   }
 
   .icon-bottom-voted {
-    color: #E76F51;
+    color: red;
     transform: translateY(5px);
   }
 `;
