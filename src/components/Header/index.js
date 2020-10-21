@@ -15,7 +15,7 @@ const Header = () => (
       to="/"
       exact
     >
-      <span className="slogan">Une question ? Just Ask </span>
+      <h1 className="slogan">Une question ?  Just <span> Ask </span></h1>
     </NavLink>
   </HeaderStyled>
 );

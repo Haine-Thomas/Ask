@@ -1,5 +1,12 @@
 @import  'reset';
-
+@font-face {
+  font-family: 'MrRobot';
+  src: url('../fonts/MrRobot.woff2') format('woff2'),
+      url('../fonts//MrRobot.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 body {
   font-family: sans-serif;
