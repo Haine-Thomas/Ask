@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import App from 'src/components/App';
 
 // Action Creators
-import { fetchQuestions, fetchQuestionScore } from 'src/actions/questions';
+import { fetchQuestions } from 'src/actions/questions';
 import { fetchTags } from 'src/actions/tags';
+import { resetPasswordRebootValue } from 'src/actions/rebootPassword';
 
 /* === State (données) lecture===
  * - mapStateToProps retroune un objet de props pour le composant de présentation
@@ -34,6 +35,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchTags: () => {
     dispatch(fetchTags());
+  },
+  resetPasswordRebootValue: () => {
+    dispatch(resetPasswordRebootValue());
   },
 });
 

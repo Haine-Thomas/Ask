@@ -43,6 +43,19 @@ class User extends sequelize.Model {
       this.password = value;
     }
   }
+
+  getSecretToken() {
+    return this.secretToken;
+  }
+
+  setSecretToken(value) {
+    if (typeof value !== 'string') {
+      throw Error('User.secretToken must be a string');
+    }
+    else {
+      this.secretToken = value;
+    }
+  }
 }
 
 // Ici un initialise notre classe avec les données de la BDD
@@ -51,6 +64,8 @@ User.init(
     name: sequelize.STRING,
     email: sequelize.STRING,
     password: sequelize.STRING,
+    isConfirmed: sequelize.BOOLEAN,
+    secretToken: sequelize.STRING,
   },
   {
     sequelize: DBConnection,

@@ -1,6 +1,8 @@
 const Tag = require('../models/tag');
 
 const tagController = {
+  
+  /* récupérer les catégories */
   getAllTags: async(request, response) => {
     try {
       const tags = await Tag.findAll();

@@ -63,6 +63,13 @@ const LoginForm = ({
       </Button.Group>
     </Form>
     <NavLink
+      to="/user/recoverPassword"
+      exact
+      className="password_link"
+    >
+      Mot de passe oublié?
+    </NavLink>
+    <NavLink
       className="signin_btn"
       exact
       to="/signIn"

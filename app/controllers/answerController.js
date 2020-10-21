@@ -1,5 +1,6 @@
 const Answer = require('../models/answer');
 
+/* récupérer une réponse par l'id de la question */
 const answerController = {
   getAnswersByQuestionId: async (request, response) => {
     const questionId = request.params.id;
@@ -12,9 +13,10 @@ const answerController = {
     } catch (error) {
       response.status(500).json(error);
     }
-  }, 
+  },
 
-  createAnswer: async (request,response) => {
+  /* créer une réponse */
+  createAnswer: async (request, response) => {
     try {
       const content = request.body.content;
       const questionId = request.params.id;
@@ -36,13 +38,14 @@ const answerController = {
     }
   },
 
+  /* editer une réponse */
   editAnswer: async (request, response) => {
     try {
       const answerId = request.params.id;
       const answer = await Answer.findByPk(answerId);
       const user = request.session.user.id;
       if (!answer) {
-        // pas de lréponse pour cet id
+        // pas de réponse pour cet id
         response.status(404).json(`Cant find a question with this id : ${answer}`);
       } if (user === answer.userId) {
         const { content } = request.body;
@@ -59,6 +62,7 @@ const answerController = {
     }
   },
 
+  /* éditer le score d'une réponse */
   editAnswerScore: async (request, response) => {
     try {
       const answerId = request.params.id;
@@ -123,12 +127,13 @@ const answerController = {
         response.json(answer);
       }
     }
-    catch(error) {
+    catch (error) {
       console.log(error);
       response.status(500).json(error);
     }
   },
 
+  /* supprimer une réponse */
   deleteAnswer: async (request, response)=>{
     try {
       const answerId = request.params.id;
@@ -141,7 +146,8 @@ const answerController = {
         response.status(500);
         console.log('patate de forain');
       }
-    } catch (error) {
+    }
+    catch (error) {
       response.status(500).send(error);
     }
   },

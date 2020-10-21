@@ -2,12 +2,17 @@
 const bcrypt = require('bcrypt');
 
 // pour l'action de l'inscription
+let randomstring = require('randomstring');
 const emailValidator = require('email-validator');
+const nodemailer = require('nodemailer');
+const mailer = require('../misc/mailer');
 const User = require('../models/user');
 const Question = require('../models/question');
 const Answer = require('../models/answer');
 
 const userController = {
+
+  /* récupérer un utilisateur par son id */
   getUserById: async (request, response) => {
     const userId = parseInt(request.params.id);
     try {
@@ -18,9 +23,35 @@ const userController = {
     }
   },
 
-  //pour tester loginAction
+  // pour tester loginAction
   loginPage: (request, response) => {
     response.render('login');
+  },
+
+  activateUser: async (request, response) => {
+    // eslint-disable-next-line radix
+    try {
+      // On trouve le user avec le formToken entré dans l'input du form
+      const user = await User.findOne({
+        where: {
+          secretToken: request.body.formToken,
+        },
+      });
+      if (!user) {
+        response.json({ message: `Aucun compte n'existe avec ce token`});
+      }
+      if (user) {
+        //Si on trouve le user, on passe son statut a true et on reset son token à une string vide, on n'oublie aps le save!
+        user.isConfirmed = true;
+        user.secretToken = '';
+        user.save();
+        response.json({ message: 'Votre compte est activé!'});
+      } else {
+        response.json({ message: 'Token incorrect'});
+      }
+    } catch (error) {
+      response.status(500).send(error);
+    }
   },
 
   loginAction: async (request, response) => {
@@ -44,6 +75,9 @@ const userController = {
       if (!validPassword) {
         return response.json({ error: "Ce n'est pas le bon mot de passe" });
       }
+      if (user.isConfirmed === false) {
+        return response.json({ error: "Votre compte n'est pas activé, veuillez vérifier votre adresse email pour confirmer votre compte et pouvoir vous connecter"})
+      }
       // On modifie les valeurs de la session utilisateur avec les données de notre instance user
       request.session.user = user.dataValues;
       delete request.session.user.password;
@@ -59,15 +93,28 @@ const userController = {
     return response.json({ message: 'Déconnecté' });
   },
 
-  myProfilPage:(request, response) => {
+  myProfilPage: (request, response) => {
     if (!request.session.user) {
       return response.redirect('/login');
     }
     response.json({ user: request.session.user });
   },
 
-  // Possibilité d'utiliser le findOrCreate de Sequelize/ a utiliser et tester sur d'autres composants
-  signUpAction : async (request, response) => {
+  // Possibilité d'utiliser le findOrCreate de Sequelize a utiliser et tester sur d'autres composants
+  signUpAction: async (request, response) => {
+    const smtpTransport = nodemailer.createTransport({
+      service: 'Gmail',
+      secure: false,
+      authentication: 'plain',
+      auth: {
+        user: 'askteamsup@gmail.com',
+        pass: process.env.GMAILPW,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+      enable_starttls_auto: true,
+    });
     try {
       const username = await User.findOne({
         where: {
@@ -81,7 +128,7 @@ const userController = {
         },
       });
 
-// On test si l'email existe déjà dans la bdd
+      // On test si l'email existe déjà dans la bdd
       if (user) {
         return response.json({ error: 'Cet email est déjà utilisé pas un utilisateur '});
       }
@@ -95,10 +142,13 @@ const userController = {
       }
       // On vérifie si le format de l'email est valide
       if (!emailValidator.validate(request.body.email)) {
-        return response.json({error: "Cet email n'est pas valide."});
+        return response.json({ error: "Cet email n'est pas valide." });
       }
-// Création d'un nouveau user
-      let newUser = new User();
+
+      // Création d'un nouveau user
+      const newUser = new User();
+      const secretToken = randomstring.generate();
+      newUser.setSecretToken(secretToken);
       newUser.setEmail(request.body.email);
       newUser.setName(request.body.name);
       // On utilise Bcrypt pour sécuriser son mdp dans la bdd
@@ -106,13 +156,25 @@ const userController = {
       newUser.setPassword(encryptedPwd);
       // On save le nouveau user dans la bdd
       await newUser.save();
-      response.json({newUser});
-      response.redirect('/');
+      // Création du contenu du mail à envoyer
+      const mailOptions = {
+        to: newUser.email,
+        from: 'askteamsup@gmail.com',
+        subject: 'ASK: confirmez votre adresse email',
+        text: `Bonjour et merci de vous êtes enregistré! Cliquez sur le lien et copiez et collez votre token -->${newUser.secretToken} pour verifier votre compte, http://localhost:8080/user/verify`,
+      };
+      smtpTransport.sendMail(mailOptions, function(err) {
+        console.log('mail sent');
+        response.json({ message: 'Un email a été envoyé pour confirmer votre adresse email'});
+        console.log(err);
+      });
     } catch (error) {
       console.log(error);
       response.status(500).send(error);
     }
   },
+
+  /* supprimer un utilisateur */
   deleteUser: async (request, response) => {
     try {
       const userid = request.params.id;
@@ -150,6 +212,7 @@ const userController = {
     }
   },
 
+  /* éditer un utilisateur */
   editUser: async (request, response) => {
     try {
       const userId = request.params.id;
@@ -174,6 +237,102 @@ const userController = {
         }
         await user.save();
         response.json(user);
+      } else {
+        response.status(500);
+      }
+    } catch (error) {
+      console.error(error);
+      response.status(500).json(error);
+    }
+  },
+  // Méthode d'envoie de mail pour reset son mdp
+  sendRecoverPassword: async (request, response) => {
+    const smtpTransport = nodemailer.createTransport({
+      service: 'Gmail',
+      secure: false,
+      authentication: 'plain',
+      auth: {
+        user: 'askteamsup@gmail.com',
+        pass: 'CerfJeanfof4',
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+      enable_starttls_auto: true,
+    });
+    try {
+      const user = await User.findOne({
+        where: {
+          email: request.body.email,
+        },
+      });
+      if (!user) {
+        response.json({ message: 'Cet email ne correspond à aucun compte'});
+      } if (user) {
+      // On met en place ce système de secretToken pour sécuriser l'url du reset du password un minimum
+        if (user.secretToken !== '') {
+          const mailOptions = {
+            to: user.email,
+            from: 'askteamsup@gmail.com',
+            subject: 'Node.js Password Reset',
+            text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n'
+              + 'Please click on the following link, or paste this into your browser to complete the process:\n\n'
+              + `http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword\n\n`
+              + 'If you did not request this, please ignore this email and your password will remain unchanged.\n',
+          };
+          smtpTransport.sendMail(mailOptions, function(err) {
+            console.log('mail sent');
+            response.json({ message: 'email pour reset votre mot de passe envoyé', user: user.email });
+            console.log(err);
+          });
+        } if (user.secretToken === '') {
+          const secretToken = randomstring.generate();
+          user.setSecretToken(secretToken);
+          user.save();
+          const mailOptions = {
+            to: user.email,
+            from: 'askteamsup@gmail.com',
+            subject: 'Node.js Password Reset',
+            text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n'
+              + 'Please click on the following link, or paste this into your browser to complete the process:\n\n'
+              + `http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword\n\n`
+              + 'If you did not request this, please ignore this email and your password will remain unchanged.\n',
+          };
+          smtpTransport.sendMail(mailOptions, function(err) {
+            console.log('mail sent');
+            response.json({ message: 'email pour reset votre mot de passe envoyé', user: user.email });
+          });
+        }
+      }
+    }
+    catch (error) {
+      response.status(500).send(error);
+    }
+  },
+
+// Récupère le user et compare les deux champs du formulaire pour refaire son mdp, si good on update et on envoie le message approprié.
+  rebootPassword: async (request, response) => {
+    try {
+      const user = await User.findOne({
+        where: {
+          email: request.params.email,
+        },
+      });
+      const password = request.body.password;
+      const confirmPassword = request.body.confirmPassword;
+      if (!user) {
+        response.status(404).json({ message: 'Ne trouve pas ce user' });
+      }
+      if (user) {
+        if (password !== confirmPassword) {
+          response.json({ message: 'Les deux champs de mot de passe ne correspondent pas' });
+        }
+        else if (password === confirmPassword) {
+          const passwordEncrypted = bcrypt.hashSync(password, 10);
+          user.password = passwordEncrypted;
+          await user.save();
+          response.json({ message: 'Votre mot de passe a bien été modifié' });
+        }
       } else {
         response.status(500);
       }

@@ -63,4 +63,12 @@ router.delete('/user/:id', userController.deleteUser);
 // Editer son profil
 router.patch('/user/:id', userController.editUser);
 
+// Pour recevoir un mail et reboot mon mdp
+router.post('/user/sendRecoverEmail', userController.sendRecoverPassword);
+
+// Pour confirmer mon adresse mail
+router.post('/user/verify', userController.activateUser);
+
+// Pour reboot mon mot de passe
+router.patch('/user/:email/rebootPassword', userController.rebootPassword);
 module.exports = router;

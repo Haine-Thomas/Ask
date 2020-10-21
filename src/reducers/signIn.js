@@ -51,6 +51,7 @@ const signIn = (state = initialState, action = {}) => {
         isVerified: false,
         
       };
+      
     case RESET_ISVERIFIED:
       return {
         ...state,

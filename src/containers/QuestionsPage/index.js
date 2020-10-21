@@ -6,7 +6,7 @@ import QuestionsPage from 'src/components/QuestionsPage';
 
 // Action Creators
 import { changeInputValue, fetchPostQuestion } from 'src/actions/questions';
-
+import { setCurrentPage } from 'src/actions/pagination';
 
 /* === State (données) lecture===
  * - mapStateToProps retroune un objet de props pour le composant de présentation
@@ -22,6 +22,8 @@ const mapStateToProps = (state) => ({
   value: state.questions.content,
   searchedQuestion: state.searchBar.searchedQuestion,
   liveSearch: state.searchBar.searchValue.value,
+  currentPage: state.pagination.currentPage,
+  postsPerPage: state.pagination.postsPerPage,
 });
 
 /* === Actions modification ===
@@ -37,6 +39,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchPostQuestion: () => {
     dispatch(fetchPostQuestion());
+  },
+  setCurrentPage: (value) => {
+    dispatch(setCurrentPage(value));
   },
 });
 

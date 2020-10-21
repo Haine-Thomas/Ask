@@ -12,6 +12,9 @@ import Footer from 'src/components/Footer';
 import SignIn from 'src/containers/SignIn';
 import AnswersPage from 'src/containers/AnswersPage';
 import ProfilPage from 'src/containers/ProfilPage';
+import VerifyPage from 'src/containers/VerifyPage';
+import PasswordRecover from 'src/containers/PasswordRecover';
+import RebootPassword from 'src/containers/RebootPassword';
 
 import theme from 'src/assets/styles/theme';
 
@@ -21,13 +24,23 @@ import AppStyled from './AppStyled';
 
 // == Composant
 // ici on a la fonction qui renvoi le formulaire de structure de l application
-const App = ({ fetchQuestions, fetchTags }) => {
+const App = ({ fetchQuestions, fetchTags, resetPasswordRebootValue }) => {
   useEffect(fetchQuestions, []);
   useEffect(fetchTags, []);
+  useEffect(resetPasswordRebootValue, []);
   return (
     <AppStyled theme={theme}>
       <Header />
       <Switch>
+        <Route key="7" path="/user/:id/:secretToken/rebootPassword">
+          <RebootPassword />
+        </Route>
+        <Route key="6" path="/user/recoverPassword">
+          <PasswordRecover />
+        </Route>
+        <Route key="5" path="/user/verify">
+          <VerifyPage />
+        </Route>
         <Route key="4" path="/Profil">
           <Nav />
           <ProfilPage />
@@ -52,6 +65,7 @@ const App = ({ fetchQuestions, fetchTags }) => {
 App.propTypes = {
   fetchQuestions: PropTypes.func.isRequired,
   fetchTags: PropTypes.func.isRequired,
+  resetPasswordRebootValue: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -2,6 +2,8 @@
 const Question = require('../models/question');
 
 const questionController = {
+
+  /* récupérer les questions */
   getQuestions: async (request, response) => {
     const sorted = request.params.sorted;
     try {
@@ -22,6 +24,7 @@ const questionController = {
     }
   },
 
+  /* récupérer la question par son id */
   getQuestionById: async (request, response) => {
     const questionId = parseInt(request.params.id);
     try {
@@ -36,6 +39,7 @@ const questionController = {
     }
   },
 
+  /* récupérer la question par catégorie */
   getQuestionByTag: async (request, response) => {
     // eslint-disable-next-line radix
     const tagId = parseInt(request.params.id);
@@ -51,6 +55,7 @@ const questionController = {
     }
   },
 
+  /* creer une question */
   createQuestion: async (request, response) => {
     try {
       const content = request.body.content;
@@ -78,6 +83,7 @@ const questionController = {
     }
   },
 
+  /* éditer une question */
   editQuestion: async(request,response) => {
     try {
       const questionId = request.params.id;
@@ -106,6 +112,7 @@ const questionController = {
     }
   },
 
+  /* editer le score d'une question */
   editQuestionScore: async (request, response) => {
     try {
       const questionId = request.params.id;
@@ -171,12 +178,13 @@ const questionController = {
         response.json(question);
       }
     }
-    catch(error) {
+    catch (error) {
       console.log(error);
       response.status(500).json(error);
     }
   },
 
+  /* supprimer une question */
   deleteQuestion: async (request, response)=>{
     try {
       const questionId = request.params.id;
@@ -197,6 +205,7 @@ const questionController = {
   },
 
   /*
+    récupérer les meilleurs questions
     getBestQuestions: async (request, response) => {
         try {
             const questions = await Question.findAll({
@@ -213,6 +222,7 @@ const questionController = {
         }
     },
 
+    récupérer les nouvelles questions
     getNewQuestions: async (request, response) => {
         try {
             const questions = await Question.findAll({

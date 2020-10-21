@@ -1,12 +1,12 @@
 // == Import : npm
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 // import du frameworks
 import { Icon } from 'semantic-ui-react';
 
 import SortButtons from 'src/containers/Nav/SortButtons';
 import Question from 'src/containers/QuestionsPage/Question';
-
+import Pagination from 'src/components/Pagination';
 // Import des datas en dur Question avec les tags et l'auteur associé
 
 // == Import : local
@@ -23,7 +23,18 @@ const QuestionsPage = ({
   changeInputValue,
   fetchPostQuestion,
   liveSearch,
+  currentPage,
+  setCurrentPage,
+  postsPerPage,
 }) => {
+  //const [currentPage, setCurrentPage] = useState(1);
+  //const [postsPerPage] = useState(5);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = questions.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -78,10 +89,12 @@ const QuestionsPage = ({
       </div>
       <div className="container-list-question">
         <SortButtons />
-        {liveSearch === '' && questions.map((question) => (
+        {liveSearch === '' && currentPosts.map((question) => (
           <Question key={question.id} {...question} />
         ))}
+        {liveSearch === '' && <Pagination postsPerPage={postsPerPage} totalPosts={questions.length} paginate={paginate} currentPage={currentPage} />}
         {liveSearch !== '' && filteredQuestions.map((question) => (<Question key={question.id} {...question} />))}
+        {liveSearch !== '' && <Pagination postsPerPage={postsPerPage} totalPosts={filteredQuestions.length} paginate={paginate} currentPage={currentPage} />}
       </div>
     </QuestionsPageStyled>
   );
@@ -95,6 +108,10 @@ QuestionsPage.propTypes = {
   changeInputValue: PropTypes.func.isRequired,
   fetchPostQuestion: PropTypes.func.isRequired,
   liveSearch: PropTypes.string.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
+  postsPerPage: PropTypes.number.isRequired,
+
 };
 
 // == Export

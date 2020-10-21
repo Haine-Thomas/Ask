@@ -52,6 +52,10 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(expiredCallback(response));
   },
 
+  resetIsVerified: () => {
+    dispatch(resetIsVerified());
+  },
+
   toggleOpenModal: () => {
     dispatch(toggleOpenModal());
   },

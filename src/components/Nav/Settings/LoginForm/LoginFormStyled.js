@@ -16,6 +16,15 @@ const LoginFormStyled = styled.div`
   justify-content: space-around;
   margin: 0 auto;
 
+  .password_link{
+    color:black;
+    padding:0.5em;
+  }
+
+  .password_link:hover{
+    color:blue;
+    font-size:1.1em;
+  }
 
   .signin_btn {
     color:#E76F51;
@@ -24,6 +33,7 @@ const LoginFormStyled = styled.div`
     font-size: .7rem;
     padding: 1rem 0 1rem;
   }
+  
   div.input {
     margin-top: 0.5rem;
   } 
