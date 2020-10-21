@@ -23,6 +23,7 @@ const FooterStyled = styled.footer`
     justify-content: space-between; 
     width: 1080px;
     margin: 0 auto;
+
   }
 
   .links {
@@ -56,11 +57,15 @@ const FooterStyled = styled.footer`
       border-bottom: 3px solid #E9C46A;
     }
   }
+  .contact p {
+    text-align:center;
 
-  .contact {
+  }
+  .contact{
     line-height: 1.3rem;
     width: 45%;
-  }
+    margin:0 auto;
+    }
 
   @media (min-width: 0px) and (max-width: 1080px) {
     .footer-container {
