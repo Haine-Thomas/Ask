@@ -8,6 +8,10 @@ const FooterStyled = styled.footer`
   padding: 1rem 0;
   background-color: #202020;
   margin: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top:2rem;
 
   .adress a:hover {
     color:#e9c46a

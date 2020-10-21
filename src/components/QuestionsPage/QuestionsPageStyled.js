@@ -12,7 +12,7 @@ const QuestionsPageStyled = styled.main`
   margin: 0 auto;
 
   .container-list-question {
-    width: 59%;
+    width: 89%;
   }
   
 
@@ -20,6 +20,9 @@ const QuestionsPageStyled = styled.main`
 
     width: 39%;
     text-align: center;
+    position:fixed;
+    right:0;
+    width:24%;
 
     .question-form {
       background-color: #E9C46A;
@@ -86,7 +89,7 @@ const QuestionsPageStyled = styled.main`
     width: 100%;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 1300px) {
     width: 96%;
     margin: 0 auto;
     flex-direction: column;
@@ -99,6 +102,22 @@ const QuestionsPageStyled = styled.main`
       width: 100%;
     }
   }
+
+  @media (min-width: 700px) and (max-width: 1900px) {
+  .question-form-container {
+    position:relative;
+    text-align: center;
+  }
+
+  .container-list-question {
+  }
+
+  @media (min-width: 1300px) and (max-width: 1900px) {
+    .question-form-container {
+      width:75%;
+  }
+  }
+
 
 `;
 
