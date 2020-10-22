@@ -11,7 +11,7 @@ import {
   FETCH_DELETE_QUESTION,
 } from 'src/actions/questions';
 
-const url = 'http://localhost';
+const url = 'http://15.237.116.91';
 
 const ajaxQuestionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

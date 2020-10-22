@@ -11,9 +11,7 @@ import {
 } from 'src/actions/login';
 import { changeValue } from 'src/actions/signIn';
 
-import { fetchQuestions } from 'src/actions/questions';
-
-const url = 'http://localhost';
+const url = 'http://15.237.116.91';
 
 const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

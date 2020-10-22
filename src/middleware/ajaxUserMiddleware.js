@@ -8,7 +8,7 @@ import { ACTIVATE_USER } from 'src/actions/verifyPage';
 import { SEND_RECOVER_EMAIL, storeUserEmail } from 'src/actions/passwordRecover';
 import { REBOOT_PASSWORD } from 'src/actions/rebootPassword';
 
-const url = 'http://localhost';
+const url = 'http://15.237.116.91';
 
 const ajaxUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

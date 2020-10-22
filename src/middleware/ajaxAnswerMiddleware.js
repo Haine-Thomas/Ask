@@ -10,7 +10,7 @@ import {
 } from 'src/actions/answers';
 
 import { fetchQuestions } from 'src/actions/questions';
-const url = 'http://localhost';
+const url = 'http://15.237.116.91';
 
 const ajaxAnswerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
