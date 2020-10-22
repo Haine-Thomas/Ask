@@ -10,9 +10,9 @@ const questionController = {
       const questions = await Question.findAll({
         // include: ['author', 'tag', 'answers'],
         include: [
-          { association: "author" },
-          { association: "answers", include: ["author"] },
-          { association: "tag" },
+          { association: 'author' },
+          { association: 'answers', include: ['author'] },
+          { association: 'tag' },
         ],
         order:[[`${sorted}`, 'DESC']],
 
@@ -26,6 +26,7 @@ const questionController = {
 
   /* récupérer la question par son id */
   getQuestionById: async (request, response) => {
+    // eslint-disable-next-line radix
     const questionId = parseInt(request.params.id);
     try {
       const question = await Question.findByPk(questionId, {
@@ -84,10 +85,10 @@ const questionController = {
   },
 
   /* éditer une question */
-  editQuestion: async(request,response) => {
+  editQuestion: async (request, response) => {
     try {
       const questionId = request.params.id;
-      let question = await Question.findByPk(questionId);
+      const question = await Question.findByPk(questionId);
       if (!question) {
         // pas de liste pour cet id
         response.status(404).json(`Cant find a question with this id : ${question}`);
@@ -118,7 +119,7 @@ const questionController = {
       const questionId = request.params.id;
       const questionScore = request.params.score;
       const userId = request.session.user.id;
-      let question = await Question.findByPk(questionId);
+      const question = await Question.findByPk(questionId);
       if (!question) {
         // pas de lréponse pour cet id
         response.status(404).json(`Cant find a question with this id : ${question}`);
@@ -185,7 +186,7 @@ const questionController = {
   },
 
   /* supprimer une question */
-  deleteQuestion: async (request, response)=>{
+  deleteQuestion: async (request, response) => {
     try {
       const questionId = request.params.id;
       const question = await Question.findByPk(questionId);

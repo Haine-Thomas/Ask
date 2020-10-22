@@ -5,7 +5,7 @@ const answerController = {
   getAnswersByQuestionId: async (request, response) => {
     const questionId = request.params.id;
     try {
-      let answers = await Answer.findAll({
+      const answers = await Answer.findAll({
         where: { questionId: `${questionId}` },
         include: ['author', 'question'],
       });
@@ -22,7 +22,7 @@ const answerController = {
       const questionId = request.params.id;
       const user = request.session.user.id;
       if (!content) {
-        response.json({error: 'il manque la réponse!'});
+        response.json({ error: 'il manque la réponse!' });
       } if (user) {
         const newAnswer = new Answer();
         newAnswer.content = content;
@@ -68,7 +68,7 @@ const answerController = {
       const answerId = request.params.id;
       const answerScore = request.params.score;
       const userId = request.session.user.id;
-      let answer = await Answer.findByPk(answerId);
+      const answer = await Answer.findByPk(answerId);
       if (!answer) {
         // pas de lréponse pour cet id
         response.status(404).json(`Cant find an answer with this id : ${answer}`);
@@ -137,7 +137,7 @@ const answerController = {
   deleteAnswer: async (request, response)=>{
     try {
       const answerId = request.params.id;
-      let answer = await Answer.findByPk(answerId);
+      const answer = await Answer.findByPk(answerId);
       const user = request.session.user.id;
       if (user === answer.userId) {
         await answer.destroy();
