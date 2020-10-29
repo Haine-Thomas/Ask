@@ -42,7 +42,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
     }
     case ACTIVATE_USER: {
       const state = store.getState();
-      axios.post('http://localhost:5050/user/verify', {
+      axios.post(`${url}:5050/user/verify`, {
         formToken: state.verifyPage.value,
       }, {
         withCredentials: true,
@@ -67,7 +67,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
     case REBOOT_PASSWORD: {
       const state = store.getState();
       const email = state.passwordRecover.user.email;
-      axios.patch(`http://localhost:5050/user/${email}/rebootPassword`, {
+      axios.patch(`${url}:5050/user/${email}/rebootPassword`, {
         email: state.passwordRecover.user.email,
         password: state.rebootPassword.password,
         confirmPassword: state.rebootPassword.confirmPassword,
@@ -96,7 +96,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
 
     case SEND_RECOVER_EMAIL: {
       const state = store.getState();
-      axios.post('http://localhost:5050/user/sendRecoverEmail', {
+      axios.post(`${url}:5050/user/sendRecoverEmail`, {
         email: state.passwordRecover.value,
       }, {
         withCredentials: true,

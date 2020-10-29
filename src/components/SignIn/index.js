@@ -128,7 +128,7 @@ const SignIn = ({
           </label>
         </Form.Field>
         <Recaptcha
-          sitekey="6LccPeQUAAAAAKHq9MPvIR7qo3SVjfEfifN6OKPI"
+          sitekey="6LcJ5dwZAAAAAHFKtOx8nSAKd-VYT9UCvqFotPwn"
           render="explicit"
           verifyCallback={verifyCallback}
           expiredCallback={expiredCallback}

@@ -23,7 +23,7 @@ app.use(session({
 
 app.use(bodyParser.json());
 app.use((request, response, next) => {
-  response.header('Access-Control-Allow-Origin', '15.237.52.213');
+  response.header('Access-Control-Allow-Origin', 'http://15.237.52.213');
   response.header('Access-Control-Allow-Credentials', true);
   response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   response.header('Access-Control-Allow-Methods', 'GET, PATCH, POST, OPTIONS, PUT, DELETE');
