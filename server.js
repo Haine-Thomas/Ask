@@ -1,4 +1,5 @@
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 // Création du port de connection soit définie dans ".env" soit sur le port 3000.
@@ -32,6 +33,11 @@ app.use((request, response, next) => {
 // Le routage
 app.use(router);
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('dist'));
+
+  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'dist', 'index.html')));
+}
 // Lancement du serveur.
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
