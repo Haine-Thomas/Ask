@@ -1,6 +1,5 @@
 const dotenv = require('dotenv');
 const path = require('path');
-const Sequelize = require('sequelize');
 
 dotenv.config();
 // Création du port de connection soit définie dans ".env" soit sur le port 3000.
@@ -21,16 +20,6 @@ app.use(session({
   secret: 'chez ask on fait des blagues pas drôles',
   cookie: {},
 }));
-
-const sequelize = new Sequelize(process.env.PGSQL_URL);
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
 
 app.use(bodyParser.json());
 app.use((request, response, next) => {
