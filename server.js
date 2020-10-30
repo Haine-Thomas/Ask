@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
 const path = require('path');
+const Sequelize = require('sequelize');
 
 dotenv.config();
 // Création du port de connection soit définie dans ".env" soit sur le port 3000.
@@ -21,9 +22,19 @@ app.use(session({
   cookie: {},
 }));
 
+const sequelize = new Sequelize(process.env.PGSQL_URL);
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
+
 app.use(bodyParser.json());
 app.use((request, response, next) => {
-  response.header('Access-Control-Allow-Origin', 'http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com');
+  response.header('Access-Control-Allow-Origin', 'http://15.237.52.213');
   response.header('Access-Control-Allow-Credentials', true);
   response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   response.header('Access-Control-Allow-Methods', 'GET, PATCH, POST, OPTIONS, PUT, DELETE');
