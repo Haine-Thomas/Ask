@@ -11,13 +11,13 @@ import {
   FETCH_DELETE_QUESTION,
 } from 'src/actions/questions';
 
-const url = 'http://15.237.52.213';
+const url = 'http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com';
 const ajaxQuestionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_DELETE_QUESTION: {
       const state = store.getState();
       const questionId = state.questions.questionToDelete;
-      axios.delete(`${url}:5050/question/${questionId}`, { withCredentials: true })
+      axios.delete(`${url}:3000/question/${questionId}`, { withCredentials: true })
         .then(() => {
           store.dispatch(fetchQuestions());
           swal('Question supprimée!', '', 'success');
@@ -33,7 +33,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
     // je vais avoir besoin de lire le state pour faire ma requete
     case FETCH_QUESTIONS: {
       const state = store.getState();
-      axios.get(`${url}:5050/question/${state.questions.sorted}`,{ withCredentials: true })
+      axios.get(`${url}:3000/question/${state.questions.sorted}`,{ withCredentials: true })
         .then((response) => {
           store.dispatch(saveQuestions(response.data.questions));
         })
@@ -45,7 +45,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
     }
     case FETCH_POST_QUESTION: {
       const state = store.getState();
-      axios.post(`${url}:5050/question`, {
+      axios.post(`${url}:3000/question`, {
         content: state.questions.content,
         tagId: state.questions.tagId,
       }, { withCredentials: true })
@@ -68,7 +68,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
     case FETCH_QUESTION_SCORE: {
       const state = store.getState();
       const { vote, votedQuestionId } = state.questions;
-      axios.patch(`${url}:5050/question/${votedQuestionId}/${vote}`, {}, {
+      axios.patch(`${url}:3000/question/${votedQuestionId}/${vote}`, {}, {
         withCredentials: true,
       })
         .then((response) => {

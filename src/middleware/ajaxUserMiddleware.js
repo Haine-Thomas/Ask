@@ -8,14 +8,14 @@ import { ACTIVATE_USER } from 'src/actions/verifyPage';
 import { SEND_RECOVER_EMAIL, storeUserEmail } from 'src/actions/passwordRecover';
 import { REBOOT_PASSWORD } from 'src/actions/rebootPassword';
 
-const url = 'http://15.237.52.213';
+const url = 'http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com';
 const ajaxUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_SIGNINUSER: {
       // + on traduit l'intention en intérrogeant notre API
       // je vais avoir besoin de lire le state pour faire ma requete
       const state = store.getState();
-      axios.post(`${url}:5050/inscription`, {
+      axios.post(`${url}:3000/inscription`, {
         name: state.signIn.name,
         email: state.signIn.email,
         password: state.signIn.password,
@@ -42,7 +42,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
     }
     case ACTIVATE_USER: {
       const state = store.getState();
-      axios.post(`${url}:5050/user/verify`, {
+      axios.post(`${url}:3000/user/verify`, {
         formToken: state.verifyPage.value,
       }, {
         withCredentials: true,
@@ -67,7 +67,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
     case REBOOT_PASSWORD: {
       const state = store.getState();
       const email = state.passwordRecover.user.email;
-      axios.patch(`${url}:5050/user/${email}/rebootPassword`, {
+      axios.patch(`${url}:3000/user/${email}/rebootPassword`, {
         email: state.passwordRecover.user.email,
         password: state.rebootPassword.password,
         confirmPassword: state.rebootPassword.confirmPassword,
@@ -96,7 +96,7 @@ const ajaxUserMiddleware = (store) => (next) => (action) => {
 
     case SEND_RECOVER_EMAIL: {
       const state = store.getState();
-      axios.post(`${url}:5050/user/sendRecoverEmail`, {
+      axios.post(`${url}:3000/user/sendRecoverEmail`, {
         email: state.passwordRecover.value,
       }, {
         withCredentials: true,
