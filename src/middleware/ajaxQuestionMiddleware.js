@@ -11,7 +11,7 @@ import {
   FETCH_DELETE_QUESTION,
 } from 'src/actions/questions';
 
-const url = 'http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com';
+const url = 'http://localhost';
 const ajaxQuestionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_DELETE_QUESTION: {
