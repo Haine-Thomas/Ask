@@ -1,5 +1,4 @@
 const dotenv = require('dotenv');
-const path = require('path');
 
 dotenv.config();
 
@@ -24,7 +23,7 @@ app.use(session({
 
 app.use(bodyParser.json());
 app.use((request, response, next) => {
-  response.header('Access-Control-Allow-Origin', 'http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com:8080');
+  response.header('Access-Control-Allow-Origin', 'http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com');
   response.header('Access-Control-Allow-Credentials', true);
   response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   response.header('Access-Control-Allow-Methods', 'GET, PATCH, POST, OPTIONS, PUT, DELETE');
@@ -33,13 +32,6 @@ app.use((request, response, next) => {
 
 // Le routage
 app.use(router);
-
-
-//if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('dist'));
-
-//  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'dist', 'index.html')));
-//}
 
 // Lancement du serveur.
 app.listen(PORT, () => {

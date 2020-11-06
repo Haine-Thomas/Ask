@@ -8,7 +8,7 @@ import { ACTIVATE_USER } from 'src/actions/verifyPage';
 import { SEND_RECOVER_EMAIL, storeUserEmail } from 'src/actions/passwordRecover';
 import { REBOOT_PASSWORD } from 'src/actions/rebootPassword';
 
-const url = 'http://localhost';
+const url = 'http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com';
 const ajaxUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_SIGNINUSER: {

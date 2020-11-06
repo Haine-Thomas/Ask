@@ -10,7 +10,7 @@ import {
 } from 'src/actions/answers';
 
 import { fetchQuestions } from 'src/actions/questions';
-const url = 'http://localhost';
+const url = 'http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com';
 
 const ajaxAnswerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

@@ -11,7 +11,7 @@ import {
 } from 'src/actions/login';
 import { changeValue } from 'src/actions/signIn';
 
-const url = 'http://localhost';
+const url = 'http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com';
 const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case DELETE_USER: {

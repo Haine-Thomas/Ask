@@ -161,7 +161,7 @@ const userController = {
         to: newUser.email,
         from: 'askteamsup@gmail.com',
         subject: 'ASK: confirmez votre adresse email',
-        text: `Bonjour et merci de vous êtes enregistré! Cliquez sur le lien et copiez et collez votre token -->${newUser.secretToken} pour verifier votre compte, http://localhost:8080/user/verify`,
+        text: `Bonjour et merci de vous êtes enregistré! Cliquez sur le lien et copiez et collez votre token -->${newUser.secretToken} pour verifier votre compte, http://http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com/user/verify`,
       };
       smtpTransport.sendMail(mailOptions, function(err) {
         console.log('mail sent');
@@ -277,7 +277,7 @@ const userController = {
             subject: 'Node.js Password Reset',
             text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n'
               + 'Please click on the following link, or paste this into your browser to complete the process:\n\n'
-              + `http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword\n\n`
+              + `http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com/user/${user.id}/${user.secretToken}/rebootPassword\n\n`
               + 'If you did not request this, please ignore this email and your password will remain unchanged.\n',
           };
           smtpTransport.sendMail(mailOptions, function(err) {
@@ -295,7 +295,7 @@ const userController = {
             subject: 'Node.js Password Reset',
             text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n'
               + 'Please click on the following link, or paste this into your browser to complete the process:\n\n'
-              + `http://localhost:8080/user/${user.id}/${user.secretToken}/rebootPassword\n\n`
+              + `http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com/user/${user.id}/${user.secretToken}/rebootPassword\n\n`
               + 'If you did not request this, please ignore this email and your password will remain unchanged.\n',
           };
           smtpTransport.sendMail(mailOptions, function(err) {

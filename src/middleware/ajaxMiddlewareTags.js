@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 import { FETCH_TAGS, saveTags } from 'src/actions/tags';
-const url = 'http://localhost';
+const url = 'http://ec2-15-237-52-213.eu-west-3.compute.amazonaws.com';
 const ajaxMiddlewareTags = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_TAGS:
