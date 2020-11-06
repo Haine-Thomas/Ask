@@ -1,25 +1,8 @@
 const dotenv = require('dotenv');
 const path = require('path');
-const { Pool, Client } = require('pg');
-
-const connectionString = 'postgresql://ask:ask@localhost/ask';
-const pool = new Pool({
-  connectionString: connectionString,
-});
-pool.query('SELECT NOW()', (err, res) => {
-  console.log(err, res);
-  pool.end();
-});
-const client = new Client({
-  connectionString: connectionString,
-});
-client.connect();
-client.query('SELECT NOW()', (err, res) => {
-  console.log(err, res);
-  client.end();
-});
 
 dotenv.config();
+
 // Création du port de connection soit définie dans ".env" soit sur le port 3000.
 const PORT = process.env.PORT || 3000;
 // Importation du node module express.
