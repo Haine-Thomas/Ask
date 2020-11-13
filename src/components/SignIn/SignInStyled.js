@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-// == Composant
-// ici on a la fonction qui décrit le style du composant signin
+
 const SignInStyled = styled.div`
 width: 40%;
 display: block;

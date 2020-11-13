@@ -18,7 +18,6 @@ export const initialState = {
   open: false,
 };
 
-// reducer = traducteur d'une intention/action vers une modification du state
 const signIn = (state = initialState, action = {}) => {
   switch (action.type) {
     case TOGGLE_OPEN_MODAL:

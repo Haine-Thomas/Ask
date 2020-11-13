@@ -19,31 +19,22 @@ const initialState = {
   },
 };
 
-// reducer = traducteur d'une intention/action vers une modification du state
 const login = (state = initialState, action = {}) => {
   switch (action.type) {
     case MODIFY_USER:
-      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
       };
     case DELETE_USER:
-      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
       };
     case TOGGLE_OPEN:
-      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         open: !state.open,
       };
     case CHANGE_VALUE_LOGIN:
-      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         user: {
@@ -52,8 +43,6 @@ const login = (state = initialState, action = {}) => {
         },
       };
     case CHANGE_USER:
-      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         user: {
@@ -68,8 +57,6 @@ const login = (state = initialState, action = {}) => {
         isLogged: true,
       };
     case DISCONNECT_ACTION:
-      // je déclare une nouvelle liste de messages avec les messages actuels et le nouveau
-      // je retourne un nouveau state avec ce qu'il contenait déjà et ma nouvelle liste de message
       return {
         ...state,
         user: {

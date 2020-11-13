@@ -29,8 +29,7 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-    // + on traduit l'intention en intérrogeant notre API
-    // je vais avoir besoin de lire le state pour faire ma requete
+
     case FETCH_QUESTIONS: {
       const state = store.getState();
       axios.get(`${url}:3000/question/${state.questions.sorted}`,{ withCredentials: true })
@@ -50,7 +49,6 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
         tagId: state.questions.tagId,
       }, { withCredentials: true })
         .then((response) => {
-          // revenir a la fenetre précédente
           if (response.data.error) {
             swal(response.data.error, '', 'warning');
           }
@@ -72,7 +70,6 @@ const ajaxQuestionMiddleware = (store) => (next) => (action) => {
         withCredentials: true,
       })
         .then((response) => {
-          // revenir a la fenetre précédente
           if (response.data.error) {
             swal(response.data.error, '', 'warning');
           }

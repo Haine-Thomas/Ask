@@ -14,15 +14,12 @@ import {
   Input,
 } from 'semantic-ui-react';
 
-// import de la route de navigation
-
 // import du frameworks
 import Question from 'src/containers/QuestionsPage/Question';
 // import du composant styled du profil page
 import ProfilPageStyled from './ProfilPageStyled';
 
-// == Composant
-// ici on a la fonction qui renvoi le formulaire de structure de profilPage
+
 const ProfilPage = ({
   pseudo,
   email,

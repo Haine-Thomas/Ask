@@ -1,8 +1,6 @@
 // == Import locaux
 import styled from 'styled-components';
 
-// == Composant
-// ici on a la fonction qui décrit le style du composant ProfilPage
 const ProfilPageStyled = styled.div`
   color: black;
   line-height: 3;

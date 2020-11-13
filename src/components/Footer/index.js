@@ -9,8 +9,7 @@ import {
 // import du composant styled du footer
 import FooterStyled from './FooterStyled';
 
-// == Composant
-// ici on a la fonction qui renvoi la structure de footer
+
 const Footer = () => (
   <FooterStyled>
     <div className="footer-container">

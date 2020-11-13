@@ -29,20 +29,16 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-    // + on traduit l'intention en intérrogeant notre API
-    // je vais avoir besoin de lire le state pour faire ma requete
+
     case FETCH_ANSWERS: {
       const state = store.getState();
       axios.get(`${url}:3000/question/:id/answers${state.answers.sorted}`)
         .then((response) => {
-          // quand on a la réponse, on veut modifier la réponse dans l'état
-          // je vais vouloir émettre une intention pour modifier le state
           store.dispatch(saveAnswers(response.data.answers));
         })
         .catch((error) => {
           console.error(error);
         });
-      // je laisse passer tout de suite au middleware/reducer suivant
       next(action);
       break;
     }
@@ -53,7 +49,6 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
         content: state.answer.value,
       }, { withCredentials: true })
         .then((response) => {
-          // revenir a la fenetre précédente
           if (response.data.error) {
             swal(response.data.error, '', 'warning');
           }
@@ -74,7 +69,6 @@ const ajaxAnswerMiddleware = (store) => (next) => (action) => {
       const { vote, votedAnswer } = state.answer;
       axios.patch(`${url}:3000/answer/${votedAnswer}/${vote}`, {}, { withCredentials: true })
         .then((response) => {
-          // revenir a la fenetre précédente
           if (response.data.error) {
             swal(response.data.error, '', 'warning');
           }
