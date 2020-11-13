@@ -1,8 +1,6 @@
 // == Import locaux
 import styled from 'styled-components';
 
-// == Composant
-// ici on a la fonction qui décrit le style du composant Header
 const HeaderStyled = styled.header`
 @font-face {
     font-family: 'MrRobot';
@@ -46,7 +44,6 @@ const HeaderStyled = styled.header`
 
   
 `;
-
 
 // == Export
 export default HeaderStyled;

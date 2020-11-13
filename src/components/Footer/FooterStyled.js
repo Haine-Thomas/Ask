@@ -1,8 +1,6 @@
 // == Import locaux
 import styled from 'styled-components';
 
-// == Composant
-// ici on a la fonction qui décrit le style du composant Footer
 const FooterStyled = styled.footer`
   left: 1rem;
   padding: 1rem 0;

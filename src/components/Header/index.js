@@ -3,8 +3,6 @@ import React from 'react';
 
 // on import la route de navigation
 import { NavLink } from 'react-router-dom';
-
-// import du composant styled du header
 import HeaderStyled from './HeaderStyled';
 
 const Header = () => (

@@ -5,14 +5,11 @@ import { Icon, Button } from 'semantic-ui-react';
 import Moment from 'react-moment';
 
 // == Import : local
-// import du composant styled du réponse
 import Counter from 'src/containers/QuestionsPage/Question/Counter';
 import AnswerCounter from 'src/containers/AnswersPage/Answer/Counter';
 import SortButtons from 'src/containers/AnswersPage/SortButtons';
 import AnswerStyled from './AnswerStyled';
 
-// == Composant
-// ici on a la fonction qui renvoi le formulaire de structure de réponse
 const Answer = ({
   score,
   content,

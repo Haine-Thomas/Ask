@@ -5,16 +5,12 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
 
-// import du frameworks
-
 // == Import locaux
 import Answer from 'src/containers/AnswersPage/Answer';
 // import de la feuille de style associée
 import AnswersPageStyled from './AnswersPageStyled';
 
 
-// == Composant
-// ici on a la fonction qui renvoi le formulaire de structure de la page réponse
 const AnswersPage = ({ questions, clickedQuestionId }) => (
   <AnswersPageStyled>
     <div className="gohome">

@@ -1,8 +1,6 @@
 // == Import locaux
 import styled from 'styled-components';
 
-// == Composant
-// ici on a la fonction qui décrit le style du composant question
 const AnswerStyled = styled.div`
 margin: 0rem 0rem 2rem;
 width: 99%;
@@ -37,7 +35,7 @@ p.content-text{
     margin: 1rem 0;
     border: 1px solid #D8D8D8;
     width: 70%;
-    backgroud-color: #fff;
+    background-color: #fff;
     border-radius: 3px 0px 0px 3px;
     
     &:focus {

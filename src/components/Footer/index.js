@@ -6,9 +6,7 @@ import {
   Icon,
 } from 'semantic-ui-react';
 
-// import du composant styled du footer
 import FooterStyled from './FooterStyled';
-
 
 const Footer = () => (
   <FooterStyled>
